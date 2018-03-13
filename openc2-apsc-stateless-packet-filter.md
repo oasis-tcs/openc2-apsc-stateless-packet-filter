@@ -215,7 +215,7 @@ The TARGET is the object of the ACTION (or alternatively, the ACTION is performe
 | CIDR | In the interest of generating a more concise command, the use of the classless inter-domain routing notation to specific multiple addresses within the five-tuple is permitted. | deny, allow | Opt |
 | Hostname | Supported by some firewalls. The actual rule within the firewall is an IP address so the hostname resolution must take place. | deny, allow | Opt |
 | File | Typically supported by device managers but may be supported by some firewalls. The file object includes the path and name specifiers | Update | Opt |
-| x-config | The x-config.fw object identifies configurable attributes of the firewall. The attributes include:<br><NOT_PARA> | Set | Opt |
+| x-config | The x-config.fw object identifies configurable attributes of the firewall. The attributes include:<br>* x-config.fw.logging (Boolean) | Set | Opt |
 
 ### 2.1.3 Modifiers
 Modifiers provide additional information about the action such as time, periodicity, duration, location etc. Modifiers can denote the when, where, and how aspects of an action. Modifiers can be used to indicate whether the actuator should explicitly acknowledge receipt of the command, respond upon completion of the execution of the command, or provide some other status information. OpenC2 actions are persistent (or permanent) in their implementations. Running, non-persistent or temporary commands can be achieved through the use of modifiers.
