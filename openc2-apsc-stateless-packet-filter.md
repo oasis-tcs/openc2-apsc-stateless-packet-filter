@@ -167,7 +167,7 @@ TBD
 ## 1.8 Acknowledgements
 TBD
 
-# 2 OpenCLanguage Binding
+# 2 OpenC2 Language Binding
 The OpenC2 Language Specification (OpenC2 Forum, 2016) describes a vocabulary by which network elements may be commanded and controlled. By design, the language is intended to convey high level actions so that the desired effects of a command can be communicated despite a lack of detailed knowledge of the cyber defense components. As additional information is made available, the language is extensible with context specific specifiers and options which permits additional granularity of the command.
 
 This section defines the set of ACTIONS, TARGETS, and OPTIONS that are meaningful in the context of the actuator in question. This section also describes the format of the RESPONSE frame's status and results field.
@@ -215,7 +215,7 @@ The TARGET is the object of the ACTION (or alternatively, the ACTION is performe
 | CIDR | In the interest of generating a more concise command, the use of the classless inter-domain routing notation to specific multiple addresses within the five-tuple is permitted. | deny, allow | Opt |
 | Hostname | Supported by some firewalls. The actual rule within the firewall is an IP address so the hostname resolution must take place. | deny, allow | Opt |
 | File | Typically supported by device managers but may be supported by some firewalls. The file object includes the path and name specifiers | Update | Opt |
-| x-config | The x-config.fw object identifies configurable attributes of the firewall. The attributes include:<br>* x-config.fw.logging (Boolean) | Set | Opt |
+| x-config | The x-config.fw object identifies configurable attributes of the firewall. The attributes include:<br>- x-config.fw.logging (Boolean) | Set | Opt |
 
 ### 2.1.3 Modifiers
 Modifiers provide additional information about the action such as time, periodicity, duration, location etc. Modifiers can denote the when, where, and how aspects of an action. Modifiers can be used to indicate whether the actuator should explicitly acknowledge receipt of the command, respond upon completion of the execution of the command, or provide some other status information. OpenC2 actions are persistent (or permanent) in their implementations. Running, non-persistent or temporary commands can be achieved through the use of modifiers.
