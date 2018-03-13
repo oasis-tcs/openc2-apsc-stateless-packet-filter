@@ -1,4 +1,4 @@
-![OASIS Logo](http://docs.oasis-open.org/openc2/oc2ls/v1.0/csd01/oc2ls-v1.0-csd01_files/image001.jpg)
+![OASIS Logo](image_0.png)
 
 -------
 
@@ -133,7 +133,7 @@ Figure 1 presents a notional OpenC2 implementation which illustrates cases were 
 * Native OpenC2 support: In the future, there may be devices that natively support OpenC2, and will be required to implement the firewall profile.
 * Other Actuators: A product may provide multiple cyber defense mechanisms including firewall functionality as a subset of its capabilities thus the firewall profile is (in addition to other profiles) needed.
 
-![image alt text](image_0.png)
+![Figure 1](image_1.png)
 
 **Figure 1. Notional OpenC2 Implementations**
 
