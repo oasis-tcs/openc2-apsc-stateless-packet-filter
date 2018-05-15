@@ -4,7 +4,7 @@
 
 # Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Firewall Functions Version 1.0
 ## Working Draft 01
-## 7 March 2018
+## 16 May 2018
 **Specification URIs**
 
 **This version:**
@@ -290,7 +290,7 @@ Table 7 defines the commands allowed by the firewall profile indicates which are
 | **openc2** |   |   | required |   |
 | **ap-slpf-query** |   |   | optional | optional |
 
-### 2.6.1 ‘Allow****’
+### 2.6.1 ‘Allow’
 Table 8 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
 
 Upon receipt of an unsupported  command-option, SLPF firewalls MUST respond with the 501 error code and SHOULD respond with "Option not supported" in the error description. 
@@ -382,7 +382,7 @@ Products that receive ‘deny target’ commands and support the rule-number opt
 ### 2.6.5 ‘Query’
 The valid target types, associated specifiers, and options are summarized in sections 2.2.3.1 through 2.2.3.2.  Sample commands are presented in Section 5 appendix A.  
 
-### 2.6.6 ‘Query openc2****’
+### 2.6.6 ‘Query openc2’
 The ‘query openc2’ command is used to determine the capabilities of the actuator.  SLPF firewalls MUST implement the ‘query openc2’ command. The specifiers for the openc2 target type are summarized in table 10.  
 
 **Table 10. Specifiers for the openc2 target type**
