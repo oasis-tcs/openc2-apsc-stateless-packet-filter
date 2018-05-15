@@ -257,7 +257,7 @@ The status codes presented in Table 6 apply to all actions and identifies which 
 
 The formats and what is expected in the response for specific commands will be captured in section 2.3 and examples will be provided in section 5, Appendix A. Responses associated with required actions MUST be implemented. Implementations that include optional actions MUST implement the Responses associated with the implemented action.
 
-**Table 6. Response Codes **
+**Table 6. Response Codes**
 
 | Status Code | Status Text | Req/Opt |
 |:---|:---|:---|
@@ -280,7 +280,7 @@ An OpenC2 command consists of an ACTION/TARGET pair and associated specifiers an
 
 Table 7 defines the commands allowed by the firewall profile indicates which are required.  The subsequent subsections provide the property tables applicable to each OpenC2 command. 
 
-**Table 7. Command Matrix **
+**Table 7. Command Matrix**
 
 |   | Allow | Deny | Query | Delete |
 |:---|:---|:---|:---|:---|
@@ -309,7 +309,7 @@ Products that receive ‘allow target’ commands and support the prepend option
 
     
 
-**Table 8. Command Arguments **
+**Table 8. Command Arguments**
 
 | Option | Req/Opt | Description/effect |
 |:---|:---|:---|
@@ -345,7 +345,7 @@ Products that do not implement the ‘allow ip-addr’ command MUST respond with
 ### 2.6.4 ‘Deny’
 ‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of three additional actuator-arguments, the targets, specifiers, options and corresponding responses are identical to the two ‘allow’ commands.  Table 9 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
 
-**Table 9. Deny arguments **
+**Table 9. Deny arguments**
 
 | Option | Req/Opt | Description/effect |
 |:---|:---|:---|
@@ -484,7 +484,7 @@ Refer to section 4 for sample commands.
 This page intentionally left blank.
 
 # 3 Conformance statements
-{Editor's Note - This section is a placeholder.  The conformance clauses stated within the body of the profile will be repeated here once general consensus is reached.<Note: need to define "support" - behavior that must occur as a result of executing commands> }
+> **Editor's Note** - This section is a placeholder.  The conformance clauses stated within the body of the profile will be repeated here once general consensus is reached.<Note: need to define "support" - behavior that must occur as a result of executing commands>
 
  
 
@@ -876,9 +876,7 @@ Response_type=complete}
     "Id":12345
     "Status":501
     Results{}
-```
-
-` `
+``` 
 
 # Appendix B. OpenC2 SCHEMA – FIREWALL FUNCTIONS
 > **Editor's Note** - This section is a placeholder.
