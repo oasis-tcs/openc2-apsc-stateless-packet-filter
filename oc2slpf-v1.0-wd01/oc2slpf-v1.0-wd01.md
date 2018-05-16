@@ -4,7 +4,7 @@
 
 # Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Firewall Functions Version 1.0
 ## Working Draft 01
-## 16 May 2018
+## 15 May 2018
 **Specification URIs**
 
 **This version:**
