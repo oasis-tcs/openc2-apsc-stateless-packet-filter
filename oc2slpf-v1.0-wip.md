@@ -175,7 +175,7 @@ Table 2.1.1-1 presents the OpenC2 actions that are meaningful in the context of 
 ### 2.1.2 Targets
 Table 2.1.2-1 lists the TARGETs defined in version 1.0 of the language specification that are applicable to SLPFS.  
 
-**Table 2.1.2-1. Target Data Model Applicable to SLPF **
+**Table 2.1.2-1. Target Data Model Applicable to SLPF**
 
 | Target | Description/Notes |
 |:---|:---|
@@ -243,7 +243,7 @@ Base Type: Choice
 ### 2.1.3 Command Arguments
 Arguments provide additional precision to a command by including information such as how, when or where a command is to be executed.  Table 2.1.3-1 summarizes the command arguments defined in Version 1.0 of the OpenC2 Language Specification as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the command arguments that are defined in this specification.  
 
-**Table 2.1.3-1. Command Arguments applicable to SLPF **
+**Table 2.1.3-1. Command Arguments applicable to SLPF**
 
 | Argument | Type | Description |
 |:---|:---|:---|
@@ -260,7 +260,7 @@ The semantics of start-time/end-time/duration are:
 * If only end time is specified then start-time is now and duration is derived
 * If only duration is specified then start-time is now and end-time is derived
 
-**Table 2.1.3-2. Command Arguments Unique to SLPF **
+**Table 2.1.3-2. Command Arguments Unique to SLPF**
 
 Base Type: Map
 
@@ -381,11 +381,11 @@ Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if im
 
 |   | Allow | Deny | Query | Delete | Update |
 |:---|:---|:---|:---|:---|:---|
-| **ip_connection** | **required** | **required** |   |   |   |
-| **ip_addr** | **required** | **required** |   |   |   |
-| **openc2** |   |   | **required** |   |   |
-| **slpf:access_rules** |   |   | **optional** | **optional** |   |
-| **file** |   |   |   |   | **optional** |
+| **ip_connection** | required | required |   |   |   |
+| **ip_addr** | required | required |   |   |   |
+| **openc2** |   |   | required |   |   |
+| **slpf:access_rules** |   |   | optional | optional |   |
+| **file** |   |   |   |   | optional |
 
 **Table 2.3-2 defines the command arguments that are allowed for a particular command by the SLPF profile.  A command (the top row in Table 2.3-2) paired with an argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the command/ argument provides details applicable to each command as influenced by the argument. **
 
@@ -393,16 +393,16 @@ Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if im
 
 |   | Allow<br><target> | Deny <target> | Query openc2 | Query access_rules | Delete access_rules | Update file |
 |:---|:---|:---|:---|:---|:---|:---|
-| **response** | ** 2.3.1** | ** 2.3.2** | **2.3.3.1** | **2.3.3.2** | **2.3.4.1** | **2.3.5.1** |
-| **start-time** | ** 2.3.1** | ** 2.3.2** |   |   | **2.3.4.1** | **2.3.5.1** |
-| **end-time** | **2.3.1** | **2.3.2** | ** ** |   |   |   |
-| duration | 2.3.1 | 2.3.2 |   |   |   |   |
-| respond-to | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.3.2 |  2.3.4.1 | 2.3.5.1 |
-| running | 2.3.1 | 2.3.2 |   |   |   |   |
-| direction | 2.3.1 | 2.3.2 |   |   |   |   |
-| prepend | 2.3.1 | 2.3.2 |   |   |   |   |
-| insert_rule | 2.3.1 | 2.3.2 |   |   |   |   |
-| drop_process |   | 2.3.2 |   |   |   |   |
+| **response** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.3.2 | 2.3.4.1 | 2.3.5.1 |
+| **start-time** | 2.3.1 | 2.3.2 |   |   | 2.3.4.1 | 2.3.5.1 |
+| **end-time** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **duration** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **respond-to** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.3.2 |  2.3.4.1 | 2.3.5.1 |
+| **running** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **direction** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **prepend** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **insert_rule** | 2.3.1 | 2.3.2 |   |   |   |   |
+| **drop_process** |   | 2.3.2 |   |   |   |   |
 
 ### 2.3.1 ‘Allow’
 Table 2.3.1-1 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
