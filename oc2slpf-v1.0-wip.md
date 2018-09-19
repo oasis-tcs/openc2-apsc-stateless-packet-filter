@@ -629,8 +629,8 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
 
 1. General Conformance:
     1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST **be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
-    3. **MUST **support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     5. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language Specification.  
@@ -647,8 +647,8 @@ The Actuator Profile for Stateless Packet Filtering Consumers specifies the mini
 
 1. General Conformance:
     1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST **be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
-    3. **MUST **support the use of a transfer specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    3. **MUST** support the use of a transfer specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     5. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language specification.  
@@ -665,43 +665,43 @@ The Actuator Profile for Stateless Packet Filtering Consumers specifies the mini
 OpenC2 SLPF producers that are conformant to all of the normative requirements identified in this specification.  
 
 1. General Conformance:
-    1. **MUST **meet all of conformance criteria identified in Conformance Clause 1 of this specification 
-    2. **MUST **support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
+    1. **MUST** meet all of conformance criteria identified in Conformance Clause 1 of this specification 
+    2. **MUST** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
 2. Commands (ACTION and TARGET pairs):
-    3. **MUST **implement the following action target pairs where:  Version 1.0 of the Language Specification defines the actions, Version 1.0 of the Language Specification defines the ‘file’ target; and the ‘slpf:rule_number’ target type is defined in this specification
+    3. **MUST** implement the following action target pairs where:  Version 1.0 of the Language Specification defines the actions, Version 1.0 of the Language Specification defines the ‘file’ target; and the ‘slpf:rule_number’ target type is defined in this specification
         1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification
         2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification
 3. Command Arguments:
-    4. **MUST **implement the start_time command argument as a valid option for any command other than ‘query <target>’ 
-    5. **MUST **implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
-        3. end_time 
-        4. duration  
-    6. **MUST **implement the following command arguments as a valid option for ‘allow <target>’ and/or ‘deny <target>’ commands
-        5. running 
-        6. direction 
-    7. **MUST **implement the drop_process command argument as a valid option for the ‘deny <target>’ command
+    4. **MUST** implement the start_time command argument as a valid option for any command other than ‘query <target>’
+    5. **MUST** implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
+        3. end_time
+        4. duration
+    6. **MUST** implement the following command arguments as a valid option for ‘allow <target>’ and/or ‘deny <target>’ commands
+        5. running
+        6. direction
+    7. **MUST** implement the drop_process command argument as a valid option for the ‘deny <target>’ command
 
 ## 3.4 Conformance Clause 4: Complete SLPF Consumers 
 OpenC2 SLPF producers that are conformant to all of the normative requirements identified in this specification.  
 
 1. General Conformance:
-    1. **MUST **meet all of conformance criteria identified in Conformance Clause 2 of this specification 
-    2. **MUST **support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
+    1. **MUST** meet all of conformance criteria identified in Conformance Clause 2 of this specification 
+    2. **MUST** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
 2. Commands (ACTION and TARGET pairs):
-    3. **MUST **implement the following action target pairs where version 1.0 of the Language specification defines the ‘file’ target and actions; and the ‘slpf:rule_number’ target type is defined in this specification
+    3. **MUST** implement the following action target pairs where version 1.0 of the Language specification defines the ‘file’ target and actions; and the ‘slpf:rule_number’ target type is defined in this specification
         1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification
         2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification
         3. ‘allow ip_connection’ and ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
         4. ‘deny ip_connection’ and ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
 3. Command Arguments:
-    4. **MUST **implement the start_time command argument as a valid option for any command other than ‘query <target>’ 
-    5. **MUST **implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
+    4. **MUST** implement the start_time command argument as a valid option for any command other than ‘query <target>’ 
+    5. **MUST** implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
         5. end_time 
         6. duration  
-    6. **MUST **implement the following command arguments as a valid option for ‘allow <target>’ and/or ‘deny <target>’ commands
+    6. **MUST** implement the following command arguments as a valid option for ‘allow <target>’ and/or ‘deny <target>’ commands
         7. running 
         8. direction 
-    7. **MUST **implement the drop_process command argument as a valid option for the ‘deny <target>’ command
+    7. **MUST** implement the drop_process command argument as a valid option for the ‘deny <target>’ command
 
 # Annex A  SLPF Schema
 This annex defines the data objects used by conforming SLPF implementations, as shown in Section 2.  This annex is normative, however in the event of a conflict between this schema and the property tables presented in section 2, the property tables are authoritative.
