@@ -270,7 +270,7 @@ Arguments provide additional precision to a command by including information suc
 #### 2.1.3.1 Common Args
 Table 2.1.3.1-1 lists the command arguments defined in the OpenC2 Language specification that are applicable to SLPF.
 
-**Table 2.1.3-1. Command Arguments applicable to SLPF **
+**Table 2.1.3-1. Command Arguments applicable to SLPF**
 
 **_Type: Args (Map)_**
 
@@ -296,7 +296,7 @@ The semantics/requirements as they relate to common arguments:
 #### 2.1.3.2 SLPF Args
 The command arguments defined in this document are referenced under the slpf namespace.
 
-**Table 2.1.3-2. Command Arguments Unique to SLPF **
+**Table 2.1.3-2. Command Arguments Unique to SLPF**
 
 **_Type: Args (Map)_**
 
@@ -346,7 +346,7 @@ Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. Ann
 
 The actuator specifiers defined in this document are referenced under the slpf namespace.
 
-**Table 2.1.4-1. SLPF Specifiers **
+**Table 2.1.4-1. SLPF Specifiers**
 
 **_Type: Specifiers (Map)_**
 
@@ -372,18 +372,10 @@ The response codes are summarized in Table 2.2-1.  The Status text field is huma
 | Value | Description |
 | :--- | :--- |
 | 102 | Processing. Command received but action not necessarily complete |
-| 200 | OK.  <br>  |
-|   |   |
-|   |   |
+| 200 | OK. |
 | 400 | Bad Request. Unable to process command, parsing error |
 | 500 | Server Error.  For response type complete, one of the following MAY apply:<br><NOT_PARA><br><NOT_PARA><br><NOT_PARA> |
-|   |   |
-|   |   |
-|   |   |
 | 501 | Not implemented. For response type complete, one of the following MAY apply:<br><NOT_PARA><br><NOT_PARA><br><NOT_PARA> |
-|   |   |
-|   |   |
-|   |   |
 
 ### 2.2.2 Results
 The results defined in this document are presented in Table 2.2-2.  The results are referenced under the slpf namespace within the Response message defined in the OpenC2 language specification.
