@@ -180,54 +180,22 @@ Section Three (normative) presents definitive criteria for conformance so that c
 This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore a schema for SLPF and the applicable portions of the OpenC2 Language schema are provided to facilitate development.  There is also an Annex that provides multiple examples of SLPF commands (JSON serialization).   
 
 ## 1.5 Normative References
-| [RFC2119] | Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, http://www.rfc-editor.org/info/rfc2119. || :--- | :--- |
-
-
-| [RFC8174] | Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, [http://www.rfc-editor.org/info/rfc8174](http://www.rfc-editor.org/info/rfc8174). || :--- | :--- |
-
-
-| [RFC8259] | Bray, T., "The JavaScript Object Notation (JSON) Data Interchange Format", December 2017, [https://tools.ietf.org/html/rfc8259](https://tools.ietf.org/html/rfc8259) . || :--- | :--- |
-
-
-| [RFC1123] | Author, T., "Requirements for Internet Hosts", October 1989. https://tools.ietf.org/html/rfc1123 . || :--- | :--- |
-
-
-| [RFC4291] | Hinden, R.,  Deering S. , T., "IP Version 6 Addressing Architecture ", February 2006, https://tools.ietf.org/html/rfc4291 . || :--- | :--- |
-
-
-| [RFC2673] | Crawford, M., "Binary Labels in Domain Name System", August 1999, https://tools.ietf.org/html/rfc2673. || :--- | :--- |
-
-
-| [RFC3339] | Kline, G., "Date and Time on the Internet: Timestamps", July 2002, https://tools.ietf.org/html/rfc3339. || :--- | :--- |
-
-
-| [RFC5237] | Arkko, J.,  Erricsson, S. , "IANA Allocation Guidelines for the Protocol Field<br>", February 2008, https://tools.ietf.org/html/rfc5237 . || :--- | :--- |
-
-
-		
-
-**[OpenC2-Lang-v1.0]**
-
-_Open Command and Control (OpenC2) Language Specification Version 1.0_.
-
-Edited by Jason Romano and Duncan Sparrell.
-
-xx August 2018. OASIS Working Draft 08. oasis-to-fill-in-link.html.
-
-Latest version: [http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
+|   |   |
+| :--- | :--- |
+| **[RFC2119]** | Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, [http://www.rfc-editor.org/info/rfc2119](http://www.rfc-editor.org/info/rfc2119). |
+| **[RFC8174]** | Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, [http://www.rfc-editor.org/info/rfc8174](http://www.rfc-editor.org/info/rfc8174). |
+| **[RFC8259]** | Bray, T., "The JavaScript Object Notation (JSON) Data Interchange Format", December 2017, [https://tools.ietf.org/html/rfc8259](https://tools.ietf.org/html/rfc8259). |
+| **[RFC1123]** | Author, T., "Requirements for Internet Hosts", October 1989. [https://tools.ietf.org/html/rfc1123](https://tools.ietf.org/html/rfc1123). |
+| **[RFC4291]** | Hinden, R.,  Deering S. , T., "IP Version 6 Addressing Architecture ", February 2006, [https://tools.ietf.org/html/rfc4291](https://tools.ietf.org/html/rfc4291). |
+| **[RFC2673]** | Crawford, M., "Binary Labels in Domain Name System", August 1999, [https://tools.ietf.org/html/rfc2673](https://tools.ietf.org/html/rfc2673). |
+| **[RFC3339]** | Kline, G., "Date and Time on the Internet: Timestamps", July 2002, [https://tools.ietf.org/html/rfc3339](https://tools.ietf.org/html/rfc3339). |
+| **[RFC5237]** | Arkko, J.,  Erricsson, S. , "IANA Allocation Guidelines for the Protocol Field", February 2008, [https://tools.ietf.org/html/rfc5237](https://tools.ietf.org/html/rfc5237). |
+| **[OpenC2-Lang-v1.0]** | _Open Command and Control (OpenC2) Language Specification Version 1.0_.<br>Edited by Jason Romano and Duncan Sparrell.<br>xx August 2018. OASIS Working Draft 08. oasis-to-fill-in-link.html.<br>Latest version: [http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html). |
 
 ## 1.6 Non normative References
-**[OpenC2-HTTPS-v1.0]**
-
-_Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0_. 
-
-Edited by David Lemire.
-
-09 August 2018. OASIS Committee Specification Draft 01.
-
-[http://docs.oasis-open.org/openc2/open-impl-https/v1.0/csd01/open-impl-https-v1.0-csd01.html](http://docs.oasis-open.org/openc2/open-impl-https/v1.0/csd01/open-impl-https-v1.0-csd01.html). 
-
-Latest version: [http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html](http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html).
+|   |   |
+| :--- | :--- |
+| **[OpenC2-HTTPS-v1.0]** | _Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0_. <br>Edited by David Lemire.<br>09 August 2018. OASIS Committee Specification Draft 01.<br>[http://docs.oasis-open.org/openc2/open-impl-https/v1.0/csd01/open-impl-https-v1.0-csd01.html](http://docs.oasis-open.org/openc2/open-impl-https/v1.0/csd01/open-impl-https-v1.0-csd01.html). <br>Latest version: [http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html](http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html). |
 
 # 2 OpenC2 Language Binding
 This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGS that are meaningful in the context of an SLPF. This section also describes the format of the response frame's status and results field. This section organized into three major subsections; Command Components, Response Components and Commands. 
@@ -339,8 +307,6 @@ The command arguments defined in this document are referenced under the slpf nam
 | 3 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic.  If omitted, rules are applied to both.   |
 | 4 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list. |
 
- 
-
 **_Type: Drop-Process (Enumerated)_**
 
 | ID | Name | Description |
@@ -356,7 +322,8 @@ The command arguments defined in this document are referenced under the slpf nam
 | 1 | **ingress** | Apply rules to incoming traffic only |
 | 2 | **egress** | Apply rules to outgoing traffic only |
 
-#### _Type: Rule-ID_
+**_Type: Rule-ID_**
+
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
 | **Rule-ID** | Integer | Access rule identifier |
@@ -381,7 +348,7 @@ The actuator specifiers defined in this document are referenced under the slpf n
 
 **Table 2.1.4-1. SLPF Specifiers **
 
-**_Type: Specifiers(Map)_**
+**_Type: Specifiers (Map)_**
 
 | ID | Name | Type | # | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -400,7 +367,8 @@ The response codes are summarized in Table 2.2-1.  The Status text field is huma
 
 **Table 2.2-1. Response Codes**
 
-#### _Type: Status-Code (Enumerated.ID)_
+**_Type: Status-Code (Enumerated.ID)_**
+
 | Value | Description |
 | :--- | :--- |
 | 102 | Processing. Command received but action not necessarily complete |
@@ -422,7 +390,8 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 
 **Table 2.2-2. SLPF Results**
 
-#### _Type: Results (Map)_
+**_Type: Results (Map)_**
+
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
@@ -499,7 +468,7 @@ Products that receive ‘allow target’ commands and support the ‘insert_rule
 
 The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in Annex C.  
 
-### 2.3.**1.1** ‘Allow ip**_**connection’
+#### 2.3.1.1 ‘Allow ip_connection’
 The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
 
 If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
@@ -513,7 +482,7 @@ Products that receive but do not implement the ‘allow ip_connection’ command
 * SHOULD respond with ‘Target type not supported’ in the  status text.
 * MAY respond with the 500 status code.
 
-### 2.3.**1.2** ‘Allow ip**_**addr’
+#### 2.3.1.2 ‘Allow ip_addr’
 The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
 
 If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
@@ -527,7 +496,7 @@ Products that receive but do not implement the ‘allow ip_addr’ command:
 * SHOULD respond with ‘Target type not supported’ in the status text.
 * MAY respond with the 500 status code.
 
-### 2.3.**2** ‘Deny’
+### 2.3.2 ‘Deny’
 ‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the two ‘allow’ commands.  Table 2.3-2 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
 
 Upon receipt of a command with an ARGUMENT that is not supported by the actuator, actuators:  
@@ -559,16 +528,16 @@ Products that receive ‘deny target’ commands and support the ‘insert_rule�
     * SHOULD respond with ‘Rule number currently in use’ in the status text. 
     * MAY respond with the 500 status code.
 
-### 2.3.**3** ‘Query’
+### 2.3.3 ‘Query’
 The valid target type, associated specifiers, and options are summarized in section 2.3.3.1.  Sample commands are presented in Annex C. 
 
-### 2.3.**3.1** ‘Query openc2’
+#### 2.3.3.1 ‘Query openc2’
 The ‘query openc2’ command MUST be implemented in accordance with Version 1.0 of the OpenC2 language specification. 
 
-### 2.3.**4** ‘Delete’
+### 2.3.4 ‘Delete’
 The slpf:rule_number is the only valid target type for the delete action. The associated specifiers, and options are summarized in section 2.3.4.1.  Sample commands are presented in Annex C.  
 
-### 2.3.**4.1** ‘delete **slpf:rule_number**’
+#### 2.3.4.1 ‘delete slpf:rule_number’
 The ‘delete slpf:rule_number’ command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  command MUST implement the slpf:rule_number target type described in section 2.1.2.1. 
 
 Products that send the ‘delete slpf:rule_number’ command: 
@@ -596,10 +565,10 @@ Products that receive the ‘delete slpf:rule_number’ command:
 
 Refer to Annex C for sample commands.  
 
-### 2.3.**5** Update
+### 2.3.5 Update
 The ‘file’ target as defined in Version 1.0 of the Language Specification is the only valid target type for the update action. The associated specifiers, and options are summarized in section 2.3.5.1.  Sample commands are presented in Annex C.  
 
-### 2.3.**5.1** Update file 
+#### 2.3.5.1 Update file 
 The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
 
 Table 2.3-2 presents the valid options for the ‘update file’ command.   Products that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in table 2.3-2
@@ -663,7 +632,7 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 | Command Argument: running, direction and/or  drop_process | 2.1.3 | SLPF-specific | 3.3-3.3.1, 3.3-3.3.2, 3.3-3.4<br>3.4-3.3.1, 3.4-3.3.2, 3.4-3.4 |
 | Response Codes | 2.2.1 | 3.3.2.2 |   |
 
-## 3.1 Conformance Clause 1: Basic** **SLPF Producers 
+## 3.1 Conformance Clause 1: Basic SLPF Producers 
 The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
 
 1. General Conformance:
@@ -681,7 +650,7 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
 3. Command Arguments:
     6. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
 
-## 3.2 Conformance Clause 2: **Basic **SLPF Consumers 
+## 3.2 Conformance Clause 2: Basic SLPF Consumers 
 The Actuator Profile for Stateless Packet Filtering Consumers specifies the minimum functionality required in order for a basic SPLF Consumer implementation to be conformant. 
 
 1. General Conformance:
@@ -742,7 +711,7 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
         8. direction 
     7. **MUST **implement the drop_process command argument as a valid option for the ‘deny <target>’ command
 
-# Annex **A**  SLPF Schema
+# Annex A  SLPF Schema
 This annex defines the data objects used by conforming SLPF implementations, as shown in Section 2.  This annex is normative, however in the event of a conflict between this schema and the property tables presented in section 2, the property tables are authoritative.
 
 **Schema Files:**
@@ -791,7 +760,7 @@ This annex defines the data objects used by conforming SLPF implementations, as 
 
 ```
 
-# Annex **B**  OpenC2 Schema 
+# Annex B  OpenC2 Schema 
 This annex is a copy of the schema from the OpenC2 Language Specification tailored to include only elements needed to support the SLPF functions defined in this document.  This subset defines the elements of the Language Specification that are meaningful in the context of SLPF, however an implementation may have capabilities beyond the scope of an SLPF therefore may support additional elements of the OpenC2 language beyond those included here. 
 
 This annex is normative, however in the event of a conflict with the schema in the OpenC2 Language Specification, the Language Specification is authoritative.  
@@ -916,7 +885,7 @@ This annex is normative, however in the event of a conflict with the schema in t
 
 ```
 
-# Annex **C** Sample commands (Informative)
+# Annex C Sample commands (Informative)
 This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in verbose JSON, however other encodings are possible provided the command is validated against the schema presented in Annex A.  Examples of corresponding responses will be provided where appropriate.
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
@@ -1156,7 +1125,7 @@ This actuator could not access the file
 }
 ```
 
-## C.**4** Query openc2
+## C.4 Query openc2
 Implementation of query openc2 is required.  The query openc2 command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
 
 ### C.4.1 No query items set 
