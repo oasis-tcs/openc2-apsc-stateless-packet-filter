@@ -9,9 +9,9 @@
 
 **This version:**
 
-* oasis-to-fill-in-link.md (Authoritative)
+* oasis-to-fill-in-link.pdf (Authoritative)
+* oasis-to-fill-in-link.md
 * oasis-to-fill-in-link.html
-* oasis-to-fill-in-link.pdf
 
 **Previous Version:**
 
