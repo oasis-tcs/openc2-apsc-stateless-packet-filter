@@ -403,7 +403,7 @@ The semantics/ requirements as they relate to SLPF arguments:
 * drop_process:  If absent or not explicitly set, then the actuator MUST NOT send any notification to the source of the packet
 * running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent.  
 
-### **2.1.4 Actuator **Specifiers
+### **2.1.4 Actuator Specifiers**
 An ACTUATOR is the entity that provides the functionality and performs the action. The ACTUATOR executes the ACTION on the TARGET. In the context of this profile, the actuator is the SLPF and the presence of one or more specifiers further refine which actuator(s) shall execute the action.
 
 Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. Annex C  provides sample commands with the use of specifiers.
@@ -426,7 +426,7 @@ Response messages originate from the ACTUATOR as a result of a command.
 
 Responses associated with required actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the command and associated response are captured in section 2.3.  Examples will be provided in Annex C.
 
-### **2.2.1 **Common Results
+### **2.2.1 Common Results**
 Table 2.2.1-1 lists the results defined in the OpenC2 Language specification that are applicable to SLPF.
 
 **Table 2.2.1-1. Results Applicable to SLPF**
@@ -466,7 +466,7 @@ Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language specificatio
 |   |   |
 |   |   |
 
-### **2.2.2 **SLPF Results
+### **2.2.2 SLPF Results**
 The results defined in this document are presented in Table 2.2-2.  The results are referenced under the slpf namespace within the OpenC2-Response type defined in the OpenC2 language specification.
 
 **Table 2.2-2. SLPF Results**
