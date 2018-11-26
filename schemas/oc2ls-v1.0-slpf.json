@@ -1,0 +1,114 @@
+{
+ "meta": {
+  "module": "oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0",
+  "patch": "0+slpf",
+  "title": "OpenC2 Language Objects",
+  "description": "OpenC2 Language content used by Stateless Packet Filters.",
+  "imports": [
+   ["slpf", "oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0"],
+   ["jadn", "oasis-open.org/openc2/oc2ls/v1.0/jadn-v1.0"]
+  ],
+  "exports": ["OpenC2-Command", "OpenC2-Response", "Message-Type", "Status-Code", "Request-Id", "Date-Time"]
+ },
+ "types": [
+  ["OpenC2-Command", "Record", [], "", [
+    [1, "action", "Action", [], ""],
+    [2, "target", "Target", [], ""],
+    [3, "args", "Args", ["[0"], ""],
+    [4, "actuator", "Actuator", ["[0"], ""]
+  ]],
+  ["Action", "Enumerated", [], "", [
+    [3, "query", ""],
+    [6, "deny", ""],
+    [8, "allow", ""],
+    [16, "update", ""],
+    [20, "delete", ""]
+  ]],
+  ["Target", "Choice", [], "", [
+    [16, "features", "Features", [], ""],
+    [10, "file", "File", [], ""],
+    [11, "ip_addr", "IP-Addr", [], ""],
+    [15, "ip_connection", "IP-Connection", [], ""],
+    [1024, "slpf", "slpf:Target", [], ""]
+  ]],
+  ["Actuator", "Choice", [], "", [
+    [1024, "slpf", "slpf:Specifiers", [], ""]
+  ]],
+  ["Args", "Map", [], "", [
+    [1, "start_time", "Date-Time", ["[0"], ""],
+    [2, "stop_time", "Date-Time", ["[0"], ""],
+    [3, "duration", "Duration", ["[0"], ""],
+    [4, "response_requested", "Response-Type", ["[0"], ""],
+    [1024, "slpf", "slpf:Args", ["[0"], ""]
+  ]],
+  ["OpenC2-Response", "Map", [], "", [
+    [1, "status", "Status-Code", ["[0"], ""],
+    [2, "status_text", "String", ["[0"], ""],
+    [6, "versions", "Version", ["[0", "]0"], ""],
+    [7, "profiles", "jadn:Uname", ["[0", "]0"], ""],
+    [8, "schema", "jadn:Schema", ["[0"], ""],
+    [9, "pairs", "Action-Targets", ["[0", "]0"], ""],
+    [10, "rate_limit", "Number", ["[0"], ""],
+    [1024, "slpf", "slpf:Results", ["[0"], ""]
+  ]],
+  ["Status-Code", "Enumerated", ["="], "", [
+    [102, "Processing", ""],
+    [200, "OK", ""],
+    [400, "Bad Request", ""],
+    [500, "Internal Error", ""],
+    [501, "Not Implemented", ""]
+  ]],
+  ["Features", "ArrayOf", ["*Feature", "[0"], ""],
+  ["File", "Map", [], "", [
+    [1, "name", "String", ["[0"], ""],
+    [2, "path", "String", ["[0"], ""],
+    [3, "hashes", "Hashes", ["[0"], ""]
+  ]],
+  ["IP-Addr", "Binary", ["@ip-addr"], ""],
+  ["IP-Connection", "Record", [], "", [
+    [1, "src_addr", "IP-Addr", ["[0"], ""],
+    [2, "src_port", "Port", ["[0"], ""],
+    [3, "dst_addr", "IP-Addr", ["[0"], ""],
+    [4, "dst_port", "Port", ["[0"], ""],
+    [5, "protocol", "L4-Protocol", ["[0"], ""]
+  ]],
+  ["Message-Type", "Enumerated", [], "", [
+    [0, "notification", ""],
+    [1, "request", ""],
+    [2, "response", ""]
+  ]],
+  ["Request-Id", "Binary", [], ""],
+  ["Date-Time", "Integer", [], ""],
+  ["Duration", "Integer", [], ""],
+  ["Hashes", "Map", [], "", [
+    [1, "md5", "Binary", ["[0"], ""],
+    [4, "sha1", "Binary", ["[0"], ""],
+    [6, "sha256", "Binary", ["[0"], ""]
+  ]],
+  ["L4-Protocol", "Enumerated", [], "", [
+    [1, "icmp", ""],
+    [6, "tcp", ""],
+    [17, "udp", ""],
+    [132, "sctp", ""]
+  ]],
+  ["Port", "Integer", ["[0", "]65535"], ""],
+  ["Feature", "Enumerated", [], "", [
+    [1, "versions", ""],
+    [2, "profiles", ""],
+    [3, "schema", ""],
+    [4, "pairs", ""],
+    [5, "rate_limit", ""]
+  ]],
+  ["Response-Type", "Enumerated", [], "", [
+    [0, "none", ""],
+    [1, "ack", ""],
+    [2, "status", ""],
+    [3, "complete", ""]
+  ]],
+  ["Version", "String", [], ""],
+  ["Action-Targets", "Array", [], "", [
+    [1, "action", "Action", [], ""],
+    [2, "targets", "Target", ["]0", "*"], ""]
+  ]]
+ ]
+}
