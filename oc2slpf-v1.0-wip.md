@@ -1053,6 +1053,7 @@ Block all outbound ftp data transfers, send false acknowledgement and request ac
   "args": {
     "slpf": {
       "drop_process": "false_ack"
+      "direction": "egress"
     }
   },
   "actuator": {
