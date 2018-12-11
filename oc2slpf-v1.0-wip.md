@@ -356,16 +356,8 @@ Table 2.1.3.1-1 lists the command arguments defined in the OpenC2 Language speci
 | 4 | **response_requested** | Response-Type | 0..1 | The type of response required for the action: `none`, `ack`, `status`, `complete`.  |
 | 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
 
-The semantics/requirements as they relate to common arguments:  
+The semantics/requirements as they relate to common arguments are documented in the OpenC2 Language Specification (Version 1.0).   
 
-* start-time/end-time/duration
-    * If none are specified then the start time is now, the end time is never, and the duration is infinity
-    * Only two of the three are allowed on any given command and the third is derived from the equation end-time = start-time + duration
-    * If only start time is specified then end-time is never and duration is infinity
-    * If only end time is specified then start-time is now and duration is derived
-    * If only duration is specified then start-time is now and end-time is derived
-* response_requested 
-    * If absent or not explicitly set in an OpenC2 Command, then a Consumer MUST respond the same as response_type `complete`. 
 
 #### 2.1.3.2 SLPF Args
 The command arguments defined in this document are referenced under the slpf namespace.
