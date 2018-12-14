@@ -977,6 +977,7 @@ This annex is non-normative.
 This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in verbose JSON, however other encodings are possible provided the command is validated against the schema presented in Annex A.  Examples of corresponding responses will be provided where appropriate.
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
+
 The following examples include Binary fields which are serialized in Base64url format.  The examples show JSON-serialized commands; the conversion of Base64url serialized values to Binary data and String display text is:
 
 | Base64url | Binary | Display String |
@@ -1016,7 +1017,7 @@ Block a particular connection within the domain and do not send a host unreachab
     "duration": 500,
     "response_requested": "ack",
     "slpf": {
-       "drop_process": "none"
+      "drop_process": "none"
     }
   },
   "actuator": {
