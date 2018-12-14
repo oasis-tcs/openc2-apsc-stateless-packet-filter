@@ -1017,7 +1017,8 @@ Block a particular connection within the domain and do not send a host unreachab
     "duration": 500,
     "response_requested": "ack",
     "slpf": {
-      "drop_process": "none"
+
+"drop_process": "none"
     }
   },
   "actuator": {
@@ -1053,6 +1054,7 @@ Block all outbound ftp data transfers, send false acknowledgement and request ac
   "args": {
     "slpf": {
       "drop_process": "false_ack"
+      "direction": "egress"
     }
   },
   "actuator": {
