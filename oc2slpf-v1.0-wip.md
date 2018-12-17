@@ -554,7 +554,8 @@ The valid target types, associated specifiers, and options are summarized in sec
 #### 2.3.1.1 ‘Allow ip_connection’
 The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
 
-If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
+If SLPF consumer implements 'allow ip_addr' command, then 'allow ip_connection' is OPTIONAL. 
+if SLPF consumer does not implement 'allow ip_addr' command, then 'allow ip_connection' is REQUIRED. 
 
 The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
 
@@ -568,7 +569,8 @@ Products that receive but do not implement the ‘allow ip_connection’ command
 #### 2.3.1.2 ‘Allow ip_addr’
 The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
 
-If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
+If SLPF consumer implements 'allow ip_connection' command, then 'allow ip_addr' is OPTIONAL. 
+if SLPF consumer does not implement 'allow ip_connection' command, then 'allow ip_addr' is REQUIRED. 
 
 The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The ip-addr supports CIDR notation.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
 
