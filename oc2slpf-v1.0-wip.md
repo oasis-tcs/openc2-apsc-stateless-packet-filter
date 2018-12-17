@@ -721,8 +721,8 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
 
 1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the schema available at http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.json and presented in Annex A of this specification. 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to with the schema available at http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.json and presented in Annex A of this specification.  
     3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
@@ -739,8 +739,8 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
 The Actuator Profile for Stateless Packet Filtering Consumers specifies the minimum functionality required in order for a basic SPLF Consumer implementation to be conformant. 
 
 1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the schema available at http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.json and presented in Annex A of this specification. 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the schema available at http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.json and presented in Annex A of this specification.  
     3. **MUST** support the use of a transfer specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
