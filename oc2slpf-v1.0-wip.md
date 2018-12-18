@@ -1509,7 +1509,8 @@ The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in t
     [2, "patch", "String", ["[0"], ""],
     [3, "title", "String", ["[0"], ""],
     [4, "description", "String", ["[0"], ""],
-    [5, "imports", "jadn:Import", ["[0", "]0"], ""],
+
+[5, "imports", "jadn:Import", ["[0", "]0"], ""],
     [6, "exports", "jadn:Identifier", ["[0", "]0"], ""],
     [7, "bounds", "jadn:Bounds", ["[0"], ""]
   ]],
@@ -1545,7 +1546,8 @@ The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in t
     [12, "Record", "jadn:FullField", ["]0"], ""]
   ]],
   ["jadn:EnumField", "Array", [], "", [
-    [1, "", "Integer", [], ""],
+
+[1, "", "Integer", [], ""],
     [2, "", "String", [], ""],
     [3, "", "String", [], ""]
   ]],
@@ -1568,6 +1570,25 @@ The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in t
 ```
 
 # Annex D Acronyms
+
+| Term | Expansion |
+|:---|:---|
+| CoAP | Constrained Application Protocol |
+| FTP | File Transfer Protocol |
+| HTTPS | Hyper Text Transfer Protocol Secure |
+| IACD | Integrated Adaptive Cyber Defense |
+| IPR | Intellectual Property Rights |
+| JADN | JSON Abstract Data Notation |
+| JSON | JavaScript Object Notation |
+| MQTT | Message Queuing Telemetry Transport |
+| OASIS | Organization for the Advancement of Structured Information Standards |
+| OODA | Observe-Orient-Decide-Act |
+| OpenDXL | Opensource Data Exchange Layer |
+| RFC | Request for Comment |
+| SLPF | Stateless Packet Filter |
+| TC | Technical Committee |
+| URI | Uniform Resource Identifier |
+
 
 ---
 
