@@ -500,14 +500,14 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 
 |   | Allow (target) | Deny (target) | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **response** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) | [2.3.3.1](#2.3.3.1-query-features) | [2.3.4.1](#2.3.4.1-delete-slpf:rule_number) | [2.3.5.1](#2.3.5.1-update-file) |
-| **start-time** | [2.3.1](#2.3.1-allow)| [2.3.2](#2.3.2-deny) |   | [2.3.4.1](#2.3.4.1-delete-slpf:rule_number) | [2.3.5.1](#2.3.5.1-update-file) |
-| **end-time** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
-| **duration** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
-| **running** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
-| **direction** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
-| **insert_rule** | [2.3.1](#2.3.1-allow)| [2.3.2](#2.3.2-deny) |   |   |   |
-| **drop_process** |   | [2.3.2](#2.3.2-deny) |   |   |   |
+| **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#234-delete) | [2.3.5.1](#2351-update-file) |
+| **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#234-delete-slpf) | [2.3.5.1](#2351-update-file) |
+| **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **duration** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **running** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **direction** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **insert_rule** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   |   |   |
+| **drop_process** |   | [2.3.2](#232-deny) |   |   |   |
 
 ### 2.3.1 Allow
 Table 2.3.1-1 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
@@ -521,7 +521,7 @@ Upon receipt of an unsupported command argument, SLPF consumers
 
 Products that send ‘allow target’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets)
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * SHOULD populate the command options field with "response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
 * MUST populate the command options field with "response_requested" : “complete" if the insert_rule argument is populated. 
@@ -535,7 +535,7 @@ Products that receive and successfully parse ‘allow <target>’ commands but c
 
 Products that receive ‘allow <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets)
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * Upon successful implementation of the ‘allow <target>’, MUST return the rule_number associated with the rule if the "response_requested" :  “complete" option is populated. 
 
 Products that receive ‘allow target’ commands and support the ‘insert_rule’ command argument:
@@ -588,7 +588,7 @@ Upon receipt of a command with an ARGUMENT that is not supported by the actuator
 
 Products that send ‘deny target’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets) 
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets) 
 * SHOULD populate the command options field with ‘"response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
 * MUST populate the command options field with "response_requested" : "complete"
@@ -597,7 +597,7 @@ if the insert_rule argument is populated.
 
 Products that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in section [Section 2.1.2.2](#2.1.2.2-slpf-targets).
+* MUST support the slpf:rule_number target type as defined in section [Section 2.1.2.2](#2122-slpf-targets).
 * MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” argument is populated. 
 
 Products that receive ‘deny target’ commands and support the ‘insert_rule’ command argument:
@@ -717,17 +717,17 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
 
 1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in [Section 2.1](#2.1-openc2-command-components). 
-    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in [Section 2.1](#21-openc2-command-components). 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in [Section 2.1](#21-openc2-command-components) of this specification.  
     3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language Specification.  
-        1. ‘allow ip_connection’  in accordance with the normative text provided in section 2.3.1 of this specification
-        2. ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        3. ‘deny ip_connection’  in accordance with the normative text provided in section 2.3.2 of this specification
-        4. ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
-        5. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.
+        1. ‘allow ip_connection’  in accordance with the normative text provided in section [2.3.1](#231-allow) of this specification
+        2. ‘allow ip_addr’ in accordance with the normative text provided in section [2.3.1](#231-allow) of this specification
+        3. ‘deny ip_connection’  in accordance with the normative text provided in section [2.3.2](#232-deny) of this specification
+        4. ‘deny ip_addr’ in accordance with the normative text provided in section [2.3.2](#231-deny) of this specification
+        5. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
 3. Command Arguments:
     1. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
 
@@ -735,15 +735,15 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
 The Actuator Profile for Stateless Packet Filtering Consumers specifies the minimum functionality required in order for a basic SPLF Consumer implementation to be conformant. 
 
 1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
+    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in [Section 2.1](#21-openc2-command-components). 
+    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in [Section 2.1](#21-openc2-command-components) of this specification.  
     3. **MUST** support the use of a transfer specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language specification.  
-        1. ‘allow ip_connection’ or  ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        2. ‘deny ip_connection’ or ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
-        3. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.
+        1. ‘allow ip_connection’ or  ‘allow ip_addr’ in accordance with the normative text provided in [2.3.1](#231-allow) of this specification
+        2. ‘deny ip_connection’ or ‘deny ip_addr’ in accordance with the normative text provided in section [2.3.2](#232-deny)of this specification
+        3. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
 3. Command Arguments:
     1. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
     2. Processing response_requested command arguments
@@ -757,9 +757,9 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
     1. **MUST** meet all of conformance criteria identified in Conformance Clause 1 of this specification 
     2. **MUST** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
 2. Commands (ACTION and TARGET pairs):
-    3. **MUST** implement the following action target pairs where:  Version 1.0 of the Language Specification defines the actions, Version 1.0 of the Language Specification defines the ‘file’ target; and the ‘slpf:rule_number’ target type is defined in this specification
-        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification
-        2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification
+    3. **MUST** implement the following action target pairs where:  Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) defines the actions, Version 1.0 of the Language Specification defines the ‘file’ target; and the ‘slpf:rule_number’ target type is defined in this specification
+        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in [Section 2.3.4.1](#234-delete) of this specification
+        2. ‘update file’ in accordance with the normative text provided in [Section 2.3.5.1](#2351-update-file) of this specification
 3. Command Arguments:
     1. **MUST** implement the start_time command argument as a valid option for any command other than ‘query <target>’
     2. **MUST** implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
@@ -778,10 +778,10 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
     2. **MUST** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
 2. Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where version 1.0 of the Language specification defines the ‘file’ target and actions; and the ‘slpf:rule_number’ target type is defined in this specification
-        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification
-        2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification
-        3. ‘allow ip_connection’ and ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        4. ‘deny ip_connection’ and ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
+        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in [Section 2.3.4.1](#234-delete) of this specification
+        2. ‘update file’ in accordance with the normative text provided in [Section 2.3.5.1](#2351-update-file) of this specification
+        3. ‘allow ip_connection’ and ‘allow ip_addr’ in accordance with the normative text provided in Section [2.3.1](#231-allow) of this specification
+        4. ‘deny ip_connection’ and ‘deny ip_addr’ in accordance with the normative text provided in section [2.3.2](#232-deny) of this specification
 3. Command Arguments:
     1. **MUST** implement the start_time command argument as a valid option for any command other than ‘query <target>’ 
     2. **MUST** implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
