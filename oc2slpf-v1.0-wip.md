@@ -267,7 +267,7 @@ Section One (this section) provides a nonnormative overview of the suite of spec
 
 [Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
-This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore an [SLPF Schema](#annex-a-slpf-schema) and the applicable portions of the OpenC2 Language [Schema](#annex-b-tailored-openc2-schema) are provided to facilitate development.  There is also an [Annex C](#annex-c-sample-commands-(informative)) that provides multiple examples of SLPF commands (JSON serialization).   
+This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore an [SLPF Schema](#annex-a--slpf-schema) and the applicable portions of the OpenC2 Language [Schema](#annex-b--tailored-openc2-schema) are provided to facilitate development.  There is also an [Annex C](#annex-c-sample-commands) that provides multiple examples of SLPF commands (JSON serialization).   
 
 ---
 
@@ -973,7 +973,7 @@ This annex is non-normative.
 
 ---
 
-# Annex C Sample commands (Informative)
+# Annex C Sample commands
 This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in verbose JSON, however other encodings are possible provided the command is validated against the schema presented in Annex A.  Examples of corresponding responses will be provided where appropriate.
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
