@@ -500,16 +500,16 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 
 |   | Allow (target) | Deny (target) | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **response** | [2.3.1](#2.3.1-'allow') | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
-| **start-time** | 2.3.1 | 2.3.2 |   | 2.3.4.1 | 2.3.5.1 |
-| **end-time** | 2.3.1 | 2.3.2 |   |   |   |
-| **duration** | 2.3.1 | 2.3.2 |   |   |   |
-| **running** | 2.3.1 | 2.3.2 |   |   |   |
-| **direction** | 2.3.1 | 2.3.2 |   |   |   |
-| **insert_rule** | 2.3.1 | 2.3.2 |   |   |   |
-| **drop_process** |   | 2.3.2 |   |   |   |
+| **response** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) | [2.3.3.1](#2.3.3.1-query-features) | [2.3.4.1](#2.3.4.1-delete-slpf:rule_number) | [2.3.5.1](#2.3.5.1-update-file) |
+| **start-time** | [2.3.1](#2.3.1-allow)| [2.3.2](#2.3.2-deny) |   | [2.3.4.1](#2.3.4.1-delete-slpf:rule_number) | [2.3.5.1](#2.3.5.1-update-file) |
+| **end-time** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
+| **duration** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
+| **running** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
+| **direction** | [2.3.1](#2.3.1-allow) | [2.3.2](#2.3.2-deny) |   |   |   |
+| **insert_rule** | [2.3.1](#2.3.1-allow)| [2.3.2](#2.3.2-deny) |   |   |   |
+| **drop_process** |   | [2.3.2](#2.3.2-deny) |   |   |   |
 
-### 2.3.1 'Allow'
+### 2.3.1 Allow
 Table 2.3.1-1 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
 
 Upon receipt of an unsupported command argument, SLPF consumers 
@@ -521,7 +521,7 @@ Upon receipt of an unsupported command argument, SLPF consumers
 
 Products that send ‘allow target’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in section 2.1.2.2
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets)
 * SHOULD populate the command options field with "response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
 * MUST populate the command options field with "response_requested" : “complete" if the insert_rule argument is populated. 
@@ -535,7 +535,7 @@ Products that receive and successfully parse ‘allow <target>’ commands but c
 
 Products that receive ‘allow <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in section 2.1.2.2
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets)
 * Upon successful implementation of the ‘allow <target>’, MUST return the rule_number associated with the rule if the "response_requested" :  “complete" option is populated. 
 
 Products that receive ‘allow target’ commands and support the ‘insert_rule’ command argument:
@@ -546,12 +546,10 @@ Products that receive ‘allow target’ commands and support the ‘insert_rule
     * SHOULD respond with the 501 status code. 
     * SHOULD respond with ‘Rule number currently in use’ in the  status text. 
     * MAY respond with the 500 status code. 
-
     
+The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in [Annex C](#annex-c-sample-commands).  
 
-The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in Annex C.  
-
-#### 2.3.1.1 ‘Allow ip_connection’
+#### 2.3.1.1 Allow ip_connection
 The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
 
 If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
@@ -565,7 +563,7 @@ Products that receive but do not implement the ‘allow ip_connection’ command
 * SHOULD respond with ‘Target type not supported’ in the  status text.
 * MAY respond with the 500 status code.
 
-#### 2.3.1.2 ‘Allow ip_addr’
+#### 2.3.1.2 Allow ip_addr
 The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
 
 If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
@@ -579,7 +577,7 @@ Products that receive but do not implement the ‘allow ip_addr’ command:
 * SHOULD respond with ‘Target type not supported’ in the status text.
 * MAY respond with the 500 status code.
 
-### 2.3.2 ‘Deny’
+### 2.3.2 Deny
 ‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the two ‘allow’ commands.  Table 2.3-2 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
 
 Upon receipt of a command with an ARGUMENT that is not supported by the actuator, actuators:  
@@ -590,7 +588,7 @@ Upon receipt of a command with an ARGUMENT that is not supported by the actuator
 
 Products that send ‘deny target’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in section 2.1.2.1. 
+* MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2.1.2.2-slpf-targets) 
 * SHOULD populate the command options field with ‘"response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
 * MUST populate the command options field with "response_requested" : "complete"
@@ -599,7 +597,7 @@ if the insert_rule argument is populated.
 
 Products that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
-* MUST support the slpf:rule_number target type as defined in section 2.1.2.1.
+* MUST support the slpf:rule_number target type as defined in section [Section 2.1.2.2](#2.1.2.2-slpf-targets).
 * MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” argument is populated. 
 
 Products that receive ‘deny target’ commands and support the ‘insert_rule’ command argument:
@@ -611,17 +609,17 @@ Products that receive ‘deny target’ commands and support the ‘insert_rule�
     * SHOULD respond with ‘Rule number currently in use’ in the status text. 
     * MAY respond with the 500 status code.
 
-### 2.3.3 ‘Query’
+### 2.3.3 Query
 The valid target type, associated specifiers, and options are summarized in section 2.3.3.1.  Sample commands are presented in Annex C. 
 
-#### 2.3.3.1 ‘Query features’
+#### 2.3.3.1 Query features
 The ‘query openc2’ command MUST be implemented in accordance with Version 1.0 of the OpenC2 language specification. 
 
-### 2.3.4 ‘Delete’
+### 2.3.4 Delete
 The slpf:rule_number is the only valid target type for the delete action. The associated specifiers, and options are summarized in section 2.3.4.1.  Sample commands are presented in Annex C.  
 
-#### 2.3.4.1 ‘delete slpf:rule_number’
-The ‘delete slpf:rule_number’ command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  command MUST implement the slpf:rule_number target type described in section 2.1.2.1. 
+#### 2.3.4.1 delete slpf:rule_number
+The ‘delete slpf:rule_number’ command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  command MUST implement the slpf:rule_number target type described in [Section 2.1.2.2](#2.1.2.2-slpf-targets). 
 
 Products that send the ‘delete slpf:rule_number’ command: 
 
@@ -655,8 +653,6 @@ The ‘file’ target as defined in Version 1.0 of the Language Specification is
 The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
 
 Table 2.3-2 presents the valid options for the ‘update file’ command.   Products that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in table 2.3-2
-
-  
 
 Products that send the ‘update file’ command: 
 
@@ -721,7 +717,7 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
 
 1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
+    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in [Section 2.1](#2.1-openc2-command-components). 
     2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
     3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
