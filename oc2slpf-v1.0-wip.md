@@ -60,7 +60,6 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 When referencing this specification the following citation format should be used:
 
 **[OpenC2-SLPF-v1.0]**
-
 _Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 17 October 2018. OASIS Committee Specification Draft 04 / Public Review Draft 01. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
 
 -------
@@ -93,6 +92,9 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 -------
 
 # 1 Introduction
+
+_This section is non-normative_
+
 OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  The contents of both the command and the response are fully described in schemas, allowing both parties to recognize the syntax constraints imposed on the exchange.
 
 OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices.  These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device.  The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.
@@ -272,6 +274,9 @@ This specification provides three non-normative Annexes.  OpenC2 is intended for
 ---
 
 # 2 OpenC2 Language Binding
+
+_This section is normative_ 
+
 This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGS that are meaningful in the context of an SLPF. This section also describes the format of the response frame's status and results field. This section organized into three major subsections; Command Components, Response Components and Commands. 
 
 ## 2.1 OpenC2 Command Components 
@@ -687,6 +692,8 @@ Refer to Annex C for sample commands.
 ---
 
 # 3 Conformance statements
+
+_This section is normative_
 Definitions:  The following terms apply to this section:  
 
 * **OpenC2 SLPF Producers:** Entities that send commands to and receive responses from OpenC2 SLPF consumers. 
@@ -799,6 +806,9 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
 ---
 
 # Annex A  SLPF Schema
+
+_This Annex is normative_
+
 This annex defines the data objects used by conforming SLPF implementations, as shown in Section 2.  This annex is normative, however in the event of a conflict between this annex, the property tables presented in section 2, and the separate plain text file linked below, the separate plain text file is authoritative.
 
 **Schema Files:**
@@ -850,9 +860,10 @@ This annex defines the data objects used by conforming SLPF implementations, as 
 ---
 
 # Annex B  Tailored OpenC2 Schema 
-This annex is a copy of the schema from the OpenC2 Language Specification tailored to include only elements needed to support the SLPF functions defined in this document.  This subset defines the elements of the Language Specification that are meaningful in the context of SLPF, however an implementation may have capabilities beyond the scope of an SLPF therefore may support additional elements of the OpenC2 language beyond those included here. 
 
-This annex is non-normative.  
+_This section is non-normative_
+
+This annex is a copy of the schema from the OpenC2 Language Specification tailored to include only elements needed to support the SLPF functions defined in this document.  This subset defines the elements of the Language Specification that are meaningful in the context of SLPF, however an implementation may have capabilities beyond the scope of an SLPF therefore may support additional elements of the OpenC2 language beyond those included here. 
 
 **Schema Files:**
 
@@ -974,6 +985,9 @@ This annex is non-normative.
 ---
 
 # Annex C Sample commands (Informative)
+
+_This section is non-normative_
+
 This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in verbose JSON, however other encodings are possible provided the command is validated against the schema presented in Annex A.  Examples of corresponding responses will be provided where appropriate.
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
@@ -1566,6 +1580,9 @@ The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in t
 ---
 
 # Annex D Acknowledgments 
+
+_This section is non-normative_
+
 The Actuator Profile Subcommittee was tasked by the OASIS Open Command and Control Technical Committee (OpenC2 TC) which at the time of this submission, had 132 members.  The editors wish to express their gratitude to the members of the OpenC2 TC. 
 
 The following individuals are acknowledged for providing comments, suggested text and/or participation in the SLPF CSD ballots: 
@@ -1607,6 +1624,9 @@ The following individuals are acknowledged for providing comments, suggested tex
 ---
 
 # Annex E Revision History
+
+_This section is non-normative_
+
 | Revision | Date | Editor | Changes Made |
 | :--- | :--- | :--- | :--- |
 | Committee Specification Draft 1 | 31 AUG 2018 | Brule, Joe | Initial draft |
