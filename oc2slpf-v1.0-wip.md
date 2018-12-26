@@ -265,9 +265,9 @@ Section One (this section) provides a nonnormative overview of the suite of spec
 
 [Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
 
-[Section Three](#3) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
+[Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
-This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore an [SLPF Schema](#Annex A  SLPF Schema) and the applicable portions of the OpenC2 Language [Schema](#Annex B) are provided to facilitate development.  There is also an [Annex C](#Annex C) that provides multiple examples of SLPF commands (JSON serialization).   
+This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore an [SLPF Schema](#annex-a-slpf-schema) and the applicable portions of the OpenC2 Language [Schema](#annex-b-tailored-openc2-schema) are provided to facilitate development.  There is also an [Annex C](#annex-c-sample-commands-(informative)) that provides multiple examples of SLPF commands (JSON serialization).   
 
 ---
 
