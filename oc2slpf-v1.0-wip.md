@@ -288,7 +288,7 @@ This specification identifies the applicable components of an OpenC2 command.  T
 * ACTUATOR:  A set of specifiers defined in this specification that are meaningful in the context of SLPF. 
 
 ### 2.1.1 Actions
-Table 2.1.1-1 presents the OpenC2 actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF.  The particular action/target pairs that are required or optional are presented in section 2.3.  
+Table 2.1.1-1 presents the OpenC2 actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF.  The particular action/target pairs that are required or optional are presented in [Section 2.3](#2.3-openc2-commands).  
 
 **Table 2.1.1-1.  Actions Applicable to SLPF**
 
@@ -306,7 +306,7 @@ Table 2.1.1-1 presents the OpenC2 actions defined in version 1.0 of the Language
 
 ### 2.1.2 Targets
 #### 2.1.2.1 Common Targets
-Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification that are applicable to SLPF.  The particular action/target pairs that are required or optional are presented in section 2.3.
+Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification that are applicable to SLPF.  The particular action/target pairs that are required or optional are presented in [Section 2.3](#2.3-openc2-commands).
 
 **Table 2.1.2-1. Targets Applicable to SLPF**
 
@@ -323,7 +323,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
  
 
 #### 2.1.2.2 SLPF Targets
-The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 2.2.6 of Version 1.0 of the OpenC2 Language Specification:
+The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html):
 
 1. The unique name of the SLPF schema is `oasis-open.org/openc2/v1.0/ap-slpf`
 2. The namespace identifier (nsid) referring to the SLPF schema is:  `slpf`
@@ -339,10 +339,10 @@ The slpf:Target type is defined in this specification and is referenced under th
 Implementations that choose to support slpf:Target MUST support the **rule_number** target.
 
 ### 2.1.3 Command Arguments
-Arguments provide additional precision to a command by including information such as how, when, or where a command is to be executed.  Table 2.1.3-1 summarizes the command arguments defined in Version 1.0 of the OpenC2 Language Specification as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the command arguments that are defined in this specification.
+Arguments provide additional precision to a command by including information such as how, when, or where a command is to be executed.  Table 2.1.3-1 summarizes the command arguments defined in Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the command arguments that are defined in this specification.
 
 #### 2.1.3.1 Common Args
-Table 2.1.3.1-1 lists the command arguments defined in the OpenC2 Language specification that are applicable to SLPF.
+Table 2.1.3.1-1 lists the command arguments defined in the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) that are applicable to SLPF.
 
 **Table 2.1.3-1. Command Arguments applicable to SLPF**
 
@@ -416,7 +416,7 @@ The semantics/ requirements as they relate to SLPF arguments:
 ### 2.1.4 Actuator Specifiers
 An ACTUATOR is the entity that provides the functionality and performs the action. The ACTUATOR executes the ACTION on the TARGET. In the context of this profile, the actuator is the SLPF and the presence of one or more specifiers further refine which actuator(s) shall execute the action.
 
-Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. Annex C  provides sample commands with the use of specifiers.
+Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. [Annex C](#annex-c-sample-commands) provides sample commands with the use of specifiers.
 
 The actuator specifiers defined in this document are referenced under the slpf namespace.
 
@@ -434,7 +434,7 @@ The actuator specifiers defined in this document are referenced under the slpf n
 ## 2.2 OpenC2 Response Components
 Response messages originate from the ACTUATOR as a result of a command.
 
-Responses associated with required actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the command and associated response are captured in section 2.3.  Examples will be provided in Annex C.
+Responses associated with required actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the command and associated response are captured in section [2.3](#2.3-openc2-commands).  Examples will be provided in [Annex C](#annex-c-sample-commands).
 
 ### 2.2.1 Common Results
 Table 2.2.1-1 lists the results defined in the OpenC2 Language specification that are applicable to SLPF.
@@ -498,9 +498,9 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 
 **Table 2.3-2. Command Arguments Matrix**
 
-|   | Allow<br><target> | Deny <target> | Query features | Delete slpf:rule_number | Update file |
+|   | Allow (target) | Deny (target) | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **response** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
+| **response** | [2.3.1](#2.3.1-'allow') | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
 | **start-time** | 2.3.1 | 2.3.2 |   | 2.3.4.1 | 2.3.5.1 |
 | **end-time** | 2.3.1 | 2.3.2 |   |   |   |
 | **duration** | 2.3.1 | 2.3.2 |   |   |   |
@@ -509,7 +509,7 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 | **insert_rule** | 2.3.1 | 2.3.2 |   |   |   |
 | **drop_process** |   | 2.3.2 |   |   |   |
 
-### 2.3.1 ‘Allow’
+### 2.3.1 'Allow'
 Table 2.3.1-1 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
 
 Upon receipt of an unsupported command argument, SLPF consumers 
