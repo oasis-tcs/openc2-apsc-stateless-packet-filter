@@ -498,7 +498,7 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 
 **Table 2.3-2. Command Arguments Matrix**
 
-|   | Allow<br><target> | Deny <target> | Query features | Delete slpf:rule_number | Update file |
+|   | Allow<br> (_target_) | Deny<br> (_target_) | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **response** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
 | **start-time** | 2.3.1 | 2.3.2 |   | 2.3.4.1 | 2.3.5.1 |
@@ -708,8 +708,8 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 | Targets | 2.1.1.2 | 3.4.1.3, 3.4.1.8, 3.4.1.9, 3.4.1.11, 3.4.1.12,   |   |
 | Slpf:rule_number Target | 2.1.1.2.1 | SLPF-specific |   |
 | ‘Query features’ command | 2.3.3.1 | 4 | 3.1-2.1.5 and 3.2-2.1.3 |
-| ‘Allow ip_connection|<br>ip_addr’ | 2.3.1 | Derived | 3.1-2.1.1, 3.1-2.1.2, 3.2-2.1.1 and 3.4-2.1.3 |
-| Deny ip_connection|<br>ip_addr’ | 2.3.2 | Derived | 3.1-2.1.3, 3.1-2.1.4, 3.2-2.1.2 and 3.4-2.1.4 |
+| ‘Allow <br>ip_connection (or) ip_addr’ | 2.3.1 | Derived | 3.1-2.1.1, 3.1-2.1.2, 3.2-2.1.1 and 3.4-2.1.3 |
+| ‘Deny <br>ip_connection (or) ip_addr’ | 2.3.2 | Derived | 3.1-2.1.3, 3.1-2.1.4, 3.2-2.1.2 and 3.4-2.1.4 |
 | ‘Delete slpf:rule_number’ | 2.3.4.1 | SLPF-specific | 3.3-2.1.1 and 3.4-2.1.1 |
 | ‘Update file’  | 2.3.5.1 | Derived | 3.3-2.1.2 and 3.4-2.2 |
 | Command Argument: Response_requested | 2.1.3 | 3.3.1.5 | 3.1-3.1, 3.2-3.1, 3.2-3.2.1 and 3.2-3.2.2 |
