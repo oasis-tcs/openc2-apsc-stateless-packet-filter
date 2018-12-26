@@ -167,9 +167,9 @@ Example:
 ```
 
 ## 1.6 Overview
-OpenC2 is a suite of specifications to command actuators that execute cyber defense functions.  These specifications include the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)), Actuator Profiles, and Transfer Specifications.  The OpenC2 Language Specification and Actuator Profile(s) specifications focus on the standard at the producer and consumer of the command and response while the transfer specifications focus on the protocols for their exchange.
+OpenC2 is a suite of specifications to command actuators that execute cyber defense functions.  These specifications include the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html), Actuator Profiles, and Transfer Specifications.  The OpenC2 Language Specification and Actuator Profile(s) specifications focus on the standard at the producer and consumer of the command and response while the transfer specifications focus on the protocols for their exchange.
 
-* ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)) provides the semantics for the essential elements of the language, the structure for commands and responses, and the schema that defines the proper syntax for the language elements that represents the command or response.
+* [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) provides the semantics for the essential elements of the language, the structure for commands and responses, and the schema that defines the proper syntax for the language elements that represents the command or response.
 * OpenC2 Actuator Profiles specify the subset of the OpenC2 language relevant in the context of specific actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely) to implement multiple actuator profiles.  Actuator profiles extend the language by defining specifiers that identify the actuator to the required level of precision and may define command arguments that are relevant and/or unique to those actuator functions.
 * OpenC2 Transfer Specifications utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
 
@@ -202,7 +202,7 @@ OpenC2 is conceptually partitioned into four layers as shown in Table 1-1.
 | Layer | Examples |
 | :--- | :--- |
 | Function-Specific Content | Actuator Profiles<br>(standard and extensions) |
-| Common Content | Language Specification<br>(this document) |
+| Common Content | [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) |
 | Message | Transfer Specifications<br>(OpenC2-over-HTTPS, OpenC2-over-CoAP, …) |
 | Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
@@ -249,7 +249,7 @@ The purpose of this document is to:
 
 This SLPF profile:
 
-* Does not define or implement ACTIONS beyond those defined in Version 1.0 of the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)).
+* Does not define or implement ACTIONS beyond those defined in Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
 * Is consistent with version 1.0 of the OpenC2 Language Specification
 
 Cyber defense systems that are utilizing OpenC2 may require the following components to implement the SLPF profile: 
@@ -263,7 +263,7 @@ This specification is organized into three major sections.
 
 Section One (this section) provides a nonnormative overview of the suite of specifications that realize OpenC2.  This section provides references as well as defines the scope and purpose of this specification. 
 
-[Section Two](#2) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
+[Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
 
 [Section Three](#3) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
