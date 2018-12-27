@@ -316,6 +316,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 | :--- | :--- | :--- | :--- |
 | 10 | **file** | File | Properties of a file. |
 | 11 | **ip_addr** | IP-Addr | The representation of one or more IP addresses (either version 4 or version 6) expressed using CIDR notation. |
+| 14 | **ip_net** | IP-Net | An aggregated range of IP addresses using a CIDR prefix length|
 | 15 | **ip_connection** | IP-Connection | A network connection that originates from a source and is addressed to a destination. Source and destination addresses may be either IPv4 or IPv6; both should be the same version |
 | 16 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
 | 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile. |
@@ -490,6 +491,7 @@ Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if im
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ip_connection** | required | required |   |   |   |
 | **ip_addr** | required | required |   |   |   |
+| **ip_net** | required | required |  |  |  |
 | **features** |   |   | required |   |   |
 | **slpf:rule_number** |   |   |   | optional |   |
 | **file** |   |   |   |   | optional |
@@ -554,7 +556,7 @@ The valid target types, associated specifiers, and options are summarized in sec
 #### 2.3.1.1 ‘Allow ip_connection’
 The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
 
-If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
+If SLPF consumer implements the 'allow ip_addr' AND the 'allow ip_net' commands, then 'allow ip_connection' is OPTIONAL. If SLPF consumer does not implement the 'allow ip_addr' OR the allow ip_net commands, then 'allow ip_connection' is REQUIRED.  
 
 The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
 
@@ -568,9 +570,9 @@ Products that receive but do not implement the ‘allow ip_connection’ command
 #### 2.3.1.2 ‘Allow ip_addr’
 The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
 
-If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
+If SLPF consumer implements the 'allow ip_connection' command, then 'allow ip_addr' is OPTIONAL. If SLPF consumer does not implement 'allow ip_connection' command, then 'allow ip_addr' is REQUIRED. 
 
-The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The ip-addr supports CIDR notation.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
+The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
 
 Products that receive but do not implement the ‘allow ip_addr’ command: 
 
@@ -579,8 +581,22 @@ Products that receive but do not implement the ‘allow ip_addr’ command:
 * SHOULD respond with ‘Target type not supported’ in the status text.
 * MAY respond with the 500 status code.
 
+#### 2.3.1.3 ‘Allow ip_net’
+The ‘allow ip_net’ command is required for openc2 producers implementing the SLPF.  
+
+If SLPF consumer implements the 'allow ip_connection' command, then 'allow ip_net' is OPTIONAL. If SLPF consumer does not implement 'allow ip_connection' command, then 'allow ip_net' is REQUIRED.   
+
+The command permits traffic as specified by the ip_net property and may a range of IPV4 or IPV6 addresses.  The addresses specified in the ip_net MUST be treated as a source OR destination address. 
+
+Products that receive but do not implement the ‘allow ip_net’ command: 
+
+* MUST NOT respond with a OK/200. 
+* SHOULD respond with the 501 response code 
+* SHOULD respond with ‘Target type not supported’ in the status text.
+* MAY respond with the 500 status code.
+
 ### 2.3.2 ‘Deny’
-‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the two ‘allow’ commands.  Table 2.3-2 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
+‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the three ‘allow’ commands.  Table 2.3-2 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
 
 Upon receipt of a command with an ARGUMENT that is not supported by the actuator, actuators:  
 
@@ -708,8 +724,8 @@ A conformant OpenC2 implementation SHALL meet all the normative requirements spe
 | Targets | 2.1.1.2 | 3.4.1.3, 3.4.1.8, 3.4.1.9, 3.4.1.11, 3.4.1.12,   |   |
 | Slpf:rule_number Target | 2.1.1.2.1 | SLPF-specific |   |
 | ‘Query features’ command | 2.3.3.1 | 4 | 3.1-2.1.5 and 3.2-2.1.3 |
-| ‘Allow ip_connection|<br>ip_addr’ | 2.3.1 | Derived | 3.1-2.1.1, 3.1-2.1.2, 3.2-2.1.1 and 3.4-2.1.3 |
-| Deny ip_connection|<br>ip_addr’ | 2.3.2 | Derived | 3.1-2.1.3, 3.1-2.1.4, 3.2-2.1.2 and 3.4-2.1.4 |
+| ‘Allow ip_connection, ip_addr or ip_net’ | 2.3.1 | Derived | 3.1-2.1.1, 3.1-2.1.2, 3.2-2.1.1 and 3.4-2.1.3 |
+| 'Deny ip_connection, ip_addr or ip_net’ | 2.3.2 | Derived | 3.1-2.1.3, 3.1-2.1.4, 3.2-2.1.2 and 3.4-2.1.4 |
 | ‘Delete slpf:rule_number’ | 2.3.4.1 | SLPF-specific | 3.3-2.1.1 and 3.4-2.1.1 |
 | ‘Update file’  | 2.3.5.1 | Derived | 3.3-2.1.2 and 3.4-2.2 |
 | Command Argument: Response_requested | 2.1.3 | 3.3.1.5 | 3.1-3.1, 3.2-3.1, 3.2-3.2.1 and 3.2-3.2.2 |
@@ -727,10 +743,10 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language Specification.  
-        1. ‘allow ip_connection’  in accordance with the normative text provided in section 2.3.1 of this specification
-        2. ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        3. ‘deny ip_connection’  in accordance with the normative text provided in section 2.3.2 of this specification
-        4. ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
+        1. ‘allow ip_connection’  in accordance with the normative text provided in section 2.3.1 of this specification.
+        2. ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification.
+        3. ‘deny ip_connection’  in accordance with the normative text provided in section 2.3.2 of this specification.
+        4. ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification.
         5. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.
 3. Command Arguments:
     1. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
@@ -745,8 +761,8 @@ The Actuator Profile for Stateless Packet Filtering Consumers specifies the mini
     4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language specification.  
-        1. ‘allow ip_connection’ or  ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        2. ‘deny ip_connection’ or ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
+        1. ‘allow ip_connection’ in accordance with the normative text provided in section 2.3.1 of this specification.  The 'allow ip_addr' AND 'allow ip_net' commands MAY be implemented as an alternative to the 'allow ip_connection' command.  
+        2. ‘deny ip_connection’ in accordance with the normative text provided in section 2.3.2 of this specification. The 'deny ip_addr' AND 'deny ip_net' commands MAY be implemented as an alternative to the 'deny ip_connection' command.
         3. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.
 3. Command Arguments:
     1. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
@@ -782,10 +798,14 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
     2. **MUST** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification
 2. Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where version 1.0 of the Language specification defines the ‘file’ target and actions; and the ‘slpf:rule_number’ target type is defined in this specification
-        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification
-        2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification
-        3. ‘allow ip_connection’ and ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
-        4. ‘deny ip_connection’ and ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
+        1. ‘delete slpf:rule_number’ in accordance with the normative text provided in section 2.3.4.1 of this specification.
+        2. ‘update file’ in accordance with the normative text provided in section 2.3.5.1 of this specification.
+        3. ‘allow ip_connection’ in accordance with the normative text provided in section 2.3.1 of this specification.
+        4. ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification.
+        5. ‘allow ip_net’ in accordance with the normative text provided in section 2.3.1 of this specification.
+        6. ‘deny ip_connection’ in accordance with the normative text provided in section 2.3.2 of this specification.
+        7. ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification.
+        8. ‘deny ip_net’ in accordance with the normative text provided in section 2.3.2 of this specification.
 3. Command Arguments:
     1. **MUST** implement the start_time command argument as a valid option for any command other than ‘query <target>’ 
     2. **MUST** implement the following command arguments as a valid option for any command other than ‘query <target>’ and ‘update file’
