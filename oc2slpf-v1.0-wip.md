@@ -1594,7 +1594,7 @@ The following individuals are acknowledged for providing comments, suggested tex
 * Romano, Jason- National Security Agency 
 * Royer, Phillip- Splunk 
 * Skeen, Duane- Northrup Grumman 
-* Sparrell, Duncan- sFractal 
+* Sparrell, Duncan- sFractal Consulting
 * Stair, Michael- AT&T 
 * Storms, Andrew- New Context 
 * Stueve, Gerald- Fornetix 
