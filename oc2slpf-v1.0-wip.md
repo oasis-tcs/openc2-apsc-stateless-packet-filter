@@ -715,7 +715,7 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
     1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
     2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
     3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
-    4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
+    4. **MUST** be conformant with Version 1.0 of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language Specification.  
         1. ‘allow ip_connection’  in accordance with the normative text provided in section 2.3.1 of this specification
@@ -733,7 +733,7 @@ The Actuator Profile for Stateless Packet Filtering Consumers specifies the mini
     1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
     2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
     3. **MUST** support the use of a transfer specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
-    4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
+    4. **MUST** be conformant with Version 1.0 of the Language Specification
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language specification.  
         1. ‘allow ip_connection’ or  ‘allow ip_addr’ in accordance with the normative text provided in section 2.3.1 of this specification
