@@ -1022,7 +1022,7 @@ Block a particular connection within the domain and do not send a host unreachab
   },
   "actuator": {
     "slpf": {
-      "asset_id": "30"
+,      "asset_id": "30"
     }
   }
 }
@@ -1052,7 +1052,7 @@ Block all outbound ftp data transfers, send false acknowledgement and request ac
   },
   "args": {
     "slpf": {
-      "drop_process": "false_ack"
+      "drop_process": "false_ack",
       "direction": "egress"
     }
   },
