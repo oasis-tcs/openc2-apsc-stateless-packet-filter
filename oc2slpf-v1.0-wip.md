@@ -1037,7 +1037,7 @@ Block a particular connection within the domain and do not send a host unreachab
 ```
 
 ### C.1.2  Block all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers, therefore all endpoints that can execute the command should.
+Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers. In a multicast environment, this indicates that all endpoints that can execute the command should. If an endpoint supports multiple profiles, then a poplulated actuator field indicates which profile is to be used to process the command.
 
 **Command:**
 
@@ -1113,7 +1113,7 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ip_a
 ```
 
 ### C.1.4 Permit ftp transfers to a particular destination. 
-Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted.)
+Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted.)  The actuator field was populated with no additional specifiers. In a multicast environment, this indicates that all endpoints that can execute the command should. If an endpoint supports multiple profiles, a poplulated actuator field indicates which profile is to be used to process the command.
 
 **Command:**
 
