@@ -1292,7 +1292,7 @@ This command queries the actuator to determine both the language versions and th
 
 **Response:**
 
-The actuator device is apparently a smart toaster for which an extension actuator profile has been written.  The device supports both the standard slpf functions and whatever commands are defined in the extension profile.
+The actuator device is apparently a smart front-door-lock for which an extension actuator profile has been written.  The device supports both the standard slpf functions and whatever commands are defined in the extension profile.
 
 ```
 {
@@ -1300,7 +1300,7 @@ The actuator device is apparently a smart toaster for which an extension actuato
   "versions": ["1.3"],
   "profiles": [
     "oasis-open.org/openc2/v1.0/ap-slpf",
-    "example.com/openc2/products/iot-toaster"
+    "example.com/openc2/products/iot-front-door-lock"
     ]
 }
 ```
