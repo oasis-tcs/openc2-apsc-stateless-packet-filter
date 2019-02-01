@@ -45,8 +45,8 @@ This prose specification is one component of a Work Product that also includes:
     * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2ls-v1.0-slpf-merged.json
 
 #### Abstract:
-Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.  Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic (such as address, port, protocol etc). This profile defines the actions, targets, specifiers and options that are consistent with version 1.0 of the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)) in the context of stateless packet filtering.
 
+Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.  Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic (such as address, port, protocol etc). This profile defines the actions, targets, specifiers and options that are consistent with version 1.0 of the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)) in the context of stateless packet filtering.
 
 #### Status:
 This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -234,7 +234,7 @@ The Integrated Adaptive Cyber Defense (IACD) framework defines a collection of a
 
 The goal of OpenC2 is to enable coordinated defense in cyber-relevant time between decoupled blocks that perform cyber defense functions.  OpenC2 focuses on the Acting portion of the IACD framework; the assumption that underlies the design of OpenC2 is that the sensing/analytics have been provisioned and the decision to act has been made. This goal and these assumptions guides the design of OpenC2:
 
-* **Technology Agnostic:**  The OpenC2 language defines a set of abstract atomic cyber defense actions in a platform and product agnostic manner
+* **Technology Agnostic:**  The OpenC2 language defines a set of abstract atomic cyber defense actions in a platform and implementation agnostic manner
 * **Concise:**  An OpenC2 command is intended to convey only the essential information required to describe the action required and can be represented in a very compact form for communications-constrained environments
 * **Abstract:**  OpenC2 commands and responses are defined abstractly and can be encoded and transferred via multiple schemes as dictated by the needs of different implementation environments
 * **Extensible:**  While OpenC2 defines a core set of actions and targets for cyber defense, the language is expected to evolve with cyber defense technologies, and permits extensions to accommodate new cyber defense technologies.
@@ -271,6 +271,7 @@ This specification is organized into three major sections.
 Section One (this section) provides a non-normative overview of the suite of specifications that realize OpenC2.  This section provides references as well as defines the scope and purpose of this specification. 
 
 [Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
+
 
 [Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
@@ -520,26 +521,26 @@ Upon receipt of an unsupported command argument, SLPF consumers
 * SHOULD respond with "Option not supported" in the status text.  
 * MAY respond with the 500 status code.
 
-Products that send ‘allow target’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 producers that send ‘allow target’ commands and support the ‘delete slpf:rule_number’ command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * SHOULD populate the command options field with "response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
 * MUST populate the command options field with "response_requested" : “complete" if the insert_rule argument is populated. 
 
-Products that receive and successfully parse ‘allow <target>’ commands but cannot implement the ‘allow <target>’ :
+OpenC2 consumers that receive and successfully parse ‘allow <target>’ commands but cannot implement the ‘allow <target>’ :
 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 status code.
 * SHOULD respond with ‘Rule not updated’ in the status text.
 * MAY respond with the 500 status code. 
 
-Products that receive ‘allow <target>’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive ‘allow <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * Upon successful implementation of the ‘allow <target>’, MUST return the rule_number associated with the rule if the "response_requested" :  “complete" option is populated. 
 
-Products that receive ‘allow target’ commands and support the ‘insert_rule’ command argument:
+OpenC2 consumers that receive ‘allow target’ commands and support the ‘insert_rule’ command argument:
 
 * MUST assign the rule number provided if the "insert_rule" : <integer> option is populated. 
 * If the rule number is currently in use, then 
@@ -557,7 +558,7 @@ If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST i
 
 The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
 
-Products that receive but do not implement the ‘allow ip_connection’ command:
+OpenC2 consumers that receive but do not implement the ‘allow ip_connection’ command:
 
 * MUST NOT respond with a OK/200.  
 * SHOULD respond with the 501 response code. 
@@ -571,7 +572,7 @@ If the ‘allow ip_connection’ target is not implemented, then SLPF consumers 
 
 The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The ip-addr supports CIDR notation.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
 
-Products that receive but do not implement the ‘allow ip_addr’ command: 
+OpenC2 consumers that receive but do not implement the ‘allow ip_addr’ command: 
 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 response code 
@@ -587,7 +588,7 @@ Upon receipt of a command with an ARGUMENT that is not supported by the actuator
 * SHOULD respond with ‘Option not supported’ in the status text.  
 * MAY respond with the 500 status code.  
 
-Products that send ‘deny target’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 producers that send ‘deny target’ commands and support the ‘delete slpf:rule_number’ command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets) 
 * SHOULD populate the command options field with ‘"response_requested" : "complete”
@@ -596,12 +597,12 @@ Products that send ‘deny target’ commands and support the ‘delete slpf:rul
 
 if the insert_rule argument is populated. 
 
-Products that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
 * MUST support the slpf:rule_number target type as defined in section [Section 2.1.2.2](#2122-slpf-targets).
 * MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” argument is populated. 
 
-Products that receive ‘deny target’ commands and support the ‘insert_rule’ command argument:
+OpenC2 consumers that receive ‘deny target’ commands and support the ‘insert_rule’ command argument:
 
 * MUST assign the rule number provided if the "insert_rule" : <integer> argument is populated. 
 * If the rule number is currently in use, then 
@@ -619,16 +620,17 @@ The ‘query openc2’ command MUST be implemented in accordance with Version 1.
 ### 2.3.4 Delete
 The slpf:rule_number is the only valid target type for the delete action. The associated specifiers, and options are summarized in section 2.3.4.1.  Sample commands are presented in Annex C.  
 
+
 #### 2.3.4.1 delete slpf:rule_number
 The ‘delete slpf:rule_number’ command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  command MUST implement the slpf:rule_number target type described in [Section 2.1.2.2](#2.1.2.2-slpf-targets). 
 
-Products that send the ‘delete slpf:rule_number’ command: 
+OpenC2 producers that send the ‘delete slpf:rule_number’ command: 
 
 * MAY populate the command arguments field with ‘response_requested" : "complete”.
 * MUST NOT include other command arguments.  
 * MUST include exactly one rule_number.  
 
-Products that receive the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive the ‘delete slpf:rule_number’ command:
 
 * but cannot parse or process the ‘delete slpf:rule_number’ command:
     * MUST NOT respond with a OK/200. 
@@ -653,16 +655,17 @@ The ‘file’ target as defined in Version 1.0 of the Language Specification is
 #### 2.3.5.1 Update file 
 The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
 
-Table 2.3-2 presents the valid options for the ‘update file’ command.   Products that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in table 2.3-2
+Table 2.3-2 presents the valid options for the ‘update file’ command.   OpenC2 producers and consumers that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in table 2.3-2
+  
 
-Products that send the ‘update file’ command: 
+OpenC2 producers that send the ‘update file’ command:
 
 * MAY populate the arguments field with the "response_requested" argument.    “Complete”, “Ack” and “None” are valid Response-type for ‘update file’
 * MUST NOT include other command arguments.  
 * MUST populate the name specifier in the target. 
 * SHOULD populate the path specifier in the target. 
 
-Products that receive the ‘update file’ command:  
+OpenC2 consumers that receive the ‘update file’ command:  
 
 * but cannot parse or process the command 
     * MUST NOT respond with a OK/200.
@@ -676,8 +679,8 @@ Products that receive the ‘update file’ command:
 * but cannot access the file specified in the file target 
     * MUST respond with status code 500 
     * SHOULD respond with ‘cannot access file’ in the status text. 
-* upon successful parsing and initiating the processing of the ‘update file’ command, products MAY respond with response code 102. 
-* upon completion of all the steps necessary to complete the update and the actuator commences operations functioning with the new file, actuators products SHOULD respond with response code 200.     
+* upon successful parsing and initiating the processing of the ‘update file’ command, OpenC2 consumers MAY respond with response code 102. 
+* upon completion of all the steps necessary to complete the update and the actuator commences operations functioning with the new file, actuators OpenC2 consumers SHOULD respond with response code 200.     
 
 Refer to Annex C for sample commands.  
 
@@ -1358,7 +1361,7 @@ The result is a single schema defining the syntax of all commands supported by t
 
 1. the tailored OpenC2 schema module (Annex B), merged with
 2. each imported module (e.g., the SLPF schema module of Annex A, schemas from other profiles supported by this actuator), and,
-3. further tailored for the specific actuator product by removing any unsupported optional elements.
+3. further tailored for the specific actuator by removing any unsupported optional elements.
 
 **Schema File:**
 
