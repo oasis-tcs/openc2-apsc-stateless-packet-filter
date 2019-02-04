@@ -33,17 +33,6 @@
 * Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting](http://www.sfractal.com/)
 * Alex Everett (alex.everett@unc.edu), [University of North Carolina, Chapel Hill](http://www.unc.edu/)
 
-#### Additional artifacts:
-This prose specification is one component of a Work Product that also includes:
-* SLPF schema ([Annex A](#annex-a-slpf-schema)):
-    * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2slpf-v1.0.json (authoritative)
-    * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2slpf-v1.0.pdf (formatted)
-* Tailored OpenC2 schema ([Annex B](#annex-b-tailored-openc2-schema)):
-    * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2ls-v1.0-slpf.json (example)
-    * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2ls-v1.0-slpf.pdf (formatted)
-* Merged schema example ([Annex C.4.5](#c45-actuator-schema)):
-    * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/schemas/oc2ls-v1.0-slpf-merged.json
-
 #### Abstract:
 
 Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.  Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic (such as address, port, protocol etc). This profile defines the actions, targets, specifiers and options that are consistent with version 1.0 of the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)) in the context of stateless packet filtering.
@@ -96,7 +85,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 _This section is non-normative_
 
-OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  The contents of both the command and the response are fully described in schemas, allowing both parties to recognize the syntax constraints imposed on the exchange.
+OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  
 
 OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices.  These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device.  The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.
 
@@ -176,7 +165,7 @@ Example:
 ## 1.6 Overview
 OpenC2 is a suite of specifications to command actuators that execute cyber defense functions.  These specifications include the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html), Actuator Profiles, and Transfer Specifications.  The OpenC2 Language Specification and Actuator Profile(s) specifications focus on the standard at the producer and consumer of the command and response while the transfer specifications focus on the protocols for their exchange.
 
-* [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) provides the semantics for the essential elements of the language, the structure for commands and responses, and the schema that defines the proper syntax for the language elements that represents the command or response.
+* The [OpenC2 Language Specification] (http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) provides the semantics for the essential elements of the language, the structure for commands and responses, and defines the proper syntax for the language elements that represents the command or response.
 * OpenC2 Actuator Profiles specify the subset of the OpenC2 language relevant in the context of specific actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely) to implement multiple actuator profiles.  Actuator profiles extend the language by defining specifiers that identify the actuator to the required level of precision and may define command arguments that are relevant and/or unique to those actuator functions.
 * OpenC2 Transfer Specifications utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
 
@@ -250,9 +239,8 @@ The purpose of this document is to:
 
 * Identify the required and optional OpenC2 ACTIONS for actuators with SLPF functionality.
 * Identify the required and optional TARGET types and associated specifiers for each action in the SLPF class of actuators.
-* Identify ACTUATOR-SPECIFIERS,  ARGUMENTS for each action-target pair that are applicable and/or unique to the SLPF class of actuators
+* Identify ACTUATOR-SPECIFIERS and ARGUMENTS for each action-target pair that are applicable and/or unique to the SLPF class of actuators
 * Annotate each Action/Target pair with a justification and example, and provide sample OpenC2 commands to a SLPF with corresponding responses 
-* Provide an abstract schema that captures the specifiers and options for a SLPF 
 
 This SLPF profile:
 
@@ -273,9 +261,10 @@ Section One (this section) provides a non-normative overview of the suite of spe
 [Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
 
 
+
 [Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
-This specification provides three non-normative Annexes.  OpenC2 is intended for machine to machine interactions, therefore an [SLPF Schema](#annex-a--slpf-schema) and the applicable portions of the OpenC2 Language [Schema](#annex-b--tailored-openc2-schema) are provided to facilitate development.  There is also an [Annex C](#annex-c-sample-commands) that provides multiple examples of SLPF commands (JSON serialization).   
+OpenC2 is intended for machine to machine interactions, therefore an Annex with multiple examples of SLPF commands (JSON serialization) is provided to facilitate development.   
 
 ---
 
@@ -450,10 +439,9 @@ Table 2.2.1-1 lists the results defined in the OpenC2 Language specification tha
 | 1 | **status** | Status-Code | 0..1 | An integer status code |
 | 2 | **status_text** | String | 0..1 | A free-form human-readable description of the response status |
 | 6 | **versions** | Version | 0..n | List of OpenC2 language versions supported by this actuator |
-| 7 | **profiles** | jadn:Uname | 0..n | List of profiles supported by this actuator |
-| 8 | **schema** | jadn:Schema | 0..1 | Syntax of the OpenC2 language elements supported by this actuator |
-| 9 | **pairs** | Action-Targets | 0..n | List of targets applicable to each supported action |
-| 10 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
+| 7 | **profiles** |Uname | 0..n | List of profiles supported by this actuator |
+| 8 | **pairs** | Action-Targets | 0..n | List of targets applicable to each supported action |
+| 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
 | 1024 | **slpf** | slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
 
 Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language specification that are applicable to SLPF.
@@ -800,186 +788,9 @@ OpenC2 SLPF producers that are conformant to all of the normative requirements i
 
 ---
 
-# Annex A  SLPF Schema
 
-_This Annex is normative_
-
-This annex defines the data objects used by conforming SLPF implementations, as shown in Section 2.  This annex is normative, however in the event of a conflict between this annex, the property tables presented in section 2, and the separate plain text file linked below, the separate plain text file is authoritative.
-
-**Schema Files:**
-
-* Links to the schema files oc2slpf-v1.0.json (authoritative) and oc2slpf-v1.0.pdf (formatted) are listed in the [Additional artifacts](#additional-artifacts) section on the front page of this specification.
-
-```
-{
- "meta": {
-  "module": "oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0",
-  "patch": "0",
-  "title": "Stateless Packet Filtering",
-  "description": "Data definitions for Stateless Packet Filtering (SLPF) functions",
-  "exports": ["Target", "Specifiers", "Args", "Results"]
- },
- "types": [
-  ["Target", "Choice", [], "", [
-    [1, "rule_number", "Rule-ID", [], ""]]
-  ],
-  ["Args", "Map", [], "", [
-    [1, "drop_process", "Drop-Process", ["[0"], ""],
-    [2, "running", "Boolean", ["[0"], ""],
-    [3, "direction", "Direction", ["[0"], ""],
-    [4, "insert_rule", "Rule-ID", ["[0"], ""]]
-  ],
-  ["Drop-Process", "Enumerated", [], "", [
-    [1, "none", ""],
-    [2, "reject", ""],
-    [3, "false_ack", ""]]
-  ],
-  ["Direction", "Enumerated", [], "", [
-    [1, "ingress", ""],
-    [2, "egress", ""]]
-  ],
-  ["Rule-ID", "Integer", [], ""],
-  ["Specifiers", "Map", [], "", [
-    [1, "hostname", "String", ["[0"], ""],
-    [2, "named_group", "String", ["[0"], ""],
-    [3, "asset_id", "String", ["[0"], ""],
-    [4, "asset_tuple", "String", ["[0", "]10"], ""]]
-  ],
-  ["Results", "Map", [], "", [
-    [1, "rule_number", "Rule-ID", ["[0"], ""]]
-  ]]
-}
-
-```
-
----
-
-# Annex B  Tailored OpenC2 Schema 
-
-_This section is non-normative_
-
-This annex is a copy of the schema from the OpenC2 Language Specification tailored to include only elements needed to support the SLPF functions defined in this document.  This subset defines the elements of the Language Specification that are meaningful in the context of SLPF, however an implementation may have capabilities beyond the scope of an SLPF therefore may support additional elements of the OpenC2 language beyond those included here. 
-
-**Schema Files:**
-
-* Links to the schema files oc2ls-v1.0-slpf.json (example) and oc2ls-v1.0-slpf.pdf (formatted) are listed in the [Additional artifacts](#additional-artifacts) section on the front page of this specification.
-
-```
-{
- "meta": {
-  "module": "oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0",
-  "patch": "0+slpf",
-  "title": "OpenC2 Language Objects",
-  "description": "OpenC2 Language content used by Stateless Packet Filters.",
-  "imports": [
-   ["slpf", "oasis-open.org/openc2/v1.0/ap-slpf"],
-   ["jadn", "oasis-open.org/openc2/v1.0/jadn"]
-  ],
-  "exports": ["OpenC2-Command", "OpenC2-Response"]
- },
- "types": [
-  ["OpenC2-Command", "Record", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "target", "Target", [], ""],
-    [3, "args", "Args", ["[0"], ""],
-    [4, "actuator", "Actuator", ["[0"], ""]
-  ]],
-  ["Action", "Enumerated", [], "", [
-    [3, "query", ""],
-    [6, "deny", ""],
-    [8, "allow", ""],
-    [16, "update", ""],
-    [20, "delete", ""]
-  ]],
-  ["Target", "Choice", [], "", [
-    [16, "features", "Features", [], ""],
-    [10, "file", "File", [], ""],
-    [11, "ip_addr", "IP-Addr", [], ""],
-    [15, "ip_connection", "IP-Connection", [], ""],
-    [1024, "slpf", "slpf:Target", [], ""]
-  ]],
-  ["Actuator", "Choice", [], "", [
-    [1024, "slpf", "slpf:Specifiers", [], ""]
-  ]],
-  ["Args", "Map", [], "", [
-    [1, "start_time", "Date-Time", ["[0"], ""],
-    [2, "stop_time", "Date-Time", ["[0"], ""],
-    [3, "duration", "Duration", ["[0"], ""],
-    [4, "response_requested", "Response-Type", ["[0"], ""],
-    [1024, "slpf", "slpf:Args", ["[0"], ""]
-  ]],
-  ["OpenC2-Response", "Map", [], "", [
-    [1, "status", "Status-Code", ["[0"], ""],
-    [2, "status_text", "String", ["[0"], ""],
-    [6, "versions", "Version", ["[0", "]0"], ""],
-    [7, "profiles", "jadn:Uname", ["[0", "]0"], ""],
-    [8, "schema", "jadn:Schema", ["[0"], ""],
-    [9, "pairs", "Action-Targets", ["[0", "]0"], ""],
-    [10, "rate_limit", "Number", ["[0"], ""],
-    [1024, "slpf", "slpf:Results", ["[0"], ""]
-  ]],
-  ["Status-Code", "Enumerated", ["="], "", [
-    [102, "Processing", ""],
-    [200, "OK", ""],
-    [400, "Bad Request", ""],
-    [500, "Internal Error", ""],
-    [501, "Not Implemented", ""]
-  ]],
-  ["Features", "ArrayOf", ["*Feature", "[0"], ""],
-  ["File", "Map", [], "", [
-    [1, "name", "String", ["[0"], ""],
-    [2, "path", "String", ["[0"], ""],
-    [3, "hashes", "Hashes", ["[0"], ""]
-  ]],
-  ["IP-Addr", "Binary", ["@ip-addr"], ""],
-  ["IP-Connection", "Record", [], "", [
-    [1, "src_addr", "IP-Addr", ["[0"], ""],
-    [2, "src_port", "Port", ["[0"], ""],
-    [3, "dst_addr", "IP-Addr", ["[0"], ""],
-    [4, "dst_port", "Port", ["[0"], ""],
-    [5, "protocol", "L4-Protocol", ["[0"], ""]
-  ]],
-  ["Request-Id", "Binary", [], ""],
-  ["Date-Time", "Integer", [], ""],
-  ["Duration", "Integer", [], ""],
-  ["Hashes", "Map", [], "", [
-    [1, "md5", "Binary", ["[0"], ""],
-    [4, "sha1", "Binary", ["[0"], ""],
-    [6, "sha256", "Binary", ["[0"], ""]
-  ]],
-  ["L4-Protocol", "Enumerated", [], "", [
-    [1, "icmp", ""],
-    [6, "tcp", ""],
-    [17, "udp", ""],
-    [132, "sctp", ""]
-  ]],
-  ["Port", "Integer", ["[0", "]65535"], ""],
-  ["Feature", "Enumerated", [], "", [
-    [1, "versions", ""],
-    [2, "profiles", ""],
-    [3, "schema", ""],
-    [4, "pairs", ""],
-    [5, "rate_limit", ""]
-  ]],
-  ["Response-Type", "Enumerated", [], "", [
-    [0, "none", ""],
-    [1, "ack", ""],
-    [2, "status", ""],
-    [3, "complete", ""]
-  ]],
-  ["Version", "String", [], ""],
-  ["Action-Targets", "Array", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "targets", "Target", ["]0", "*"], ""]
-  ]]
- ]
-}
-
-```
-
----
-
-# Annex C Sample commands (Informative)
+# Annex A Sample commands (Informative)
+This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in  JSON, however other encodings are possible provided the command is validated against the property tables presented in this specification.  Examples of corresponding responses will be provided where appropriate.
 
 _This section is non-normative_
 
@@ -1001,7 +812,7 @@ The examples include Integer Date-Time fields; the conversion of Integer values 
 | :--- | :--- |
 | `1534775460000` | `Monday, August 20, 2018 2:31:00 PM GMT, 2018-08-20T10:31:00-04:00` |
 
-## C.1 Deny and Allow
+## A.1 Deny and Allow
 Deny and allow are mandatory to implement and can be treated as mathematical complements of each other. Unless otherwise stated, the example targets, specifiers, modifiers and corresponding responses are applicable to both actions.
 
 ### C.1.1 Deny a particular connection
@@ -1045,8 +856,9 @@ Block a particular connection within the domain and do not send a host unreachab
 }
 ```
 
-### C.1.2  Block all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers. In a multicast environment, this indicates that all endpoints that can execute the command should. If an endpoint supports multiple profiles, then a poplulated actuator field indicates which profile is to be used to process the command.
+
+### A.1.2  Block all outbound ftp transfers
+Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers, therefore all endpoints that can execute the command should.
 
 **Command:**
 
@@ -1096,7 +908,7 @@ Case Three: the command failed because an argument was not supported.
 }
 ```
 
-### C.1.3  Block all inbound traffic from a particular source. 
+### A.1.3  Block all inbound traffic from a particular source. 
 Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ip_addr target and the direction argument was used. In this case only the perimeter filters should update the rule.
 
 **Command:**
@@ -1121,8 +933,9 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ip_a
 }
 ```
 
-### C.1.4 Permit ftp transfers to a particular destination. 
-Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted.)  The actuator field was populated with no additional specifiers. In a multicast environment, this indicates that all endpoints that can execute the command should. If an endpoint supports multiple profiles, a poplulated actuator field indicates which profile is to be used to process the command.
+### A.1.4 Permit ftp transfers to a particular destination. 
+Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted.)
+
 
 **Command:**
 
@@ -1155,7 +968,7 @@ In this case the actuator returned a rule number associated with the allow.
 }
 ```
 
-## C.2 Delete Rule
+## A.2 Delete Rule
 Used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.
 
 In this case the rule number assigned in a previous allow will be removed (refer to the final example in section C.1)
@@ -1179,7 +992,7 @@ In this case the rule number assigned in a previous allow will be removed (refer
 }
 ```
 
-## C.3 Update file
+## A.3 Update file
 Implementation of the Update action is optional.  Update is intended for the device to process new configuration files. The update action is a compound action in that all of the steps required for a successful update (such as download the new file, install the file, reboot etc.) are implied. File is the only valid target type for Update.
 
 Instructs the firewalls to acquire a new configuration file. Note that all network based firewalls will install the new update because no particular firewall was identified. Host based firewalls will not act on this because network firewalls were identified as the actuator. 
@@ -1229,8 +1042,11 @@ This actuator could not access the file
 }
 ```
 
-## C.4 Query features
-Implementation of query features is required.  The query features command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query features command can also be used to check the status of the actuator.
+
+## A.4 Query openc2
+Implementation of query openc2 is required.  The query openc2 command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
+=======
+
 
 ### C.4.1 No query items set 
 This command uses query features with no query items to verify that the actuator is functioning. 
@@ -1254,7 +1070,7 @@ The actuator is alive.
 {"status": 200}
 ```
 
-### C.4.2 Version of Language specification supported
+### A.4.2 Version of Language specification supported
 This command queries the actuator to determine which version(s) of the language specification are supported.  The language specifications use semantic versioning ("major.minor"); for each supported major version the actuator need only report the highest supported minor version.
 
 **Command:**
@@ -1279,7 +1095,7 @@ The Actuator supports language specification versions 1.0 - 1.3.
 }
 ```
 
-### C.4.3 Actuator profiles supported
+### A.4.3 Actuator profiles supported
 This command queries the actuator to determine both the language versions and the actuator profiles supported.
 
 **Command:**
@@ -1308,7 +1124,7 @@ The actuator device is apparently a smart front-door-lock for which an extension
 }
 ```
 
-### C.4.4 Specific Commands Supported
+### A.4.4 Specific Commands Supported
 This command queries the actuator to determine which action-target pairs are supported.  Not all targets are meaningful in the context of a specific action, and although a command such as "update ip_connection" may be syntactically valid, the combination does not specify an operation supported by the actuator.
 
 **Command:**
@@ -1341,239 +1157,8 @@ The actuator supports all action-target pairs shown in Table 2.3-1 - Command Mat
 }
 ```
 
-### C.4.5 Actuator Schema
-This command queries the actuator for the syntax definition for all supported commands.
 
-**Command:**
 
-```
-{
-  "action": "query",
-  "target": {
-    "openc2": ["schema"]
-  }
-}
-```
-
-**Response:**
-
-The result is a single schema defining the syntax of all commands supported by this actuator.  It is constructed from:
-
-1. the tailored OpenC2 schema module (Annex B), merged with
-2. each imported module (e.g., the SLPF schema module of Annex A, schemas from other profiles supported by this actuator), and,
-3. further tailored for the specific actuator by removing any unsupported optional elements.
-
-**Schema File:**
-
-The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in this response is provided as a separate file, listed in the [Additional artifacts](#additional-artifacts) section on the front page of this specification.
-
-```
-{
- "status": 200,
- "schema": {
- "meta": {
-  "module": "oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0",
-  "patch": "0+slpf.merged",
-  "title": "OpenC2 Language Objects",
-  "description": "OpenC2 Language content used by Stateless Packet Filters.",
-  "exports": ["OpenC2-Command", "OpenC2-Response"]
- },
- "types": [
-  ["OpenC2-Command", "Record", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "target", "Target", [], ""],
-    [3, "args", "Args", ["[0"], ""],
-    [4, "actuator", "Actuator", ["[0"], ""]
-  ]],
-  ["Action", "Enumerated", [], "", [
-    [3, "query", ""],
-    [6, "deny", ""],
-    [8, "allow", ""],
-    [16, "update", ""],
-    [20, "delete", ""]
-  ]],
-  ["Target", "Choice", [], "", [
-    [16, "features", "Features", [], ""],
-    [10, "file", "File", [], ""],
-    [11, "ip_addr", "IP-Addr", [], ""],
-    [15, "ip_connection", "IP-Connection", [], ""],
-    [1024, "slpf", "slpf:Target", [], ""]
-  ]],
-  ["Actuator", "Choice", [], "", [
-    [1024, "slpf", "slpf:Specifiers", [], ""]
-  ]],
-  ["Args", "Map", [], "", [
-    [1, "start_time", "Date-Time", ["[0"], ""],
-    [2, "stop_time", "Date-Time", ["[0"], ""],
-    [3, "duration", "Duration", ["[0"], ""],
-    [4, "response_requested", "Response-Type", ["[0"], ""],
-    [1024, "slpf", "slpf:Args", ["[0"], ""]
-  ]],
-  ["OpenC2-Response", "Map", [], "", [
-    [1, "status", "Status-Code", ["[0"], ""],
-    [2, "status_text", "String", ["[0"], ""],
-    [6, "versions", "Version", ["[0", "]0"], ""],
-    [7, "profiles", "jadn:Uname", ["[0", "]0"], ""],
-    [8, "schema", "jadn:Schema", ["[0"], ""],
-    [9, "pairs", "Action-Targets", ["[0", "]0"], ""],
-    [10, "rate_limit", "Number", ["[0"], ""],
-    [1024, "slpf", "slpf:Results", ["[0"], ""]
-  ]],
-  ["Status-Code", "Enumerated", ["="], "", [
-    [102, "Processing", ""],
-    [200, "OK", ""],
-    [301, "Moved Permanently", ""],
-    [400, "Bad Request", ""],
-    [401, "Unauthorized", ""],
-    [403, "Forbidden", ""],
-    [404, "Not Found", ""],
-    [500, "Internal Error", ""],
-    [501, "Not Implemented", ""],
-    [503, "Service Unavailable", ""]
-  ]],
-  ["Features", "ArrayOf", ["*Feature", "[0"], ""],
-  ["File", "Map", [], "", [
-    [1, "name", "String", ["[0"], ""],
-    [2, "path", "String", ["[0"], ""],
-    [3, "hashes", "Hashes", ["[0"], ""]
-  ]],
-  ["IP-Addr", "Binary", ["@ip-addr"], ""],
-  ["IP-Connection", "Record", [], "", [
-    [1, "src_addr", "IP-Addr", ["[0"], ""],
-    [2, "src_port", "Port", ["[0"], ""],
-    [3, "dst_addr", "IP-Addr", ["[0"], ""],
-    [4, "dst_port", "Port", ["[0"], ""],
-    [5, "protocol", "L4-Protocol", ["[0"], ""]
-  ]],
-  ["Request-Id", "Binary", [], ""],
-  ["Date-Time", "Integer", [], ""],
-  ["Duration", "Integer", [], ""],
-  ["Hashes", "Map", [], "", [
-    [1, "md5", "Binary", ["[0"], ""],
-    [4, "sha1", "Binary", ["[0"], ""],
-    [6, "sha256", "Binary", ["[0"], ""]
-  ]],
-  ["L4-Protocol", "Enumerated", [], "", [
-    [1, "icmp", ""],
-    [6, "tcp", ""],
-    [17, "udp", ""],
-    [132, "sctp", ""]
-  ]],
-  ["Port", "Integer", ["[0", "]65535"], ""],
-  ["Feature", "Enumerated", [], "", [
-    [1, "versions", ""],
-    [2, "profiles", ""],
-    [3, "schema", ""],
-    [4, "pairs", ""],
-    [5, "rate_limit", ""]
-  ]],
-  ["Response-Type", "Enumerated", [], "", [
-    [0, "none", ""],
-    [1, "ack", ""],
-    [2, "status", ""],
-    [3, "complete", ""]
-  ]],
-  ["Version", "String", [], ""],
-  ["Action-Targets", "Array", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "targets", "Target", ["]0", "*"], ""]
-  ]],
-  ["slpf:Target", "Choice", [], "", [
-    [1, "rule_number", "slpf:Rule-ID", [], ""]
-  ]],
-  ["slpf:Args", "Map", [], "", [
-    [1, "drop_process", "slpf:Drop-Process", ["[0"], ""],
-    [2, "running", "Boolean", ["[0"], ""],
-    [3, "direction", "slpf:Direction", ["[0"], ""],
-    [4, "insert_rule", "slpf:Rule-ID", ["[0"], ""]
-  ]],
-  ["slpf:Drop-Process", "Enumerated", [], "", [
-    [1, "none", ""],
-    [2, "reject", ""],
-    [3, "false_ack", ""]
-  ]],
-  ["slpf:Direction", "Enumerated", [], "", [
-    [1, "ingress", ""],
-    [2, "egress", ""]
-  ]],
-  ["slpf:Rule-ID", "Integer", [], ""],
-  ["slpf:Specifiers", "Map", [], "", [
-    [1, "hostname", "String", ["[0"], ""],
-    [2, "named_group", "String", ["[0"], ""],
-    [3, "asset_id", "String", ["[0"], ""],
-    [4, "asset_tuple", "String", ["[0", "]10"], ""]
-  ]],
-  ["slpf:Results", "Map", [], "", [
-    [1, "rule_number", "slpf:Rule-ID", ["[0"], ""]
-  ]],
-  ["jadn:Schema", "Record", [], "", [
-    [1, "meta", "jadn:Meta", [], ""],
-    [2, "types", "jadn:Type", ["]0"], ""]
-  ]],
-  ["jadn:Meta", "Map", [], "", [
-    [1, "module", "jadn:Uname", [], ""],
-    [2, "patch", "String", ["[0"], ""],
-    [3, "title", "String", ["[0"], ""],
-    [4, "description", "String", ["[0"], ""],
-
-[5, "imports", "jadn:Import", ["[0", "]0"], ""],
-    [6, "exports", "jadn:Identifier", ["[0", "]0"], ""],
-    [7, "bounds", "jadn:Bounds", ["[0"], ""]
-  ]],
-  ["jadn:Import", "Array", [], "", [
-    [1, "nsid", "jadn:Nsid", [], ""],
-    [2, "uname", "jadn:Uname", [], ""]
-  ]],
-  ["jadn:Bounds", "Array", [], "", [
-    [1, "max_msg", "Integer", [], ""],
-    [2, "max_str", "Integer", [], ""],
-    [3, "max_bin", "Integer", [], ""],
-    [4, "max_fields", "Integer", [], ""]
-  ]],
-  ["jadn:Type", "Array", [], "", [
-    [1, "tname", "jadn:Identifier", [], ""],
-    [2, "btype", "jadn:JADN-Type", ["*"], ""],
-    [3, "opts", "jadn:Option", ["]0"], ""],
-    [4, "desc", "String", [], ""],
-    [5, "fields", "jadn:JADN-Type", ["&btype", "]0"], ""]
-  ]],
-  ["jadn:JADN-Type", "Choice", [], "", [
-    [1, "Binary", "Null", [], ""],
-    [2, "Boolean", "Null", [], ""],
-    [3, "Integer", "Null", [], ""],
-    [4, "Number", "Null", [], ""],
-    [5, "Null", "Null", [], ""],
-    [6, "String", "Null", [], ""],
-    [7, "Array", "jadn:FullField", ["]0"], ""],
-    [8, "ArrayOf", "Null", [], ""],
-    [9, "Choice", "jadn:FullField", ["]0"], ""],
-    [10, "Enumerated", "jadn:EnumField", ["]0"], ""],
-    [11, "Map", "jadn:FullField", ["]0"], ""],
-    [12, "Record", "jadn:FullField", ["]0"], ""]
-  ]],
-  ["jadn:EnumField", "Array", [], "", [
-
-[1, "", "Integer", [], ""],
-    [2, "", "String", [], ""],
-    [3, "", "String", [], ""]
-  ]],
-  ["jadn:FullField", "Array", [], "", [
-    [1, "", "Integer", [], ""],
-    [2, "", "jadn:Identifier", [], ""],
-    [3, "", "jadn:Identifier", [], ""],
-    [4, "", "jadn:Options", [], ""],
-    [5, "", "String", [], ""]
-  ]],
-  ["jadn:Identifier", "String", ["$^[a-zA-Z][\\w-]*$", "[1", "]32"], ""],
-  ["jadn:Nsid", "String", ["$^[a-zA-Z][\\w-]*$", "[1", "]8"], ""],
-  ["jadn:Uname", "String", ["[1", "]100"], ""],
-  ["jadn:Options", "ArrayOf", ["*jadn:Option", "[0", "]10"], ""],
-  ["jadn:Option", "String", ["[1", "]100"], ""]
- ]
- }
-}
-
-```
 
 # Annex D Acronyms
 
@@ -1597,8 +1182,7 @@ The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in t
 
 
 ---
-
-# Annex D Acknowledgments 
+# Annex B Acknowledgments 
 
 _This section is non-normative_
 
@@ -1642,7 +1226,8 @@ The following individuals are acknowledged for providing comments, suggested tex
 
 ---
 
-# Annex E Revision History
+
+# Annex C Revision History
 
 _This section is non-normative_
 
