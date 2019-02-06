@@ -688,16 +688,85 @@ Refer to Annex C for sample commands.
 ---
 
 # 3 Conformance statements
-This section identifies the requierments for twenty-two conformance profiles as they pertain to two conformnace targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8). The conformance profiles 
+This section identifies the requierments for twenty-two conformance profiles as they pertain to two conformnace targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8).  
 
-## 3.1 Conformance Clause 1: Basic SLPF Producers 
-The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
+## 3.1 Clauses Pertaining to the OpenC2 Producer Conformnace Target
+All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 11. 
 
-1. General Conformance:
-    1. **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1. 
-    2. All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.  
-    3. **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages. 
-    4. **MUST** be conformant with Version 1.0 (or higher) of the Language Specification
+### 3.1.1 Conformance Clause 1: Baseline OpenC2 Producer  
+An OpenC2 Producer satisifies Baseline OpenC2 Producer conformance if:  
+3.1.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
+3.1.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
+3.1.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
+3.1.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
+3.1.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
+3.1.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
+3.1.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
+3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
+* Conformnace Clause 2
+* Conformnace Clause 3
+* Conformance Clause 4 
+* Conformance Clause 5
+
+### 3.1.2 Conformance Clause 2: IP Version 4 Connection Producer
+An OpenC2 Producer statisifes 'IP Version 4 Connection Producer' conformance if:  
+3.1.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+3.1.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
+3.1.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
+
+### 3.1.3 Conformance Clause 3: IP Version 6 Connection Producer
+An OpenC2 Producer statisifes 'IP Version 6 Connection Producer' conformance if:  
+3.1.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+3.1.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
+3.1.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
+
+### 3.1.4 Conformance Clause 4: IP Version 4 Net Producer
+An OpenC2 Producer statisifes 'IP Version 4 Net Producer' conformance if:  
+3.1.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+3.1.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
+3.1.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
+
+### 3.1.5 Conformance Clause 5: IP Version 6 Net Producer
+An OpenC2 Producer statisifes 'IP Version 6 Net Producer' conformance if:  
+3.1.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+3.1.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
+3.1.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
+
+### 3.1.6 Conformance Clause 6: Update File Producer
+An OpenC2 Producer statisifes 'Update File Producer' conformnace if:  
+3.1.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
+
+### 3.1.7 Conformance Clause 7: delete rule number Producer
+An OpenC2 Producer statisifes 'delete rule Producer' conformnace if:  
+3.1.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
+
+### 3.1.8 Conformance Clause 8: Running Producer
+An OpenC2 Producer statisifes 'Running Producer' conformnace if:  
+3.1.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+
+### 3.1.9 Conformance Clause 9: Direction Producer
+An OpenC2 Producer statisifes 'Direction Producer' conformnace if:  
+3.1.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+
+### 3.1.10 Conformance Clause 10: drop-process Producer
+An OpenC2 Producer statisifes 'drop-process Producer' conformnace if:  
+3.1.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+
+### 3.1.11 Conformance Clause 11: Temporal Producer
+An OpenC2 Producer statisifes 'Temporal Producer' conformnace if:  
+3.1.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+3.1.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
+3.1.11.3 **MUST** implemnet the 'stop_time' and 'duratoin' command arguments as a valid option for any command other than 'query features' or 'update file'.  
+
+## 3.2 Conformance Clause 1: Base OpenC2 Producer  
+An OpenC2 Producer satisifies Base OpenC2 Producer conformance if:
+
+
 2. Base Commands (ACTION and TARGET pairs):
     1. **MUST** implement the following action target pairs where the actions and targets are defined in version 1.0 of the Language Specification.  
         1. ‘allow ip_connection’  in accordance with the normative text provided in section 2.3.1 of this specification
@@ -706,7 +775,7 @@ The Actuator Profile for the basic Stateless Packet Filtering Producers specifie
         4. ‘deny ip_addr’ in accordance with the normative text provided in section 2.3.2 of this specification
         5. ‘query openc2’ in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.
 3. Command Arguments:
-    1. **MUST** implement the ‘response_requested’ command argument as a valid option for any command: 
+    1.
 
 ## 3.2 Conformance Clause 2: Basic SLPF Consumers 
 The Actuator Profile for Stateless Packet Filtering Consumers specifies the minimum functionality required in order for a basic SPLF Consumer implementation to be conformant. 
