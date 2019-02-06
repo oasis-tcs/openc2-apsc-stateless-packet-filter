@@ -670,7 +670,8 @@ Products that receive the ‘update file’ command:
 * but cannot parse or process the command 
     * MUST NOT respond with a OK/200.
     * SHOULD respond with status code 400.  
-    * MAY respond with the 500 status code
+
+* MAY respond with the 500 status code
 * but do not support the ‘update file’ command type
     * MUST NOT respond with a OK/200.
     * SHOULD respond with status code 501 
@@ -687,35 +688,7 @@ Refer to Annex C for sample commands.
 ---
 
 # 3 Conformance statements
-Definitions:  The following terms apply to this section:  
-
-* **OpenC2 SLPF Producers:** Entities that send commands to and receive responses from OpenC2 SLPF consumers. 
-* **Basic SLPF Producers:**  OpenC2 SLPF producers that are conformant to all of the normative requirements identified in this specification as REQUIRED to implement. 
-* **Complete SLPF Producers:**  OpenC2 SLPF producers that are conformant to all of the normative requirements identified in this specification
-* **OpenC2 SLPF Consumers:** Entities that receive commands from and send responses to OpenC2 SLPF Producers.  
-* **Basic SLPF Consumers:**  OpenC2 SLPF consumers that are conformant to all of the normative requirements identified in this specification as REQUIRED to implement. 
-* **Complete SLPF Consumers:**  OpenC2 SLPF consumers that are conformant to all of the normative requirements identified in this specification
-
-A conformant OpenC2 implementation SHALL meet all the normative requirements specified in the SLPF Profile as well as applicable normative requirements specified in the Language Specification. Table 3-1 provides a overview of the applicable normative requirements.  The traceability for conformance criteria involving commands (action target pairs) are ‘derived’, where derived is defined as a combination of more than a single normative statements from the language specification into a single criteria within the SLPF specification.   Sections 3.1 through 3.X provide a concise summary of the corresponding conformance criteria.  
-
-**Table 3-1:  SLPF Traceability Matrix**
-
-| Conformance Criteria | SLPF Section Reference | Language Specification (V 1.0)  Reference | Conformance Criteria Reference |
-| :--- | :--- | :--- | :--- |
-| JSON Serialization |   | 2.2 | 3.1-1.1 and 3.2-1.1 |
-| OpenC2 Transfer Specification | 1.1 | 5 | 3.1-1.3, 3.2-1.3, 3.3-1.2 and 3.4-1.2 |
-| Actions | 2.1.1 | 3.3.1.2 |   |
-| Targets | 2.1.1.2 | 3.4.1.3, 3.4.1.8, 3.4.1.9, 3.4.1.11, 3.4.1.12,   |   |
-| Slpf:rule_number Target | 2.1.1.2.1 | SLPF-specific |   |
-| ‘Query features’ command | 2.3.3.1 | 4 | 3.1-2.1.5 and 3.2-2.1.3 |
-| ‘Allow ip_connection|<br>ip_addr’ | 2.3.1 | Derived | 3.1-2.1.1, 3.1-2.1.2, 3.2-2.1.1 and 3.4-2.1.3 |
-| Deny ip_connection|<br>ip_addr’ | 2.3.2 | Derived | 3.1-2.1.3, 3.1-2.1.4, 3.2-2.1.2 and 3.4-2.1.4 |
-| ‘Delete slpf:rule_number’ | 2.3.4.1 | SLPF-specific | 3.3-2.1.1 and 3.4-2.1.1 |
-| ‘Update file’  | 2.3.5.1 | Derived | 3.3-2.1.2 and 3.4-2.2 |
-| Command Argument: Response_requested | 2.1.3 | 3.3.1.5 | 3.1-3.1, 3.2-3.1, 3.2-3.2.1 and 3.2-3.2.2 |
-| Command Argument: start_time, end_time and/or  duration.  | 2.1.3 | 3.3.1.5 | 3.3-3.1, 3.3-3.2.1, 3.3-3.2.2<br>3.4-3.1, 3.4-3.2.1, 3.4-3.2.2 |
-| Command Argument: running, direction and/or  drop_process | 2.1.3 | SLPF-specific | 3.3-3.3.1, 3.3-3.3.2, 3.3-3.4<br>3.4-3.3.1, 3.4-3.3.2, 3.4-3.4 |
-| Response Codes | 2.2.1 | 3.3.2.2 |   |
+This section identifies the requierments for twenty-two conformance profiles as they pertain to two conformnace targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8). The conformance profiles 
 
 ## 3.1 Conformance Clause 1: Basic SLPF Producers 
 The Actuator Profile for the basic Stateless Packet Filtering Producers specifies the minimum functionality required in order for an OpenC2 SLPF Producer implementation to be conformant.
