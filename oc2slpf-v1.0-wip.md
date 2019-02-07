@@ -314,10 +314,13 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
+| 9 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
 | 10 | **file** | File | Properties of a file. |
-| 11 | **ip_addr** | IP-Addr | The representation of one or more IP addresses (either version 4 or version 6) expressed using CIDR notation. |
-| 15 | **ip_connection** | IP-Connection | A network connection that originates from a source and is addressed to a destination. Source and destination addresses may be either IPv4 or IPv6; both should be the same version |
-| 16 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
+| 13 | **ipv4_net** | IPv4-Net | The representation of one or more IPv4 addresses expressed using CIDR notation. |
+| 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation. |
+| 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
+| 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
+
 | 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile. |
 
  
@@ -480,25 +483,27 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
 
 ## 2.3 OpenC2 Commands
-An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands, identify which are required or optional to implement, and present the associated responses.  
+An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands and present the associated responses.  
 
-Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if implementation of the command is required or optional for Openc2 Producers and/or Openc2 Consumers.  An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable command. The subsequent subsections provide the property tables applicable to each OpenC2 command. 
+Table 2.3-1 defines the commands that are valid in the context of the SLPF profile and indicates if implementation of the command is required or optional for Openc2 Producers and/or Openc2 Consumers.  An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable command. The subsequent subsections provide the property tables applicable to each OpenC2 command. 
 
 **Table 2.3-1. Command Matrix**
 
 |   | Allow | Deny | Query | Delete | Update |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ip_connection** | required | required |   |   |   |
-| **ip_addr** | required | required |   |   |   |
-| **features** |   |   | required |   |   |
-| **slpf:rule_number** |   |   |   | optional |   |
-| **file** |   |   |   |   | optional |
+| **ipv4_connection** | valid | valid |   |   |   |
+| **ipv6_connection** | valid | valid |   |   |   |
+| **ipv4_net** | valid | valid |   |   |   |
+| **ipv6_net** | valid | valid |   |   |   |
+| **features** |   |   | valid |   |   |
+| **slpf:rule_number** |   |   |   | valid |   |
+| **file** |   |   |   |   | valid |
 
 Table 2.3-2 defines the command arguments that are allowed for a particular command by the SLPF profile.  A command (the top row in Table 2.3-2) paired with an argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the command/ argument provides details applicable to each command as influenced by the argument. 
 
 **Table 2.3-2. Command Arguments Matrix**
 
-|   | Allow<br><target> | Deny <target> | Query features | Delete slpf:rule_number | Update file |
+|   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **response** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
 | **start-time** | 2.3.1 | 2.3.2 |   | 2.3.4.1 | 2.3.5.1 |
@@ -547,16 +552,13 @@ Products that receive ‘allow target’ commands and support the ‘insert_rule
     * SHOULD respond with ‘Rule number currently in use’ in the  status text. 
     * MAY respond with the 500 status code. 
 
-    
-
 The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in Annex C.  
 
-#### 2.3.1.1 ‘Allow ip_connection’
-The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
+#### 2.3.1.1 ‘Allow ipv4_connection’
+The ‘allow ipv4_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv4_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
 
-If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
-
-The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
+The command permits traffic that is consistent with the specified ipv4_connection.  A valid ‘allow ipv4_connection’ command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
 Products that receive but do not implement the ‘allow ip_connection’ command:
 
@@ -565,14 +567,39 @@ Products that receive but do not implement the ‘allow ip_connection’ command
 * SHOULD respond with ‘Target type not supported’ in the  status text.
 * MAY respond with the 500 status code.
 
-#### 2.3.1.2 ‘Allow ip_addr’
-The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
+#### 2.3.1.2 ‘Allow ipv6_connection’
+The ‘allow ipv6_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.    
+The ‘allow ipv6_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
 
-If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
+The command permits traffic that is consistent with the specified ipv6_connection.  A valid ‘allow ipv6_connection’ command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv6_connection target MUST be treated as an ‘any’.  
 
-The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The ip-addr supports CIDR notation.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
+Products that receive but do not implement the ‘allow ipv6_connection’ command:
 
-Products that receive but do not implement the ‘allow ip_addr’ command: 
+* MUST NOT respond with a OK/200.  
+* SHOULD respond with the 501 response code. 
+* SHOULD respond with ‘Target type not supported’ in the  status text.
+* MAY respond with the 500 status code.
+
+#### 2.3.1.3 ‘Allow ipv4_net’
+The ‘allow ipv4_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv4_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+
+The command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address. 
+
+Products that receive but do not implement the ‘allow ipv4_net’ command: 
+
+* MUST NOT respond with a OK/200. 
+* SHOULD respond with the 501 response code 
+* SHOULD respond with ‘Target type not supported’ in the status text.
+* MAY respond with the 500 status code.
+
+#### 2.3.1.4 ‘Allow ipv6_net’
+The ‘allow ipv6_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv6_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+
+The command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address. 
+
+Products that receive but do not implement the ‘allow ipv6_net’ command: 
 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 response code 
@@ -695,148 +722,148 @@ All OpenC2 Producers that are conformant to this specification MUST satisfy Conf
 
 ### 3.1.1 Conformance Clause 1: Baseline OpenC2 Producer  
 An OpenC2 Producer satisifies Baseline OpenC2 Producer conformance if:  
-3.1.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
-3.1.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
-3.1.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
-3.1.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
-3.1.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
-3.1.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
-3.1.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
-3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
-* Conformnace Clause 2
-* Conformnace Clause 3
-* Conformance Clause 4 
-* Conformance Clause 5
+* 3.1.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
+* 3.1.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
+* 3.1.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
+* 3.1.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
+* 3.1.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
+* 3.1.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
+* 3.1.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
+* 3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
+   * Conformnace Clause 2
+   * Conformnace Clause 3
+   * Conformance Clause 4 
+   * Conformance Clause 5
 
 ### 3.1.2 Conformance Clause 2: IP Version 4 Connection Producer
 An OpenC2 Producer statisifes 'IP Version 4 Connection Producer' conformance if:  
-3.1.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-3.1.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
-3.1.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.1.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+* 3.1.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
+* 3.1.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.3 Conformance Clause 3: IP Version 6 Connection Producer
 An OpenC2 Producer statisifes 'IP Version 6 Connection Producer' conformance if:  
-3.1.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-3.1.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
-3.1.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.1.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+* 3.1.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
+* 3.1.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.4 Conformance Clause 4: IP Version 4 Net Producer
 An OpenC2 Producer statisifes 'IP Version 4 Net Producer' conformance if:  
-3.1.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-3.1.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
-3.1.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
+* 3.1.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+* 3.1.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
+* 3.1.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.5 Conformance Clause 5: IP Version 6 Net Producer
 An OpenC2 Producer statisifes 'IP Version 6 Net Producer' conformance if:  
-3.1.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-3.1.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
-3.1.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
+* 3.1.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
+* 3.1.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
+* 3.1.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.6 Conformance Clause 6: Update File Producer
 An OpenC2 Producer statisifes 'Update File Producer' conformnace if:  
-3.1.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
+* 3.1.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.1.7 Conformance Clause 7: delete rule number Producer
 An OpenC2 Producer statisifes 'delete rule Producer' conformnace if:  
-3.1.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
+* 3.1.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
 
 ### 3.1.8 Conformance Clause 8: Running Producer
 An OpenC2 Producer statisifes 'Running Producer' conformnace if:  
-3.1.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.9 Conformance Clause 9: Direction Producer
 An OpenC2 Producer statisifes 'Direction Producer' conformnace if:  
-3.1.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.10 Conformance Clause 10: drop-process Producer
 An OpenC2 Producer statisifes 'drop-process Producer' conformnace if:  
-3.1.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.11 Conformance Clause 11: Temporal Producer
 An OpenC2 Producer statisifes 'Temporal Producer' conformnace if:  
-3.1.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-3.1.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
-3.1.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
+* 3.1.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
+* 3.1.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
+* 3.1.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
 
-## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformnace Target
+## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
 All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22. 
 
-### 3.2.1 Conformance Clause 12: Baseline OpenC2 Producer  
-An OpenC2 Producer satisifies Baseline OpenC2 Consumer conformance if:  
-3.2.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
-3.2.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
-3.2.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
-3.2.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
-3.2.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
-3.2.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
-3.2.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
-3.2.1.7.1 All commands received with a response argument set to 'none' **MUST** process the command and **MUST NOT** send a response. This criteria supercedes all other normative text as it pertains to responses.   
-3.2.1.7.2 All commands received without the response argument (or response argument not set) **MUST** process the command and response in a manner that is consistent with "response_requested":"complete".  
-3.2.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
-* Conformnace Clause 13
-* Conformnace Clause 14
-* Conformance Clause 15 
-* Conformance Clause 16
+### 3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer  
+An OpenC2 Consumer satisifies Baseline OpenC2 Consumer conformance if:  
+* 3.2.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
+* 3.2.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
+* 3.2.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
+* 3.2.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
+* 3.2.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
+* 3.2.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
+* 3.2.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
+    * 3.2.1.7.1 All commands received with a response argument set to 'none' **MUST** process the command and **MUST NOT** send a response. This criteria supercedes all other normative text as it pertains to responses.   
+    * 3.2.1.7.2 All commands received without the response argument (or response argument not set) **MUST** process the command and response in a manner that is consistent with "response_requested":"complete".  
+* 3.2.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
+    * Conformnace Clause 13
+    * Conformnace Clause 14
+    * Conformance Clause 15 
+    * Conformance Clause 16
 
 ### 3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer
-An OpenC2 Producer statisifes 'IP Version 4 Connection Consumer' conformance if:  
-3.2.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-3.2.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
-3.2.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
+An OpenC2 Consumer statisifes 'IP Version 4 Connection Consumer' conformance if:  
+* 3.2.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
+* 3.2.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
+* 3.2.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer
-An OpenC2 Producer statisifes 'IP Version 6 Connection Consumer' conformance if:  
-3.2.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-3.2.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
-3.2.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
+An OpenC2 Consumer statisifes 'IP Version 6 Connection Consumer' conformance if:  
+* 3.2.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
+* 3.2.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
+* 3.2.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.4 Conformance Clause 15: IP Version 4 Net Consumer
-An OpenC2 Producer statisifes 'IP Version 4 Net Consumer' conformance if:  
-3.2.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-3.2.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
-3.2.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
+An OpenC2 Consumer statisifes 'IP Version 4 Net Consumer' conformance if:  
+* 3.2.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
+* 3.2.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
+* 3.2.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.5 Conformance Clause 16: IP Version 6 Net Consumer
-An OpenC2 Producer statisifes 'IP Version 6 Net Consumer' conformance if:  
-3.2.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-3.2.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
-3.2.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
+An OpenC2 Consumer statisifes 'IP Version 6 Net Consumer' conformance if:  
+* 3.2.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
+* 3.2.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
+* 3.2.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.6 Conformance Clause 17: Update File Consumer
-An OpenC2 Producer statisifes 'Update File Consumer' conformnace if:  
-3.2.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
+An OpenC2 Consumer statisifes 'Update File Consumer' conformnace if:  
+* 3.2.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.2.7 Conformance Clause 18: delete rule number Consumer
-An OpenC2 Producer statisifes 'delete rule Consumer' conformnace if:  
-3.2.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
+An OpenC2 Consumer statisifes 'delete rule Consumer' conformnace if:  
+* 3.2.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
 
 ### 3.2.8 Conformance Clause 19: Running Consumer
-An OpenC2 Producer statisifes 'Running Consumer' conformnace if:  
-3.2.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+An OpenC2 Consumer statisifes 'Running Consumer' conformnace if:  
+* 3.2.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.9 Conformance Clause 20: Direction Consumer
-An OpenC2 Producer statisifes 'Direction Consumer' conformnace if:  
-3.2.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+An OpenC2 Consumer statisifes 'Direction Consumer' conformnace if:  
+* 3.2.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.10 Conformance Clause 21: drop-process Consumer
-An OpenC2 Producer statisifes 'drop-process Consumer' conformnace if:  
-3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+An OpenC2 Consumer statisifes 'drop-process Consumer' conformnace if:  
+* 3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.11 Conformance Clause 22: Temporal Consumer
-An OpenC2 Producer statisifes 'Temporal Consumer' conformnace if:  
-3.2.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-3.2.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
-3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
+An OpenC2 Consumer statisifes 'Temporal Consumer' conformnace if:  
+* 3.2.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
+* 3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
 
 
 ---
@@ -1036,7 +1063,7 @@ The examples include Integer Date-Time fields; the conversion of Integer values 
 | `1534775460000` | `Monday, August 20, 2018 2:31:00 PM GMT, 2018-08-20T10:31:00-04:00` |
 
 ## C.1 Deny and Allow
-Deny and allow are mandatory to implement and can be treated as mathematical complements of each other. Unless otherwise stated, the example targets, specifiers, modifiers and corresponding responses are applicable to both actions.
+Deny and allow can be treated as mathematical complements of each other. Unless otherwise stated, the example targets, specifiers, modifiers and corresponding responses are applicable to both actions.
 
 ### C.1.1 Deny a particular connection
 Block a particular connection within the domain and do not send a host unreachable
@@ -1047,11 +1074,11 @@ Block a particular connection within the domain and do not send a host unreachab
 {
   "action": "deny",
   "target": {
-    "ip_connection": {
+    "ipv4_connection": {
       "protocol": "tcp",
-      "src_addr": "AQIDBA",
+      "src_addr": "1.2.3.4",
       "src_port": 10996,
-      "dst_addr": "xgIDBA",
+      "dst_addr": "198.2.3.4",
       "dst_port": 80
     }
   },
@@ -1138,7 +1165,7 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ip_a
 {
   "action": "deny",
   "target": {
-    "ip_addr": "AQIDBA"
+    "ipv6_addr": "3ffe:1900:4545:3:200:f8ff:fe21:67cf"
   },
   "args": {
     "response_requested": "none",
@@ -1163,9 +1190,9 @@ Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note th
 {
   "action": "allow",
   "target": {
-    "ip_connection": {
+    "ipv6_connection": {
       "protocol": "tcp",
-      "dst_addr": "xjNkEQ",
+      "dst_addr": "3ffe:1900:4545:3::f8ff:fe21:67cf",
       "src_port": 21
     }
   },
@@ -1262,11 +1289,11 @@ This actuator could not access the file
 }
 ```
 
-## C.4 Query openc2
-Implementation of query openc2 is required.  The query openc2 command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
+## C.4 Query features
+Implementation of query features is required.  The query features command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query features command can also be used to check the status of the actuator.
 
 ### C.4.1 No query items set 
-This command uses query openc2 with no query items to verify that the actuator is functioning. 
+This command uses query features with no query items to verify that the actuator is functioning. 
 
 **Command:**
 
@@ -1296,7 +1323,7 @@ This command queries the actuator to determine which version(s) of the language 
 {
   "action": "query",
   "target": {
-    "openc2": ["versions"]
+    "features": ["versions"]
   }
 }
 ```
@@ -1321,7 +1348,7 @@ This command queries the actuator to determine both the language versions and th
 {
   "action": "query",
   "target": {
-    "openc2": ["versions", "profiles"]
+    "features": ["versions", "profiles"]
   }
 }
 ```
@@ -1352,7 +1379,7 @@ For each supported action list the targets supported by this actuator.
 {
   "action": "query",
   "target": {
-    "openc2": ["pairs"]
+    "features": ["pairs"]
   }
 }
 ```
@@ -1374,235 +1401,6 @@ The actuator supports all action-target pairs shown in Table 2.3-1 - Command Mat
 }
 ```
 
-### C.4.5 Actuator Schema
-This command queries the actuator for the syntax definition for all supported commands.
-
-**Command:**
-
-```
-{
-  "action": "query",
-  "target": {
-    "openc2": ["schema"]
-  }
-}
-```
-
-**Response:**
-
-The result is a single schema defining the syntax of all commands supported by this actuator.  It is constructed from:
-
-1. the tailored OpenC2 schema module (Annex B), merged with
-2. each imported module (e.g., the SLPF schema module of Annex A, schemas from other profiles supported by this actuator), and,
-3. further tailored for the specific actuator product by removing any unsupported optional elements.
-
-**Schema File:**
-
-The non-normative merged schema example (oc2ls-v1.0-slpf-merged.json) shown in this response is provided as a separate file, listed in the [Additional artifacts](#additional-artifacts) section on the front page of this specification.
-
-```
-{
- "status": 200,
- "schema": {
- "meta": {
-  "module": "oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0",
-  "patch": "0+slpf.merged",
-  "title": "OpenC2 Language Objects",
-  "description": "OpenC2 Language content used by Stateless Packet Filters.",
-  "exports": ["OpenC2-Command", "OpenC2-Response"]
- },
- "types": [
-  ["OpenC2-Command", "Record", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "target", "Target", [], ""],
-    [3, "args", "Args", ["[0"], ""],
-    [4, "actuator", "Actuator", ["[0"], ""]
-  ]],
-  ["Action", "Enumerated", [], "", [
-    [3, "query", ""],
-    [6, "deny", ""],
-    [8, "allow", ""],
-    [16, "update", ""],
-    [20, "delete", ""]
-  ]],
-  ["Target", "Choice", [], "", [
-    [16, "features", "Features", [], ""],
-    [10, "file", "File", [], ""],
-    [11, "ip_addr", "IP-Addr", [], ""],
-    [15, "ip_connection", "IP-Connection", [], ""],
-    [1024, "slpf", "slpf:Target", [], ""]
-  ]],
-  ["Actuator", "Choice", [], "", [
-    [1024, "slpf", "slpf:Specifiers", [], ""]
-  ]],
-  ["Args", "Map", [], "", [
-    [1, "start_time", "Date-Time", ["[0"], ""],
-    [2, "stop_time", "Date-Time", ["[0"], ""],
-    [3, "duration", "Duration", ["[0"], ""],
-    [4, "response_requested", "Response-Type", ["[0"], ""],
-    [1024, "slpf", "slpf:Args", ["[0"], ""]
-  ]],
-  ["OpenC2-Response", "Map", [], "", [
-    [1, "status", "Status-Code", ["[0"], ""],
-    [2, "status_text", "String", ["[0"], ""],
-    [6, "versions", "Version", ["[0", "]0"], ""],
-    [7, "profiles", "jadn:Uname", ["[0", "]0"], ""],
-    [8, "schema", "jadn:Schema", ["[0"], ""],
-    [9, "pairs", "Action-Targets", ["[0", "]0"], ""],
-    [10, "rate_limit", "Number", ["[0"], ""],
-    [1024, "slpf", "slpf:Results", ["[0"], ""]
-  ]],
-  ["Status-Code", "Enumerated", ["="], "", [
-    [102, "Processing", ""],
-    [200, "OK", ""],
-    [301, "Moved Permanently", ""],
-    [400, "Bad Request", ""],
-    [401, "Unauthorized", ""],
-    [403, "Forbidden", ""],
-    [404, "Not Found", ""],
-    [500, "Internal Error", ""],
-    [501, "Not Implemented", ""],
-    [503, "Service Unavailable", ""]
-  ]],
-  ["Features", "ArrayOf", ["*Feature", "[0"], ""],
-  ["File", "Map", [], "", [
-    [1, "name", "String", ["[0"], ""],
-    [2, "path", "String", ["[0"], ""],
-    [3, "hashes", "Hashes", ["[0"], ""]
-  ]],
-  ["IP-Addr", "Binary", ["@ip-addr"], ""],
-  ["IP-Connection", "Record", [], "", [
-    [1, "src_addr", "IP-Addr", ["[0"], ""],
-    [2, "src_port", "Port", ["[0"], ""],
-    [3, "dst_addr", "IP-Addr", ["[0"], ""],
-    [4, "dst_port", "Port", ["[0"], ""],
-    [5, "protocol", "L4-Protocol", ["[0"], ""]
-  ]],
-  ["Request-Id", "Binary", [], ""],
-  ["Date-Time", "Integer", [], ""],
-  ["Duration", "Integer", [], ""],
-  ["Hashes", "Map", [], "", [
-    [1, "md5", "Binary", ["[0"], ""],
-    [4, "sha1", "Binary", ["[0"], ""],
-    [6, "sha256", "Binary", ["[0"], ""]
-  ]],
-  ["L4-Protocol", "Enumerated", [], "", [
-    [1, "icmp", ""],
-    [6, "tcp", ""],
-    [17, "udp", ""],
-    [132, "sctp", ""]
-  ]],
-  ["Port", "Integer", ["[0", "]65535"], ""],
-  ["Feature", "Enumerated", [], "", [
-    [1, "versions", ""],
-    [2, "profiles", ""],
-    [3, "schema", ""],
-    [4, "pairs", ""],
-    [5, "rate_limit", ""]
-  ]],
-  ["Response-Type", "Enumerated", [], "", [
-    [0, "none", ""],
-    [1, "ack", ""],
-    [2, "status", ""],
-    [3, "complete", ""]
-  ]],
-  ["Version", "String", [], ""],
-  ["Action-Targets", "Array", [], "", [
-    [1, "action", "Action", [], ""],
-    [2, "targets", "Target", ["]0", "*"], ""]
-  ]],
-  ["slpf:Target", "Choice", [], "", [
-    [1, "rule_number", "slpf:Rule-ID", [], ""]
-  ]],
-  ["slpf:Args", "Map", [], "", [
-    [1, "drop_process", "slpf:Drop-Process", ["[0"], ""],
-    [2, "running", "Boolean", ["[0"], ""],
-    [3, "direction", "slpf:Direction", ["[0"], ""],
-    [4, "insert_rule", "slpf:Rule-ID", ["[0"], ""]
-  ]],
-  ["slpf:Drop-Process", "Enumerated", [], "", [
-    [1, "none", ""],
-    [2, "reject", ""],
-    [3, "false_ack", ""]
-  ]],
-  ["slpf:Direction", "Enumerated", [], "", [
-    [1, "ingress", ""],
-    [2, "egress", ""]
-  ]],
-  ["slpf:Rule-ID", "Integer", [], ""],
-  ["slpf:Specifiers", "Map", [], "", [
-    [1, "hostname", "String", ["[0"], ""],
-    [2, "named_group", "String", ["[0"], ""],
-    [3, "asset_id", "String", ["[0"], ""],
-    [4, "asset_tuple", "String", ["[0", "]10"], ""]
-  ]],
-  ["slpf:Results", "Map", [], "", [
-    [1, "rule_number", "slpf:Rule-ID", ["[0"], ""]
-  ]],
-  ["jadn:Schema", "Record", [], "", [
-    [1, "meta", "jadn:Meta", [], ""],
-    [2, "types", "jadn:Type", ["]0"], ""]
-  ]],
-  ["jadn:Meta", "Map", [], "", [
-    [1, "module", "jadn:Uname", [], ""],
-    [2, "patch", "String", ["[0"], ""],
-    [3, "title", "String", ["[0"], ""],
-    [4, "description", "String", ["[0"], ""],
-    [5, "imports", "jadn:Import", ["[0", "]0"], ""],
-    [6, "exports", "jadn:Identifier", ["[0", "]0"], ""],
-    [7, "bounds", "jadn:Bounds", ["[0"], ""]
-  ]],
-  ["jadn:Import", "Array", [], "", [
-    [1, "nsid", "jadn:Nsid", [], ""],
-    [2, "uname", "jadn:Uname", [], ""]
-  ]],
-  ["jadn:Bounds", "Array", [], "", [
-    [1, "max_msg", "Integer", [], ""],
-    [2, "max_str", "Integer", [], ""],
-    [3, "max_bin", "Integer", [], ""],
-    [4, "max_fields", "Integer", [], ""]
-  ]],
-  ["jadn:Type", "Array", [], "", [
-    [1, "tname", "jadn:Identifier", [], ""],
-    [2, "btype", "jadn:JADN-Type", ["*"], ""],
-    [3, "opts", "jadn:Option", ["]0"], ""],
-    [4, "desc", "String", [], ""],
-    [5, "fields", "jadn:JADN-Type", ["&btype", "]0"], ""]
-  ]],
-  ["jadn:JADN-Type", "Choice", [], "", [
-    [1, "Binary", "Null", [], ""],
-    [2, "Boolean", "Null", [], ""],
-    [3, "Integer", "Null", [], ""],
-    [4, "Number", "Null", [], ""],
-    [5, "Null", "Null", [], ""],
-    [6, "String", "Null", [], ""],
-    [7, "Array", "jadn:FullField", ["]0"], ""],
-    [8, "ArrayOf", "Null", [], ""],
-    [9, "Choice", "jadn:FullField", ["]0"], ""],
-    [10, "Enumerated", "jadn:EnumField", ["]0"], ""],
-    [11, "Map", "jadn:FullField", ["]0"], ""],
-    [12, "Record", "jadn:FullField", ["]0"], ""]
-  ]],
-  ["jadn:EnumField", "Array", [], "", [
-    [1, "", "Integer", [], ""],
-    [2, "", "String", [], ""],
-    [3, "", "String", [], ""]
-  ]],
-  ["jadn:FullField", "Array", [], "", [
-    [1, "", "Integer", [], ""],
-    [2, "", "jadn:Identifier", [], ""],
-    [3, "", "jadn:Identifier", [], ""],
-    [4, "", "jadn:Options", [], ""],
-    [5, "", "String", [], ""]
-  ]],
-  ["jadn:Identifier", "String", ["$^[a-zA-Z][\\w-]*$", "[1", "]32"], ""],
-  ["jadn:Nsid", "String", ["$^[a-zA-Z][\\w-]*$", "[1", "]8"], ""],
-  ["jadn:Uname", "String", ["[1", "]100"], ""],
-  ["jadn:Options", "ArrayOf", ["*jadn:Option", "[0", "]10"], ""],
-  ["jadn:Option", "String", ["[1", "]100"], ""]
- ]
- }
-}
 
 ```
 
