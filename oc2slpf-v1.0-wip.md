@@ -314,10 +314,12 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
+| 9 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
 | 10 | **file** | File | Properties of a file. |
-| 11 | **ip_addr** | IP-Addr | The representation of one or more IP addresses (either version 4 or version 6) expressed using CIDR notation. |
-| 15 | **ip_connection** | IP-Connection | A network connection that originates from a source and is addressed to a destination. Source and destination addresses may be either IPv4 or IPv6; both should be the same version |
-| 16 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
+| 13 | **ipv4_net** | IPv4-Net | The representation of one or more IPv4 addresses expressed using CIDR notation. |
+| 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation. |
+| 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
+| 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
 | 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile. |
 
  
@@ -480,25 +482,27 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
 
 ## 2.3 OpenC2 Commands
-An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands, identify which are required or optional to implement, and present the associated responses.  
+An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands and presents the associated responses.  
 
-Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if implementation of the command is required or optional for Openc2 Producers and/or Openc2 Consumers.  An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable command. The subsequent subsections provide the property tables applicable to each OpenC2 command. 
+Table 2.3-1 defines the commands that are valid in the context of the SLPF profile. An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable command. The subsequent subsections provide the property tables applicable to each OpenC2 command. 
 
 **Table 2.3-1. Command Matrix**
 
 |   | Allow | Deny | Query | Delete | Update |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **ip_connection** | required | required |   |   |   |
-| **ip_addr** | required | required |   |   |   |
-| **features** |   |   | required |   |   |
-| **slpf:rule_number** |   |   |   | optional |   |
-| **file** |   |   |   |   | optional |
+| **ipv4_connection** | valid | valid |   |   |   |
+| **ipv6_connection** | valid | valid |   |   |   |
+| **ipv4_net** | valid | valid |   |   |   |
+| **ipv6_net** | valid | valid |   |   |   |
+| **features** |   |   | valid |   |   |
+| **slpf:rule_number** |   |   |   | valid |   |
+| **file** |   |   |   |   | valid |
 
 Table 2.3-2 defines the command arguments that are allowed for a particular command by the SLPF profile.  A command (the top row in Table 2.3-2) paired with an argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the command/ argument provides details applicable to each command as influenced by the argument. 
 
 **Table 2.3-2. Command Arguments Matrix**
 
-|   | Allow<br><target> | Deny <target> | Query features | Delete slpf:rule_number | Update file |
+|   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **response** | 2.3.1 | 2.3.2 | 2.3.3.1 | 2.3.4.1 | 2.3.5.1 |
 | **start-time** | 2.3.1 | 2.3.2 |   | 2.3.4.1 | 2.3.5.1 |
@@ -551,29 +555,51 @@ Products that receive ‘allow target’ commands and support the ‘insert_rule
 
 The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in Annex C.  
 
-#### 2.3.1.1 ‘Allow ip_connection’
-The ‘allow ip_connection’ command is required for openc2 producers implementing the SLPF.  
+#### 2.3.1.1 ‘Allow ipv4_connection’
+The ‘allow ipv4_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv4_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
 
-If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
+The command permits traffic that is consistent with the specified ipv4_connection.  A valid ‘allow ipv4_connection’ command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
-The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
-
-Products that receive but do not implement the ‘allow ip_connection’ command:
+Products that receive but do not implement the ‘allow ipv4_connection’ command:
 
 * MUST NOT respond with a OK/200.  
 * SHOULD respond with the 501 response code. 
 * SHOULD respond with ‘Target type not supported’ in the  status text.
 * MAY respond with the 500 status code.
 
-#### 2.3.1.2 ‘Allow ip_addr’
-The ‘allow ip_addr’ command is required for openc2 producers implementing the SLPF.  
+#### 2.3.1.2 ‘Allow ipv6_connection’
+The ‘allow ipv6_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv6_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
 
-If the ‘allow ip_connection’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip_addr’ command. Otherwise the ‘allow ip-addr’ command is OPTIONAL.  
+The command permits traffic that is consistent with the specified ipv6_connection.  A valid ‘allow ipv6_connection’ command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
-The command permits traffic as specified by the ip_addr property and may be an IPV4 or IPV6 address.  The ip-addr supports CIDR notation.  The address specified in the ip_addr MUST be treated as a source OR destination address. 
+Products that receive but do not implement the ‘allow ipv6_connection’ command:
 
-Products that receive but do not implement the ‘allow ip_addr’ command: 
+* MUST NOT respond with a OK/200.  
+* SHOULD respond with the 501 response code. 
+* SHOULD respond with ‘Target type not supported’ in the  status text.
+* MAY respond with the 500 status code.
 
+#### 2.3.1.3 ‘Allow ipv4_net’
+The ‘allow ipv4_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv4_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+
+The command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.  
+
+Products that receive but do not implement the ‘allow ipv4_net’ command: 
+* MUST NOT respond with a OK/200. 
+* SHOULD respond with the 501 response code. 
+* SHOULD respond with ‘Target type not supported’ in the status text.
+* MAY respond with the 500 status code.
+
+#### 2.3.1.4 ‘Allow ipv6_net’  
+The ‘allow ipv6_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
+The ‘allow ipv6_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+
+The command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address. 
+
+Products that receive but do not implement the ‘allow ipv6_net’ command:
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 response code 
 * SHOULD respond with ‘Target type not supported’ in the status text.
@@ -593,9 +619,7 @@ Products that send ‘deny target’ commands and support the ‘delete slpf:rul
 * MUST support the slpf:rule_number target type as defined in section 2.1.2.1. 
 * SHOULD populate the command options field with ‘"response_requested" : "complete”
 * MAY populate the command arguments field with the "insert_rule" : <integer> option. 
-* MUST populate the command options field with "response_requested" : "complete"
-
-if the insert_rule argument is populated. 
+* MUST populate the command options field with "response_requested" : "complete" if the insert_rule argument is populated. 
 
 Products that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
 
