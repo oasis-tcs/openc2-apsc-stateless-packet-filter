@@ -1017,7 +1017,7 @@ The examples include Integer Date-Time fields; the conversion of Integer values 
 | `1534775460000` | `Monday, August 20, 2018 2:31:00 PM GMT, 2018-08-20T10:31:00-04:00` |
 
 ## C.1 Deny and Allow
-Deny and allow are mandatory to implement and can be treated as mathematical complements of each other. Unless otherwise stated, the example targets, specifiers, modifiers and corresponding responses are applicable to both actions.
+Deny and allow can be treated as mathematical complements of each other. Unless otherwise stated, the example targets, specifiers, modifiers and corresponding responses are applicable to both actions.
 
 ### C.1.1 Deny a particular connection
 Block a particular connection within the domain and do not send a host unreachable
@@ -1028,11 +1028,11 @@ Block a particular connection within the domain and do not send a host unreachab
 {
   "action": "deny",
   "target": {
-    "ip_connection": {
+    "ipv4_connection": {
       "protocol": "tcp",
-      "src_addr": "AQIDBA",
+      "src_addr": "1.2.3.4",
       "src_port": 10996,
-      "dst_addr": "xgIDBA",
+      "dst_addr": "198.2.3.4",
       "dst_port": 80
     }
   },
@@ -1119,7 +1119,7 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ip_a
 {
   "action": "deny",
   "target": {
-    "ip_addr": "AQIDBA"
+    "ipv6_net": "3ffe:1900:4545:3:200:f8ff:fe21:67cf"
   },
   "args": {
     "response_requested": "none",
@@ -1144,9 +1144,9 @@ Permit ftp data transfers to ip address 198.51.100.17 from any source.  (Note th
 {
   "action": "allow",
   "target": {
-    "ip_connection": {
+    "ipv6_connection": {
       "protocol": "tcp",
-      "dst_addr": "xjNkEQ",
+      "dst_addr": "3ffe:1900:4545:3::f8ff:fe21:67cf",
       "src_port": 21
     }
   },
