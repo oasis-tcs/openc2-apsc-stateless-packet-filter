@@ -190,7 +190,7 @@ The language defines two payload structures:
 
 OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude any particular approach to implementing the needed functionality (for example, the use of an application-layer message signature function to provide message source authentication and integrity). 
 
-![no alt title](./images/OC2 Layering Model.png )
+![no alt title](./images/OC2LayeringModel.png )
 
 **Figure 1-2. OpenC2 Documentation and Layering Model**
 
