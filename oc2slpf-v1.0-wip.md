@@ -713,13 +713,13 @@ Refer to Annex C for sample commands.
 ---
 
 # 3 Conformance statements
-This section identifies the requierments for twenty-two conformance profiles as they pertain to two conformnace targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8 of this specification).  
+This section identifies the requierments for twenty-two conformance profiles as they pertain to two conformance targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8 of this specification).  
 
-## 3.1 Clauses Pertaining to the OpenC2 Producer Conformnace Target
+## 3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target
 All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 11. 
 
 ### 3.1.1 Conformance Clause 1: Baseline OpenC2 Producer  
-An OpenC2 Producer satisifies Baseline OpenC2 Producer conformance if:  
+An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:  
 * 3.1.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
 * 3.1.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
 * 3.1.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
@@ -728,62 +728,62 @@ An OpenC2 Producer satisifies Baseline OpenC2 Producer conformance if:
 * 3.1.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
 * 3.1.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
 * 3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
-   * Conformnace Clause 2
-   * Conformnace Clause 3
+   * Conformance Clause 2
+   * Conformance Clause 3
    * Conformance Clause 4 
    * Conformance Clause 5
 
 ### 3.1.2 Conformance Clause 2: IP Version 4 Connection Producer
-An OpenC2 Producer statisifes 'IP Version 4 Connection Producer' conformance if:  
+An OpenC2 Producer satisfies 'IP Version 4 Connection Producer' conformance if:  
 * 3.1.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
 * 3.1.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
 * 3.1.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.3 Conformance Clause 3: IP Version 6 Connection Producer
-An OpenC2 Producer statisifes 'IP Version 6 Connection Producer' conformance if:  
+An OpenC2 Producer satisfies 'IP Version 6 Connection Producer' conformance if:  
 * 3.1.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
 * 3.1.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
 * 3.1.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.4 Conformance Clause 4: IP Version 4 Net Producer
-An OpenC2 Producer statisifes 'IP Version 4 Net Producer' conformance if:  
+An OpenC2 Producer satisfies 'IP Version 4 Net Producer' conformance if:  
 * 3.1.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
 * 3.1.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
 * 3.1.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.5 Conformance Clause 5: IP Version 6 Net Producer
-An OpenC2 Producer statisifes 'IP Version 6 Net Producer' conformance if:  
+An OpenC2 Producer satisfies 'IP Version 6 Net Producer' conformance if:  
 * 3.1.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
 * 3.1.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
 * 3.1.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.6 Conformance Clause 6: Update File Producer
-An OpenC2 Producer statisifes 'Update File Producer' conformnace if:  
+An OpenC2 Producer satisfies 'Update File Producer' conformance if:  
 * 3.1.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.1.7 Conformance Clause 7: delete rule number Producer
-An OpenC2 Producer statisifes 'delete rule Producer' conformnace if:  
+An OpenC2 Producer satisfies 'delete rule Producer' conformance if:  
 * 3.1.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
 
 ### 3.1.8 Conformance Clause 8: Running Producer
-An OpenC2 Producer statisifes 'Running Producer' conformnace if:  
+An OpenC2 Producer satisfies 'Running Producer' conformance if:  
 * 3.1.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.9 Conformance Clause 9: Direction Producer
-An OpenC2 Producer statisifes 'Direction Producer' conformnace if:  
+An OpenC2 Producer satisfies 'Direction Producer' conformance if:  
 * 3.1.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.10 Conformance Clause 10: drop-process Producer
-An OpenC2 Producer statisifes 'drop-process Producer' conformnace if:  
+An OpenC2 Producer satisfies 'drop-process Producer' conformance if:  
 * 3.1.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.11 Conformance Clause 11: Temporal Producer
-An OpenC2 Producer statisifes 'Temporal Producer' conformnace if:  
+An OpenC2 Producer satisfies 'Temporal Producer' conformance if:  
 * 3.1.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
 * 3.1.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
 * 3.1.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
@@ -792,7 +792,7 @@ An OpenC2 Producer statisifes 'Temporal Producer' conformnace if:
 All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22. 
 
 ### 3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer  
-An OpenC2 Consumer satisifies Baseline OpenC2 Consumer conformance if:  
+An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:  
 * 3.2.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
 * 3.2.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
 * 3.2.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
@@ -803,62 +803,62 @@ An OpenC2 Consumer satisifies Baseline OpenC2 Consumer conformance if:
     * 3.2.1.7.1 All commands received with a response argument set to 'none' **MUST** process the command and **MUST NOT** send a response. This criteria supercedes all other normative text as it pertains to responses.   
     * 3.2.1.7.2 All commands received without the response argument (or response argument not set) **MUST** process the command and response in a manner that is consistent with "response_requested":"complete".  
 * 3.2.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
-    * Conformnace Clause 13
-    * Conformnace Clause 14
+    * Conformance Clause 13
+    * Conformance Clause 14
     * Conformance Clause 15 
     * Conformance Clause 16
 
 ### 3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer
-An OpenC2 Consumer statisifes 'IP Version 4 Connection Consumer' conformance if:  
+An OpenC2 Consumer satisfies 'IP Version 4 Connection Consumer' conformance if:  
 * 3.2.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
 * 3.2.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
 * 3.2.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer
-An OpenC2 Consumer statisifes 'IP Version 6 Connection Consumer' conformance if:  
+An OpenC2 Consumer satisfies 'IP Version 6 Connection Consumer' conformance if:  
 * 3.2.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
 * 3.2.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
 * 3.2.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.4 Conformance Clause 15: IP Version 4 Net Consumer
-An OpenC2 Consumer statisifes 'IP Version 4 Net Consumer' conformance if:  
+An OpenC2 Consumer satisfies 'IP Version 4 Net Consumer' conformance if:  
 * 3.2.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
 * 3.2.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
 * 3.2.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.5 Conformance Clause 16: IP Version 6 Net Consumer
-An OpenC2 Consumer statisifes 'IP Version 6 Net Consumer' conformance if:  
+An OpenC2 Consumer satisfies 'IP Version 6 Net Consumer' conformance if:  
 * 3.2.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
 * 3.2.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
 * 3.2.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.6 Conformance Clause 17: Update File Consumer
-An OpenC2 Consumer statisifes 'Update File Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'Update File Consumer' conformance if:  
 * 3.2.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.2.7 Conformance Clause 18: delete rule number Consumer
-An OpenC2 Consumer statisifes 'delete rule Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:  
 * 3.2.7.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with section 2.3.4.1 of this specification.  
 
 ### 3.2.8 Conformance Clause 19: Running Consumer
-An OpenC2 Consumer statisifes 'Running Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'Running Consumer' conformance if:  
 * 3.2.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.9 Conformance Clause 20: Direction Consumer
-An OpenC2 Consumer statisifes 'Direction Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:  
 * 3.2.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.10 Conformance Clause 21: drop-process Consumer
-An OpenC2 Consumer statisifes 'drop-process Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:  
 * 3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.11 Conformance Clause 22: Temporal Consumer
-An OpenC2 Consumer statisifes 'Temporal Consumer' conformnace if:  
+An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:  
 * 3.2.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
 * 3.2.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
 * 3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
