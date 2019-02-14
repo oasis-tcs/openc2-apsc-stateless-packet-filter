@@ -101,13 +101,13 @@ OpenC2 allows the application producing the commands to discover the set of capa
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/openc2/ipr.php).
 
 ## 1.2 Terminology
-* **Action**: The task or activity to be performed (eg. 'deny').
-* **Actuator**: The entity that performs the action (eg. 'Stateless Packet Filtering').
+* **Action**: The task or activity to be performed (e.g. 'deny').
+* **Actuator**: The entity that performs the action (e.g. 'Stateless Packet Filtering').
 * **Command**: A message defined by an action-target pair that is sent from a producer and received by a consumer.
 * **Consumer**: A managed device / application that receives Commands.  Note that a single device / application can have both consumer and producer capabilities.
 * **Producer**: A manager application that sends Commands.
 * **Response**: A message from a consumer to a producer acknowledging a command or returning the requested resources or status to a previously received request.
-* **Target**: The object of the action, i.e., the action is performed on the target (eg. IP Address).
+* **Target**: The object of the action, i.e., the action is performed on the target (e.g. IP Address).
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [[BCP 14, RFC2119](#rfc2119)] [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
 
@@ -125,8 +125,8 @@ Hinden, R.,  Deering S. , T., "IP Version 6 Addressing Architecture ", February 
 ###### [RFC2673]
 Crawford, M., "Binary Labels in Domain Name System", August 1999, https://tools.ietf.org/html/rfc2673.
 ###### [RFC3339]
-Kline, G., "Date and Time on the Internet: Timestamps", July 2002, https://tools.ietf.org/html/rfc3339.###### [RFC5237]
-Arkko, J.,  Erricsson, S. , "IANA Allocation Guidelines for the Protocol Field", February 2008, https://tools.ietf.org/html/rfc5237.
+Kline, G., "Date and Time on the Internet: Timestamps", July 2002, https://tools.ietf.org/html/rfc3339.###### [RFC3339]
+Arkko, J.,  Erricsson, S. , "IANA Allocation Guidelines for the Protocol Field", February 2008, https://tools.ietf.org/html/rfc3339.
 ###### [OpenC2-Lang-v1.0]
 _Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited by Jason Romano and Duncan Sparrell. Latest version: http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html.
 
