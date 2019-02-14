@@ -316,7 +316,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 | :--- | :--- | :--- | :--- |
 | 10 | **file** | File | Properties of a file. |
 | 11 | **ip_addr** | IP-Addr | The representation of one or more IP addresses (either version 4 or version 6) expressed using CIDR notation. |
-| 15 | **ip_connection** | IP-Connection | A network connection that originates from a source and is addressed to a destination. Source and destination addresses may be either IPv4 or IPv6; both should be the same version |
+| 15 | **ip_connection** | IP-Connection | A network connection that originates from a source and is addressed to a destination. Source and destination addresses may be either IPv4 or IPv6; both must be the same version |
 | 16 | **features** | Features | A set of items such as action target pairs, profiles versions, options that are supported by the actuator. The target is used with the query action to determine an actuator's capabilities. |
 | 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile. |
 
@@ -335,8 +335,7 @@ The slpf:Target type is defined in this specification and is referenced under th
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | **rule_number** | Rule-ID | Immutable identifier assigned when a rule is created, Identifies a rule to be deleted. |
-
-Implementations that choose to support slpf:Target MUST support the **rule_number** target.
+| 2 | **icmp_type** | ICMP-TYPE | The numeric type for ICMP that represents a message such as router advertisement |
 
 ### 2.1.3 Command Arguments
 Arguments provide additional precision to a command by including information such as how, when, or where a command is to be executed.  Table 2.1.3-1 summarizes the command arguments defined in Version 1.0 of the OpenC2 Language Specification as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the command arguments that are defined in this specification.
@@ -401,7 +400,7 @@ The command arguments defined in this document are referenced under the slpf nam
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
 | **Rule-ID** | Integer | Access rule identifier |
-
+| **ICMP-TYPE** | Integer | ICMP Type |
 The semantics/ requirements as they relate to SLPF arguments:  
 
 * insert_rule:
@@ -478,6 +477,7 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
+| **icmp_type** | ICMP-TYPE | ICMP type |
 
 ## 2.3 OpenC2 Commands
 An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands, identify which are required or optional to implement, and present the associated responses.  
@@ -492,6 +492,7 @@ Table 2.3-1 defines the commands allowed by the SLPF profile and indicates if im
 | **ip_addr** | required | required |   |   |   |
 | **features** |   |   | required |   |   |
 | **slpf:rule_number** |   |   |   | optional |   |
+| **slpf:icmp_type** | optional | optional |   |   |   |
 | **file** |   |   |   |   | optional |
 
 Table 2.3-2 defines the command arguments that are allowed for a particular command by the SLPF profile.  A command (the top row in Table 2.3-2) paired with an argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the command/ argument provides details applicable to each command as influenced by the argument. 
@@ -1587,6 +1588,7 @@ The following individuals are acknowledged for providing comments, suggested tex
 * Lemire, Dave- G2, Inc. 
 * MacGregor, Scott- McAfee 
 * Martinez, Danny- G2, Inc. 
+* Mavroeidis, Vasileios- University of Oslo
 * Mathews, Lisa- Department of Defense
 * Ortiz, Efrain- Symantec 
 * Rajarathnam, Nirmal- ForeScout 
