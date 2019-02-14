@@ -93,17 +93,18 @@ OpenC2 allows the application producing the commands to discover the set of capa
 This specification is provided under the [Non-Assertion](https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode) Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (https://www.oasis-open.org/committees/openc2/ipr.php).
 
 ## 1.2 Terminology
-* **Action**: The task or activity to be performed.
-* **Actuator**: The entity that performs the action.
+* **Action**: The task or activity to be performed (e.g. 'deny').
+* **Actuator**: The entity that performs the action (e.g. 'Stateless Packet Filtering').
 * **Command**: A message defined by an action-target pair that is sent from a producer and received by a consumer.
 * **Consumer**: A managed device / application that receives Commands.  Note that a single device / application can have both consumer and producer capabilities.
 * **Producer**: A manager application that sends Commands.
 * **Response**: A message from a consumer to a producer acknowledging a command or returning the requested resources or status to a previously received request.
-* **Target**: The object of the action, i.e., the action is performed on the target.
+* **Target**: The object of the action, i.e., the action is performed on the target (e.g. IP Address).
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [[BCP 14, RFC2119](#rfc2119)] [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
 
 ## 1.3 Normative References
+
 **[RFC2119]** Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
 
 **[RFC8174]** Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -144,7 +145,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 The following color, font and font style conventions are used in this document:
 
 * A fixed width font is used for all type names, property names, and literals.
-* Property names are in bold style – **'created_at'**
+
+* Property names are in bold style – **'created_at'**.
+
 * All examples in this document are expressed in JSON. They are in fixed width font, with straight quotes, black text and a light shaded background, and 4-space indentation. JSON examples in this document are representations of JSON Objects. They should not be interpreted as string literals. The ordering of object keys is insignificant. Whitespace before or after JSON structural characters in the examples are insignificant [[RFC8259](#rfc8259)].
 * Parts of the example may be omitted for conciseness and clarity. These omitted parts are denoted with the ellipses (...).
 
@@ -162,32 +165,31 @@ Example:
 }
 ```
 
-## 1.6 Overview
-OpenC2 is a suite of specifications to command actuators that execute cyber defense functions.  These specifications include the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html), Actuator Profiles, and Transfer Specifications.  The OpenC2 Language Specification and Actuator Profile(s) specifications focus on the standard at the producer and consumer of the command and response while the transfer specifications focus on the protocols for their exchange.
-
-* The [OpenC2 Language Specification] (http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) provides the semantics for the essential elements of the language, the structure for commands and responses, and defines the proper syntax for the language elements that represents the command or response.
-* OpenC2 Actuator Profiles specify the subset of the OpenC2 language relevant in the context of specific actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely) to implement multiple actuator profiles.  Actuator profiles extend the language by defining specifiers that identify the actuator to the required level of precision and may define command arguments that are relevant and/or unique to those actuator functions.
-* OpenC2 Transfer Specifications utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
-
-The OpenC2 Language Specification defines a language used to compose messages for command and control of cyber defense systems and components.  A message consists of a header and a payload (_defined_ as a message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more actuator profiles). 
-
+## 1.**6** Overview
+OpenC2 is a suite of specifications to command actuators that execute cyber defense functions.  These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the producer and consumer of the command and response while the transfer specifications focus on the protocols for their exchange.  
 In general, there are two types of participants involved in the exchange of OpenC2 messages, as depicted in Figure 1-1:
 
 1. **OpenC2 Producers**: An OpenC2 Producer is an entity that creates commands to provide instruction to one or more systems to act in accordance with the content of the command. An OpenC2 Producer may receive and process responses in conjunction with a command.
 2. **OpenC2 Consumers**: An OpenC2 Consumer is an entity that receives and may act upon an OpenC2 command.  An OpenC2 Consumer may create responses that provide any information captured or necessary to send back to the OpenC2 Producer. 
 
+* The [OpenC2 Language Specification] (http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) provides the semantics for the essential elements of the language, the structure for commands and responses, and the schema that defines the proper syntax for the language elements that represents the command or response.
+* OpenC2 Actuator Profiles specify the subset of the OpenC2 language relevant in the context of specific actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely) to implement multiple actuator profiles.  Actuator profiles extend the language by defining specifiers that identify the actuator to the required level of precision. Actuator Profiles may define command arguments and targets that are relevant and/or unique to those actuator functions.
+* OpenC2 Transfer Specifications utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
+
+The OpenC2 Language Specification defines a language used to compose messages for command and control of cyber defense systems and components.  A message consists of a header and a payload (_defined_ as a message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more actuator profiles). 
+
 The language defines two payload structures:
 
 1. **Command**: An instruction from one system known as the OpenC2 "Producer", to one or more systems, the OpenC2 "Consumer(s)", to act on the content of the command.
-2. **Response**: Any information captured or necessary to send back to the OpenC2 Producer  that issued the Command, i.e., the OpenC2 Consumer’s response to the OpenC2 Producer.
+2. **Response**: Any information sent back to the OpenC2 Producer as a result of the command.  
 
 ![no alt title](./images/image_1.png)
 
 **Figure 1-1. OpenC2 Message Exchange**
 
-OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1-2 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude, e.g., the use of an application-layer message signature function to provide message source authentication and integrity. 
+OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude any particular approach to implementing the needed functionality (for example, the use of an application-layer message signature function to provide message source authentication and integrity). 
 
-![no alt title](./images/image_2.png)
+![no alt title](./images/OC2LayeringModel.png )
 
 **Figure 1-2. OpenC2 Documentation and Layering Model**
 
@@ -260,11 +262,10 @@ Section One (this section) provides a non-normative overview of the suite of spe
 
 [Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
 
-
-
 [Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
 OpenC2 is intended for machine to machine interactions, therefore an Annex with multiple examples of SLPF commands (JSON serialization) is provided to facilitate development.   
+
 
 ---
 
