@@ -477,7 +477,6 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
-| **icmp_type** | ICMP-TYPE | ICMP type |
 
 ## 2.3 OpenC2 Commands
 An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands, identify which are required or optional to implement, and present the associated responses.  
