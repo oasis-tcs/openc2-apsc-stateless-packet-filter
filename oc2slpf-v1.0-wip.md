@@ -93,7 +93,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 -------
 
 # 1 Introduction
-OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  The contents of both the command and the response are fully described in schemas, allowing both parties to recognize the syntax constraints imposed on the exchange.
+OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 Producer (managing application) and transferred to an OpenC2 Consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  The contents of both the command and the response are fully described in schemas, allowing both parties to recognize the syntax constraints imposed on the exchange.
 
 OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices.  These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device.  The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.
 
@@ -254,7 +254,7 @@ This SLPF profile:
 
 Cyber defense systems that are utilizing OpenC2 may require the following components to implement the SLPF profile: 
 
-* OpenC2 Producers: Devices that send commands, receive responses, and manage the execution of commands involving one or more SLPF or other actuators with SLPF capability. The OpenC2 producer needs _a priori_ knowledge of which commands the actuator can process and execute, therefore must understand the profiles for any device that it intends to command.
+* OpenC2 Producers: Devices that send commands, receive responses, and manage the execution of commands involving one or more SLPF or other actuators with SLPF capability. The OpenC2 Producer needs _a priori_ knowledge of which commands the actuator can process and execute, therefore must understand the profiles for any device that it intends to command.
 * OpenC2 Consumers: Devices or instances that provide stateless packet filtering functions.  Typically these are actuators that execute the cyber defense function, but could be orchestrators (i.e., a device or instance that forwards commands to the actuator).  
 
 Though cyber defense components, devices, systems and/or instances may  may implement multiple actuator profiles, a particular OpenC2 message may reference at most a single actuator profile. The scope of this document is limited to SLPF. 
@@ -408,7 +408,7 @@ The semantics/ requirements as they relate to SLPF arguments:
 
 * insert_rule:
     * The value MUST be immutable - i.e. the identifier assigned to an access rule at creation must not change over the lifetime of that rule.
-    * The value MUST be unique within the scope of a command sent to an openc2 consumer - i.e. a rule_number maps to exactly one deny <target> or allow <target>
+    * The value MUST be unique within the scope of a command sent to an Openc2 Consumer - i.e. a rule_number maps to exactly one deny <target> or allow <target>
 * directionality: 
     * Entities that do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code. 
     * If absent, then the command MUST apply to both. 
@@ -556,8 +556,8 @@ Products that receive ‘allow target’ commands and support the ‘insert_rule
 The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in Annex C.  
 
 #### 2.3.1.1 ‘Allow ipv4_connection’
-The ‘allow ipv4_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.  
-The ‘allow ipv4_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+The ‘allow ipv4_connection’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv4_connection’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
 The command permits traffic that is consistent with the specified ipv4_connection.  A valid ‘allow ipv4_connection’ command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
@@ -569,8 +569,8 @@ Products that receive but do not implement the ‘allow ipv4_connection’ comma
 * MAY respond with the 500 status code.
 
 #### 2.3.1.2 ‘Allow ipv6_connection’
-The ‘allow ipv6_connection’ command is OPTIONAL for openc2 producers implementing the SLPF.  
-The ‘allow ipv6_connection’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+The ‘allow ipv6_connection’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv6_connection’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
 The command permits traffic that is consistent with the specified ipv6_connection.  A valid ‘allow ipv6_connection’ command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
@@ -582,8 +582,8 @@ Products that receive but do not implement the ‘allow ipv6_connection’ comma
 * MAY respond with the 500 status code.
 
 #### 2.3.1.3 ‘Allow ipv4_net’
-The ‘allow ipv4_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
-The ‘allow ipv4_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+The ‘allow ipv4_net’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv4_net’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
 The command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.  
 
@@ -594,8 +594,8 @@ Products that receive but do not implement the ‘allow ipv4_net’ command:
 * MAY respond with the 500 status code.
 
 #### 2.3.1.4 ‘Allow ipv6_net’  
-The ‘allow ipv6_net’ command is OPTIONAL for openc2 producers implementing the SLPF.  
-The ‘allow ipv6_net’ command is OPTIONAL for openc2 consumers implementing the SLPF.  
+The ‘allow ipv6_net’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv6_net’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
 The command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address. 
 
@@ -676,7 +676,7 @@ Refer to Annex C for sample commands.
 The ‘file’ target as defined in Version 1.0 of the Language Specification is the only valid target type for the update action. The associated specifiers, and options are summarized in section 2.3.5.1.  Sample commands are presented in Annex C.  
 
 #### 2.3.5.1 Update file 
-The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
+The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 Consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
 
 Table 2.3-2 presents the valid options for the ‘update file’ command.   Products that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in table 2.3-2
 
@@ -1244,7 +1244,7 @@ This actuator could not access the file
 ```
 
 ## C.4 Query openc2
-Implementation of query openc2 is required.  The query openc2 command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
+Implementation of query openc2 is required.  The query openc2 command is intended to enable the Openc2 Producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
 
 ### C.4.1 No query items set 
 This command uses query openc2 with no query items to verify that the actuator is functioning. 
