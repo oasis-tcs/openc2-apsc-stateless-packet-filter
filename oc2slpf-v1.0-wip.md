@@ -556,7 +556,7 @@ The ‘allow ip_connection’ command is required for openc2 producers implement
 
 If the ‘allow ip_addr’ target is not implemented, then SLPF consumers MUST implement the ‘allow ip-connection’ command. Otherwise it is OPTIONAL.  
 
-The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’.  
+The command permits traffic that is consistent with the specified ip_connection.  A valid ‘allow ip_connection’ command has at least one property of the ip_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ip_connection target MUST be treated as an ‘any’. Products that receive a source port or destination port where an integer value is specified MAY return a 500 or 501 status code if the L4 protocol is neither TCP nor UDP.
 
 Products that receive but do not implement the ‘allow ip_connection’ command:
 
