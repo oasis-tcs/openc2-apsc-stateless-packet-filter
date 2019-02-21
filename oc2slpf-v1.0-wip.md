@@ -105,13 +105,17 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## 1.3 Normative References
 
+**[RFC1123]** Braden, R., Ed., "Requirements for Internet Hosts - Application and Support", STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <https://www.rfc-editor.org/info/rfc1123>.
+
 **[RFC2119]** Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
+
+**[RFC2780]** Bradner, S. and V. Paxson, "IANA Allocation Guidelines For Values In the Internet Protocol and Related Headers", BCP 37, RFC 2780, DOI 10.17487/RFC2780, March 2000, <https://www.rfc-editor.org/info/rfc2780>.
+
+**[RFC4443]** Conta, A., Deering, S., and M. Gupta, Ed., "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification", STD 89, RFC 4443, DOI 10.17487/RFC4443, March 2006, <https://www.rfc-editor.org/info/rfc4443>.
 
 **[RFC8174]** Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 **[RFC8259]** Bray, T., Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017, <https://www.rfc-editor.org/info/rfc8259>.
-
-**[RFC1123]** Braden, R., Ed., "Requirements for Internet Hosts - Application and Support", STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <https://www.rfc-editor.org/info/rfc1123>.
 
 **[OpenC2-Lang-v1.0]** Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited by Jason Romano and Duncan Sparrell. November 2018, <http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html>.
 
@@ -324,7 +328,17 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
 | 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile. |
 
- 
+The semantics/ requirements as they pertain to common targets:
+* ipv4_connection
+    * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
+      Where the ICMP types and codes are defined in RFC 2780.  
+    * If the protocol = TCP, UPD or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol. 
+* ipv6_connection
+    * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
+      Where the ICMP types and codes are defined in RFC 4443.  
+    * If the protocol = TCP, UPD or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol.   
 
 #### 2.1.2.2 SLPF Targets
 The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html):
