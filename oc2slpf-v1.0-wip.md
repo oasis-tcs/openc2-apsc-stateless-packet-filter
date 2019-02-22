@@ -332,12 +332,12 @@ The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
     * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
       Where the ICMP types and codes are defined in RFC 2780.  
-    * If the protocol = TCP, UPD or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * If the protocol = TCP, UDP or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
     * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol. 
 * ipv6_connection
     * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
       Where the ICMP types and codes are defined in RFC 4443.  
-    * If the protocol = TCP, UPD or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * If the protocol = TCP, UDP or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
     * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol.   
 
 #### 2.1.2.2 SLPF Targets
