@@ -330,15 +330,15 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
-    * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
+    * If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
       Where the ICMP types and codes are defined in RFC 2780.  
-    * If the protocol = TCP, UDP or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
     * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol. 
 * ipv6_connection
-    * If the protocol = ICMP, then five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
+    * If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol.  
       Where the ICMP types and codes are defined in RFC 4443.  
-    * If the protocol = TCP, UDP or SCTP, then the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
-    * Any other protocol, then the five-tuple is: src_addr, unused, dst_addr, unused, protocol.   
+    * If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol.
+    * Any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol.   
 
 #### 2.1.2.2 SLPF Targets
 The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html):
