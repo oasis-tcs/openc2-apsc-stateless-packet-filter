@@ -118,7 +118,8 @@ _Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited b
 
 ## 1.4 Non normative References
 
-###### [RFC3339]Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
+###### [RFC3339]  
+Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 ###### [RFC4291] 
 Hinden, R. and S. Deering, "IP Version 6 Addressing Architecture", RFC 4291, DOI 10.17487/RFC4291, February 2006, <https://www.rfc-editor.org/info/rfc4291>.
 ###### [RFC6891]
@@ -1212,7 +1213,7 @@ The actuator supports all action-target pairs shown in Table 2.3-1 - Command Mat
   "status": 200,
   "pairs": [
     ["allow", ["ipv6_net", "ipv6_connection"]],
-    ["deny", ["ipv6_netr", "ipv6_connection"]],
+    ["deny", ["ipv6_net", "ipv6_connection"]],
     ["query", ["features"]],
     ["delete", ["slpf:rule_number"]],
     ["update", ["file"]]
