@@ -35,7 +35,7 @@
 
 #### Abstract:
 
-Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.  Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic (such as address, port, protocol etc). This profile defines the actions, targets, specifiers and options that are consistent with version 1.0 of the ([OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)) in the context of stateless packet filtering.
+Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation.  Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic (such as address, port, protocol etc). This profile defines the actions, targets, specifiers and options that are consistent with version 1.0 of the OpenC2 Language Specification ([OpenC2-Lang-v1.0](#openc2-lang-v10)) in the context of stateless packet filtering.
 
 #### Status:
 This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -85,7 +85,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 
 _This section is non-normative_
 
-OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  
+OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components.  OpenC2 typically uses a request-response paradigm where a Command is encoded by an OpenC2 producer (managing application) and transferred to an OpenC2 Consumer (managed device or virtualized function) using a secure transport protocol, and the consumer can respond with status and any requested information.  
 
 OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices.  These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device.  The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.
 
@@ -98,7 +98,7 @@ This specification is provided under the [Non-Assertion](https://www.oasis-open.
 * **Command**: A message defined by an action-target pair that is sent from a producer and received by a consumer.
 * **Consumer**: A managed device / application that receives Commands.  Note that a single device / application can have both consumer and producer capabilities.
 * **Producer**: A manager application that sends Commands.
-* **Response**: A message from a consumer to a producer acknowledging a command or returning the requested resources or status to a previously received request.
+* **Response**: A message from a consumer to a producer acknowledging a Command or returning the requested resources or status to a previously received request.
 * **Target**: The object of the action, i.e., the action is performed on the target (e.g., IP Address).
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [[BCP 14, RFC2119](#rfc2119)] [[RFC8174](#rfc8174)] when, and only when, they appear in all capitals, as shown here.
@@ -167,24 +167,24 @@ Example:
 
 ## 1.**6** Overview
 In general, there are two types of participants involved in the exchange of OpenC2 messages, as depicted in Figure 1-1:  
-1. **OpenC2 Producers**: An OpenC2 Producer is an entity that creates commands to provide instruction to one or more systems to act in accordance with the content of the command. An OpenC2 Producer may receive and process responses in conjunction with a command.
-2. **OpenC2 Consumers**: An OpenC2 Consumer is an entity that receives and may act upon an OpenC2 command.  An OpenC2 Consumer may create responses that provide any information captured or necessary to send back to the OpenC2 Producer.  
+1. **OpenC2 Producers**: An OpenC2 Producer is an entity that creates commands to provide instruction to one or more systems to act in accordance with the content of the Command. An OpenC2 Producer may receive and process responses in conjunction with a Command.
+2. **OpenC2 Consumers**: An OpenC2 Consumer is an entity that receives and may act upon an OpenC2 Command.  An OpenC2 Consumer may create responses that provide any information captured or necessary to send back to the OpenC2 Producer.  
 
 ![no alt title](./images/image_1.png)
 
 **Figure 1-1. OpenC2 Message Exchange**  
 
-OpenC2 is a suite of specifications for OpenC2 Producers and OpenC2 Consumers to command and execute cyber defense functions.  These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the Producer and Consumer of the command and response while the transfer specifications focus on the protocols for their exchange.   
-* The **[OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html)** provides the semantics for the essential elements of the language, the structure for commands and responses, and the schema that defines the proper syntax for the language elements that represents the command or response.
+OpenC2 is a suite of specifications for OpenC2 Producers and OpenC2 Consumers to command and execute cyber defense functions.  These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the Producer and Consumer of the Command and response while the transfer specifications focus on the protocols for their exchange.   
+* The **OpenC2 Language Specification ([OpenC2-Lang-v1.0](#openc2-lang-v10))** provides the semantics for the essential elements of the language, the structure for Commands and Responses, and the schema that defines the proper syntax for the language elements that represents the Command or Response.
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2 language relevant in the context of specific actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely) to implement multiple actuator profiles.  Actuator profiles extend the language by defining specifiers that identify the actuator to the required level of precision. Actuator Profiles may define command arguments and targets that are relevant and/or unique to those actuator functions.
 * **OpenC2 Transfer Specifications** utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
 
-The [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) defines a language used to compose messages for command and control of cyber defense systems and components.  A message consists of a header and a payload (_defined_ as a message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more actuator profiles). 
+The [OpenC2-Lang-v1.0](#openc2-lang-v10) defines a language used to compose messages for command and control of cyber defense systems and components.  A message consists of a header and a payload (_defined_ as a message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more actuator profiles). 
 
 The language defines two payload structures:
 
-1. **Command**: An instruction from one system known as the OpenC2 "Producer", to one or more systems, the OpenC2 "Consumer(s)", to act on the content of the command.
-2. **Response**: Any information sent back to the OpenC2 Producer as a result of the command.  
+1. **Command**: An instruction from one system known as the OpenC2 "Producer", to one or more systems, the OpenC2 "Consumer(s)", to act on the content of the Command.
+2. **Response**: Any information sent back to the OpenC2 Producer as a result of the Command.  
 
 OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1-2 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude any particular approach to implementing the needed functionality (for example, the use of an application-layer message signature function to provide message source authentication and integrity). 
 
@@ -199,16 +199,16 @@ OpenC2 is conceptually partitioned into four layers as shown in Table 1-1.
 | Layer | Examples |
 | :--- | :--- |
 | Function-Specific Content | Actuator Profiles<br>(standard and extensions) |
-| Common Content | [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) |
+| Common Content | [OpenC2-Lang-v1.0](#openc2-lang-v10) |
 | Message | Transfer Specifications<br>(OpenC2-over-HTTPS, OpenC2-over-CoAP, …) |
 | Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
 * The **Secure Transport** layer provides a communication path between the producer and the consumer.  OpenC2 can be layered over any standard transport protocol.
 * The **Message** layer provides a transport- and content-independent mechanism for conveying requests, responses, and notifications.  A transfer specification maps transport-specific protocol elements to a transport-independent set of message elements consisting of content and associated metadata.  
-* The **Common Content** layer defines the structure of OpenC2 commands and responses and a set of common language elements used to construct them.
+* The **Common Content** layer defines the structure of OpenC2 Commands and Responses and a set of common language elements used to construct them.
 * The **Function-specific Content** layer defines the language elements used to support a particular cyber defense function.  An actuator profile defines the implementation conformance requirements for that function.  OpenC2 Producers and Consumers will support one or more profiles.
 
-The components of an OpenC2 Command are an action (what is to be done), a target (what is being acted upon), an optional actuator (what is performing the command), and command arguments, which influence how the command is to be performed. An action coupled with a target is sufficient to describe a complete OpenC2 Command. Though optional, the inclusion of an actuator and/or command arguments provides additional precision to a command, when needed.
+The components of an OpenC2 Command are an action (what is to be done), a target (what is being acted upon), an optional actuator (what is performing the Command), and Command Arguments, which influence how the Command is to be performed. An action coupled with a target is sufficient to describe a complete OpenC2 Command. Though optional, the inclusion of an actuator and/or Command Arguments provides additional precision to a Command.
 
 The components of an OpenC2 Response are a numerical status code, an optional status text string, and optional results. The format of the results, if included, depend on the type or response being transferred. 
 
@@ -225,14 +225,14 @@ The Integrated Adaptive Cyber Defense (IACD) framework defines a collection of a
 The goal of OpenC2 is to enable coordinated defense in cyber-relevant time between decoupled blocks that perform cyber defense functions.  OpenC2 focuses on the Acting portion of the IACD framework; the assumption that underlies the design of OpenC2 is that the sensing/analytics have been provisioned and the decision to act has been made. This goal and these assumptions guides the design of OpenC2:
 
 * **Technology Agnostic:**  The OpenC2 language defines a set of abstract atomic cyber defense actions in a platform and implementation agnostic manner
-* **Concise:**  An OpenC2 command is intended to convey only the essential information required to describe the action required and can be represented in a very compact form for communications-constrained environments
-* **Abstract:**  OpenC2 commands and responses are defined abstractly and can be encoded and transferred via multiple schemes as dictated by the needs of different implementation environments
+* **Concise:**  An OpenC2 Command is intended to convey only the essential information required to describe the action required and can be represented in a very compact form for communications-constrained environments
+* **Abstract:**  OpenC2 Commands and responses are defined abstractly and can be encoded and transferred via multiple schemes as dictated by the needs of different implementation environments
 * **Extensible:**  While OpenC2 defines a core set of actions and targets for cyber defense, the language is expected to evolve with cyber defense technologies, and permits extensions to accommodate new cyber defense technologies.
 
 ## 1.8 Purpose and Scope
 A ‘Stateless Packet Filter’ (SLPF) is a policy enforcement mechanism that restricts or permits traffic based on static values such as source address, destination address, and/or port numbers.  A Stateless Packet Filter does not consider traffic patterns, connection state, data flows, applications, or payload information.  The scope of this profile is limited to Stateless Packet Filtering herein referred to as SLPF. 
 
-This actuator profile specifies the set of actions, targets, specifiers, and command arguments that integrates SLPF functionality with the Open Command and Control (OpenC2) command set. Through this command set, cyber security orchestrators may gain visibility into and provide control over the SLPF functionality in a manner that is independent of the instance of the SLPF function. 
+This actuator profile specifies the set of actions, targets, specifiers, and Command Arguments that integrates SLPF functionality with the Open Command and Control (OpenC2) Command set. Through this Command set, cyber security orchestrators may gain visibility into and provide control over the SLPF functionality in a manner that is independent of the instance of the SLPF function. 
 
 All components, devices and systems that provide SLPF functionality will implement the OpenC2 ACTIONS, TARGETS, SPECIFIERS and ARGS identified as required in this document. Actions that are applicable, but not necessarily required, for SLPF will be identified as optional.
 
@@ -241,17 +241,17 @@ The purpose of this document is to:
 * Identify the required and optional OpenC2 ACTIONS for actuators with SLPF functionality.
 * Identify the required and optional TARGET types and associated specifiers for each action in the SLPF class of actuators.
 * Identify ACTUATOR-SPECIFIERS and ARGUMENTS for each action-target pair that are applicable and/or unique to the SLPF class of actuators
-* Annotate each Action/Target pair with a justification and example, and provide sample OpenC2 commands to a SLPF with corresponding responses 
+* Annotate each Action/Target pair with a justification and example, and provide sample OpenC2 Commands to a SLPF with corresponding responses 
 
 This SLPF profile:
 
-* Does not define or implement ACTIONS beyond those defined in Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
+* Does not define or implement ACTIONS beyond those defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10).
 * Is consistent with version 1.0 of the OpenC2 Language Specification
 
 Cyber defense systems that are utilizing OpenC2 may require the following components to implement the SLPF profile: 
 
-* OpenC2 Producers: Devices that send commands, receive responses, and manage the execution of commands involving one or more SLPF or other actuators with SLPF capability. The OpenC2 Producer needs _a priori_ knowledge of which commands the actuator can process and execute, therefore must understand the profiles for any device that it intends to command.
-* OpenC2 Consumers: Devices or instances that provide stateless packet filtering functions.  Typically these are actuators that execute the cyber defense function, but could be orchestrators (i.e., a device or instance that forwards commands to the actuator).  
+* OpenC2 Producers: Devices that send Commands, receive Responses, and manage the execution of Commands involving one or more SLPF or other actuators with SLPF capability. The OpenC2 Producer needs _a priori_ knowledge of which Commands the actuator can process and execute, therefore must understand the profiles for any device that it intends to command.
+* OpenC2 Consumers: Devices or instances that provide stateless packet filtering functions.  Typically these are actuators that execute the cyber defense function, but could be orchestrators (i.e., a device or instance that forwards Commands to the actuator).  
 
 Though cyber defense components, devices, systems and/or instances may implement multiple actuator profiles, a particular OpenC2 message may reference at most a single actuator profile. The scope of this document is limited to SLPF. 
 
@@ -259,11 +259,11 @@ This specification is organized into three major sections.
 
 Section One (this section) provides a non-normative overview of the suite of specifications that realize OpenC2.  This section provides references as well as defines the scope and purpose of this specification. 
 
-[Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
+[Section Two](#2-openc2-language-binding) (normative) binds this particular profile to the OpenC2 Language Specification.  Section Two enumerates the components of the language specification that are meaningful in the context of  SLPF and defines components that are applicable to this distinct profile.  Section Two also defines the Commands (i.e., the action target pairs) that are permitted in the context of SLPF. 
 
 [Section Three](#3-conformance-statements) (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.  
 
-[Annex A](#-annex-a-sample-commands) (non-normative) provides multiple examples of commands and associated responses (JSON serialization) are provided to facilitate development.   
+[Annex A](#-annex-a-sample-commands) (non-normative) provides multiple examples of Commands and associated Responses (JSON serialization) are provided to facilitate development.   
 
 ---
 
@@ -274,12 +274,12 @@ _This section is normative_
 This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGUMENTS that are meaningful in the context of an SLPF. This section also describes the format of the response frame's status and results field. This section organized into three major subsections; Command Components, Response Components and Commands. 
 
 ## 2.1 OpenC2 Command Components 
-The components of an OpenC2 command include ACTIONS, TARGETS, ACTUATORS and associated ARGS and SPECIFIERS.  Appropriate aggregation of the components will define a command-body that is meaningful in the context of an SLPF.  
+The components of an OpenC2 Command include ACTIONS, TARGETS, ACTUATORS and associated ARGS and SPECIFIERS.  Appropriate aggregation of the components will define a Command-body that is meaningful in the context of an SLPF.  
 
-This specification identifies the applicable components of an OpenC2 command.  The components of an OpenC2 command include: 
+This specification identifies the applicable components of an OpenC2 Command.  The components of an OpenC2 Command include: 
 
 * ACTION:  A subset of the ACTIONs defined in the OpenC2 Language specification that are meaningful in the context of a SLPF. 
-    * This profile SHALL NOT define ACTIONs that are external to Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html).
+    * This profile SHALL NOT define ACTIONs that are external to Version 1.0 of the [OpenC2 Language Specification](#openc2-lang-v10).
     * This profile MAY augment the definition of the actions in the context of a SLPF.
     * This profile SHALL NOT define ACTIONs in a manner that is inconsistent with version 1.0 of the OpenC2 language specification.
 * TARGET:   A subset of the TARGETs and TARGET-SPECIFIERS defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one TARGET (and its associated specifier) that is defined in this specification. 
@@ -323,7 +323,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language specification tha
 
  
 #### 2.1.2.2 SLPF Targets
-The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html):
+The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10):
 
 1. The unique name of the SLPF schema is `oasis-open.org/openc2/v1.0/ap-slpf`
 2. The namespace identifier (nsid) referring to the SLPF schema is:  `slpf`
@@ -339,10 +339,10 @@ The slpf:Target type is defined in this specification and is referenced under th
 Implementations that choose to implement the slpf:Target MUST support the **rule_number** target.
 
 ### 2.1.3 Command Arguments
-Arguments provide additional precision to a command by including information such as how, when, or where a command is to be executed.  Table 2.1.3-1 summarizes the command arguments defined in Version 1.0 of the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the command arguments that are defined in this specification.
+Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed.  Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10) as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.
 
 #### 2.1.3.1 Common Args
-Table 2.1.3.1-1 lists the command arguments defined in the [OpenC2 Language Specification](http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html) that are applicable to SLPF.
+Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
 
 **Table 2.1.3-1. Command Arguments applicable to SLPF**
 
@@ -359,7 +359,7 @@ Table 2.1.3.1-1 lists the command arguments defined in the [OpenC2 Language Spec
 The semantics/requirements as they relate common arguments are documented in Version 1.0 of the OpenC2 Language Specification:  
 
 #### 2.1.3.2 SLPF Args
-The command arguments defined in this document are referenced under the slpf namespace.
+The Command Arguments defined in this document are referenced under the slpf namespace.
 
 **Table 2.1.3-2. Command Arguments Unique to SLPF**
 
@@ -402,14 +402,14 @@ The semantics/requirements as they relate to SLPF arguments:
 
 * directionality: 
     * Entities that recieve but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code. 
-    * If absent, then the command MUST apply to both. 
+    * If absent, then the Command MUST apply to both. 
 * drop_process:  If absent or not explicitly set, then the actuator MUST NOT send any notification to the source of the packet
 * running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent.  
 
 ### 2.1.4 Actuator Specifiers
 An ACTUATOR is the entity that provides the functionality and performs the action. The ACTUATOR executes the ACTION on the TARGET. In the context of this profile, the actuator is the SLPF and the presence of one or more specifiers further refine which actuator(s) shall execute the action.
 
-Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. [Annex C](#annex-c-sample-commands) provides sample commands with the use of specifiers.
+Table 2.1.4-1 lists the specifiers that are applicable to the SPLF actuator. [Annex C](#annex-c-sample-commands) provides sample Commands with the use of specifiers.
 
 The actuator specifiers defined in this document are referenced under the slpf namespace.
 
@@ -425,9 +425,9 @@ The actuator specifiers defined in this document are referenced under the slpf n
 | 4 | **asset_tuple** | String | 0..10 | Unique tuple identifier for a particular SLPF consisting of a list of up to 10 strings |
 
 ## 2.2 OpenC2 Response Components
-Response messages originate from the ACTUATOR as a result of a command.
+Response messages originate from the ACTUATOR as a result of a Command.
 
-Responses associated with required actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the command and associated response are captured in section [2.3](#2.3-openc2-commands).  Examples will be provided in [Annex A](#-annex-a-sample-commands).
+Responses associated with required actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the Command and associated Response are captured in section [2.3](#2.3-openc2-commands).  Examples will be provided in [Annex A](#-annex-a-sample-commands).
 
 ### 2.2.1 Common Results
 Table 2.2.1-1 lists the results defined in the OpenC2 Language specification that are applicable to SLPF.
@@ -456,7 +456,7 @@ Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language specificatio
 | :--- | :--- |
 | 102 | Processing. Command received but action not necessarily complete |
 | 200 | OK. |
-| 400 | Bad Request. Unable to process command, parsing error |
+| 400 | Bad Request. Unable to process Command, parsing error |
 | 500 | Internal Error.  For response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
 | 501 | Not implemented. For response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
 
@@ -469,13 +469,13 @@ The results defined in this document are presented in Table 2.2-2.  The results 
 
 | Type Name | Type | Description |
 | :--- | :--- | :--- |
-| **rule_number** | Rule-ID | Rule identifier returned from allow or deny command. |
+| **rule_number** | Rule-ID | Rule identifier returned from allow or deny Command. |
 
 ## 2.3 OpenC2 Commands
 
-An OpenC2 command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed commands and presents the associated responses.  
+An OpenC2 Command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTs.  This section enumerates the allowed Commands and presents the associated Responses.  
 
-Table 2.3-1 defines the commands that are valid in the context of the SLPF profile. An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable command. The subsequent subsections provide the property tables applicable to each OpenC2 command. 
+Table 2.3-1 defines the Commands that are valid in the context of the SLPF profile. An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines an allowable Command. The subsequent subsections provide the property tables applicable to each OpenC2 Command. 
 
 **Table 2.3-1. Command Matrix**
 
@@ -489,7 +489,7 @@ Table 2.3-1 defines the commands that are valid in the context of the SLPF profi
 | **slpf:rule_number** |   |   |   | valid |   |
 | **file** |   |   |   |   | valid |
 
-Table 2.3-2 defines the command arguments that are allowed for a particular command by the SLPF profile.  A command (the top row in Table 2.3-2) paired with an argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the command/argument provides details applicable to each command as influenced by the argument. 
+Table 2.3-2 defines the Command Arguments that are allowed for a particular Command by the SLPF profile.  A Command (the top row in Table 2.3-2) paired with an Argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the Command/Argument provides details applicable to each Command as influenced by the Argument. 
 
 **Table 2.3-2. Command Arguments Matrix**
 
@@ -505,35 +505,35 @@ Table 2.3-2 defines the command arguments that are allowed for a particular comm
 | **drop_process** |   | [2.3.2](#232-deny) |   |   |   |
 
 ### 2.3.1 Allow
-Table 2.3.1-1 summarizes the command options that apply to all of the commands consisting of the ‘allow’ action and a valid target type.  
+Table 2.3.1-1 summarizes the Command Arguments that apply to all of the Commands consisting of the ‘allow’ action and a valid target type.  
 
-Upon receipt of an unsupported command argument, SLPF consumers 
+Upon receipt of an unsupported Command Argument, SLPF Consumers 
 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 status code. 
 * SHOULD respond with "Option not supported" in the status text.  
 * MAY respond with the 500 status code.
 
-OpenC2 producers that send ‘allow target’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 producers that send ‘allow target’ Commands and support the ‘delete slpf:rule_number’ Command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
-* SHOULD populate the command options field with "response_requested" : "complete”
-* MAY populate the command arguments field with the "insert_rule" : <integer> option. 
-* MUST populate the command options field with "response_requested" : “complete" if the insert_rule argument is populated. 
+* SHOULD populate the Command Arguments field with "response_requested" : "complete”
+* MAY populate the Command Arguments field with the "insert_rule" : <integer> option. 
+* MUST populate the Command Arguments field with "response_requested" : “complete" if the insert_rule argument is populated. 
 
-OpenC2 consumers that receive and successfully parse ‘allow <target>’ commands but cannot implement the ‘allow <target>’ :
+OpenC2 consumers that receive and successfully parse ‘allow <target>’ Commands but cannot implement the ‘allow <target>’ :
 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 status code.
 * SHOULD respond with ‘Rule not updated’ in the status text.
 * MAY respond with the 500 status code. 
 
-OpenC2 consumers that receive ‘allow <target>’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive ‘allow <target>’ Commands and support the ‘delete slpf:rule_number’ Command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * Upon successful implementation of the ‘allow <target>’, MUST return the rule_number associated with the rule if the "response_requested" :  “complete" option is populated. 
 
-OpenC2 consumers that receive ‘allow target’ commands and support the ‘insert_rule’ command argument:
+OpenC2 consumers that receive ‘allow target’ Commands and support the ‘insert_rule’ Command argument:
 
 * MUST assign the rule number provided if the "insert_rule" : <integer> option is populated. 
 * If the rule number is currently in use, then 
@@ -542,16 +542,16 @@ OpenC2 consumers that receive ‘allow target’ commands and support the ‘ins
     * SHOULD respond with ‘Rule number currently in use’ in the  status text. 
     * MAY respond with the 500 status code. 
 
-The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample commands are presented in [Annex A](#-annex-a-sample-commands).  
+The valid target types, associated specifiers, and options are summarized in sections 2.3.1.1 and 2.3.1.2.  Sample Commands are presented in [Annex A](#-annex-a-sample-commands).  
 
 #### 2.3.1.1 ‘Allow ipv4_connection’
 
-The ‘allow ipv4_connection’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
-The ‘allow ipv4_connection’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
+The ‘allow ipv4_connection’ Command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv4_connection’ Command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
-The command permits traffic that is consistent with the specified ipv4_connection.  A valid ‘allow ipv4_connection’ command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
+The Command permits traffic that is consistent with the specified ipv4_connection.  A valid ‘allow ipv4_connection’ Command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
-Products that receive but do not implement the ‘allow ipv4_connection’ command:
+Products that receive but do not implement the ‘allow ipv4_connection’ Command:
 
 * MUST NOT respond with a OK/200.  
 * SHOULD respond with the 501 response code. 
@@ -559,12 +559,12 @@ Products that receive but do not implement the ‘allow ipv4_connection’ comma
 * MAY respond with the 500 status code.
 
 #### 2.3.1.2 ‘Allow ipv6_connection’
-The ‘allow ipv6_connection’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
-The ‘allow ipv6_connection’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
+The ‘allow ipv6_connection’ Command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv6_connection’ Command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
-The command permits traffic that is consistent with the specified ipv6_connection.  A valid ‘allow ipv6_connection’ command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
+The Command permits traffic that is consistent with the specified ipv6_connection.  A valid ‘allow ipv6_connection’ Command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated.  An unpopulated property within the the ipv4_connection target MUST be treated as an ‘any’.  
 
-Products that receive but do not implement the ‘allow ipv6_connection’ command:
+Products that receive but do not implement the ‘allow ipv6_connection’ Command:
 
 * MUST NOT respond with a OK/200.  
 * SHOULD respond with the 501 response code. 
@@ -572,52 +572,52 @@ Products that receive but do not implement the ‘allow ipv6_connection’ comma
 * MAY respond with the 500 status code.
 
 #### 2.3.1.3 ‘Allow ipv4_net’
-The ‘allow ipv4_net’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
-The ‘allow ipv4_net’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
+The ‘allow ipv4_net’ Command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv4_net’ Command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
-The command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.  
+The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.  
 
-Products that receive but do not implement the ‘allow ipv4_net’ command: 
+Products that receive but do not implement the ‘allow ipv4_net’ Command: 
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 response code. 
 * SHOULD respond with ‘Target type not supported’ in the status text.
 * MAY respond with the 500 status code.
 
 #### 2.3.1.4 ‘Allow ipv6_net’  
-The ‘allow ipv6_net’ command is OPTIONAL for Openc2 Producers implementing the SLPF.  
-The ‘allow ipv6_net’ command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
+The ‘allow ipv6_net’ Command is OPTIONAL for Openc2 Producers implementing the SLPF.  
+The ‘allow ipv6_net’ Command is OPTIONAL for Openc2 Consumers implementing the SLPF.  
 
-The command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address. 
+The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address. 
 
-Products that receive but do not implement the ‘allow ipv6_net’ command:
+Products that receive but do not implement the ‘allow ipv6_net’ Command:
 * MUST NOT respond with a OK/200. 
 * SHOULD respond with the 501 response code 
 * SHOULD respond with ‘Target type not supported’ in the status text.
 * MAY respond with the 500 status code.
 
 ### 2.3.2 Deny
-‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the four ‘allow’ commands.  Table 2.3-2 summarizes the command arguments that apply to all of the commands consisting of the ‘deny’ action and valid target type.  
+‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the targets, specifiers, options and corresponding responses are identical to the four ‘allow’ Commands.  Table 2.3-2 summarizes the Command arguments that apply to all of the Commands consisting of the ‘deny’ action and valid target type.  
 
-Upon receipt of a command with an ARGUMENT that is not supported by the actuator, actuators:  
+Upon receipt of a Command with an ARGUMENT that is not supported by the actuator, actuators:  
 
 * MUST NOT respond with OK/200
 * SHOULD respond with the 501 status code 
 * SHOULD respond with ‘Option not supported’ in the status text.  
 * MAY respond with the 500 status code.  
 
-OpenC2 producers that send ‘deny target’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 producers that send ‘deny target’ Commands and support the ‘delete slpf:rule_number’ Command:
 
 * MUST support the slpf:rule_number target type as defined in [Section 2.1.2.2](#2122-slpf-targets) 
-* SHOULD populate the command options field with ‘"response_requested" : "complete”
-* MAY populate the command arguments field with the "insert_rule" : <integer> option. 
-* MUST populate the command options field with "response_requested" : "complete" if the insert_rule argument is populated. 
+* SHOULD populate the Command Arguments field with ‘"response_requested" : "complete”
+* MAY populate the Command Arguments field with the "insert_rule" : <integer> option. 
+* MUST populate the Command Arguments field with "response_requested" : "complete" if the insert_rule argument is populated. 
 
-OpenC2 consumers that receive ‘deny <target>’ commands and support the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive ‘deny <target>’ Commands and support the ‘delete slpf:rule_number’ Command:
 
 * MUST support the slpf:rule_number target type as defined in section [Section 2.1.2.2](#2122-slpf-targets).
 * MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” argument is populated. 
 
-OpenC2 consumers that receive ‘deny target’ commands and support the ‘insert_rule’ command argument:
+OpenC2 consumers that receive ‘deny target’ Commands and support the ‘insert_rule’ Command argument:
 
 * MUST assign the rule number provided if the "insert_rule" : <integer> argument is populated. 
 * If the rule number is currently in use, then 
@@ -627,27 +627,27 @@ OpenC2 consumers that receive ‘deny target’ commands and support the ‘inse
     * MAY respond with the 500 status code.
 
 ### 2.3.3 Query
-The valid target type, associated specifiers, and options are summarized in section 2.3.3.1.  Sample commands are presented in [Annex A](#-annex-a-sample-commands). 
+The valid target type, associated specifiers, and options are summarized in section 2.3.3.1.  Sample Commands are presented in [Annex A](#-annex-a-sample-commands). 
 
 #### 2.3.3.1 Query features
-The ‘query features’ command MUST be implemented in accordance with Version 1.0 of the [OpenC2 Language Specification] (http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html). 
+The ‘query features’ Command MUST be implemented in accordance with Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10). 
 
 ### 2.3.4 Delete
-The slpf:rule_number is the only valid target type for the delete action. The associated specifiers, and options are summarized in section 2.3.4.1.  Sample commands are presented in [Annex A](#-annex-a-sample-commands).  
+The slpf:rule_number is the only valid target type for the delete action. The associated specifiers, and options are summarized in section 2.3.4.1.  Sample Commands are presented in [Annex A](#-annex-a-sample-commands).  
 
 
 #### 2.3.4.1 delete slpf:rule_number
-The ‘delete slpf:rule_number’ command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  command MUST implement the slpf:rule_number target type described in [Section 2.1.2.2](#2.1.2.2-slpf-targets). 
+The ‘delete slpf:rule_number’ Command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ Command is OPTIONAL.  Products that choose to implement the ‘delete slpf:rule_number’  Command MUST implement the slpf:rule_number target type described in [Section 2.1.2.2](#2.1.2.2-slpf-targets). 
 
-OpenC2 producers that send the ‘delete slpf:rule_number’ command: 
+OpenC2 producers that send the ‘delete slpf:rule_number’ Command: 
 
-* MAY populate the command arguments field with ‘response_requested" : "complete”.
-* MUST NOT include other command arguments.  
+* MAY populate the Command Arguments field with ‘response_requested" : "complete”.
+* MUST NOT include other Command Arguments.  
 * MUST include exactly one rule_number.  
 
-OpenC2 consumers that receive the ‘delete slpf:rule_number’ command:
+OpenC2 consumers that receive the ‘delete slpf:rule_number’ Command:
 
-* but cannot parse or process the ‘delete slpf:rule_number’ command:
+* but cannot parse or process the ‘delete slpf:rule_number’ Command:
     * MUST NOT respond with a OK/200. 
     * SHOULD respond with status code 400.  
     * MAY respond with the 500 status code
@@ -656,47 +656,47 @@ OpenC2 consumers that receive the ‘delete slpf:rule_number’ command:
     * SHOULD respond with the 501 status code
     * SHOULD respond with ‘target not supported’ in the status text.
     * MAY respond with the 500 status code
-* MUST respond with response code 200 upon successful parsing of the ‘delete slpf:rule_number’ command and subsequent removal of the corresponding rule.  
+* MUST respond with response code 200 upon successful parsing of the ‘delete slpf:rule_number’ Command and subsequent removal of the corresponding rule.  
 * upon successful parsing but failure to remove the corresponding rule
     * MUST NOT respond with OK/200
     * MUST respond with response code 500  
     * SHOULD respond with ‘firewall rule not removed or updated’ in the status text.  
 
-Refer to Annex C for sample commands.  
+Refer to Annex C for sample Commands.  
 
 ### 2.3.5 Update
-The ‘file’ target as defined in Version 1.0 of the Language Specification is the only valid target type for the update action. The associated specifiers, and options are summarized in section 2.3.5.1.  Sample commands are presented in [Annex A](#-annex-a-sample-commands).  
+The ‘file’ target as defined in Version 1.0 of the Language Specification is the only valid target type for the update action. The associated specifiers, and options are summarized in section 2.3.5.1.  Sample Commands are presented in [Annex A](#-annex-a-sample-Commands).  
 
 #### 2.3.5.1 Update file 
-The ‘update file’ command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file command is OPTIONAL.  OpenC2 Consumers that choose to implement the ‘update file’ command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ command.  The atomic steps that take place are implementation specific.  
+The ‘update file’ Command is used to replace or update files such as configuration files, rule sets,  etc.  Implementation of the update file Command is OPTIONAL.  OpenC2 Consumers that choose to implement the ‘update file’ Command MUST must include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc.  The end state shall be that the firewall operates with the new file at the conclusion of the ‘update file’ Command.  The atomic steps that take place are implementation specific.  
 
-Table 2.3-2 presents the valid options for the ‘update file’ command.   OpenC2 producers and consumers that choose to implement the ‘update file’ command MUST NOT include options other than the options identified in Table 2.3-2.  
+Table 2.3-2 presents the valid options for the ‘update file’ Command.   OpenC2 producers and consumers that choose to implement the ‘update file’ Command MUST NOT include options other than the options identified in Table 2.3-2.  
 
-OpenC2 producers that send the ‘update file’ command:
+OpenC2 producers that send the ‘update file’ Command:
 
 * MAY populate the arguments field with the "response_requested" argument.    “Complete”, “Ack” and “None” are valid Response-type for ‘update file’
-* MUST NOT include other command arguments.  
+* MUST NOT include other Command Arguments.  
 * MUST populate the name specifier in the target. 
 * SHOULD populate the path specifier in the target. 
 
-OpenC2 consumers that receive the ‘update file’ command:  
+OpenC2 consumers that receive the ‘update file’ Command:  
 
-* but cannot parse or process the command 
+* but cannot parse or process the Command 
     * MUST NOT respond with a OK/200.
     * SHOULD respond with status code 400.  
     * MAY respond with the 500 status code
-* but do not support the ‘update file’ command type
+* but do not support the ‘update file’ Command  
     * MUST NOT respond with a OK/200.
     * SHOULD respond with status code 501 
-    * SHOULD respond with ‘command not supported’ in the status text. 
+    * SHOULD respond with ‘Command not supported’ in the status text. 
     * MAY respond with status code 500
 * but cannot access the file specified in the file target 
     * MUST respond with status code 500 
     * SHOULD respond with ‘cannot access file’ in the status text. 
-* upon successful parsing and initiating the processing of the ‘update file’ command, OpenC2 consumers MAY respond with response code 102. 
+* upon successful parsing and initiating the processing of the ‘update file’ Command, OpenC2 Consumers MAY respond with response code 102. 
 * upon completion of all the steps necessary to complete the update and the actuator commences operations functioning with the new file, actuators OpenC2 consumers SHOULD respond with response code 200.     
 
-Refer to [Annex A](#-annex-a-sample-commands) for sample commands.  
+Refer to [Annex A](#-annex-a-sample-commands) for sample Commands.  
 
 ---
 
@@ -709,13 +709,13 @@ All OpenC2 Producers that are conformant to this specification MUST satisfy Conf
 
 ### 3.1.1 Conformance Clause 1: Baseline OpenC2 Producer  
 An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:  
-* 3.1.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
+* 3.1.1.1 **MUST** support JSON serialization of OpenC2 Commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
 * 3.1.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
 * 3.1.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
 * 3.1.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
 * 3.1.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
-* 3.1.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
-* 3.1.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
+* 3.1.1.6 **MUST** implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
+* 3.1.1.7  **MUST** implement the ‘response_requested’ Command Argument as a valid option for any Command.  
 * 3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
    * Conformance Clause 2
    * Conformance Clause 3
@@ -725,31 +725,31 @@ An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:
 ### 3.1.2 Conformance Clause 2: IP Version 4 Connection Producer
 An OpenC2 Producer satisfies 'IP Version 4 Connection Producer' conformance if:  
 * 3.1.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-* 3.1.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
-* 3.1.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.1.2.2 **MUST** implement the 'allow ipv4_connection' Command in accordance with section 2.3.1 of this specification.   
+* 3.1.2.3 **MUST** implement the 'deny ipv4_connection' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.3 Conformance Clause 3: IP Version 6 Connection Producer
 An OpenC2 Producer satisfies 'IP Version 6 Connection Producer' conformance if:  
 * 3.1.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-* 3.1.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
-* 3.1.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.1.3.2 **MUST** implement the 'allow ipv6_connection' Command in accordance with section 2.3.1 of this specification.   
+* 3.1.3.3 **MUST** implement the 'deny ipv6_connection' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.4 Conformance Clause 4: IP Version 4 Net Producer
 An OpenC2 Producer satisfies 'IP Version 4 Net Producer' conformance if:  
 * 3.1.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-* 3.1.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
-* 3.1.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
+* 3.1.4.2 **MUST** implement the 'allow ipv4_net' Command in accordance with section 2.3.1 of this specification.   
+* 3.1.4.3 **MUST** implement the 'deny ipv4_net' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.5 Conformance Clause 5: IP Version 6 Net Producer
 An OpenC2 Producer satisfies 'IP Version 6 Net Producer' conformance if:  
 * 3.1.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 1 of this specification.   
-* 3.1.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
-* 3.1.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
+* 3.1.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with section 2.3.1 of this specification.   
+* 3.1.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.1.6 Conformance Clause 6: Update File Producer
 An OpenC2 Producer satisfies 'Update File Producer' conformance if:  
 * 3.1.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-* 3.1.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
+* 3.1.6.2 **MUST** implement the 'update file' Command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.1.7 Conformance Clause 7: delete rule number Producer
 An OpenC2 Producer satisfies 'delete rule Producer' conformance if:  
@@ -759,38 +759,38 @@ An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
 ### 3.1.8 Conformance Clause 8: Running Producer
 An OpenC2 Producer satisfies 'Running Producer' conformance if:  
 * 3.1.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-* 3.1.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.9 Conformance Clause 9: Direction Producer
 An OpenC2 Producer satisfies 'Direction Producer' conformance if:  
 * 3.1.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-* 3.1.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.9.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.10 Conformance Clause 10: drop-process Producer
 An OpenC2 Producer satisfies 'drop-process Producer' conformance if:  
 * 3.1.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-* 3.1.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.1.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.1.11 Conformance Clause 11: Temporal Producer
 An OpenC2 Producer satisfies 'Temporal Producer' conformance if:  
 * 3.1.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 1 of this specification.  
-* 3.1.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
-* 3.1.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'.  
+* 3.1.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'.  
+* 3.1.11.3 **MUST** implemnet the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.  
 
 ## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
 All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22. 
 
 ### 3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer  
 An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:  
-* 3.2.1.1 **MUST** support JSON serialization of OpenC2 commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
+* 3.2.1.1 **MUST** support JSON serialization of OpenC2 Commands that are syntactically valid in accordance with the property tables presented in Section 2.1.   
 * 3.2.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in section 2.1 of this specification.    
 * 3.2.1.3 **MUST** support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages.   
 * 3.2.1.4 **SHOULD** support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in section 1 of this specification.  
 * 3.2.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification.  
-* 3.2.1.6 **MUST** implement the 'query features' command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
-* 3.2.1.7  **MUST** implement the ‘response_requested’ command argument as a valid option for any command.  
-    * 3.2.1.7.1 All commands received with a response argument set to 'none' **MUST** process the command and **MUST NOT** send a response. This criteria supercedes all other normative text as it pertains to responses.   
-    * 3.2.1.7.2 All commands received without the response argument (or response argument not set) **MUST** process the command and response in a manner that is consistent with "response_requested":"complete".  
+* 3.2.1.6 **MUST** implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification.   
+* 3.2.1.7  **MUST** implement the ‘response_requested’ Command Argument as a valid option for any Command.  
+    * 3.2.1.7.1 All Commands received with a response Argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supercedes all other normative text as it pertains to responses.   
+    * 3.2.1.7.2 All Commands received without the response argument (or response argument not set) **MUST** process the Command and response in a manner that is consistent with "response_requested":"complete".  
 * 3.2.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
     * Conformance Clause 13
     * Conformance Clause 14
@@ -800,31 +800,31 @@ An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:
 ### 3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer
 An OpenC2 Consumer satisfies 'IP Version 4 Connection Consumer' conformance if:  
 * 3.2.2.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-* 3.2.2.2 **MUST** implement the 'allow ipv4_connection' command in accordance with section 2.3.1 of this specification.   
-* 3.2.2.3 **MUST** implement the 'deny ipv4_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.2.2.2 **MUST** implement the 'allow ipv4_connection' Command in accordance with section 2.3.1 of this specification.   
+* 3.2.2.3 **MUST** implement the 'deny ipv4_connection' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer
 An OpenC2 Consumer satisfies 'IP Version 6 Connection Consumer' conformance if:  
 * 3.2.3.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-* 3.2.3.2 **MUST** implement the 'allow ipv6_connection' command in accordance with section 2.3.1 of this specification.   
-* 3.2.3.3 **MUST** implement the 'deny ipv6_connection' command in accordance with section 2.3.2 of this specification.  
+* 3.2.3.2 **MUST** implement the 'allow ipv6_connection' Command in accordance with section 2.3.1 of this specification.   
+* 3.2.3.3 **MUST** implement the 'deny ipv6_connection' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.4 Conformance Clause 15: IP Version 4 Net Consumer
 An OpenC2 Consumer satisfies 'IP Version 4 Net Consumer' conformance if:  
 * 3.2.4.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-* 3.2.4.2 **MUST** implement the 'allow ipv4_net' command in accordance with section 2.3.1 of this specification.   
-* 3.2.4.3 **MUST** implement the 'deny ipv4_net' command in accordance with section 2.3.2 of this specification.  
+* 3.2.4.2 **MUST** implement the 'allow ipv4_net' Command in accordance with section 2.3.1 of this specification.   
+* 3.2.4.3 **MUST** implement the 'deny ipv4_net' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.5 Conformance Clause 16: IP Version 6 Net Consumer
 An OpenC2 Consumer satisfies 'IP Version 6 Net Consumer' conformance if:  
 * 3.2.5.1 **MUST**  meet all of conformance criteria identified in Conformance Clause 12 of this specification.   
-* 3.2.5.2 **MUST** implement the 'allow ipv6_net' command in accordance with section 2.3.1 of this specification.   
-* 3.2.5.3 **MUST** implement the 'deny ipv6_net' command in accordance with section 2.3.2 of this specification.  
+* 3.2.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with section 2.3.1 of this specification.   
+* 3.2.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with section 2.3.2 of this specification.  
 
 ### 3.2.6 Conformance Clause 17: Update File Consumer
 An OpenC2 Consumer satisfies 'Update File Consumer' conformance if:  
 * 3.2.6.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-* 3.2.6.2 **MUST** implement the 'update file' command in accordance with section 2.3.5.1 of this specification.  
+* 3.2.6.2 **MUST** implement the 'update file' Command in accordance with section 2.3.5.1 of this specification.  
 
 ### 3.2.7 Conformance Clause 18: delete rule number Consumer
 An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:  
@@ -834,23 +834,23 @@ An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:
 ### 3.2.8 Conformance Clause 19: Running Consumer
 An OpenC2 Consumer satisfies 'Running Consumer' conformance if:  
 * 3.2.8.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-* 3.2.8.2 **MUST** implement the 'running' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.2.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.9 Conformance Clause 20: Direction Consumer
 An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:  
 * 3.2.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-* 3.2.9.2 **MUST** implement the 'direction' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.2.9.2 **MUST** implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.10 Conformance Clause 21: drop-process Consumer
 An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:  
 * 3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-* 3.2.10.2 **MUST** implement the 'drop_process' command argument as a valid option for any command associated with the 'deny' or 'allow' actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
+* 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any command associated with the 'deny' action in accordance with sections 2.3.1 and 2.3.2 of this specificaiton.  
 
 ### 3.2.11 Conformance Clause 22: Temporal Consumer
 An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:  
 * 3.2.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
-* 3.2.11.2 **MUST** implement the 'start_time' command argument as a valid option for any command other than 'query features'.  
-* 3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' command arguments as a valid option for any command other than 'query features' or 'update file'. 
+* 3.2.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'.  
+* 3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'. 
 
 ---
 
@@ -858,11 +858,11 @@ An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:
 
 _This section is non-normative_
 
-This section will summarize and provide examples of OpenC2 commands as they pertain to SLPF firewalls. The sample commands will be encoded in verbose JSON, however other encodings are possible provided the command is validated against the schema presented in Annex A.  Examples of corresponding responses will be provided where appropriate.
+This section will summarize and provide examples of OpenC2 Commands as they pertain to SLPF firewalls. The sample Commands will be encoded in verbose JSON, however other encodings are possible provided the Command is validated against the property tables defined in section 2 of this specification.  Examples of corresponding Responses will be provided where appropriate.
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
 
-The following examples include Binary fields which are serialized in Base64url format.  The examples show JSON-serialized commands; the conversion of Base64url serialized values to Binary data and String display text is:
+The following examples include Binary fields which are serialized in Base64url format.  The examples show JSON-serialized Commands; the conversion of Base64url serialized values to Binary data and String display text is:
 
 | Base64url | Binary | Display String |
 | :--- | :--- | :--- |
@@ -925,7 +925,7 @@ Block a particular connection within the domain and do not send a host unreachab
 
 
 ### A.1.2  Deny all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers, therefore all endpoints that can execute the command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow action.  
+Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the actuator called out was SLPF with no additional specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow action.  
 
 **Command:**
 
@@ -958,7 +958,7 @@ Case One: the actuator successfully issued the deny.
 {"status": 200}
 ```
 
-Case Two: the command failed due to a syntax error in the command.  Optional status text is ignored by the openc2 producer, but may be added to provide error details for debugging or logging.
+Case Two: the Command failed due to a syntax error in the Command.  Optional status text is ignored by the openc2 producer, but may be added to provide error details for debugging or logging.
 
 ```
 {  
@@ -967,7 +967,7 @@ Case Two: the command failed due to a syntax error in the command.  Optional sta
 }
 ```
 
-Case Three: the command failed because an argument was not supported.
+Case Three: the Command failed because an Argument was not supported.
 
 ```
 {  
@@ -1036,7 +1036,7 @@ In this case the actuator returned a rule number associated with the allow.
 ```
 
 ## A.2 Delete Rule
-Used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ command is OPTIONAL.
+Used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the ‘delete slpf:rule_number’ Command is OPTIONAL.
 
 In this case the rule number assigned in a previous allow will be removed (refer to the final example in section C.1)
 
@@ -1091,7 +1091,7 @@ Successful update of the configuration
 {"status": 200}
 ```
 
-This actuator does not support the update file command 
+This actuator does not support the update file Command 
 
 ```
 {
@@ -1110,10 +1110,10 @@ This actuator could not access the file
 ```
 
 ## A.4 Query features
-Implementation of query openc2 is required.  The query openc2 command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query openc2 command can also be used to check the status of the actuator.
+Implementation of query openc2 is required.  The query features Command is intended to enable the openc2 producer to determine the capabilities of the actuator.  The query features Command can also be used to check the status of the actuator.
 
 ### A.4.1 No query items set 
-This command uses query features with no query items to verify that the actuator is functioning. 
+This Command uses query features with no query items to verify that the actuator is functioning. 
 
 **Command:**
 
@@ -1135,7 +1135,7 @@ The actuator is alive.
 ```
 
 ### A.4.2 Version of Language specification supported
-This command queries the actuator to determine which version(s) of the language specification are supported.  The language specifications use semantic versioning ("major.minor"); for each supported major version the actuator need only report the highest supported minor version.
+This Command queries the actuator to determine which version(s) of the language specification are supported.  The language specifications use semantic versioning ("major.minor"); for each supported major version the actuator need only report the highest supported minor version.
 
 **Command:**
 
@@ -1160,7 +1160,7 @@ The Actuator supports language specification versions 1.0 - 1.3.
 ```
 
 ### A.4.3 Actuator profiles supported
-This command queries the actuator to determine both the language versions and the actuator profiles supported.
+This Command queries the actuator to determine both the language versions and the actuator profiles supported.
 
 **Command:**
 
@@ -1175,7 +1175,7 @@ This command queries the actuator to determine both the language versions and th
 
 **Response:**
 
-The actuator device is apparently a smart front-door-lock for which an extension actuator profile has been written.  The device supports both the standard slpf functions and whatever commands are defined in the extension profile.
+The actuator device is apparently a smart front-door-lock for which an extension actuator profile has been written.  The device supports both the standard slpf functions and whatever Commands are defined in the extension profile.
 
 ```
 {
@@ -1189,7 +1189,7 @@ The actuator device is apparently a smart front-door-lock for which an extension
 ```
 
 ### A.4.4 Specific Commands Supported
-This command queries the actuator to determine which action-target pairs are supported.  Not all targets are meaningful in the context of a specific action, and although a command such as "update ip_connection" may be syntactically valid, the combination does not specify an operation supported by the actuator.
+This Command queries the actuator to determine which action-target pairs are supported.  Not all targets are meaningful in the context of a specific action, and although a Command such as "update ip_connection" may be syntactically valid, the combination does not specify an operation supported by the actuator.
 
 **Command:**
 
