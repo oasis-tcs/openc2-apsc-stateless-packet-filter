@@ -76,7 +76,105 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
 -------
 
 ## Table of Contents
-[[TOC]]
+-   [1 Introduction](#1-introduction)
+    -   [1.1 IPR Policy](#11-ipr-policy)
+    -   [1.2 Terminology](#12-terminology)
+    -   [1.3 Normative References](#13-normative-references)
+    -   [1.4 Non normative References](#14-non-normative-references)
+    -   [1.5 Document Conventions](#15-document-conventions)
+        -   [1.5.1 Naming Conventions](#151-naming-conventions)
+        -   [1.5.2 Font Colors and Style](#152-font-colors-and-style)
+    -   [1.6 Overview](#16-overview)
+    -   [1.7 Goal](#17-goal)
+    -   [1.8 Purpose and Scope](#18-purpose-and-scope)
+-   [2 OpenC2 Language Binding](#2-openc2-language-binding)
+    -   [2.1 OpenC2 Command Components](#21-openc2-command-components)
+        -   [2.1.1 Actions](#211-actions)
+        -   [2.1.2 Targets](#212-targets)
+        -   [2.1.3 Command Arguments](#213-command-arguments)
+        -   [2.1.4 Actuator Specifiers](#214-actuator-specifiers)
+    -   [2.2 OpenC2 Response Components](#22-openc2-response-components)
+        -   [2.2.1 Common Results](#221-common-results)
+        -   [2.2.2 SLPF Results](#222-slpf-results)
+    -   [2.3 OpenC2 Commands](#23-openc2-commands)
+        -   [2.3.1 Allow](#231-allow)
+        -   [2.3.2 Deny](#232-deny)
+        -   [2.3.3 Query](#233-query)
+        -   [2.3.4 Delete](#234-delete)
+        -   [2.3.5 Update](#235-update)
+-   [3 Conformance statements](#3-conformance-statements)
+    -   [3.1 Clauses Pertaining to the OpenC2 Producer Conformance
+        Target](#31-clauses-pertaining-to-the-openc2-producer-conformance-target)
+        -   [3.1.1 Conformance Clause 1: Baseline OpenC2
+            Producer](#311-conformance-clause-1-baseline-openc2-producer)
+        -   [3.1.2 Conformance Clause 2: IP Version 4 Connection
+            Producer](#312-conformance-clause-2-ip-version-4-connection-producer)
+        -   [3.1.3 Conformance Clause 3: IP Version 6 Connection
+            Producer](#313-conformance-clause-3-ip-version-6-connection-producer)
+        -   [3.1.4 Conformance Clause 4: IP Version 4 Net
+            Producer](#314-conformance-clause-4-ip-version-4-net-producer)
+        -   [3.1.5 Conformance Clause 5: IP Version 6 Net
+            Producer](#315-conformance-clause-5-ip-version-6-net-producer)
+        -   [3.1.6 Conformance Clause 6: Update File
+            Producer](#316-conformance-clause-6-update-file-producer)
+        -   [3.1.7 Conformance Clause 7: delete rule number
+            Producer](#317-conformance-clause-7-delete-rule-number-producer)
+        -   [3.1.8 Conformance Clause 8: Running
+            Producer](#318-conformance-clause-8-running-producer)
+        -   [3.1.9 Conformance Clause 9: Direction
+            Producer](#319-conformance-clause-9-direction-producer)
+        -   [3.1.10 Conformance Clause 10: drop-process
+            Producer](#3110-conformance-clause-10-drop-process-producer)
+        -   [3.1.11 Conformance Clause 11: Temporal
+            Producer](#3111-conformance-clause-11-temporal-producer)
+    -   [3.2 Clauses Pertaining to the OpenC2 Consumer Conformance
+        Target](#32-clauses-pertaining-to-the-openc2-consumer-conformance-target)
+        -   [3.2.1 Conformance Clause 12: Baseline OpenC2
+            Consumer](#321-conformance-clause-12-baseline-openc2-consumer)
+        -   [3.2.2 Conformance Clause 13: IP Version 4 Connection
+            Consumer](#322-conformance-clause-13-ip-version-4-connection-consumer)
+        -   [3.2.3 Conformance Clause 14: IP Version 6 Connection
+            Consumer](#323-conformance-clause-14-ip-version-6-connection-consumer)
+        -   [3.2.4 Conformance Clause 15: IP Version 4 Net
+            Consumer](#324-conformance-clause-15-ip-version-4-net-consumer)
+        -   [3.2.5 Conformance Clause 16: IP Version 6 Net
+            Consumer](#325-conformance-clause-16-ip-version-6-net-consumer)
+        -   [3.2.6 Conformance Clause 17: Update File
+            Consumer](#326-conformance-clause-17-update-file-consumer)
+        -   [3.2.7 Conformance Clause 18: delete rule number
+            Consumer](#327-conformance-clause-18-delete-rule-number-consumer)
+        -   [3.2.8 Conformance Clause 19: Running
+            Consumer](#328-conformance-clause-19-running-consumer)
+        -   [3.2.9 Conformance Clause 20: Direction
+            Consumer](#329-conformance-clause-20-direction-consumer)
+        -   [3.2.10 Conformance Clause 21: drop-process
+            Consumer](#3210-conformance-clause-21-drop-process-consumer)
+        -   [3.2.11 Conformance Clause 22: Temporal
+            Consumer](#3211-conformance-clause-22-temporal-consumer)
+-   [Annex A Sample Commands](#annex-a-sample-commands)
+    -   [A.1 Deny and Allow](#a1-deny-and-allow)
+        -   [A.1.1 Deny a particular
+            connection](#a11-deny-a-particular-connection)
+        -   [A.1.2 Deny all outbound ftp
+            transfers](#a12-deny-all-outbound-ftp-transfers)
+        -   [A.1.3 Block all inbound traffic from a particular
+            source.](#a13-block-all-inbound-traffic-from-a-particular-source)
+        -   [A.1.4 Permit ftp transfers to a particular
+            destination.](#a14-permit-ftp-transfers-to-a-particular-destination)
+    -   [A.2 Delete Rule](#a2-delete-rule)
+    -   [A.3 Update file](#a3-update-file)
+    -   [A.4 Query features](#a4-query-features)
+        -   [A.4.1 No query items set](#a41-no-query-items-set)
+        -   [A.4.2 Version of Language specification
+            supported](#a42-version-of-language-specification-supported)
+        -   [A.4.3 Actuator profiles
+            supported](#a43-actuator-profiles-supported)
+        -   [A.4.4 Specific Commands
+            Supported](#a44-specific-commands-supported)
+-   [Annex B Acronyms](#annex-b-acronyms)
+-   [Annex C Acknowledgments](#annex-c-acknowledgments)
+-   [Annex D Revision History](#annex-d-revision-history)
+
 
 
 -------
@@ -169,7 +267,7 @@ Example:
 }
 ```
 
-## 1.**6** Overview
+## 1.6 Overview
 In general, there are two types of participants involved in the exchange of OpenC2 messages, as depicted in Figure 1-1:  
 1. **OpenC2 Producers**: An OpenC2 Producer is an entity that creates commands to provide instruction to one or more systems to act in accordance with the content of the Command. An OpenC2 Producer may receive and process Responses in conjunction with a Command.
 2. **OpenC2 Consumers**: An OpenC2 Consumer is an entity that receives and may act upon an OpenC2 Command.  An OpenC2 Consumer may create Responses that provide any information captured or necessary to send back to the OpenC2 Producer.  
