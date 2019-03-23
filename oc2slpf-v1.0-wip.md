@@ -309,7 +309,7 @@ OpenC2 is conceptually partitioned into four layers as shown in Table 1-1.
 * The **Common Content** layer defines the structure of Commands and Responses and a set of common language elements used to construct them.
 * The **Function-specific Content** layer defines the language elements used to support a particular cyber defense function. An Actuator profile defines the implementation conformance requirements for that function. Producers and Consumers will support one or more profiles.
 
-The components of a Command are an Action (what is to be done), a Target (what is being acted upon), an optional Actuator (what is performing the command), and Command Arguments, which influence how the Command is to be performed. An Action coupled with a Target is sufficient to describe a complete Command. Though optional, the inclusion of an Actuator and/or Command Arguments provides additional precision to a Command.
+The components of a Command are an Action (what is to be done), a Target (what is being acted upon), an optional Actuator (what is performing the Command), and Command Arguments, which influence how the Command is to be performed. An Action coupled with a Target is sufficient to describe a complete Command. Though optional, the inclusion of an Actuator and/or Command Arguments provides additional precision to a Command.
 
 The components of a Response are a numerical status code, an optional status text string, and optional results. The format of the results, if included, depend on the type of Response being transferred. 
 
@@ -354,7 +354,7 @@ Cyber defense systems that are utilizing OpenC2 may require the following compon
 * OpenC2 Producers: Devices that send Commands, receive Responses, and manage the execution of Commands involving one or more SLPF or other Actuators with SLPF capability. The OpenC2 Producer needs _a priori_ knowledge of which Commands the Actuator can process and execute, therefore must understand the profiles for any device that it intends to command
 * OpenC2 Consumers: Devices or instances that provide stateless packet filtering functions.  Typically these are Actuators that execute the cyber defense function, but could be orchestrators (i.e., a device or instance that forwards Commands to the Actuator)  
 
-Though cyber defense components, devices, systems and/or instances may implement multiple Actuator profiles, a particular OpenC2 message may reference at most a single Actuator profile. The scope of this document is limited to SLPF. 
+Though cyber defense components, devices, systems and/or instances may implement multiple Actuator profiles, a particular OpenC2 Message may reference at most a single Actuator profile. The scope of this document is limited to SLPF. 
 
 This specification is organized into three major sections.  
 
@@ -383,7 +383,7 @@ This specification identifies the applicable components of an OpenC2 Command.  T
     * This profile SHALL NOT define ACTIONs that are external to Version 1.0 of the [OpenC2 Language Specification](#openc2-lang-v10)
     * This profile MAY augment the definition of the Actions in the context of a SLPF
     * This profile SHALL NOT define ACTIONs in a manner that is inconsistent with version 1.0 of the OpenC2 Language Specification
-* TARGET:   A subset of the TARGETs and TARGET-SPECIFIERS defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one TARGET (and its associated specifier) that is defined in this specification 
+* TARGET:   A subset of the TARGETs and TARGET-SPECIFIERS defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one TARGET (and its associated Specifier) that is defined in this specification 
 * ARGUMENTS:  A subset of the ARGUMENTS defined in the Language Specification and a set of ARGUMENTS defined in this specification 
 * ACTUATOR:  A set of specifiers defined in this specification that are meaningful in the context of SLPF
 
@@ -414,7 +414,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language Specification tha
 
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
-| 9 | **features** | Features | A set of items such as Action/Target pairs, profiles versions, options that are supported by the Actuator. The target is used with the query Action to determine an Actuator's capabilities |
+| 9 | **features** | Features | A set of items such as Action/Target pairs, profiles versions, options that are supported by the Actuator. The Target is used with the query Action to determine an Actuator's capabilities |
 | 10 | **file** | File | Properties of a file |
 | 13 | **ipv4_net** | IPv4-Net | The representation of one or more IPv4 addresses expressed using CIDR notation |
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
@@ -462,10 +462,10 @@ Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#o
 
 | ID | Name | Type | # | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | **start_time** | Date-Time | 0..1 | The specific date/time to initiate the action  |
-| 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the action|
-| 3 | **duration** | Duration | 0..1 | The length of time for an action to be in effect |
-| 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the action: `none`, `ack`, `status`, `complete`  |
+| 1 | **start_time** | Date-Time | 0..1 | The specific date/time to initiate the Action  |
+| 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the Action|
+| 3 | **duration** | Duration | 0..1 | The length of time for an Action to be in effect |
+| 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the Action: `none`, `ack`, `status`, `complete`  |
 | 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
 
 The semantics/requirements as they relate common arguments are documented in Version 1.0 of the OpenC2 Language Specification:  
@@ -552,9 +552,9 @@ Table 2.2.1-1 lists the results defined in the OpenC2 Language Specification tha
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | **status** | Status-Code | 0..1 | An integer status code |
 | 2 | **status_text** | String | 0..1 | A free-form human-readable description of the Response status |
-| 6 | **versions** | Version | 0..n | List of OpenC2 language versions supported by this actuator |
-| 7 | **profiles** |Uname | 0..n | List of profiles supported by this actuator |
-| 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported action |
+| 6 | **versions** | Version | 0..n | List of OpenC2 language versions supported by this Actuator |
+| 7 | **profiles** |Uname | 0..n | List of profiles supported by this Actuator |
+| 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported Action |
 | 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
 | 1024 | **slpf** | slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
 
@@ -631,7 +631,7 @@ OpenC2 Producers that send ‘allow target’ Commands and support the ‘delete
 * MUST support the slpf:rule_number Target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * SHOULD populate the Command Arguments field with "response_requested" : "complete”
 * MAY populate the Command Arguments field with the "insert_rule" : <integer> option
-* MUST populate the Command Arguments field with "response_requested" : “complete" if the insert_rule argument is populated 
+* MUST populate the Command Arguments field with "response_requested" : “complete" if the insert_rule Argument is populated 
 
 OpenC2 Consumers that receive and successfully parse ‘allow <target>’ Commands but cannot implement the ‘allow <target>’ :
 
@@ -645,7 +645,7 @@ OpenC2 Consumers that receive ‘allow <target>’ Commands and support the ‘d
 * MUST support the slpf:rule_number Target type as defined in [Section 2.1.2.2](#2122-slpf-targets)
 * Upon successful implementation of the ‘allow <target>’, MUST return the rule_number associated with the rule if the "response_requested" :  “complete" option is populated. 
 
-OpenC2 Consumers that receive ‘allow target’ Commands and support the ‘insert_rule’ Command argument:
+OpenC2 Consumers that receive ‘allow target’ Commands and support the ‘insert_rule’ Command Argument:
 
 * MUST assign the rule number provided if the "insert_rule" : <integer> option is populated. 
 * If the rule number is currently in use, then 
@@ -666,7 +666,7 @@ The Command permits traffic that is consistent with the specified ipv4_connectio
 Products that receive but do not implement the ‘allow ipv4_connection’ Command:
 
 * MUST NOT respond with a OK/200  
-* SHOULD respond with the 501 response code 
+* SHOULD respond with the 501 Response code 
 * SHOULD respond with ‘Target type not supported’ in the  status text
 * MAY respond with the 500 status code
 
@@ -679,7 +679,7 @@ The Command permits traffic that is consistent with the specified ipv6_connectio
 Products that receive but do not implement the ‘allow ipv6_connection’ Command:
 
 * MUST NOT respond with a OK/200  
-* SHOULD respond with the 501 response code
+* SHOULD respond with the 501 Response code
 * SHOULD respond with ‘Target type not supported’ in the  status text
 * MAY respond with the 500 status code
 
@@ -691,7 +691,7 @@ The Command permits traffic as specified by the range of IPv4 addresses as expre
 
 Products that receive but do not implement the ‘allow ipv4_net’ Command: 
 * MUST NOT respond with a OK/200 
-* SHOULD respond with the 501 response code
+* SHOULD respond with the 501 Response code
 * SHOULD respond with ‘Target type not supported’ in the status text
 * MAY respond with the 500 status code
 
@@ -703,14 +703,14 @@ The Command permits traffic as specified by the range of IPv6 addresses as expre
 
 Products that receive but do not implement the ‘allow ipv6_net’ Command:
 * MUST NOT respond with a OK/200
-* SHOULD respond with the 501 response code 
+* SHOULD respond with the 501 Response code 
 * SHOULD respond with ‘Target type not supported’ in the status text
 * MAY respond with the 500 status code
 
 ### 2.3.2 Deny
-‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ actuator-argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four ‘allow’ Commands.  Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the ‘deny’ Action and valid Target type.  
+‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four ‘allow’ Commands.  Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the ‘deny’ Action and valid Target type.  
 
-Upon receipt of a Command with an ARGUMENT that is not supported by the actuator:  
+Upon receipt of a Command with an ARGUMENT that is not supported by the Actuator:  
 
 * MUST NOT respond with OK/200
 * SHOULD respond with the 501 status code 
@@ -722,16 +722,16 @@ OpenC2 Producers that send ‘deny target’ Commands and support the ‘delete 
 * MUST support the slpf:rule_number Target type as defined in [Section 2.1.2.2](#2122-slpf-targets) 
 * SHOULD populate the Command Arguments field with ‘"response_requested" : "complete”
 * MAY populate the Command Arguments field with the "insert_rule" : <integer> option
-* MUST populate the Command Arguments field with "response_requested" : "complete" if the insert_rule argument is populated 
+* MUST populate the Command Arguments field with "response_requested" : "complete" if the insert_rule Argument is populated 
 
 OpenC2 Consumers that receive ‘deny <target>’ Commands and support the ‘delete slpf:rule_number’ Command:
 
 * MUST support the slpf:rule_number Target type as defined in section [Section 2.1.2.2](#2122-slpf-targets)
-* MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” argument is populated.
+* MUST return the rule number assigned in the slpf object if the "response_requested" : “complete” Argument is populated.
 
 OpenC2 Consumers that receive ‘deny target’ Commands and support the ‘insert_rule’ Command Argument:
 
-* MUST assign the rule number provided if the "insert_rule" : <integer> argument is populated
+* MUST assign the rule number provided if the "insert_rule" : <integer> Argument is populated
 * If the rule number is currently in use, then 
     * MUST NOT respond with a OK/200
     * SHOULD respond with the 501 status code 
@@ -768,10 +768,10 @@ OpenC2 Consumers that receive the ‘delete slpf:rule_number’ Command:
     * SHOULD respond with the 501 status code
     * SHOULD respond with ‘target not supported’ in the status text
     * MAY respond with the 500 status code
-* MUST respond with response code 200 upon successful parsing of the ‘delete slpf:rule_number’ Command and subsequent removal of the corresponding rule 
+* MUST respond with Response code 200 upon successful parsing of the ‘delete slpf:rule_number’ Command and subsequent removal of the corresponding rule 
 * upon successful parsing but failure to remove the corresponding rule:
     * MUST NOT respond with OK/200
-    * MUST respond with response code 500  
+    * MUST respond with Response code 500  
     * SHOULD respond with ‘firewall rule not removed or updated’ in the status text
 
 Refer to Annex C for sample Commands.  
@@ -805,8 +805,8 @@ OpenC2 Consumers that receive the ‘update file’ Command:
 * but cannot access the file specified in the file Target 
     * MUST respond with status code 500 
     * SHOULD respond with ‘cannot access file’ in the status text 
-* upon successful parsing and initiating the processing of the ‘update file’ Command, OpenC2 Consumers MAY respond with response code 102 
-* upon completion of all the steps necessary to complete the update and the Actuator commences operations functioning with the new file,  OpenC2 Consumers SHOULD respond with response code 200    
+* upon successful parsing and initiating the processing of the ‘update file’ Command, OpenC2 Consumers MAY respond with Response code 102 
+* upon completion of all the steps necessary to complete the update and the Actuator commences operations functioning with the new file,  OpenC2 Consumers SHOULD respond with Response code 200    
 
 Refer to [Annex A](#-annex-a-sample-commands) for sample Commands.  
 
@@ -956,7 +956,7 @@ An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:
 ### 3.2.10 Conformance Clause 21: drop-process Consumer
 An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:  
 * 3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification 
-* 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any command associated with the 'deny' Action in accordance with Sections 2.3.1 and 2.3.2 of this specification  
+* 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with Sections 2.3.1 and 2.3.2 of this specification  
 
 ### 3.2.11 Conformance Clause 22: Temporal Consumer
 An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:  
@@ -1070,7 +1070,7 @@ Case One: the Actuator successfully issued the deny.
 {"status": 200}
 ```
 
-Case Two: the Command failed due to a syntax error in the Command.  Optional status text is ignored by the openc2 producer, but may be added to provide error details for debugging or logging.
+Case Two: the Command failed due to a syntax error in the Command.  Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.
 
 ```
 {  
@@ -1222,7 +1222,7 @@ This Actuator could not access the file
 ```
 
 ## A.4 Query features
-Implementation of query Openc2 is required.  The query features Command is intended to enable the Openc2 producer to determine the capabilities of the Actuator.  The query features Command can also be used to check the status of the Actuator.
+Implementation of query Openc2 is required.  The query features Command is intended to enable the Openc2 Producer to determine the capabilities of the Actuator.  The query features Command can also be used to check the status of the Actuator.
 
 ### A.4.1 No query items set 
 This Command uses query features with no query items to verify that the Actuator is functioning. 
