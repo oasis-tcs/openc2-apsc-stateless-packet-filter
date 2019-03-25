@@ -1275,8 +1275,8 @@ The Actuator device is apparently a smart front-door-lock for which an extension
   "status": 200,
   "versions": ["1.3"],
   "profiles": [
-    ["slpf", "oasis-open.org/openc2/v1.0/ap-slpf"],
-    ["x-lock", "example.com/openc2/products/iot-front-door-lock"]
+    ["slpf", "http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md"],
+    ["x-lock", "http://example.com/openc2/products/iot-front-door-lock"]
   ]
 }
 ```
