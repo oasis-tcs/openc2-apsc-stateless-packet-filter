@@ -417,7 +417,7 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language Specification tha
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
 | 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
-| 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile |
+| 1024 | **slpf** | <slpf:Target | Targets defined in the Stateless Packet Filter profile |
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
@@ -463,7 +463,7 @@ Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#o
 | 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the action|
 | 3 | **duration** | Duration | 0..1 | The length of time for an action to be in effect |
 | 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the action: `none`, `ack`, `status`, `complete`  |
-| 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
+| 1024 | **slpf** | <slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
 
 The semantics/requirements as they relate common arguments are documented in Version 1.0 of the OpenC2 Language Specification:  
 
@@ -553,7 +553,7 @@ Table 2.2.1-1 lists the results defined in the OpenC2 Language Specification tha
 | 7 | **profiles** |Uname | 0..n | List of profiles supported by this actuator |
 | 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported action |
 | 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
-| 1024 | **slpf** | slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
+| 1024 | **slpf** | <slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
 
 Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.
 
@@ -1012,14 +1012,10 @@ Block a particular connection within the domain and do not send a host unreachab
     "start_time": 1534775460000,
     "duration": 500,
     "response_requested": "ack",
-    "slpf": {
-      "drop_process": "none"
-    }
+    "slpf:drop_process": "none"
   },
   "actuator": {
-    "slpf": {
-,      "asset_id": "30"
-    }
+    "slpf:asset_id": "30"
   }
 }
 ```
@@ -1048,10 +1044,8 @@ Block all outbound ftp data transfers, send false acknowledgement and request ac
     }
   },
   "args": {
-    "slpf": {
-      "drop_process": "false_ack",
-      "direction": "egress"
-    }
+    "slpf:drop_process": "false_ack",
+    "slpf:direction": "egress"
   },
   "actuator": {
     "slpf": {}
@@ -1097,14 +1091,10 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ipv6
   },
   "args": {
     "response_requested": "none",
-    "slpf": {
-      "direction": "ingress"
-    }
+    "slpf:direction": "ingress"
   },
   "actuator": {
-    "slpf": {
-      "named_group": "perimeter"
-    }
+    "slpf:named_group": "perimeter"
   }
 }
 ```
@@ -1138,9 +1128,7 @@ In this case the Actuator returned a rule number associated with the allow.
 ```
 {
   "status": 200,
-  "slpf": {
-    "rule_number": 1234
-  }
+  "slpf:rule_number": 1234
 }
 ```
 
@@ -1155,9 +1143,7 @@ In this case the rule number assigned in a previous allow will be removed (refer
 {
   "action": "delete",
   "target": {
-    "slpf": {
-      "rule_number": 1234
-    }
+    "slpf:rule_number": 1234
   },
   "args": {
     "response_requested": "complete"
@@ -1185,9 +1171,7 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
     }
   },
   "actuator": {
-    "slpf": {
-      "named_group": "network"
-    }
+    "slpf:named_group": "network"
   }
 }
 ```
@@ -1291,9 +1275,9 @@ The Actuator device is apparently a smart front-door-lock for which an extension
   "status": 200,
   "versions": ["1.3"],
   "profiles": [
-    "oasis-open.org/openc2/v1.0/ap-slpf",
-    "example.com/openc2/products/iot-front-door-lock"
-    ]
+    ["slpf", "oasis-open.org/openc2/v1.0/ap-slpf"],
+    ["x-lock", "example.com/openc2/products/iot-front-door-lock"]
+  ]
 }
 ```
 
