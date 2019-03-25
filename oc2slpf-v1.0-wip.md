@@ -550,7 +550,7 @@ Table 2.2.1-1 lists the results defined in the OpenC2 Language Specification tha
 | 1 | **status** | Status-Code | 0..1 | An integer status code |
 | 2 | **status_text** | String | 0..1 | A free-form human-readable description of the Response status |
 | 6 | **versions** | Version | 0..n | List of OpenC2 language versions supported by this actuator |
-| 7 | **profiles** |Uname | 0..n | List of profiles supported by this actuator |
+| 7 | **profiles** | Import | 0..n | List of profiles supported by this actuator |
 | 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported action |
 | 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
 | 1024 | **slpf** | <slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
