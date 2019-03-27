@@ -467,7 +467,6 @@ Table 2.1.3-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#ope
 | 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the action|
 | 3 | **duration** | Duration | 0..1 | The length of time for an action to be in effect |
 | 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the action: `none`, `ack`, `status`, `complete`  |
-| 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
 
 #### 2.1.3.2 SLPF Args
 The list of common Command Arguments is extended to include the additional Command Arguments defined in this section and referenced with the slpf namespace.
