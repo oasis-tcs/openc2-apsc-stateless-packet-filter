@@ -412,7 +412,7 @@ Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language
 Table 2.1.2-1 summarizes the Targets defined in Version 1.0 of the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.2-2 summarizes the Targets that are defined in this specification.
 
 #### 2.1.2.1 Common Targets
-Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification that are applicable to SLPF. The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).
+Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification that are applicable to SLPF. The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#23-openc2-commands).
 
 **Table 2.1.2-1. Targets Applicable to SLPF**
 
@@ -538,7 +538,7 @@ The Actuator Specifiers defined in this document are referenced under the slpf n
 ## 2.2 OpenC2 Response Components
 Response messages originate from the Actuator as a result of a Command.
 
-Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action. Additional details regarding the Command and associated Response are captured in [Section 2.3](#2.3-openc2-commands). Examples are provided in [Annex A](#annex-a-sample-commands).
+Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action. Additional details regarding the Command and associated Response are captured in [Section 2.3](#23-openc2-commands). Examples are provided in [Annex A](#annex-a-sample-commands).
 
 ### 2.2.1 Common Results
 Table 2.2.1-1 lists the Response properties defined in the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) that are applicable to SLPF.
@@ -605,8 +605,8 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 
 |   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#234-delete) | [2.3.5.1](#2351-update-file) |
-| **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#234-delete-slpf) | [2.3.5.1](#2351-update-file) |
+| **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
+| **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **duration** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **running** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
@@ -652,7 +652,7 @@ OpenC2 Consumers that receive 'allow target' Commands and support the 'insert_ru
     * SHOULD respond with 'Rule number currently in use' in the status text.
     * MAY respond with the 500 status code.
 
-The valid Target types, associated Specifiers, and Options are summarized in [Section 2.3.1.1](#2311-allow-ipv4-connection) and [Section 2.3.1.2](#2312-allow-ipv6-connection). Sample Commands are presented in [Annex A](#annex-a-sample-commands).
+The valid Target types, associated Specifiers, and Options are summarized in [Section 2.3.1.1](#2311-allow-ipv4_connection) and [Section 2.3.1.2](#2312-allow-ipv6_connection). Sample Commands are presented in [Annex A](#annex-a-sample-commands).
 
 #### 2.3.1.1 'Allow ipv4_connection'
 
@@ -747,7 +747,7 @@ The slpf:rule_number is the only valid Target type for the delete Action. The as
 
 
 #### 2.3.4.1 delete slpf:rule_number
-The 'delete slpf:rule_number' Command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL. Products that choose to implement the 'delete slpf:rule_number' Command MUST implement the slpf:rule_number Target type described in [Section 2.1.2.2](#2.1.2.2-slpf-targets).
+The 'delete slpf:rule_number' Command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL. Products that choose to implement the 'delete slpf:rule_number' Command MUST implement the slpf:rule_number Target type described in [Section 2.1.2.2](#2122-slpf-targets).
 
 OpenC2 Producers that send the 'delete slpf:rule_number' Command:
 
