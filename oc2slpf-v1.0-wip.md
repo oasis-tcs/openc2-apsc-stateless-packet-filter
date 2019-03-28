@@ -3,18 +3,18 @@
 -------
 
 # Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0
-## Committee Specification Draft 04 /<br>Public Review Draft 01
-## 17 October 2018
+## Working Draft 06
+## 28 March 2019
 ### Specification URIs
 #### This version:
+* TBD.md (Authoritative)
+* TBD.html
+* TBD.pdf
+
+#### Previous version:
 * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.md (Authoritative)
 * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html
 * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.pdf
-
-#### Previous version:
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csd03/oc2slpf-v1.0-csd03.md (Authoritative)
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csd03/oc2slpf-v1.0-csd03.html
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csd03/oc2slpf-v1.0-csd03.pdf
 
 #### Latest version:
 * http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md (Authoritative)
@@ -50,7 +50,7 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 When referencing this specification the following citation format should be used:
 
 **[OpenC2-SLPF-v1.0]**
-_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 17 October 2018. OASIS Committee Specification Draft 04 / Public Review Draft 01. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
+_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 28 March 2019. OASIS Working Draft 06. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
 
 -------
 
@@ -405,8 +405,6 @@ Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language
 | 8 | **allow** | Permit traffic or access |
 | 16 | **update** | Instructs the Actuator to update its configuration by retrieving and processing a configuration file and update |
 | 20 | **delete** | Remove an access rule |
-
-** **
 
 ### 2.1.2 Targets
 Table 2.1.2-1 summarizes the Targets defined in Version 1.0 of the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.2-2 summarizes the Targets that are defined in this specification.
@@ -986,7 +984,6 @@ The examples include Integer Date-Time fields; the conversion of Integer values 
 | :--- | :--- |
 | `1534775460000` | `Monday, August 20, 2018 2:31:00 PM GMT, 2018-08-20T10:31:00-04:00` |
 
-
 =======
 ## A.1 Deny and Allow
 
@@ -1028,7 +1025,6 @@ Block a particular connection within the domain and do not send a host unreachab
     "status": 200
 }
 ```
-
 
 ### A.1.2 Deny all outbound ftp transfers
 Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
@@ -1312,6 +1308,7 @@ The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Mat
 }
 ```
 
+---
 
 # Annex B: Acronyms
 _This section is non-normative_
@@ -1334,8 +1331,8 @@ _This section is non-normative_
 | TC | Technical Committee |
 | URI | Uniform Resource Identifier |
 
-
 ---
+
 # Annex C: Acknowledgments
 
 _This section is non-normative_
@@ -1381,7 +1378,6 @@ The following individuals are acknowledged for providing comments, suggested tex
 
 ---
 
-
 # Annex D: Revision History
 
 _This section is non-normative_
@@ -1391,5 +1387,4 @@ _This section is non-normative_
 | Committee Specification Draft 1 | 31 AUG 2018 | Brule, Joe | Initial draft |
 | Committee Specification Draft 2 | 04 OCT 2018 | Brule, Joe | Added Document overview, complete rewrite of introduction, modified components section to be consistent with Language Specification and address ballot comments, added schema, added conformance section, added examples, added acknowledgements section. |
 | Committee Specification Draft 3 | 16 OCT 2018 | Brule, Joe | Aligned section 1 with other OpenC2 specifications; other changes to track dependencies on the language specification:  1) replace openc2 target with features target, 2) flatten response examples so that there is not a separate "results" layer. |
-| Committee Specification Draft 4 | 22 FEB 2019 | Brule, Joe | Addressed Public Review 01 comments. |
-
+| Working Draft 06 | 28 MAR 2019 | Brule, Joe | Addressed Public Review 01 comments. |
