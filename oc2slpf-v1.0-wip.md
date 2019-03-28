@@ -439,7 +439,7 @@ The semantics/ requirements as they pertain to common targets:
     * For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol
  
 #### 2.1.2.2 SLPF Targets
-The list of common Targes is extended to include the additional Targets defined in this section and referenced with the slpf namespace.
+The list of common Targets is extended to include the additional Targets defined in this section and referenced with the slpf namespace.
 
 **Table 2.1.2-2. Targets Unique to SLPF**
 
