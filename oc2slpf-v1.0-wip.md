@@ -462,13 +462,10 @@ Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#o
 
 | ID | Name | Type | # | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | **start_time** | Date-Time | 0..1 | The specific date/time to initiate the Action  |
-| 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the Action|
-| 3 | **duration** | Duration | 0..1 | The length of time for an Action to be in effect |
-| 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the Action: `none`, `ack`, `status`, `complete`  |
-| 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
-
-The semantics/requirements as they relate common arguments are documented in Version 1.0 of the OpenC2 Language Specification:  
+| 1 | **start_time** | Date-Time | 0..1 | The specific date/time to initiate the action  |
+| 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the action|
+| 3 | **duration** | Duration | 0..1 | The length of time for an action to be in effect |
+| 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the action: `none`, `ack`, `status`, `complete`  |
 
 #### 2.1.3.2 SLPF Args
 The Command Arguments defined in this document are referenced under the slpf namespace.
