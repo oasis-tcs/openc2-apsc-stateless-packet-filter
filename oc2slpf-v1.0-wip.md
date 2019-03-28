@@ -491,7 +491,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | :--- | :--- | :--- |
 | 1 | **none** | Drop the packet and do not send a notification to the source of the packet |
 | 2 | **reject** | Drop the packet and send an ICMP host unreachable (or equivalent) to the source of the packet |
-| 3 | **false_ack** | Drop the traffic  and send a false acknowledgement   |
+| 3 | **false_ack** | Drop the traffic  and send a false acknowledgment   |
 
 **_Type: Direction (Enumerated)_**
 
@@ -514,7 +514,7 @@ The semantics/requirements as they relate to SLPF arguments:
     * The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e. the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF 
 
 * directionality: 
-    * Entities that recieve but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code 
+    * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code 
     * If absent, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
 * running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent 
@@ -814,7 +814,7 @@ Refer to [Annex A](#-annex-a-sample-commands) for sample Commands.
 
 # 3 Conformance statements
 _This section is normative_  
-This section identifies the requirements for twenty-two conformance profiles as they pertain to two conformance targets.  The two conformace targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8 of this specification).  
+This section identifies the requirements for twenty-two conformance profiles as they pertain to two conformance targets.  The two conformance targets are OpenC2 Producers and OpenC2 Consumers (as defined in section 1.8 of this specification).  
 
 ## 3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target
 All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 11. 
@@ -828,7 +828,7 @@ An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:
 * 3.1.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification 
 * 3.1.1.6 **MUST** implement the 'query features' Command in accordance with the normative text provided in Version 1.0 of the OpenC2 Language Specification  
 * 3.1.1.7  **MUST** implement the ‘response_requested’ Command Argument as a valid option for any Command 
-* 3.1.1.8 **MUST** conform to at least one of the following confromance clauses in this specification: 
+* 3.1.1.8 **MUST** conform to at least one of the following conformance clauses in this specification: 
    * Conformance Clause 2
    * Conformance Clause 3
    * Conformance Clause 4 
@@ -871,17 +871,17 @@ An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
 ### 3.1.8 Conformance Clause 8: Running Producer
 An OpenC2 Producer satisfies 'Running Producer' conformance if:  
 * 3.1.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with Sections 2.3.1 and 2.3.2 of this specificaiton 
+* 3.1.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with Sections 2.3.1 and 2.3.2 of this specification 
 
 ### 3.1.9 Conformance Clause 9: Direction Producer
 An OpenC2 Producer satisfies 'Direction Producer' conformance if:  
 * 3.1.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification  
-* 3.1.9.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with Sections 2.3.1 and 2.3.2 of this specificaiton 
+* 3.1.9.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with Sections 2.3.1 and 2.3.2 of this specification 
 
 ### 3.1.10 Conformance Clause 10: drop-process Producer
 An OpenC2 Producer satisfies 'drop-process Producer' conformance if:  
 * 3.1.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification 
-* 3.1.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with sections 2.3.1 and 2.3.2 of this specificaiton  
+* 3.1.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with sections 2.3.1 and 2.3.2 of this specification  
 
 ### 3.1.11 Conformance Clause 11: Temporal Producer
 An OpenC2 Producer satisfies 'Temporal Producer' conformance if:  
@@ -901,7 +901,7 @@ An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:
 * 3.2.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification
 * 3.2.1.6 **MUST** implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification
 * 3.2.1.7  **MUST** implement the ‘response_requested’ Command Argument as a valid option for any Command
-    * 3.2.1.7.1 All Commands received with a Response argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supercedes all other normative text as it pertains to Responses 
+    * 3.2.1.7.1 All Commands received with a Response argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supersedes all other normative text as it pertains to Responses 
     * 3.2.1.7.2 All Commands received without the Response argument (or Response argument not set) **MUST** process the Command and Response in a manner that is consistent with "response_requested":"complete" 
 * 3.2.1.8 **MUST** conform to at least one of the following conformance clauses in this specification: 
     * Conformance Clause 13
@@ -950,19 +950,19 @@ An OpenC2 Consumer satisfies 'Running Consumer' conformance if:
 
 ### 3.2.9 Conformance Clause 20: Direction Consumer
 An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:  
-* 3.2.9.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification 
+* 3.2.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification 
 * 3.2.9.2 **MUST** implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with Sections 2.3.1 and 2.3.2 of this specification
 
 ### 3.2.10 Conformance Clause 21: drop-process Consumer
 An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:  
-* 3.2.10.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification 
+* 3.2.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification 
 * 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with Sections 2.3.1 and 2.3.2 of this specification  
 
 ### 3.2.11 Conformance Clause 22: Temporal Consumer
 An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:  
-* 3.2.11.1 **MUST** meet all of the conformance criteria ideintified in Conformance Clause 12 of this specification.  
+* 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification.  
 * 3.2.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
-* 3.2.11.3 **MUST** implemnet the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
+* 3.2.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
 
 ---
 
@@ -1033,7 +1033,7 @@ Block a particular connection within the domain and do not send a host unreachab
 
 
 ### A.1.2  Deny all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgement and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.  
+Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be ‘complete’. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.  
 
 **Command:**
 
@@ -1330,7 +1330,7 @@ _This section is non-normative_
 | MQTT | Message Queuing Telemetry Transport |
 | OASIS | Organization for the Advancement of Structured Information Standards |
 | OODA | Observe-Orient-Decide-Act |
-| OpenDXL | Opensource Data Exchange Layer |
+| OpenDXL | Open-source Data Exchange Layer |
 | RFC | Request for Comment |
 | SLPF | Stateless Packet Filter |
 | TC | Technical Committee |
