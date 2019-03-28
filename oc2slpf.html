@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="styles/markdown-styles-v1.6.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</h1>
+</header>
+<p><img src="http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg" alt="OASIS Logo" /></p>
+<hr />
+<h1 id="open-command-and-control-openc2-profile-for-stateless-packet-filtering-version-10">Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</h1>
+<h2 id="working-draft-06">Working Draft 06</h2>
+<h2 id="28-march-2019">28 March 2019</h2>
+<h3 id="specification-uris">Specification URIs</h3>
+<h4 id="this-version">This version:</h4>
+<ul>
+<li>TBD.md (Authoritative)</li>
+<li>TBD.html</li>
+<li>TBD.pdf</li>
+</ul>
+<h4 id="previous-version">Previous version:</h4>
+<ul>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.md" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.md</a> (Authoritative)</li>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html</a></li>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.pdf" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.pdf</a></li>
+</ul>
+<h4 id="latest-version">Latest version:</h4>
+<ul>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md</a> (Authoritative)</li>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html</a></li>
+<li><a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.pdf" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.pdf</a></li>
+</ul>
+<h4 id="technical-committee">Technical Committee:</h4>
+<ul>
+<li><a href="https://www.oasis-open.org/committees/openc2/">OASIS Open Command and Control (OpenC2) TC</a></li>
+</ul>
+<h4 id="chairs">Chairs:</h4>
+<ul>
+<li>Joe Brule (<a href="mailto:jmbrule@nsa.gov">jmbrule@nsa.gov</a>), <a href="https://www.nsa.gov/">National Security Agency</a></li>
+<li>Sounil Yu (<a href="mailto:sounil.yu@bankofamerica.com">sounil.yu@bankofamerica.com</a>), <a href="http://www.bankofamerica.com/">Bank of America</a></li>
+</ul>
+<h4 id="editors">Editors:</h4>
+<ul>
+<li>Joe Brule (<a href="mailto:jmbrule@nsa.gov">jmbrule@nsa.gov</a>), <a href="https://www.nsa.gov/">National Security Agency</a></li>
+<li>Duncan Sparrell (<a href="mailto:duncan@sfractal.com">duncan@sfractal.com</a>), <a href="http://www.sfractal.com/">sFractal Consulting</a></li>
+<li>Alex Everett (<a href="mailto:alex.everett@unc.edu">alex.everett@unc.edu</a>), <a href="http://www.unc.edu/">University of North Carolina, Chapel Hill</a></li>
+</ul>
+<h4 id="abstract">Abstract:</h4>
+<p>Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation. Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic, such as address, port, protocol, etc. This profile defines the Actions, Targets, Specifiers and Options that are consistent with the version 1.0 of the OpenC2 Language Specification (<a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a>) in the context of stateless packet filtering (SLPF).</p>
+<h4 id="status">Status:</h4>
+<p>This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the &quot;Latest version&quot; location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical" class="uri">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical</a>.</p>
+<p>TC members should send comments on this specification to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the &quot;Send A Comment&quot; button on the TC's web page at <a href="https://www.oasis-open.org/committees/openc2/" class="uri">https://www.oasis-open.org/committees/openc2/</a>.</p>
+<p>This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">Non-Assertion</a> Mode of the OASIS IPR Policy, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<a href="https://www.oasis-open.org/committees/openc2/ipr.php" class="uri">https://www.oasis-open.org/committees/openc2/ipr.php</a>).</p>
+<p>Note that any machine-readable content (<a href="https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsCompLang">Computer Language Definitions</a>) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.</p>
+<h4 id="citation-format">Citation format:</h4>
+<p>When referencing this specification the following citation format should be used:</p>
+<p><strong>[OpenC2-SLPF-v1.0]</strong> <em>Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</em>. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 28 March 2019. OASIS Working Draft 06. <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd01.html</a>. Latest version: <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html</a>.</p>
+<hr />
+<h2 id="notices">Notices</h2>
+<p>Copyright © OASIS Open 2018. All Rights Reserved.</p>
+<p>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the &quot;OASIS IPR Policy&quot;). The full <a href="https://www.oasis-open.org/policies-guidelines/ipr">Policy</a> may be found at the OASIS website.</p>
+<p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</p>
+<p>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</p>
+<p>This document and the information contained herein is provided on an &quot;AS IS&quot; basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
+<p>OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Committee Specification or OASIS Standard, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.</p>
+<p>OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification. OASIS may include such claims on its website, but disclaims any obligation to do so.</p>
+<p>OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Committee Specification or OASIS Standard, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.</p>
+<p>The name &quot;OASIS&quot; is a trademark of <a href="https://www.oasis-open.org/">OASIS</a>, the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see <a href="https://www.oasis-open.org/policies-guidelines/trademark" class="uri">https://www.oasis-open.org/policies-guidelines/trademark</a> for above guidance.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#1-introduction">1 Introduction</a>
+<ul>
+<li><a href="#11-ipr-policy">1.1 IPR Policy</a></li>
+<li><a href="#12-terminology">1.2 Terminology</a></li>
+<li><a href="#13-normative-references">1.3 Normative References</a></li>
+<li><a href="#14-non-normative-references">1.4 Non-Normative References</a></li>
+<li><a href="#15-document-conventions">1.5 Document Conventions</a>
+<ul>
+<li><a href="#151-naming-conventions">1.5.1 Naming Conventions</a></li>
+<li><a href="#152-font-colors-and-style">1.5.2 Font Colors and Style</a></li>
+</ul></li>
+<li><a href="#16-overview">1.6 Overview</a></li>
+<li><a href="#17-goal">1.7 Goal</a></li>
+<li><a href="#18-purpose-and-scope">1.8 Purpose and Scope</a></li>
+</ul></li>
+<li><a href="#2-openc2-language-binding">2 OpenC2 Language Binding</a>
+<ul>
+<li><a href="#21-openc2-command-components">2.1 OpenC2 Command Components</a>
+<ul>
+<li><a href="#211-actions">2.1.1 Actions</a></li>
+<li><a href="#212-targets">2.1.2 Targets</a></li>
+<li><a href="#213-command-arguments">2.1.3 Command Arguments</a></li>
+<li><a href="#214-actuator-specifiers">2.1.4 Actuator Specifiers</a></li>
+</ul></li>
+<li><a href="#22-openc2-response-components">2.2 OpenC2 Response Components</a>
+<ul>
+<li><a href="#221-common-results">2.2.1 Common Results</a></li>
+<li><a href="#222-slpf-results">2.2.2 SLPF Results</a></li>
+</ul></li>
+<li><a href="#23-openc2-commands">2.3 OpenC2 Commands</a>
+<ul>
+<li><a href="#231-allow">2.3.1 Allow</a></li>
+<li><a href="#232-deny">2.3.2 Deny</a></li>
+<li><a href="#233-query">2.3.3 Query</a></li>
+<li><a href="#234-delete">2.3.4 Delete</a></li>
+<li><a href="#235-update">2.3.5 Update</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-conformance-statements">3 Conformance statements</a>
+<ul>
+<li><a href="#31-clauses-pertaining-to-the-openc2-producer-conformance-target">3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target</a>
+<ul>
+<li><a href="#311-conformance-clause-1-baseline-openc2-producer">3.1.1 Conformance Clause 1: Baseline OpenC2 Producer</a></li>
+<li><a href="#312-conformance-clause-2-ip-version-4-connection-producer">3.1.2 Conformance Clause 2: IP Version 4 Connection Producer</a></li>
+<li><a href="#313-conformance-clause-3-ip-version-6-connection-producer">3.1.3 Conformance Clause 3: IP Version 6 Connection Producer</a></li>
+<li><a href="#314-conformance-clause-4-ip-version-4-net-producer">3.1.4 Conformance Clause 4: IP Version 4 Net Producer</a></li>
+<li><a href="#315-conformance-clause-5-ip-version-6-net-producer">3.1.5 Conformance Clause 5: IP Version 6 Net Producer</a></li>
+<li><a href="#316-conformance-clause-6-update-file-producer">3.1.6 Conformance Clause 6: Update File Producer</a></li>
+<li><a href="#317-conformance-clause-7-delete-rule-number-producer">3.1.7 Conformance Clause 7: delete rule number Producer</a></li>
+<li><a href="#318-conformance-clause-8-running-producer">3.1.8 Conformance Clause 8: Running Producer</a></li>
+<li><a href="#319-conformance-clause-9-direction-producer">3.1.9 Conformance Clause 9: Direction Producer</a></li>
+<li><a href="#3110-conformance-clause-10-drop-process-producer">3.1.10 Conformance Clause 10: drop-process Producer</a></li>
+<li><a href="#3111-conformance-clause-11-temporal-producer">3.1.11 Conformance Clause 11: Temporal Producer</a></li>
+</ul></li>
+<li><a href="#32-clauses-pertaining-to-the-openc2-consumer-conformance-target">3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target</a>
+<ul>
+<li><a href="#321-conformance-clause-12-baseline-openc2-consumer">3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer</a></li>
+<li><a href="#322-conformance-clause-13-ip-version-4-connection-consumer">3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer</a></li>
+<li><a href="#323-conformance-clause-14-ip-version-6-connection-consumer">3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer</a></li>
+<li><a href="#324-conformance-clause-15-ip-version-4-net-consumer">3.2.4 Conformance Clause 15: IP Version 4 Net Consumer</a></li>
+<li><a href="#325-conformance-clause-16-ip-version-6-net-consumer">3.2.5 Conformance Clause 16: IP Version 6 Net Consumer</a></li>
+<li><a href="#326-conformance-clause-17-update-file-consumer">3.2.6 Conformance Clause 17: Update File Consumer</a></li>
+<li><a href="#327-conformance-clause-18-delete-rule-number-consumer">3.2.7 Conformance Clause 18: delete rule number Consumer</a></li>
+<li><a href="#328-conformance-clause-19-running-consumer">3.2.8 Conformance Clause 19: Running Consumer</a></li>
+<li><a href="#329-conformance-clause-20-direction-consumer">3.2.9 Conformance Clause 20: Direction Consumer</a></li>
+<li><a href="#3210-conformance-clause-21-drop-process-consumer">3.2.10 Conformance Clause 21: drop-process Consumer</a></li>
+<li><a href="#3211-conformance-clause-22-temporal-consumer">3.2.11 Conformance Clause 22: Temporal Consumer</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#annex-a-sample-commands">Annex A: Sample Commands</a>
+<ul>
+<li><a href="#a1-deny-and-allow">A.1 Deny and Allow</a>
+<ul>
+<li><a href="#a11-deny-a-particular-connection">A.1.1 Deny a particular connection</a></li>
+<li><a href="#a12-deny-all-outbound-ftp-transfers">A.1.2 Deny all outbound ftp transfers</a></li>
+<li><a href="#a13-block-all-inbound-traffic-from-a-particular-source">A.1.3 Block all inbound traffic from a particular source.</a></li>
+<li><a href="#a14-permit-ftp-transfers-to-a-particular-destination">A.1.4 Permit ftp transfers to a particular destination.</a></li>
+</ul></li>
+<li><a href="#a2-delete-rule">A.2 Delete Rule</a></li>
+<li><a href="#a3-update-file">A.3 Update file</a></li>
+<li><a href="#a4-query-features">A.4 Query features</a>
+<ul>
+<li><a href="#a41-no-query-items-set">A.4.1 No query items set</a></li>
+<li><a href="#a42-version-of-language-specification-supported">A.4.2 Version of Language specification supported</a></li>
+<li><a href="#a43-actuator-profiles-supported">A.4.3 Actuator profiles supported</a></li>
+<li><a href="#a44-specific-commands-supported">A.4.4 Specific Commands Supported</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#annex-b-acronyms">Annex B: Acronyms</a></li>
+<li><a href="#annex-c-acknowledgments">Annex C: Acknowledgments</a></li>
+<li><a href="#annex-d-revision-history">Annex D: Revision History</a></li>
+</ul>
+<hr />
+<h1 id="1-introduction">1 Introduction</h1>
+<p><em>The content in this section is non-normative, except where it is marked normative.</em></p>
+<p>OpenC2 is a suite of specifications that enables command and control of cyber defense systems and components. OpenC2 typically uses a request-response paradigm where a <em>Command</em> is encoded by a <em>Producer</em> (managing application) and transferred to a <em>Consumer</em> (managed device or virtualized function) using a secure transfer protocol, and the Consumer can respond with status and any requested information.</p>
+<p>OpenC2 allows the application producing the commands to discover the set of capabilities supported by the managed devices. These capabilities permit the managing application to adjust its behavior to take advantage of the features exposed by the managed device. The capability definitions can be easily extended in a noncentralized manner, allowing standard and non-standard capabilities to be defined with semantic and syntactic rigor.</p>
+<h2 id="11-ipr-policy">1.1 IPR Policy</h2>
+<p>This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">Non-Assertion</a> Mode of the <a href="https://www.oasis-open.org/policies-guidelines/ipr">OASIS IPR Policy</a>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<a href="https://www.oasis-open.org/committees/openc2/ipr.php" class="uri">https://www.oasis-open.org/committees/openc2/ipr.php</a>).</p>
+<h2 id="12-terminology">1.2 Terminology</h2>
+<p><em>This section is normative.</em></p>
+<ul>
+<li><strong>Action</strong>: The task or activity to be performed (e.g., 'deny').</li>
+<li><strong>Actuator</strong>: The function performed by the Consumer that executes the Command (e.g., 'Stateless Packet Filtering').</li>
+<li><strong>Argument</strong>: A property of a Command that provides additional information on how to perform the Command, such as date/time, periodicity, duration, etc.</li>
+<li><strong>Command</strong>: A Message defined by an Action-Target pair that is sent from a Producer and received by a Consumer.</li>
+<li><strong>Consumer</strong>: A managed device / application that receives Commands. Note that a single device / application can have both Consumer and Producer capabilities.</li>
+<li><strong>Message</strong>: A content- and transport-independent set of elements conveyed between Consumers and Producers</li>
+<li><strong>Producer</strong>: A manager application that sends Commands.</li>
+<li><strong>Response</strong>: A Message from a Consumer to a Producer acknowledging a Command or returning the requested resources or status to a previously received request.</li>
+<li><strong>Specifier</strong>: A property or field that identifies a Target or Actuator to some level of precision.</li>
+<li><strong>Target</strong>: The object of the Action, i.e., the Action is performed on the Target (e.g., IP Address).</li>
+</ul>
+<p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;NOT RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in <a href="#rfc2119">[RFC2119]</a> and <a href="#rfc8174">[RFC8174]</a> when, and only when, they appear in all capitals, as shown here.</p>
+<h2 id="13-normative-references">1.3 Normative References</h2>
+<h6 id="rfc1123">[RFC1123]</h6>
+<p>Braden, R., Ed., &quot;Requirements for Internet Hosts - Application and Support&quot;, STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <a href="https://www.rfc-editor.org/info/rfc1123" class="uri">https://www.rfc-editor.org/info/rfc1123</a>.</p>
+<h6 id="rfc2119">[RFC2119]</h6>
+<p>Bradner, S., &quot;Key words for use in RFCs to Indicate Requirement Levels&quot;, BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <a href="https://www.rfc-editor.org/info/rfc2119" class="uri">https://www.rfc-editor.org/info/rfc2119</a>.</p>
+<h6 id="rfc8174">[RFC8174]</h6>
+<p>Leiba, B., &quot;Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words&quot;, BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <a href="https://www.rfc-editor.org/info/rfc8174" class="uri">https://www.rfc-editor.org/info/rfc8174</a>.</p>
+<h6 id="rfc8259">[RFC8259]</h6>
+<p>Bray, T., Ed., &quot;The JavaScript Object Notation (JSON) Data Interchange Format&quot;, STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017, <a href="https://www.rfc-editor.org/info/rfc8259" class="uri">https://www.rfc-editor.org/info/rfc8259</a>.</p>
+<h6 id="openc2-lang-v10">[OpenC2-Lang-v1.0]</h6>
+<p><em>Open Command and Control (OpenC2) Language Specification Version 1.0</em>. Edited by Jason Romano and Duncan Sparrell. November 2018, <a href="http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/oc2ls/v1.0/oc2ls-v1.0.html</a>.</p>
+<h2 id="14-non-normative-references">1.4 Non-Normative References</h2>
+<h6 id="rfc3339">[RFC3339]</h6>
+<p>Klyne, G. and C. Newman, &quot;Date and Time on the Internet: Timestamps&quot;, RFC 3339, DOI 10.17487/RFC3339, July 2002, <a href="https://www.rfc-editor.org/info/rfc3339" class="uri">https://www.rfc-editor.org/info/rfc3339</a>.</p>
+<h6 id="rfc4291">[RFC4291]</h6>
+<p>Hinden, R. and S. Deering, &quot;IP Version 6 Addressing Architecture&quot;, RFC 4291, DOI 10.17487/RFC4291, February 2006, <a href="https://www.rfc-editor.org/info/rfc4291" class="uri">https://www.rfc-editor.org/info/rfc4291</a>.</p>
+<h6 id="rfc6891">[RFC6891]</h6>
+<p>Damas, J., Graff, M., and P. Vixie, &quot;Extension Mechanisms for DNS (EDNS(0))&quot;, STD 75, RFC 6891, DOI 10.17487/RFC6891, April 2013, <a href="https://www.rfc-editor.org/info/rfc6891" class="uri">https://www.rfc-editor.org/info/rfc6891</a>..</p>
+<h6 id="rfc5237">[RFC5237]</h6>
+<p>Arkko, J. and S. Bradner, &quot;IANA Allocation Guidelines for the Protocol Field&quot;, BCP 37, RFC 5237, DOI 10.17487/RFC5237, February 2008, <a href="https://www.rfc-editor.org/info/rfc5237" class="uri">https://www.rfc-editor.org/info/rfc5237</a>.</p>
+<h6 id="openc2-https-v10">[OpenC2-HTTPS-v1.0]</h6>
+<p>Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0. Edited by David Lemire. November, 2018, <a href="http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html</a>.</p>
+<h6 id="acd">[ACD]</h6>
+<p>Herring, M.J. and Willett, K.D. &quot;Active Cyber Defense: A Vision for Real-Time Cyber Defense,&quot; Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014.</p>
+<h6 id="iacd">[IACD]</h6>
+<p>Willett, Keith D., &quot;Integrated Adaptive Cyberspace Defense: Secure Orchestration&quot;, International Command and Control Research and Technology Symposium, June 2015.</p>
+<h2 id="15-document-conventions">1.5 Document Conventions</h2>
+<h3 id="151-naming-conventions">1.5.1 Naming Conventions</h3>
+<ul>
+<li><a href="#rfc2119">[RFC2119]</a>/<a href="#rfc8174">[RFC8174]</a> key words (see <a href="#12-terminology">Section 1.2</a>) are in all uppercase.</li>
+<li>All property names and literals are in lowercase, except when referencing canonical names defined in another standard (e.g., literal values from an IANA registry).</li>
+<li>Words in property names are separated with an underscore (_), while words in string enumerations and type names are separated with a hyphen (-).</li>
+<li>The term &quot;hyphen&quot; used here refers to the ASCII hyphen or minus character, which in Unicode is &quot;hyphen-minus&quot;, U+002D.</li>
+</ul>
+<h3 id="152-font-colors-and-style">1.5.2 Font Colors and Style</h3>
+<p>The following color, font and font style conventions are used in this document:</p>
+<ul>
+<li>A fixed width font is used for all type names, property names, and literals.</li>
+<li>Property names are in bold style – <strong>'created_at'</strong>.</li>
+<li>All examples in this document are expressed in JSON. They are in fixed width font, with straight quotes, black text and a light shaded background, and 4-space indentation. JSON examples in this document are representations of JSON Objects. They should not be interpreted as string literals. The ordering of object keys is insignificant. Whitespace before or after JSON structural characters in the examples are insignificant <a href="#rfc8259">[RFC8259]</a>.</li>
+<li>Parts of the example may be omitted for conciseness and clarity. These omitted parts are denoted with ellipses (...).</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="st">&quot;action&quot;</span><span class="op">:</span> <span class="st">&quot;contain&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="st">&quot;target&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="st">&quot;user_account&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">            <span class="st">&quot;user_id&quot;</span><span class="op">:</span> <span class="st">&quot;fjbloggs&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">            <span class="st">&quot;account_type&quot;</span><span class="op">:</span> <span class="st">&quot;windows-local&quot;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="op">}</span></a></code></pre></div>
+<h2 id="16-overview">1.6 Overview</h2>
+<p>In general, there are two types of participants involved in the exchange of OpenC2 Messages, as depicted in Figure 1-1:</p>
+<ol>
+<li><strong>Producers</strong>: A Producer is an entity that creates Commands to provide instruction to one or more systems to act in accordance with the content of the Command. A Producer may receive and process Responses in conjunction with a Command.</li>
+<li><strong>Consumers</strong>: A Consumer is an entity that receives and may act upon a Command. A Consumer may create Responses that provide any information captured or necessary to send back to the Producer.</li>
+</ol>
+<p><img src="images/image_1.png" alt="OpenC2 Message Exchange" /></p>
+<p><strong>Figure 1-1. OpenC2 Message Exchange</strong></p>
+<p>OpenC2 is a suite of specifications for Producers and Consumers to command and execute cyber defense functions. These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the Producer and Consumer of the Command and Response while the transfer specifications focus on the protocols for their exchange.</p>
+<ul>
+<li>The <strong>OpenC2 Language Specification (<a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a>)</strong> provides the semantics for the essential elements of the language, the structure for Commands and Responses, and the schema that defines the proper syntax for the language elements that represents the Command or Response.</li>
+<li><strong>OpenC2 Actuator Profiles</strong> specify the subset of the OpenC2 language relevant in the context of specific Actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely to) implement multiple Actuator profiles. Actuator profiles extend the language by defining Specifiers that identify the Actuator to the required level of precision. Actuator Profiles may define Command Arguments and Targets that are relevant and/or unique to those Actuator functions.</li>
+<li><strong>OpenC2 Transfer Specifications</strong> utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.</li>
+</ul>
+<p>The <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> defines a language used to compose Messages for command and control of cyber defense systems and components. A Message consists of a header and a payload (<em>defined</em> as a Message body in the OpenC2 Language Specification Version 1.0 and <em>specified</em> in one or more Actuator profiles).</p>
+<p>The language defines two payload structures:</p>
+<ol>
+<li><strong>Command</strong>: An instruction from one system known as the Producer, to one or more systems, the Consumer(s), to act on the content of the Command.</li>
+<li><strong>Response</strong>: Any information sent back to the Producer as a result of the Command.</li>
+</ol>
+<p>OpenC2 implementations integrate the related OpenC2 specifications described above with related industry specifications, protocols, and standards. Figure 1-2 depicts the relationships among OpenC2 specifications, and their relationships to other industry standards and environment-specific implementations of OpenC2. Note that the layering of implementation aspects in the diagram is notional, and not intended to preclude any particular approach to implementing the needed functionality (for example, the use of an application-layer message signature function to provide message source authentication and integrity).</p>
+<p><img src="images/image_2.png" alt="OpenC2 Documentation and Layering Model" /></p>
+<p><strong>Figure 1-2. OpenC2 Documentation and Layering Model</strong></p>
+<p>OpenC2 is conceptually partitioned into four layers as shown in Table 1-1.</p>
+<p><strong>Table 1-1. OpenC2 Protocol Layers</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Layer</th>
+<th style="text-align: left;">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Function-Specific Content</td>
+<td style="text-align: left;">Actuator Profiles<br>(standard and extensions)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Common Content</td>
+<td style="text-align: left;"><a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Message</td>
+<td style="text-align: left;">Transfer Specifications<br>(OpenC2-over-HTTPS, OpenC2-over-CoAP, …)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Secure Transfer</td>
+<td style="text-align: left;">HTTPS, CoAP, MQTT, OpenDXL, ...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The <strong>Secure Transfer</strong> layer provides a communication path between the Producer and the Consumer. OpenC2 can be layered over any standard transfer protocol.</li>
+<li>The <strong>Message</strong> layer provides a transfer- and content-independent mechanism for conveying requests, responses, and notifications. A transfer specification maps transfer-specific protocol elements to a transfer-independent set of message elements consisting of content and associated metadata.</li>
+<li>The <strong>Common Content</strong> layer defines the structure of Commands and Responses and a set of common language elements used to construct them.</li>
+<li>The <strong>Function-specific Content</strong> layer defines the language elements used to support a particular cyber defense function. An Actuator profile defines the implementation conformance requirements for that function. Producers and Consumers will support one or more profiles.</li>
+</ul>
+<p>The components of a Command are an Action (what is to be done), a Target (what is being acted upon), an optional Actuator (what is performing the Command), and Command Arguments, which influence how the Command is to be performed. An Action coupled with a Target is sufficient to describe a complete Command. Though optional, the inclusion of an Actuator and/or Command Arguments provides additional precision to a Command.</p>
+<p>The components of a Response are a numerical status code, an optional status text string, and optional results. The format of the results, if included, depend on the type of Response being transferred.</p>
+<h2 id="17-goal">1.7 Goal</h2>
+<p>The goal of the OpenC2 Language Specification is to provide a language for interoperating between functional elements of cyber defense systems. This language used in conjunction with OpenC2 Actuator Profiles and OpenC2 Transfer Specifications allows for vendor-agnostic cybertime response to attacks.</p>
+<p>The Integrated Adaptive Cyber Defense (IACD) framework defines a collection of activities, based on the traditional OODA (Observe–Orient–Decide–Act) Loop [<a href="#iacd">IACD</a>]:</p>
+<ul>
+<li>Sensing: gathering of data regarding system activities</li>
+<li>Sense Making: evaluating data using analytics to understand what's happening</li>
+<li>Decision Making: determining a course-of-action to respond to system events</li>
+<li>Acting: Executing the course-of-action</li>
+</ul>
+<p>The goal of OpenC2 is to enable coordinated defense in cyber-relevant time between decoupled blocks that perform cyber defense functions. OpenC2 focuses on the Acting portion of the IACD framework; the assumption that underlies the design of OpenC2 is that the sensing/analytics have been provisioned and the decision to act has been made. This goal and these assumptions guide the design of OpenC2:</p>
+<ul>
+<li><strong>Technology Agnostic:</strong> The OpenC2 language defines a set of abstract atomic cyber defense actions in a platform and implementation agnostic manner</li>
+<li><strong>Concise:</strong> A Command is intended to convey only the essential information required to describe an Action and can be represented in a very compact form for communications-constrained environments</li>
+<li><strong>Abstract:</strong> Commands and Responses are defined abstractly and can be encoded and transferred via multiple schemes as dictated by the needs of different implementation environments</li>
+<li><strong>Extensible:</strong> While OpenC2 defines a core set of Actions and Targets for cyber defense, the language is expected to evolve with cyber defense technologies, and permits extensions to accommodate new cyber defense technologies.</li>
+</ul>
+<h2 id="18-purpose-and-scope">1.8 Purpose and Scope</h2>
+<p>A 'Stateless Packet Filter' (SLPF) is a policy enforcement mechanism that restricts or permits traffic based on static values such as source address, destination address, and/or port numbers. A Stateless Packet Filter does not consider traffic patterns, connection state, data flows, applications, or payload information. The scope of this profile is limited to Stateless Packet Filtering herein referred to as SLPF.</p>
+<p>This Actuator profile specifies the set of Actions, Targets, Specifiers, and Command Arguments that integrates SLPF functionality with the Open Command and Control (OpenC2) Command set. Through this Command set, cyber security orchestrators may gain visibility into and provide control over the SLPF functionality in a manner that is independent of the instance of the SLPF function.</p>
+<p>All components, devices and systems that provide SLPF functionality will implement the OpenC2 Actions, Targets, Specifiers and Arguments identified as required in this document. Actions that are applicable, but not necessarily required, for SLPF will be identified as optional.</p>
+<p>The purpose of this document is to:</p>
+<ul>
+<li>Identify the required and optional OpenC2 Actions for Actuators with SLPF functionality</li>
+<li>Identify the required and optional Target types for each Action in the SLPF class of Actuators</li>
+<li>Identify Actuator-Specifiers and Arguments for each Action/Target pair that are applicable and/or unique to the SLPF class of Actuators</li>
+<li>Annotate each Action/Target pair with a justification and example, and provide sample OpenC2 Commands to a SLPF with corresponding Responses</li>
+</ul>
+<p>This SLPF profile:</p>
+<ul>
+<li>Does not define or implement Actions beyond those defined in Version 1.0 of the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a></li>
+<li>Is consistent with Version 1.0 of the OpenC2 Language Specification</li>
+</ul>
+<p>Cyber defense systems that are utilizing OpenC2 may require the following components to implement the SLPF profile:</p>
+<ul>
+<li>OpenC2 Producers: Devices that send Commands, receive Responses, and manage the execution of Commands involving one or more SLPF or other Actuators with SLPF capability. The OpenC2 Producer needs <em>a priori</em> knowledge of which Commands the Actuator can process and execute, therefore must understand the profiles for any device that it intends to command</li>
+<li>OpenC2 Consumers: Devices or instances that provide stateless packet filtering functions. Typically these are Actuators that execute the cyber defense function, but could be orchestrators (i.e., a device or instance that forwards Commands to the Actuator)</li>
+</ul>
+<p>Though cyber defense components, devices, systems and/or instances may implement multiple Actuator profiles, a particular OpenC2 Message may reference at most a single Actuator profile. The scope of this document is limited to SLPF.</p>
+<p>This specification is organized into three major sections.</p>
+<p>Section One (this section) provides a non-normative overview of the suite of specifications that realize OpenC2. This section provides references as well as defines the scope and purpose of this specification.</p>
+<p><a href="#2-openc2-language-binding">Section Two</a> (normative) binds this particular profile to the OpenC2 Language Specification. Section Two enumerates the components of the language specification that are meaningful in the context of SLPF and defines components that are applicable to this distinct profile. Section Two also defines the Commands (i.e., the Action/Target pairs) that are permitted in the context of SLPF.</p>
+<p><a href="#3-conformance-statements">Section Three</a> (normative) presents definitive criteria for conformance so that cyber security stakeholders can be assured that their products, instances and/or integrations are compatible with OpenC2.</p>
+<p><a href="#annex-a-sample-commands">Annex A</a> (non-normative) provides multiple examples of Commands and associated Responses (JSON serialization) to facilitate development.</p>
+<hr />
+<h1 id="2-openc2-language-binding">2 OpenC2 Language Binding</h1>
+<p><em>This section is normative</em></p>
+<p>This section defines the set of Actions, Targets, Specifiers, and Arguments that are meaningful in the context of an SLPF. This section also describes the appropriate format for the status and properties of a Response frame. This section is organized into three major subsections; Command Components, Response Components and Commands.</p>
+<p>Extensions to the Language Specification are defined in accordance with <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a>, Section 3.1.5, where:</p>
+<ol>
+<li>The unique name of the SLPF schema is <code>oasis-open.org/openc2/v1.0/ap-slpf</code></li>
+<li>The namespace identifier (nsid) referring to the SLPF schema is: <code>slpf</code></li>
+<li>The definitions of and conformance requirements for these types are contained in this document</li>
+</ol>
+<h2 id="21-openc2-command-components">2.1 OpenC2 Command Components</h2>
+<p>The components of an OpenC2 Command include Actions, Targets, Actuators and associated Arguments and Specifiers. Appropriate aggregation of the components will define a Command-body that is meaningful in the context of an SLPF.</p>
+<p>This specification identifies the applicable components of an OpenC2 Command. The components of an OpenC2 Command include:</p>
+<ul>
+<li>Action: A subset of the Actions defined in the OpenC2 Language Specification that are meaningful in the context of a SLPF.
+<ul>
+<li>This profile SHALL NOT define Actions that are external to Version 1.0 of the <a href="#openc2-lang-v10">OpenC2 Language Specification</a></li>
+<li>This profile MAY augment the definition of the Actions in the context of a SLPF</li>
+<li>This profile SHALL NOT define Actions in a manner that is inconsistent with version 1.0 of the OpenC2 Language Specification</li>
+</ul></li>
+<li>Target: A subset of the Targets and Target-Specifiers defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one Target (and its associated Specifier) that is defined in this specification</li>
+<li>Arguments: A subset of the Arguments defined in the Language Specification and a set of Arguments defined in this specification</li>
+<li>Actuator: A set of specifiers defined in this specification that are meaningful in the context of SLPF</li>
+</ul>
+<h3 id="211-actions">2.1.1 Actions</h3>
+<p>Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF. The particular Action/Target pairs that are required or are optional are presented in <a href="#2.3-openc2-commands">Section 2.3</a>.</p>
+<p><strong>Table 2.1.1-1. Actions Applicable to SLPF</strong></p>
+<p><strong><em>Type: Action (Enumerated)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"><strong>query</strong></td>
+<td style="text-align: left;">Initiate a request for information. Used to communicate the supported options and determine the state or settings</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;"><strong>deny</strong></td>
+<td style="text-align: left;">Prevent traffic or access</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"><strong>allow</strong></td>
+<td style="text-align: left;">Permit traffic or access</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;"><strong>update</strong></td>
+<td style="text-align: left;">Instructs the Actuator to update its configuration by retrieving and processing a configuration file and update</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">20</td>
+<td style="text-align: left;"><strong>delete</strong></td>
+<td style="text-align: left;">Remove an access rule</td>
+</tr>
+</tbody>
+</table>
+<h3 id="212-targets">2.1.2 Targets</h3>
+<p>Table 2.1.2-1 summarizes the Targets defined in Version 1.0 of the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> as they relate to SLPF functionality. Table 2.1.2-2 summarizes the Targets that are defined in this specification.</p>
+<h4 id="2121-common-targets">2.1.2.1 Common Targets</h4>
+<p>Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification that are applicable to SLPF. The particular Action/Target pairs that are required or are optional are presented in <a href="#23-openc2-commands">Section 2.3</a>.</p>
+<p><strong>Table 2.1.2-1. Targets Applicable to SLPF</strong></p>
+<p><strong><em>Type: Target (Choice)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;"><strong>features</strong></td>
+<td style="text-align: left;">Features</td>
+<td style="text-align: left;">A set of items such as Action/Target pairs, profiles versions, options that are supported by the Actuator. The Target is used with the query Action to determine an Actuator's capabilities</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;"><strong>file</strong></td>
+<td style="text-align: left;">File</td>
+<td style="text-align: left;">Properties of a file</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;"><strong>ipv4_net</strong></td>
+<td style="text-align: left;">IPv4-Net</td>
+<td style="text-align: left;">The representation of one or more IPv4 addresses expressed using CIDR notation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;"><strong>ipv6_net</strong></td>
+<td style="text-align: left;">IPv6-Net</td>
+<td style="text-align: left;">The representation of one or more IPv6 addresses expressed using CIDR notation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;"><strong>ipv4_connection</strong></td>
+<td style="text-align: left;">IPv4-Connection</td>
+<td style="text-align: left;">A network connection as specified by a five-tuple (IPv4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;"><strong>ipv6_connection</strong></td>
+<td style="text-align: left;">IPv6-Connection</td>
+<td style="text-align: left;">A network connection as specified by a five-tuple (IPv6)</td>
+</tr>
+</tbody>
+</table>
+<p>The semantics/ requirements as they pertain to common targets:</p>
+<ul>
+<li>ipv4_connection
+<ul>
+<li>If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol Where the ICMP types and codes are defined in <a href="#rfc2780">[RFC2780]</a></li>
+<li>If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol</li>
+<li>For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol</li>
+</ul></li>
+<li>ipv6_connection
+<ul>
+<li>If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol Where the ICMP types and codes are defined in <a href="#rfc4443">[RFC4443]</a></li>
+<li>If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol</li>
+<li>For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol</li>
+</ul></li>
+</ul>
+<h4 id="2122-slpf-targets">2.1.2.2 SLPF Targets</h4>
+<p>The list of common Targets is extended to include the additional Targets defined in this section and referenced with the slpf namespace.</p>
+<p><strong>Table 2.1.2-2. Targets Unique to SLPF</strong></p>
+<p><strong><em>Type: Target (Choice)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1024</td>
+<td style="text-align: left;"><strong>rule_number</strong></td>
+<td style="text-align: left;">Rule-ID</td>
+<td style="text-align: left;">Immutable identifier assigned when a rule is created. Identifies a rule to be deleted</td>
+</tr>
+</tbody>
+</table>
+<p>Implementations that choose to implement the slpf:Target MUST support the <strong>rule_number</strong> Target.</p>
+<h3 id="213-command-arguments">2.1.3 Command Arguments</h3>
+<p>Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed. Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> as they relate to SLPF functionality. Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.</p>
+<h4 id="2131-common-arguments">2.1.3.1 Common Arguments</h4>
+<p>Table 2.1.3-1 lists the Command Arguments defined in the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> that are applicable to SLPF.</p>
+<p><strong>Table 2.1.3-1. Command Arguments applicable to SLPF</strong></p>
+<p><strong><em>Type: Args (Map)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>start_time</strong></td>
+<td style="text-align: left;">Date-Time</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">The specific date/time to initiate the Action</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>stop_time</strong></td>
+<td style="text-align: left;">Date-Time</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">The specific date/time to terminate the Action</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"><strong>duration</strong></td>
+<td style="text-align: left;">Duration</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">The length of time for an Action to be in effect</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;"><strong>response_requested</strong></td>
+<td style="text-align: left;">Response-Type</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">The type of Response required for the Action: <code>none</code>, <code>ack</code>, <code>status</code>, <code>complete</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="2132-slpf-arguments">2.1.3.2 SLPF Arguments</h4>
+<p>The list of common Command Arguments is extended to include the additional Command Arguments defined in this section and referenced with the slpf namespace.</p>
+<p><strong>Table 2.1.3-2. Command Arguments Unique to SLPF</strong></p>
+<p><strong><em>Type: Args (Map)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1024</td>
+<td style="text-align: left;"><strong>drop_process</strong></td>
+<td style="text-align: left;">Drop-Process</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Specifies how to handle denied packets</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1025</td>
+<td style="text-align: left;"><strong>running</strong></td>
+<td style="text-align: left;">Boolean</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1026</td>
+<td style="text-align: left;"><strong>direction</strong></td>
+<td style="text-align: left;">Direction</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1027</td>
+<td style="text-align: left;"><strong>insert_rule</strong></td>
+<td style="text-align: left;">Rule-ID</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Specifies the identifier of the rule within a list, typically used in a top-down rule list</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Type: Drop-Process (Enumerated)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>none</strong></td>
+<td style="text-align: left;">Drop the packet and do not send a notification to the source of the packet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>reject</strong></td>
+<td style="text-align: left;">Drop the packet and send an ICMP host unreachable (or equivalent) to the source of the packet</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"><strong>false_ack</strong></td>
+<td style="text-align: left;">Drop the traffic and send a false acknowledgment</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Type: Direction (Enumerated)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>ingress</strong></td>
+<td style="text-align: left;">Apply rules to incoming traffic only</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>egress</strong></td>
+<td style="text-align: left;">Apply rules to outgoing traffic only</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>Type: Rule-ID</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Type Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Rule-ID</strong></td>
+<td style="text-align: left;">Integer</td>
+<td style="text-align: left;">Access rule identifier</td>
+</tr>
+</tbody>
+</table>
+<p>The semantics/requirements as they relate to SLPF arguments:</p>
+<ul>
+<li><p>insert_rule:</p>
+<ul>
+<li><p>The value MUST be immutable - i.e. the identifier assigned to an access rule at creation must not change over the lifetime of that rule</p></li>
+<li><p>The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e. the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF</p></li>
+</ul></li>
+<li><p>directionality:</p>
+<ul>
+<li>Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code</li>
+<li>If absent, then the Command MUST apply to both</li>
+</ul></li>
+<li><p>drop_process: If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet</p></li>
+<li><p>running: If absent or not explicitly set, then the value is FALSE and any changes are persistent</p></li>
+</ul>
+<h3 id="214-actuator-specifiers">2.1.4 Actuator Specifiers</h3>
+<p>An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.</p>
+<p>Table 2.1.4-1 lists the Specifiers that are applicable to the SPLF Actuator. <a href="#annex-a-sample-commands">Annex A</a> provides sample Commands with the use of Specifiers.</p>
+<p>The Actuator Specifiers defined in this document are referenced under the slpf namespace.</p>
+<p><strong>Table 2.1.4-1. SLPF Specifiers</strong></p>
+<p><strong><em>Type: Specifiers (Map)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>hostname</strong></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;"><a href="#rfc1123">[RFC1123]</a> hostname (can be a domain name or IP address) for a particular device with SLPF functionality</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>named_group</strong></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">User defined collection of devices with SLPF functionality</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"><strong>asset_id</strong></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Unique identifier for a particular SLPF</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;"><strong>asset_tuple</strong></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">0..10</td>
+<td style="text-align: left;">Unique tuple identifier for a particular SLPF consisting of a list of up to 10 strings</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-openc2-response-components">2.2 OpenC2 Response Components</h2>
+<p>Response messages originate from the Actuator as a result of a Command.</p>
+<p>Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action. Additional details regarding the Command and associated Response are captured in <a href="#23-openc2-commands">Section 2.3</a>. Examples are provided in <a href="#annex-a-sample-commands">Annex A</a>.</p>
+<h3 id="221-common-results">2.2.1 Common Results</h3>
+<p>Table 2.2.1-1 lists the Response properties defined in the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> that are applicable to SLPF.</p>
+<p><strong>Table 2.2.1-1. Results Applicable to SLPF</strong></p>
+<p><strong><em>Type: OpenC2-Response (Map)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><strong>status</strong></td>
+<td style="text-align: left;">Status-Code</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">An integer status code</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><strong>status_text</strong></td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">A free-form human-readable description of the Response status</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;"><strong>versions</strong></td>
+<td style="text-align: left;">Version</td>
+<td style="text-align: left;">0..n</td>
+<td style="text-align: left;">List of OpenC2 language versions supported by this Actuator</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;"><strong>profiles</strong></td>
+<td style="text-align: left;">Uname</td>
+<td style="text-align: left;">0..n</td>
+<td style="text-align: left;">List of profiles supported by this Actuator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"><strong>pairs</strong></td>
+<td style="text-align: left;">Action-Targets</td>
+<td style="text-align: left;">0..n</td>
+<td style="text-align: left;">List of Targets applicable to each supported Action</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;"><strong>rate_limit</strong></td>
+<td style="text-align: left;">Number</td>
+<td style="text-align: left;">0..1</td>
+<td style="text-align: left;">Maximum number of requests per minute supported by design or policy</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.</p>
+<p><strong>Table 2.2.1-2. Status Codes</strong></p>
+<p><strong><em>Type: Status-Code (Enumerated.ID)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">102</td>
+<td style="text-align: left;">Processing. Command received but action not necessarily complete.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">OK.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">Bad Request. Unable to process Command, parsing error.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">501</td>
+<td style="text-align: left;">Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported</td>
+</tr>
+</tbody>
+</table>
+<h3 id="222-slpf-results">2.2.2 SLPF Results</h3>
+<p>The list of common Response properties is extended to include the additional Response properties defined in this section and referenced with the slpf namespace.</p>
+<p><strong>Table 2.2.2-1. SLPF Results</strong></p>
+<p><strong><em>Type: OpenC2-Response (Map)</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1024</td>
+<td style="text-align: left;"><strong>rule_number</strong></td>
+<td style="text-align: left;">Rule-ID</td>
+<td style="text-align: left;">Rule identifier returned from allow or deny Command</td>
+</tr>
+</tbody>
+</table>
+<h2 id="23-openc2-commands">2.3 OpenC2 Commands</h2>
+<p>An OpenC2 Command consists of an Action/Target pair and associated Specifiers and Arguments. This section enumerates the allowed Commands and presents the associated Responses.</p>
+<p>Table 2.3-1 defines the Commands that are valid in the context of the SLPF profile. An Action (the top row in Table 2.3-1) paired with a Target (the first column in Table 2.3-1) defines a valid Command. The subsequent subsections provide the property tables applicable to each OpenC2 Command.</p>
+<p><strong>Table 2.3-1. Command Matrix</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Allow</th>
+<th style="text-align: left;">Deny</th>
+<th style="text-align: left;">Query</th>
+<th style="text-align: left;">Delete</th>
+<th style="text-align: left;">Update</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>ipv4_connection</strong></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ipv6_connection</strong></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>ipv4_net</strong></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ipv6_net</strong></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>features</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>slpf:rule_number</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">valid</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>file</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">valid</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2.3-2 defines the Command Arguments that are allowed for a particular Command by the SLPF profile. A Command (the top row in Table 2.3-2) paired with an Argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the Command/Argument provides details applicable to each Command as influenced by the Argument.</p>
+<p><strong>Table 2.3-2. Command Arguments Matrix</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Allow <em>target</em></th>
+<th style="text-align: left;">Deny <em>target</em></th>
+<th style="text-align: left;">Query features</th>
+<th style="text-align: left;">Delete slpf:rule_number</th>
+<th style="text-align: left;">Update file</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>response</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"><a href="#2331-query-features">2.3.3.1</a></td>
+<td style="text-align: left;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
+<td style="text-align: left;"><a href="#2351-update-file">2.3.5.1</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>start-time</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
+<td style="text-align: left;"><a href="#2351-update-file">2.3.5.1</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>end-time</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>duration</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>running</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>direction</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>insert_rule</strong></td>
+<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>drop_process</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="231-allow">2.3.1 Allow</h3>
+<p>Table 2.3.1-1 summarizes the Command Arguments that apply to all of the Commands consisting of the 'allow' Action and a valid Target type.</p>
+<p>Upon receipt of an unsupported Command Argument, SLPF Consumers</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 status code.</li>
+<li>SHOULD respond with &quot;Option not supported&quot; in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<p>OpenC2 Producers that send 'allow target' Commands and support the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>MUST support the slpf:rule_number Target type as defined in <a href="#2122-slpf-targets">Section 2.1.2.2</a></li>
+<li>SHOULD populate the Command Arguments field with &quot;response_requested&quot; : &quot;complete&quot;</li>
+<li>MAY populate the Command Arguments field with the &quot;insert_rule&quot; : <integer> option</li>
+<li>MUST populate the Command Arguments field with &quot;response_requested&quot; : &quot;complete&quot; if the insert_rule Argument is populated</li>
+</ul>
+<p>OpenC2 Consumers that receive and successfully parse 'allow <target>' Commands but cannot implement the 'allow <target>' :</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 status code</li>
+<li>SHOULD respond with 'Rule not updated' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<p>OpenC2 Consumers that receive 'allow <target>' Commands and support the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>MUST support the slpf:rule_number Target type as defined in <a href="#2122-slpf-targets">Section 2.1.2.2</a></li>
+<li>Upon successful implementation of the 'allow <target>', MUST return the rule_number associated with the rule if the &quot;response_requested&quot; : &quot;complete&quot; option is populated.</li>
+</ul>
+<p>OpenC2 Consumers that receive 'allow target' Commands and support the 'insert_rule' Command Argument:</p>
+<ul>
+<li>MUST assign the rule number provided if the &quot;insert_rule&quot; : <integer> option is populated.</li>
+<li>If the rule number is currently in use, then
+<ul>
+<li>MUST NOT respond with a OK/200.</li>
+<li>SHOULD respond with the 501 status code.</li>
+<li>SHOULD respond with 'Rule number currently in use' in the status text.</li>
+<li>MAY respond with the 500 status code.</li>
+</ul></li>
+</ul>
+<p>The valid Target types, associated Specifiers, and Options are summarized in <a href="#2311-allow-ipv4_connection">Section 2.3.1.1</a> and <a href="#2312-allow-ipv6_connection">Section 2.3.1.2</a>. Sample Commands are presented in <a href="#annex-a-sample-commands">Annex A</a>.</p>
+<h4 id="2311-allow-ipv4_connection">2.3.1.1 'Allow ipv4_connection'</h4>
+<p>The 'allow ipv4_connection' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv4_connection' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
+<p>The Command permits traffic that is consistent with the specified ipv4_connection. A valid 'allow ipv4_connection' Command has at least one property of the ipv4_connection populated and may have any combination of the five properties populated. An unpopulated property within the ipv4_connection Target MUST be treated as an 'any'.</p>
+<p>Products that receive but do not implement the 'allow ipv4_connection' Command:</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 Response code</li>
+<li>SHOULD respond with 'Target type not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<h4 id="2312-allow-ipv6_connection">2.3.1.2 'Allow ipv6_connection'</h4>
+<p>The 'allow ipv6_connection' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv6_connection' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
+<p>The Command permits traffic that is consistent with the specified ipv6_connection. A valid 'allow ipv6_connection' Command has at least one property of the ipv6_connection populated and may have any combination of the five properties populated. An unpopulated property within the the ipv4_connection Target MUST be treated as an 'any'.</p>
+<p>Products that receive but do not implement the 'allow ipv6_connection' Command:</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 Response code</li>
+<li>SHOULD respond with 'Target type not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<h4 id="2313-allow-ipv4_net">2.3.1.3 'Allow ipv4_net'</h4>
+<p>The 'allow ipv4_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv4_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
+<p>The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.</p>
+<p>Products that receive but do not implement the 'allow ipv4_net' Command:</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 Response code</li>
+<li>SHOULD respond with 'Target type not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<h4 id="2314-allow-ipv6_net">2.3.1.4 'Allow ipv6_net'</h4>
+<p>The 'allow ipv6_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
+<p>The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.</p>
+<p>Products that receive but do not implement the 'allow ipv6_net' Command:</p>
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 Response code</li>
+<li>SHOULD respond with 'Target type not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<h3 id="232-deny">2.3.2 Deny</h3>
+<p>'Deny' can be treated as mathematical complement to 'allow'. With the exception of the additional 'drop_process' Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four 'allow' Commands. Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the 'deny' Action and valid Target type.</p>
+<p>Upon receipt of a Command with an Argument that is not supported by the Actuator:</p>
+<ul>
+<li>MUST NOT respond with OK/200</li>
+<li>SHOULD respond with the 501 status code</li>
+<li>SHOULD respond with 'Option not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul>
+<p>OpenC2 Producers that send 'deny target' Commands and support the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>MUST support the slpf:rule_number Target type as defined in <a href="#2122-slpf-targets">Section 2.1.2.2</a></li>
+<li>SHOULD populate the Command Arguments field with '&quot;response_requested&quot; : &quot;complete&quot;</li>
+<li>MAY populate the Command Arguments field with the &quot;insert_rule&quot; : <integer> option</li>
+<li>MUST populate the Command Arguments field with &quot;response_requested&quot; : &quot;complete&quot; if the insert_rule Argument is populated</li>
+</ul>
+<p>OpenC2 Consumers that receive 'deny <target>' Commands and support the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>MUST support the slpf:rule_number Target type as defined in <a href="#2122-slpf-targets">Section 2.1.2.2</a></li>
+<li>MUST return the rule number assigned in the slpf object if the &quot;response_requested&quot; : &quot;complete&quot; Argument is populated.</li>
+</ul>
+<p>OpenC2 Consumers that receive 'deny target' Commands and support the 'insert_rule' Command Argument:</p>
+<ul>
+<li>MUST assign the rule number provided if the &quot;insert_rule&quot; : <integer> Argument is populated</li>
+<li>If the rule number is currently in use, then
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 status code</li>
+<li>SHOULD respond with 'Rule number currently in use' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul></li>
+</ul>
+<h3 id="233-query">2.3.3 Query</h3>
+<p>The valid Target type, associated Specifiers, and Options are summarized in <a href="#2331-query-features">Section 2.3.3.1</a>. Sample Commands are presented in <a href="#annex-a-sample-commands">Annex A</a>.</p>
+<h4 id="2331-query-features">2.3.3.1 Query features</h4>
+<p>The 'query features' Command MUST be implemented in accordance with Version 1.0 of the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a>.</p>
+<h3 id="234-delete">2.3.4 Delete</h3>
+<p>The slpf:rule_number is the only valid Target type for the delete Action. The associated Specifiers, and Options are summarized in <a href="#2341-delete-slpfrule_number">Section 2.3.4.1</a>. Sample Commands are presented in <a href="#annex-a-sample-commands">Annex A</a>.</p>
+<h4 id="2341-delete-slpfrule_number">2.3.4.1 delete slpf:rule_number</h4>
+<p>The 'delete slpf:rule_number' Command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL. Products that choose to implement the 'delete slpf:rule_number' Command MUST implement the slpf:rule_number Target type described in <a href="#2122-slpf-targets">Section 2.1.2.2</a>.</p>
+<p>OpenC2 Producers that send the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>MAY populate the Command Arguments field with 'response_requested&quot; : &quot;complete&quot;</li>
+<li>MUST NOT include other Command Arguments</li>
+<li>MUST include exactly one rule_number</li>
+</ul>
+<p>OpenC2 Consumers that receive the 'delete slpf:rule_number' Command:</p>
+<ul>
+<li>but cannot parse or process the 'delete slpf:rule_number' Command:
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with status code 400</li>
+<li>MAY respond with the 500 status code</li>
+</ul></li>
+<li>but do not support the slpf:rule_number Target type:
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with the 501 status code</li>
+<li>SHOULD respond with 'target not supported' in the status text</li>
+<li>MAY respond with the 500 status code</li>
+</ul></li>
+<li>MUST respond with Response code 200 upon successful parsing of the 'delete slpf:rule_number' Command and subsequent removal of the corresponding rule</li>
+<li>upon successful parsing but failure to remove the corresponding rule:
+<ul>
+<li>MUST NOT respond with OK/200</li>
+<li>MUST respond with Response code 500</li>
+<li>SHOULD respond with 'firewall rule not removed or updated' in the status text</li>
+</ul></li>
+</ul>
+<p>Refer to <a href="#annex-a-sample-commands">Annex A</a> for sample Commands.</p>
+<h3 id="235-update">2.3.5 Update</h3>
+<p>The 'file' Target as defined in Version 1.0 of the Language Specification is the only valid Target type for the update Action. The associated Specifiers, and Options are summarized in <a href="#2351-update-file">Section 2.3.5.1</a>. Sample Commands are presented in <a href="#annex-a-sample-Commands">Annex A</a>.</p>
+<h4 id="2351-update-file">2.3.5.1 Update file</h4>
+<p>The 'update file' Command is used to replace or update files such as configuration files, rule sets, etc. Implementation of the update file Command is OPTIONAL. OpenC2 Consumers that choose to implement the 'update file' Command MUST include all steps that are required for the update file procedure such as retrieving the file(s), install the file(s), restart/ reboot the device etc. The end state shall be that the firewall operates with the new file at the conclusion of the 'update file' Command. The atomic steps that take place are implementation specific.</p>
+<p>Table 2.3-2 presents the valid options for the 'update file' Command. OpenC2 Producers and Consumers that choose to implement the 'update file' Command MUST NOT include options other than the options identified in Table 2.3-2.</p>
+<p>OpenC2 Producers that send the 'update file' Command:</p>
+<ul>
+<li>MAY populate the arguments field with the &quot;response_requested&quot; argument. &quot;Complete&quot;, &quot;Ack&quot; and &quot;None&quot; are valid Response-type for 'update file'</li>
+<li>MUST NOT include other Command Arguments</li>
+<li>MUST populate the name Specifier in the Target</li>
+<li>SHOULD populate the path Specifier in the Target</li>
+</ul>
+<p>OpenC2 Consumers that receive the 'update file' Command:</p>
+<ul>
+<li>but cannot parse or process the Command
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with status code 400</li>
+<li>MAY respond with the 500 status code</li>
+</ul></li>
+<li>but do not support the 'update file' Command
+<ul>
+<li>MUST NOT respond with a OK/200</li>
+<li>SHOULD respond with status code 501</li>
+<li>SHOULD respond with 'Command not supported' in the status text</li>
+<li>MAY respond with status code 500</li>
+</ul></li>
+<li>but cannot access the file specified in the file Target
+<ul>
+<li>MUST respond with status code 500</li>
+<li>SHOULD respond with 'cannot access file' in the status text</li>
+</ul></li>
+<li>upon successful parsing and initiating the processing of the 'update file' Command, OpenC2 Consumers MAY respond with Response code 102</li>
+<li>upon completion of all the steps necessary to complete the update and the Actuator commences operations functioning with the new file, OpenC2 Consumers SHOULD respond with Response code 200</li>
+</ul>
+<p>Refer to <a href="#annex-a-sample-commands">Annex A</a> for sample Commands.</p>
+<hr />
+<h1 id="3-conformance-statements">3 Conformance statements</h1>
+<p><em>This section is normative</em> This section identifies the requirements for twenty-two conformance profiles as they pertain to two conformance targets. The two conformance targets are OpenC2 Producers and OpenC2 Consumers (as defined in <a href="#18-purpose-and-scope">Section 1.8</a> of this specification).</p>
+<h2 id="31-clauses-pertaining-to-the-openc2-producer-conformance-target">3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target</h2>
+<p>All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 11.</p>
+<h3 id="311-conformance-clause-1-baseline-openc2-producer">3.1.1 Conformance Clause 1: Baseline OpenC2 Producer</h3>
+<p>An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:</p>
+<ul>
+<li>3.1.1.1 <strong>MUST</strong> support JSON serialization of OpenC2 Commands that are syntactically valid in accordance with the property tables presented in <a href="#21-openc2-command-components">Section 2.1</a></li>
+<li>3.1.1.2 All serializations <strong>MUST</strong> be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in <a href="#21-openc2-command-components">Section 2.1</a> of this specification</li>
+<li>3.1.1.3 <strong>MUST</strong> support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages</li>
+<li>3.1.1.4 <strong>SHOULD</strong> support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in <a href="#1-introduction">Section 1</a> of this specification</li>
+<li>3.1.1.5 <strong>MUST</strong> be conformant with Version 1.0 of the OpenC2 Language Specification</li>
+<li>3.1.1.6 <strong>MUST</strong> implement the 'query features' Command in accordance with the normative text provided in Version 1.0 of the OpenC2 Language Specification</li>
+<li>3.1.1.7 <strong>MUST</strong> implement the 'response_requested' Command Argument as a valid option for any Command</li>
+<li>3.1.1.8 <strong>MUST</strong> conform to at least one of the following conformance clauses in this specification:
+<ul>
+<li>Conformance Clause 2</li>
+<li>Conformance Clause 3</li>
+<li>Conformance Clause 4</li>
+<li>Conformance Clause 5</li>
+</ul></li>
+</ul>
+<h3 id="312-conformance-clause-2-ip-version-4-connection-producer">3.1.2 Conformance Clause 2: IP Version 4 Connection Producer</h3>
+<p>An OpenC2 Producer satisfies 'IP Version 4 Connection Producer' conformance if:</p>
+<ul>
+<li>3.1.2.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.2.2 <strong>MUST</strong> implement the 'allow ipv4_connection' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.1.2.3 <strong>MUST</strong> implement the 'deny ipv4_connection' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="313-conformance-clause-3-ip-version-6-connection-producer">3.1.3 Conformance Clause 3: IP Version 6 Connection Producer</h3>
+<p>An OpenC2 Producer satisfies 'IP Version 6 Connection Producer' conformance if:</p>
+<ul>
+<li>3.1.3.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.3.2 <strong>MUST</strong> implement the 'allow ipv6_connection' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.1.3.3 <strong>MUST</strong> implement the 'deny ipv6_connection' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="314-conformance-clause-4-ip-version-4-net-producer">3.1.4 Conformance Clause 4: IP Version 4 Net Producer</h3>
+<p>An OpenC2 Producer satisfies 'IP Version 4 Net Producer' conformance if:</p>
+<ul>
+<li>3.1.4.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.4.2 <strong>MUST</strong> implement the 'allow ipv4_net' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.1.4.3 <strong>MUST</strong> implement the 'deny ipv4_net' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="315-conformance-clause-5-ip-version-6-net-producer">3.1.5 Conformance Clause 5: IP Version 6 Net Producer</h3>
+<p>An OpenC2 Producer satisfies 'IP Version 6 Net Producer' conformance if:</p>
+<ul>
+<li>3.1.5.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.5.2 <strong>MUST</strong> implement the 'allow ipv6_net' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.1.5.3 <strong>MUST</strong> implement the 'deny ipv6_net' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="316-conformance-clause-6-update-file-producer">3.1.6 Conformance Clause 6: Update File Producer</h3>
+<p>An OpenC2 Producer satisfies 'Update File Producer' conformance if:</p>
+<ul>
+<li>3.1.6.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.6.2 <strong>MUST</strong> implement the 'update file' Command in accordance with <a href="#2351-update-file">Section 2.3.5.1</a> of this specification</li>
+</ul>
+<h3 id="317-conformance-clause-7-delete-rule-number-producer">3.1.7 Conformance Clause 7: delete rule number Producer</h3>
+<p>An OpenC2 Producer satisfies 'delete rule Producer' conformance if:</p>
+<ul>
+<li>3.1.7.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.7.2 <strong>MUST</strong> implement the 'delete slpf:rule_number' in accordance with <a href="#2341-delete-slpfrule_number">Section 2.3.4.1</a> of this specification</li>
+</ul>
+<h3 id="318-conformance-clause-8-running-producer">3.1.8 Conformance Clause 8: Running Producer</h3>
+<p>An OpenC2 Producer satisfies 'Running Producer' conformance if:</p>
+<ul>
+<li>3.1.8.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.8.2 <strong>MUST</strong> implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="319-conformance-clause-9-direction-producer">3.1.9 Conformance Clause 9: Direction Producer</h3>
+<p>An OpenC2 Producer satisfies 'Direction Producer' conformance if:</p>
+<ul>
+<li>3.1.9.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.9.2 <strong>MUST</strong> implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="3110-conformance-clause-10-drop-process-producer">3.1.10 Conformance Clause 10: drop-process Producer</h3>
+<p>An OpenC2 Producer satisfies 'drop-process Producer' conformance if:</p>
+<ul>
+<li>3.1.10.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.10.2 <strong>MUST</strong> implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="3111-conformance-clause-11-temporal-producer">3.1.11 Conformance Clause 11: Temporal Producer</h3>
+<p>An OpenC2 Producer satisfies 'Temporal Producer' conformance if:</p>
+<ul>
+<li>3.1.11.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 1 of this specification</li>
+<li>3.1.11.2 <strong>MUST</strong> implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'</li>
+<li>3.1.11.3 <strong>MUST</strong> implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.</li>
+</ul>
+<h2 id="32-clauses-pertaining-to-the-openc2-consumer-conformance-target">3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target</h2>
+<p>All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22.</p>
+<h3 id="321-conformance-clause-12-baseline-openc2-consumer">3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer</h3>
+<p>An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:</p>
+<ul>
+<li>3.2.1.1 <strong>MUST</strong> support JSON serialization of OpenC2 Commands that are syntactically valid in accordance with the property tables presented in <a href="#21-openc2-command-components">Section 2.1</a></li>
+<li>3.2.1.2 All serializations <strong>MUST</strong> be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in <a href="#21-openc2-command-components">Section 2.1</a> of this specification</li>
+<li>3.2.1.3 <strong>MUST</strong> support the use of a Transfer Specification that is capable of delivering authenticated, ordered, lossless and uniquely identified OpenC2 messages</li>
+<li>3.2.1.4 <strong>SHOULD</strong> support the use of one or more published OpenC2 Transfer Specifications which identify underlying transport protocols such that an authenticated, ordered, lossless, delivery of uniquely identified OpenC2 messages is provided as referenced in <a href="#1-introduction">Section 1</a> of this specification</li>
+<li>3.2.1.5 <strong>MUST</strong> be conformant with Version 1.0 of the OpenC2 Language Specification</li>
+<li>3.2.1.6 <strong>MUST</strong> implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification</li>
+<li>3.2.1.7 <strong>MUST</strong> implement the 'response_requested' Command Argument as a valid option for any Command
+<ul>
+<li>3.2.1.7.1 All Commands received with a Response argument set to 'none' <strong>MUST</strong> process the Command and <strong>MUST NOT</strong> send a Response. This criteria supersedes all other normative text as it pertains to Responses</li>
+<li>3.2.1.7.2 All Commands received without the Response argument (or Response argument not set) <strong>MUST</strong> process the Command and Response in a manner that is consistent with &quot;response_requested&quot;:&quot;complete&quot;</li>
+</ul></li>
+<li>3.2.1.8 <strong>MUST</strong> conform to at least one of the following conformance clauses in this specification:
+<ul>
+<li>Conformance Clause 13</li>
+<li>Conformance Clause 14</li>
+<li>Conformance Clause 15</li>
+<li>Conformance Clause 16</li>
+</ul></li>
+</ul>
+<h3 id="322-conformance-clause-13-ip-version-4-connection-consumer">3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'IP Version 4 Connection Consumer' conformance if:</p>
+<ul>
+<li>3.2.2.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.2.2 <strong>MUST</strong> implement the 'allow ipv4_connection' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.2.2.3 <strong>MUST</strong> implement the 'deny ipv4_connection' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="323-conformance-clause-14-ip-version-6-connection-consumer">3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'IP Version 6 Connection Consumer' conformance if:</p>
+<ul>
+<li>3.2.3.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.3.2 <strong>MUST</strong> implement the 'allow ipv6_connection' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.2.3.3 <strong>MUST</strong> implement the 'deny ipv6_connection' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="324-conformance-clause-15-ip-version-4-net-consumer">3.2.4 Conformance Clause 15: IP Version 4 Net Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'IP Version 4 Net Consumer' conformance if:</p>
+<ul>
+<li>3.2.4.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.4.2 <strong>MUST</strong> implement the 'allow ipv4_net' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.2.4.3 <strong>MUST</strong> implement the 'deny ipv4_net' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="325-conformance-clause-16-ip-version-6-net-consumer">3.2.5 Conformance Clause 16: IP Version 6 Net Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'IP Version 6 Net Consumer' conformance if:</p>
+<ul>
+<li>3.2.5.1 <strong>MUST</strong> meet all of conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.5.2 <strong>MUST</strong> implement the 'allow ipv6_net' Command in accordance with <a href="#231-allow">Section 2.3.1</a> of this specification</li>
+<li>3.2.5.3 <strong>MUST</strong> implement the 'deny ipv6_net' Command in accordance with <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="326-conformance-clause-17-update-file-consumer">3.2.6 Conformance Clause 17: Update File Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'Update File Consumer' conformance if:</p>
+<ul>
+<li>3.2.6.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.6.2 <strong>MUST</strong> implement the 'update file' Command in accordance with <a href="#2351-update-file">Section 2.3.5.1</a> of this specification</li>
+</ul>
+<h3 id="327-conformance-clause-18-delete-rule-number-consumer">3.2.7 Conformance Clause 18: delete rule number Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:</p>
+<ul>
+<li>3.2.7.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.7.2 <strong>MUST</strong> implement the 'delete slpf:rule_number' in accordance with <a href="#2341-delete-slpfrule_number">Section 2.3.4.1</a> of this specification</li>
+</ul>
+<h3 id="328-conformance-clause-19-running-consumer">3.2.8 Conformance Clause 19: Running Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'Running Consumer' conformance if:</p>
+<ul>
+<li>3.2.8.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.8.2 <strong>MUST</strong> implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="329-conformance-clause-20-direction-consumer">3.2.9 Conformance Clause 20: Direction Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:</p>
+<ul>
+<li>3.2.9.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.9.2 <strong>MUST</strong> implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="3210-conformance-clause-21-drop-process-consumer">3.2.10 Conformance Clause 21: drop-process Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:</p>
+<ul>
+<li>3.2.10.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification</li>
+<li>3.2.10.2 <strong>MUST</strong> implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with <a href="#231-allow">Section 2.3.1</a> and <a href="#232-deny">Section 2.3.2</a> of this specification</li>
+</ul>
+<h3 id="3211-conformance-clause-22-temporal-consumer">3.2.11 Conformance Clause 22: Temporal Consumer</h3>
+<p>An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:</p>
+<ul>
+<li>3.2.11.1 <strong>MUST</strong> meet all of the conformance criteria identified in Conformance Clause 12 of this specification.</li>
+<li>3.2.11.2 <strong>MUST</strong> implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'</li>
+<li>3.2.11.3 <strong>MUST</strong> implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'</li>
+</ul>
+<hr />
+<h1 id="annex-a-sample-commands">Annex A: Sample Commands</h1>
+<p><em>This section is non-normative</em></p>
+<p>This section will summarize and provide examples of OpenC2 Commands as they pertain to SLPF firewalls. The sample Commands will be encoded in verbose JSON, however other encodings are possible provided the Command is validated against the property tables defined in <a href="#2-openc2-language-binding">Section 2</a> of this specification. Examples of corresponding Responses are provided where appropriate.</p>
+<p>The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.</p>
+<p>The following examples include Binary fields which are serialized in Base64url format. The examples show JSON-serialized Commands; the conversion of Base64url serialized values to Binary data and String display text is:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Base64url</th>
+<th style="text-align: left;">Binary</th>
+<th style="text-align: left;">Display String</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>AQIDBA</code></td>
+<td style="text-align: left;"><code>01020304</code></td>
+<td style="text-align: left;"><code>1.2.3.4</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>xgIDBA</code></td>
+<td style="text-align: left;"><code>c6020304</code></td>
+<td style="text-align: left;"><code>198.2.3.4</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>xjNkEQ</code></td>
+<td style="text-align: left;"><code>c6336411</code></td>
+<td style="text-align: left;"><code>198.51.100.17</code></td>
+</tr>
+</tbody>
+</table>
+<p>The examples include Integer Date-Time fields; the conversion of Integer values to String display text is:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Integer</th>
+<th style="text-align: left;">Display String</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>1534775460000</code></td>
+<td style="text-align: left;"><code>Monday, August 20, 2018 2:31:00 PM GMT, 2018-08-20T10:31:00-04:00</code></td>
+</tr>
+</tbody>
+</table>
+<p>=======</p>
+<h2 id="a1-deny-and-allow">A.1 Deny and Allow</h2>
+<p>Deny and allow can be treated as mathematical complements of each other. Unless otherwise stated, the example Targets, Specifiers, Arguments and corresponding Responses are applicable to both Actions.</p>
+<h3 id="a11-deny-a-particular-connection">A.1.1 Deny a particular connection</h3>
+<p>Block a particular connection within the domain and do not send a host unreachable. Note, the &quot;slpf&quot;:{&quot;drop_process&quot;} argument does not apply to the allow Action.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;deny&quot;,
+  &quot;target&quot;: {
+    &quot;ipv4_connection&quot;: {
+      &quot;protocol&quot;: &quot;tcp&quot;,
+      &quot;src_addr&quot;: &quot;1.2.3.4&quot;,
+      &quot;src_port&quot;: 10996,
+      &quot;dst_addr&quot;: &quot;198.2.3.4&quot;,
+      &quot;dst_port&quot;: 80
+    }
+  },
+  &quot;args&quot;: {
+    &quot;start_time&quot;: 1534775460000,
+    &quot;duration&quot;: 500,
+    &quot;response_requested&quot;: &quot;ack&quot;,
+    &quot;slpf:drop_process&quot;: &quot;none&quot;
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf:asset_id&quot;: &quot;30&quot;
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>{
+    &quot;status&quot;: 200
+}
+</code></pre>
+<h3 id="a12-deny-all-outbound-ftp-transfers">A.1.2 Deny all outbound ftp transfers</h3>
+<p>Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the &quot;slpf&quot;:{&quot;drop_process&quot;} argument does not apply to the allow Action.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;deny&quot;,
+  &quot;target&quot;: {
+    &quot;ip_connection&quot;: {
+      &quot;protocol&quot;: &quot;tcp&quot;,
+      &quot;src_port&quot;: 21
+    }
+  },
+  &quot;args&quot;: {
+    &quot;slpf:drop_process&quot;: &quot;false_ack&quot;,
+    &quot;slpf:direction&quot;: &quot;egress&quot;
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf&quot;: {}
+  }
+}
+</code></pre>
+<p><strong>Responses:</strong></p>
+<p>Case One: the Actuator successfully issued the deny.</p>
+<pre><code>{&quot;status&quot;: 200}
+</code></pre>
+<p>Case Two: the Command failed due to a syntax error in the Command. Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.</p>
+<pre><code>{
+  &quot;status&quot;: 400,
+  &quot;status_text&quot;: &quot;Validation Error: Target: ip_conection&quot;
+}
+</code></pre>
+<p>Case Three: the Command failed because an Argument was not supported.</p>
+<pre><code>{
+  &quot;status&quot;: 501
+}
+</code></pre>
+<h3 id="a13-block-all-inbound-traffic-from-a-particular-source">A.1.3 Block all inbound traffic from a particular source.</h3>
+<p>Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ipv6_net Target and the direction argument was used. In this case only the perimeter filters should update the rule.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;deny&quot;,
+  &quot;target&quot;: {
+    &quot;ipv6_net&quot;: &quot;3ffe:1900:4545:3:200:f8ff:fe21:67cf&quot;
+  },
+  &quot;args&quot;: {
+    &quot;response_requested&quot;: &quot;none&quot;,
+    &quot;slpf:direction&quot;: &quot;ingress&quot;
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf:named_group&quot;: &quot;perimeter&quot;
+  }
+}
+</code></pre>
+<h3 id="a14-permit-ftp-transfers-to-a-particular-destination">A.1.4 Permit ftp transfers to a particular destination.</h3>
+<p>Permit ftp data transfers to ip address 198.51.100.17 from any source. (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted).</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;allow&quot;,
+  &quot;target&quot;: {
+    &quot;ipv6_connection&quot;: {
+      &quot;protocol&quot;: &quot;tcp&quot;,
+      &quot;dst_addr&quot;: &quot;3ffe:1900:4545:3::f8ff:fe21:67cf&quot;,
+      &quot;src_port&quot;: 21
+    }
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf&quot;: {}
+  }
+}
+</code></pre>
+<p>In this case the Actuator returned a rule number associated with the allow.</p>
+<p><strong>Response:</strong></p>
+<pre><code>{
+  &quot;status&quot;: 200,
+  &quot;slpf:rule_number&quot;: 1234
+}
+</code></pre>
+<h2 id="a2-delete-rule">A.2 Delete Rule</h2>
+<p>Used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL.</p>
+<p>In this case the rule number assigned in a previous allow will be removed (refer to the final example in <a href="#a1-deny-and-allow">Annex A.1</a></p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;delete&quot;,
+  &quot;target&quot;: {
+    &quot;slpf:rule_number&quot;: 1234
+  },
+  &quot;args&quot;: {
+    &quot;response_requested&quot;: &quot;complete&quot;
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf&quot;: {}
+  }
+}
+</code></pre>
+<h2 id="a3-update-file">A.3 Update file</h2>
+<p>Implementation of the Update Action is optional. Update is intended for the device to process new configuration files. The update Action is a compound Action in that all of the steps required for a successful update (such as download the new file, install the file, reboot etc.) are implied. File is the only valid Target type for Update.</p>
+<p>Instructs the firewalls to acquire a new configuration file. Note that all network based firewalls will install the new update because no particular firewall was identified. Host based firewalls will not act on this because network firewalls were identified as the Actuator.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;update&quot;,
+  &quot;target&quot;: {
+    &quot;file&quot;: {
+      &quot;path&quot;: &quot;\\\\someshared-drive\\somedirectory\\configurations&quot;,
+      &quot;name&quot;: &quot;firewallconfiguration.txt&quot;
+    }
+  },
+  &quot;actuator&quot;: {
+    &quot;slpf:named_group&quot;: &quot;network&quot;
+  }
+}
+</code></pre>
+<p><strong>Responses:</strong></p>
+<p>Successful update of the configuration</p>
+<pre><code>{&quot;status&quot;: 200}
+</code></pre>
+<p>This Actuator does not support the update file Command</p>
+<pre><code>{
+  &quot;status&quot;: 501,
+  &quot;status_text&quot;: &quot;Update-File Not Implemented&quot;
+}
+</code></pre>
+<p>This Actuator could not access the file</p>
+<pre><code>{
+  &quot;status&quot;: 500,
+  &quot;status_text&quot;: &quot;Server error, Cannot access file&quot;
+}
+</code></pre>
+<h2 id="a4-query-features">A.4 Query features</h2>
+<p>Implementation of query Openc2 is required. The query features Command is intended to enable the Openc2 Producer to determine the capabilities of the Actuator. The query features Command can also be used to check the status of the Actuator.</p>
+<h3 id="a41-no-query-items-set">A.4.1 No query items set</h3>
+<p>This Command uses query features with no query items to verify that the Actuator is functioning.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;query&quot;,
+  &quot;target&quot;: {
+    &quot;openc2&quot;: []
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<p>The Actuator is alive.</p>
+<pre><code>{&quot;status&quot;: 200}
+</code></pre>
+<h3 id="a42-version-of-language-specification-supported">A.4.2 Version of Language specification supported</h3>
+<p>This Command queries the Actuator to determine which version(s) of the language specification are supported. The language specifications use semantic versioning (&quot;major.minor&quot;); for each supported major version the Actuator need only report the highest supported minor version.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;query&quot;,
+  &quot;target&quot;: {
+    &quot;features&quot;: [&quot;versions&quot;]
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<p>The Actuator supports language specification versions 1.0 - 1.3.</p>
+<pre><code>{
+  &quot;status&quot;: 200,
+  &quot;versions&quot;: [&quot;1.3&quot;]
+}
+</code></pre>
+<h3 id="a43-actuator-profiles-supported">A.4.3 Actuator profiles supported</h3>
+<p>This Command queries the Actuator to determine both the language versions and the profiles supported.</p>
+<p><strong>Command:</strong></p>
+<pre><code>{
+  &quot;action&quot;: &quot;query&quot;,
+  &quot;target&quot;: {
+    &quot;features&quot;: [&quot;versions&quot;, &quot;profiles&quot;]
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<p>The Actuator device is apparently a smart front-door-lock for which an extension profile has been written. The device supports both the standard slpf functions and whatever Commands are defined in the extension profile.</p>
+<pre><code>{
+  &quot;status&quot;: 200,
+  &quot;versions&quot;: [&quot;1.3&quot;],
+  &quot;profiles&quot;: [&quot;slpf&quot;, &quot;iot-front-door-lock&quot;]
+}
+</code></pre>
+<h3 id="a44-specific-commands-supported">A.4.4 Specific Commands Supported</h3>
+<p>This Command queries the Actuator to determine which Action/Target pairs are supported. Not all Targets are meaningful in the context of a specific Action, and although a Command such as &quot;update ip_connection&quot; may be syntactically valid, the combination does not specify an operation supported by the Actuator.</p>
+<p><strong>Command:</strong></p>
+<p>For each supported Action list the Targets supported by this Actuator.</p>
+<pre><code>{
+  &quot;action&quot;: &quot;query&quot;,
+  &quot;target&quot;: {
+    &quot;features&quot;: [&quot;pairs&quot;]
+  }
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<p>The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Matrix.</p>
+<pre><code>{
+  &quot;status&quot;: 200,
+  &quot;pairs&quot;: [
+    [&quot;allow&quot;, [&quot;ipv6_net&quot;, &quot;ipv6_connection&quot;]],
+    [&quot;deny&quot;, [&quot;ipv6_net&quot;, &quot;ipv6_connection&quot;]],
+    [&quot;query&quot;, [&quot;features&quot;]],
+    [&quot;delete&quot;, [&quot;slpf:rule_number&quot;]],
+    [&quot;update&quot;, [&quot;file&quot;]]
+  ]
+}
+</code></pre>
+<hr />
+<h1 id="annex-b-acronyms">Annex B: Acronyms</h1>
+<p><em>This section is non-normative</em></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Expansion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CoAP</td>
+<td style="text-align: left;">Constrained Application Protocol</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FTP</td>
+<td style="text-align: left;">File Transfer Protocol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Hyper Text Transfer Protocol Secure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">IACD</td>
+<td style="text-align: left;">Integrated Adaptive Cyber Defense</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">IPR</td>
+<td style="text-align: left;">Intellectual Property Rights</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JADN</td>
+<td style="text-align: left;">JSON Abstract Data Notation</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JSON</td>
+<td style="text-align: left;">JavaScript Object Notation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MQTT</td>
+<td style="text-align: left;">Message Queuing Telemetry Transport</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OASIS</td>
+<td style="text-align: left;">Organization for the Advancement of Structured Information Standards</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OODA</td>
+<td style="text-align: left;">Observe-Orient-Decide-Act</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OpenDXL</td>
+<td style="text-align: left;">Open-source Data Exchange Layer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RFC</td>
+<td style="text-align: left;">Request for Comment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SLPF</td>
+<td style="text-align: left;">Stateless Packet Filter</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TC</td>
+<td style="text-align: left;">Technical Committee</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">URI</td>
+<td style="text-align: left;">Uniform Resource Identifier</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="annex-c-acknowledgments">Annex C: Acknowledgments</h1>
+<p><em>This section is non-normative</em></p>
+<p>The Actuator Profile Subcommittee was tasked by the OASIS Open Command and Control Technical Committee (OpenC2 TC) which at the time of this submission, had 132 members. The editors wish to express their gratitude to the members of the OpenC2 TC.</p>
+<p>The following individuals are acknowledged for providing comments, suggested text and/or participation in the SLPF CSD ballots:</p>
+<ul>
+<li>Barry, Michelle- AT&amp;T</li>
+<li>Brule, Joseph - National Security Agency</li>
+<li>Darley, Trey- New Context</li>
+<li>Darnell, David- North American Energy Standards Board</li>
+<li>Everett, Alex- University of North Carolina at Chapel Hill</li>
+<li>Farrel, Travis- Anomali</li>
+<li>Gray, Anderson- ForeScout</li>
+<li>Gurney, John-Mark- New Context</li>
+<li>Hamilton, David- AT&amp;T</li>
+<li>Hunt, Christian- New Context</li>
+<li>Jackson, April- G2, Inc.</li>
+<li>Kakumaru, Takahiro- NEC Corporation</li>
+<li>Kasavchenko, Kirill- Arbor Networks</li>
+<li>Kemp, Dave- National Security Agency</li>
+<li>Lemire, Dave- G2, Inc.</li>
+<li>MacGregor, Scott- McAfee</li>
+<li>Martinez, Danny- G2, Inc.</li>
+<li>Mathews, Lisa- Department of Defense</li>
+<li>Mavroeidis, Vasileios- University of Oslo</li>
+<li>Ortiz, Efrain- Symantec</li>
+<li>Rajarathnam, Nirmal- ForeScout</li>
+<li>Riedel, Daniel- New Context</li>
+<li>Romano, Jason- National Security Agency</li>
+<li>Royer, Phillip- Splunk</li>
+<li>Skeen, Duane- Northrup Grumman</li>
+<li>Sparrell, Duncan- sFractal Consulting</li>
+<li>Stair, Michael- AT&amp;T</li>
+<li>Storms, Andrew- New Context</li>
+<li>Stueve, Gerald- Fornetix</li>
+<li>Trost, Bill- AT&amp;T</li>
+<li>Voit, Eric- Cisco</li>
+<li>Webb, Jason- LookingGlass</li>
+<li>White, Chuck- Fornetix</li>
+<li>Yu, Sounil- Bank of America</li>
+</ul>
+<hr />
+<h1 id="annex-d-revision-history">Annex D: Revision History</h1>
+<p><em>This section is non-normative</em></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Revision</th>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Editor</th>
+<th style="text-align: left;">Changes Made</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Committee Specification Draft 1</td>
+<td style="text-align: left;">31 AUG 2018</td>
+<td style="text-align: left;">Brule, Joe</td>
+<td style="text-align: left;">Initial draft</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Committee Specification Draft 2</td>
+<td style="text-align: left;">04 OCT 2018</td>
+<td style="text-align: left;">Brule, Joe</td>
+<td style="text-align: left;">Added Document overview, complete rewrite of introduction, modified components section to be consistent with Language Specification and address ballot comments, added schema, added conformance section, added examples, added acknowledgements section.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Committee Specification Draft 3</td>
+<td style="text-align: left;">16 OCT 2018</td>
+<td style="text-align: left;">Brule, Joe</td>
+<td style="text-align: left;">Aligned section 1 with other OpenC2 specifications; other changes to track dependencies on the language specification: 1) replace openc2 target with features target, 2) flatten response examples so that there is not a separate &quot;results&quot; layer.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Working Draft 06</td>
+<td style="text-align: left;">28 MAR 2019</td>
+<td style="text-align: left;">Brule, Joe</td>
+<td style="text-align: left;">Addressed Public Review 01 comments.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
