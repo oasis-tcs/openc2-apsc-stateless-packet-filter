@@ -369,7 +369,13 @@ Section One (this section) provides a non-normative overview of the suite of spe
 
 _This section is normative_ 
 
-This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGUMENTS that are meaningful in the context of an SLPF. This section also describes the appropriate format for the status and results of a Response frame. This section is organized into three major subsections; Command Components, Response Components and Commands. 
+This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGUMENTS that are meaningful in the context of an SLPF. This section also describes the appropriate format for the status and properties of a Response frame. This section is organized into three major subsections; Command Components, Response Components and Commands. 
+
+Extensions to the Language Specification are defined in accordance with [OpenC2-Lang-v1.0](#openc2-lang-v10), Section 3.1.5, where:
+
+1. The unique name of the SLPF schema is `oasis-open.org/openc2/v1.0/ap-slpf`
+2. The namespace identifier (nsid) referring to the SLPF schema is:  `slpf`
+3. The definitions of and conformance requirements for these types are contained in this document
 
 ## 2.1 OpenC2 Command Components 
 The components of an OpenC2 Command include ACTIONS, TARGETS, ACTUATORS and associated ARGUMENTS (ARGS) and SPECIFIERS.  Appropriate aggregation of the components will define a Command-body that is meaningful in the context of an SLPF.  
@@ -402,6 +408,8 @@ Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language
 ** **
 
 ### 2.1.2 Targets
+Table 2.1.2-1 summarizes the Targets defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.2-2 summarizes the Targets that are defined in this specification.
+
 #### 2.1.2.1 Common Targets
 Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language Specification that are applicable to SLPF.  The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).
 
@@ -417,7 +425,6 @@ Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language Specification tha
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
 | 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
-| 1024 | **slpf** | slpf:Target | Targets defined in the Stateless Packet Filter profile |
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
@@ -432,18 +439,15 @@ The semantics/ requirements as they pertain to common targets:
     * For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol
  
 #### 2.1.2.2 SLPF Targets
-The slpf:Target type is defined in this specification and is referenced under the slpf namespace. Implementations that choose to include this type MUST import it in accordance with the procedures defined in section 3.3.3 of Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10):
+The list of common Targets is extended to include the additional Targets defined in this section and referenced with the slpf namespace.
 
-1. The unique name of the SLPF schema is `oasis-open.org/openc2/v1.0/ap-slpf`
-2. The namespace identifier (nsid) referring to the SLPF schema is:  `slpf`
-3. The list of types imported from the SLPF schema is: `Target`, `Actuator`, `Args`, and `Results`
-4. The definitions of and conformance requirements for these types are contained in this document
+**Table 2.1.2-2. Targets Unique to SLPF**
 
 **_Type: Target (Choice)_**
 
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | **rule_number** | Rule-ID | Immutable identifier assigned when a rule is created, Identifies a rule to be deleted |
+| 1024 | **rule_number** | Rule-ID | Immutable identifier assigned when a rule is created. Identifies a rule to be deleted |
 
 Implementations that choose to implement the slpf:Target MUST support the **rule_number** Target.
 
@@ -451,7 +455,7 @@ Implementations that choose to implement the slpf:Target MUST support the **rule
 Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed.  Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10) as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.
 
 #### 2.1.3.1 Common Args
-Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
+Table 2.1.3-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
 
 **Table 2.1.3-1. Command Arguments applicable to SLPF**
 
@@ -463,12 +467,9 @@ Table 2.1.3.1-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#o
 | 2 | **stop_time** | Date-Time | 0..1 | The specific date/time to terminate the action|
 | 3 | **duration** | Duration | 0..1 | The length of time for an action to be in effect |
 | 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the action: `none`, `ack`, `status`, `complete`  |
-| 1024 | **slpf** | slpf:Args | 0..1 | Command arguments defined in the Stateless Packet Filter profile |
-
-The semantics/requirements as they relate common arguments are documented in Version 1.0 of the OpenC2 Language Specification:  
 
 #### 2.1.3.2 SLPF Args
-The Command Arguments defined in this document are referenced under the slpf namespace.
+The list of common Command Arguments is extended to include the additional Command Arguments defined in this section and referenced with the slpf namespace.
 
 **Table 2.1.3-2. Command Arguments Unique to SLPF**
 
@@ -476,10 +477,10 @@ The Command Arguments defined in this document are referenced under the slpf nam
 
 | ID | Name | Type | # | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
-| 2 | **running** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart  |
-| 3 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic.  If omitted, rules are applied to both   |
-| 4 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
+| 1024 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
+| 1025 | **running** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart  |
+| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic.  If omitted, rules are applied to both   |
+| 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 
 **_Type: Drop-Process (Enumerated)_**
 
@@ -539,7 +540,7 @@ Response messages originate from the ACTUATOR as a result of a Command.
 Responses associated with required Actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the Command and associated Response are captured in Section [2.3](#2.3-openc2-commands).  Examples are provided in [Annex A](#-annex-a-sample-commands).
 
 ### 2.2.1 Common Results
-Table 2.2.1-1 lists the results defined in the OpenC2 Language Specification that are applicable to SLPF.
+Table 2.2.1-1 lists the Response properties defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
 
 **Table 2.2.1-1. Results Applicable to SLPF**
 
@@ -553,7 +554,6 @@ Table 2.2.1-1 lists the results defined in the OpenC2 Language Specification tha
 | 7 | **profiles** |Uname | 0..n | List of profiles supported by this actuator |
 | 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported action |
 | 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
-| 1024 | **slpf** | slpf:Results | 0..1 | Response data defined in the Stateless Packet Filtering profile |
 
 Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.
 
@@ -570,15 +570,15 @@ Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specificatio
 | 501 | Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
 
 ### 2.2.2 SLPF Results
-The results defined in this document are presented in Table 2.2-2.  The results are referenced under the slpf namespace within the OpenC2-Response type defined in the OpenC2 Language Specification.
+The list of common Response properties is extended to include the additional Response properties defined in this section and referenced with the slpf namespace.
 
-**Table 2.2-2. SLPF Results**
+**Table 2.2.2-1. SLPF Results**
 
-**_Type: Results (Map)_**
+**_Type: OpenC2-Response (Map)_**
 
-| Type Name | Type | Description |
-| :--- | :--- | :--- |
-| **rule_number** | Rule-ID | Rule identifier returned from allow or deny Command |
+| ID | Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| 1024 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny Command |
 
 ## 2.3 OpenC2 Commands
 
@@ -1012,14 +1012,10 @@ Block a particular connection within the domain and do not send a host unreachab
     "start_time": 1534775460000,
     "duration": 500,
     "response_requested": "ack",
-    "slpf": {
-      "drop_process": "none"
-    }
+    "slpf:drop_process": "none"
   },
   "actuator": {
-    "slpf": {
-,      "asset_id": "30"
-    }
+    "slpf:asset_id": "30"
   }
 }
 ```
@@ -1048,10 +1044,8 @@ Block all outbound ftp data transfers, send false acknowledgement and request ac
     }
   },
   "args": {
-    "slpf": {
-      "drop_process": "false_ack",
-      "direction": "egress"
-    }
+    "slpf:drop_process": "false_ack",
+    "slpf:direction": "egress"
   },
   "actuator": {
     "slpf": {}
@@ -1097,14 +1091,10 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ipv6
   },
   "args": {
     "response_requested": "none",
-    "slpf": {
-      "direction": "ingress"
-    }
+    "slpf:direction": "ingress"
   },
   "actuator": {
-    "slpf": {
-      "named_group": "perimeter"
-    }
+    "slpf:named_group": "perimeter"
   }
 }
 ```
@@ -1138,9 +1128,7 @@ In this case the Actuator returned a rule number associated with the allow.
 ```
 {
   "status": 200,
-  "slpf": {
-    "rule_number": 1234
-  }
+  "slpf:rule_number": 1234
 }
 ```
 
@@ -1155,9 +1143,7 @@ In this case the rule number assigned in a previous allow will be removed (refer
 {
   "action": "delete",
   "target": {
-    "slpf": {
-      "rule_number": 1234
-    }
+    "slpf:rule_number": 1234
   },
   "args": {
     "response_requested": "complete"
@@ -1185,9 +1171,7 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
     }
   },
   "actuator": {
-    "slpf": {
-      "named_group": "network"
-    }
+    "slpf:named_group": "network"
   }
 }
 ```
@@ -1290,10 +1274,7 @@ The Actuator device is apparently a smart front-door-lock for which an extension
 {
   "status": 200,
   "versions": ["1.3"],
-  "profiles": [
-    "oasis-open.org/openc2/v1.0/ap-slpf",
-    "example.com/openc2/products/iot-front-door-lock"
-    ]
+  "profiles": ["slpf", "iot-front-door-lock"]
 }
 ```
 
