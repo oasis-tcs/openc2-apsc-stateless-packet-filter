@@ -428,12 +428,12 @@ Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification tha
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
     * If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol
-      Where the ICMP types and codes are defined in [[RFC2780]](#rfc2780)
+      where the ICMP types and codes are defined in [[RFC2780]](#rfc2780)
     * If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol
     * For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol
 * ipv6_connection
     * If the protocol = ICMP, the five-tuple is: src_addr, dst_addr, icmp_type, icmp_code, protocol
-      Where the ICMP types and codes are defined in [[RFC4443]](#rfc4443)
+      where the ICMP types and codes are defined in [[RFC4443]](#rfc4443)
     * If the protocol = TCP, UDP or SCTP, the five-tuple is: src_addr, src_port, dst_addr, dst_port, protocol
     * For any other protocol, the five-tuple is: src_addr, unused, dst_addr, unused, protocol
 
@@ -704,7 +704,7 @@ Products that receive but do not implement the 'allow ipv6_net' Command:
 * MAY respond with the 500 status code
 
 ### 2.3.2 Deny
-'Deny' can be treated as mathematical complement to 'allow'. With the exception of the additional 'drop_process' Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four 'allow' Commands. Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the 'deny' Action and valid Target type.
+'Deny' can be treated as the mathematical complement to 'allow'. With the exception of the additional 'drop_process' Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four 'allow' Commands. Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the 'deny' Action and valid Target type.
 
 Upon receipt of a Command with an Argument that is not supported by the Actuator:
 
@@ -1076,7 +1076,7 @@ Case Three: the Command failed because an Argument was not supported.
 ```
 
 ### A.1.3 Block all inbound traffic from a particular source.
-Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ipv6_net Target and the direction argument was used. In this case only the perimeter filters should update the rule.
+Block all inbound traffic from the specified ipv6 network and do not respond. In this case the ipv6_net Target and the direction argument was used. In this case only the perimeter filters should update the rule.
 
 **Command:**
 
@@ -1097,7 +1097,7 @@ Block all inbound traffic from 1.2.3.4 and do not respond. In this case the ipv6
 ```
 
 ### A.1.4 Permit ftp transfers to a particular destination.
-Permit ftp data transfers to ip address 198.51.100.17 from any source. (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted).
+Permit ftp data transfers to 3ffe:1900:4545:3::f8ff:fe21:67cf from any source. (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted).
 
 
 **Command:**
