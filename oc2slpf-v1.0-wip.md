@@ -335,18 +335,18 @@ A ‘Stateless Packet Filter’ (SLPF) is a policy enforcement mechanism that re
 
 This Actuator profile specifies the set of Actions, Targets, Specifiers, and Command Arguments that integrates SLPF functionality with the Open Command and Control (OpenC2) Command set. Through this Command set, cyber security orchestrators may gain visibility into and provide control over the SLPF functionality in a manner that is independent of the instance of the SLPF function. 
 
-All components, devices and systems that provide SLPF functionality will implement the OpenC2 ACTIONS, TARGETS, SPECIFIERS and ARGUMENTS (ARGS) identified as required in this document. Actions that are applicable, but not necessarily required, for SLPF will be identified as optional.
+All components, devices and systems that provide SLPF functionality will implement the OpenC2 Actions, Targets, Specifiers and Arguments identified as required in this document. Actions that are applicable, but not necessarily required, for SLPF will be identified as optional.
 
 The purpose of this document is to:
 
-* Identify the required and optional OpenC2 ACTIONS for Actuators with SLPF functionality
-* Identify the required and optional TARGET types for each Action in the SLPF class of Actuators
-* Identify ACTUATOR-SPECIFIERS and ARGUMENTS for each Action/Target pair that are applicable and/or unique to the SLPF class of Actuators
+* Identify the required and optional OpenC2 Actions for Actuators with SLPF functionality
+* Identify the required and optional Target types for each Action in the SLPF class of Actuators
+* Identify Actuator-Specifiers and Arguments for each Action/Target pair that are applicable and/or unique to the SLPF class of Actuators
 * Annotate each Action/Target pair with a justification and example, and provide sample OpenC2 Commands to a SLPF with corresponding Responses
 
 This SLPF profile:
 
-* Does not define or implement ACTIONS beyond those defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10)
+* Does not define or implement Actions beyond those defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10)
 * Is consistent with Version 1.0 of the OpenC2 Language Specification
 
 Cyber defense systems that are utilizing OpenC2 may require the following components to implement the SLPF profile: 
@@ -372,7 +372,7 @@ Section One (this section) provides a non-normative overview of the suite of spe
 
 _This section is normative_ 
 
-This section defines the set of ACTIONS, TARGETS, SPECIFIERS, and ARGUMENTS that are meaningful in the context of an SLPF. This section also describes the appropriate format for the status and properties of a Response frame. This section is organized into three major subsections; Command Components, Response Components and Commands. 
+This section defines the set of Actions, Targets, Specifiers, and Arguments that are meaningful in the context of an SLPF. This section also describes the appropriate format for the status and properties of a Response frame. This section is organized into three major subsections; Command Components, Response Components and Commands. 
 
 Extensions to the Language Specification are defined in accordance with [OpenC2-Lang-v1.0](#openc2-lang-v10), Section 3.1.5, where:
 
@@ -381,17 +381,17 @@ Extensions to the Language Specification are defined in accordance with [OpenC2-
 3. The definitions of and conformance requirements for these types are contained in this document
 
 ## 2.1 OpenC2 Command Components 
-The components of an OpenC2 Command include ACTIONS, TARGETS, ACTUATORS and associated ARGUMENTS (ARGS) and SPECIFIERS.  Appropriate aggregation of the components will define a Command-body that is meaningful in the context of an SLPF.  
+The components of an OpenC2 Command include Actions, Targets, Actuators and associated Arguments and Specifiers.  Appropriate aggregation of the components will define a Command-body that is meaningful in the context of an SLPF.  
 
 This specification identifies the applicable components of an OpenC2 Command.  The components of an OpenC2 Command include: 
 
-* ACTION:  A subset of the ACTIONs defined in the OpenC2 Language Specification that are meaningful in the context of a SLPF. 
-    * This profile SHALL NOT define ACTIONs that are external to Version 1.0 of the [OpenC2 Language Specification](#openc2-lang-v10)
+* Action:  A subset of the Actions defined in the OpenC2 Language Specification that are meaningful in the context of a SLPF. 
+    * This profile SHALL NOT define Actions that are external to Version 1.0 of the [OpenC2 Language Specification](#openc2-lang-v10)
     * This profile MAY augment the definition of the Actions in the context of a SLPF
-    * This profile SHALL NOT define ACTIONs in a manner that is inconsistent with version 1.0 of the OpenC2 Language Specification
-* TARGET:   A subset of the TARGETs and TARGET-SPECIFIERS defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one TARGET (and its associated Specifier) that is defined in this specification 
-* ARGUMENTS:  A subset of the ARGUMENTS defined in the Language Specification and a set of ARGUMENTS defined in this specification 
-* ACTUATOR:  A set of specifiers defined in this specification that are meaningful in the context of SLPF
+    * This profile SHALL NOT define Actions in a manner that is inconsistent with version 1.0 of the OpenC2 Language Specification
+* Target:   A subset of the Targets and Target-Specifiers defined in Version 1.0 of the OpenC2 Language Specification that are meaningful in the context of SLPF and one Target (and its associated Specifier) that is defined in this specification 
+* Arguments:  A subset of the Arguments defined in the Language Specification and a set of Arguments defined in this specification 
+* Actuator:  A set of specifiers defined in this specification that are meaningful in the context of SLPF
 
 ### 2.1.1 Actions
 Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF.  The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).  
@@ -414,7 +414,7 @@ Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language
 Table 2.1.2-1 summarizes the Targets defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.2-2 summarizes the Targets that are defined in this specification.
 
 #### 2.1.2.1 Common Targets
-Table 2.1.2-1 lists the TARGETs defined in the OpenC2 Language Specification that are applicable to SLPF.  The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).
+Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification that are applicable to SLPF.  The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).
 
 **Table 2.1.2-1. Targets Applicable to SLPF**
 
@@ -457,7 +457,7 @@ Implementations that choose to implement the slpf:Target MUST support the **rule
 ### 2.1.3 Command Arguments
 Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed.  Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the [OpenC2-Lang-v1.0](#openc2-lang-v10) as they relate to SLPF functionality.  Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.
 
-#### 2.1.3.1 Common Args
+#### 2.1.3.1 Common Arguments
 Table 2.1.3-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
 
 **Table 2.1.3-1. Command Arguments applicable to SLPF**
@@ -471,7 +471,7 @@ Table 2.1.3-1 lists the Command Arguments defined in the [OpenC2-Lang-v1.0](#ope
 | 3 | **duration** | Duration | 0..1 | The length of time for an Action to be in effect |
 | 4 | **response_requested** | Response-Type | 0..1 | The type of Response required for the Action: `none`, `ack`, `status`, `complete`  |
 
-#### 2.1.3.2 SLPF Args
+#### 2.1.3.2 SLPF Arguments
 The list of common Command Arguments is extended to include the additional Command Arguments defined in this section and referenced with the slpf namespace.
 
 **Table 2.1.3-2. Command Arguments Unique to SLPF**
@@ -520,7 +520,7 @@ The semantics/requirements as they relate to SLPF arguments:
 * running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent 
 
 ### 2.1.4 Actuator Specifiers
-An ACTUATOR is the entity that provides the functionality and performs the Action. The ACTUATOR executes the ACTION on the TARGET. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
+An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
 
 Table 2.1.4-1 lists the Specifiers that are applicable to the SPLF Actuator. [Annex C](#annex-c-sample-commands) provides sample Commands with the use of Specifiers.
 
@@ -538,9 +538,9 @@ The Actuator Specifiers defined in this document are referenced under the slpf n
 | 4 | **asset_tuple** | String | 0..10 | Unique tuple identifier for a particular SLPF consisting of a list of up to 10 strings |
 
 ## 2.2 OpenC2 Response Components
-Response messages originate from the ACTUATOR as a result of a Command.
+Response messages originate from the Actuator as a result of a Command.
 
-Responses associated with required Actions MUST be implemented. Implementations that include optional ACTIONS MUST implement the RESPONSE associated with the implemented ACTION.  Additional details regarding the Command and associated Response are captured in Section [2.3](#2.3-openc2-commands).  Examples are provided in [Annex A](#-annex-a-sample-commands).
+Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action.  Additional details regarding the Command and associated Response are captured in Section [2.3](#2.3-openc2-commands).  Examples are provided in [Annex A](#-annex-a-sample-commands).
 
 ### 2.2.1 Common Results
 Table 2.2.1-1 lists the Response properties defined in the [OpenC2-Lang-v1.0](#openc2-lang-v10) that are applicable to SLPF.
@@ -585,9 +585,9 @@ The list of common Response properties is extended to include the additional Res
 
 ## 2.3 OpenC2 Commands
 
-An OpenC2 Command consists of an ACTION/TARGET pair and associated SPECIFIERS and ARGUMENTS.  This section enumerates the allowed Commands and presents the associated Responses.  
+An OpenC2 Command consists of an Action/Target pair and associated Specifiers and Arguments.  This section enumerates the allowed Commands and presents the associated Responses.  
 
-Table 2.3-1 defines the Commands that are valid in the context of the SLPF profile. An ACTION (the top row in Table 2.3-1) paired with a TARGET (the first column in Table 2.3-1) defines a valid Command. The subsequent subsections provide the property tables applicable to each OpenC2 Command. 
+Table 2.3-1 defines the Commands that are valid in the context of the SLPF profile. An Action (the top row in Table 2.3-1) paired with a Target (the first column in Table 2.3-1) defines a valid Command. The subsequent subsections provide the property tables applicable to each OpenC2 Command. 
 
 **Table 2.3-1. Command Matrix**
 
@@ -710,7 +710,7 @@ Products that receive but do not implement the ‘allow ipv6_net’ Command:
 ### 2.3.2 Deny
 ‘Deny’ can be treated as mathematical complement to ‘allow’.  With the exception of the additional ‘drop_process’ Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four ‘allow’ Commands.  Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the ‘deny’ Action and valid Target type.  
 
-Upon receipt of a Command with an ARGUMENT that is not supported by the Actuator:  
+Upon receipt of a Command with an Argument that is not supported by the Actuator:  
 
 * MUST NOT respond with OK/200
 * SHOULD respond with the 501 status code 
