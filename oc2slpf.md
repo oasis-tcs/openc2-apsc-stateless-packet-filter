@@ -1341,6 +1341,7 @@ The Actuator Profile Subcommittee was tasked by the OASIS Open Command and Contr
 The following individuals are acknowledged for providing comments, suggested text and/or participation in the SLPF CSD ballots:
 
 * Barry, Michelle- AT&T
+* Berliner, Brian- Symantec
 * Brule, Joseph - National Security Agency
 * Darley, Trey- New Context
 * Darnell, David- North American Energy Standards Board
