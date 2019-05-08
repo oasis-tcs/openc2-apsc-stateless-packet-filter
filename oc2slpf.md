@@ -119,8 +119,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
             Producer](#316-conformance-clause-6-update-file-producer)
         -   [3.1.7 Conformance Clause 7: delete rule number
             Producer](#317-conformance-clause-7-delete-rule-number-producer)
-        -   [3.1.8 Conformance Clause 8: Running
-            Producer](#318-conformance-clause-8-running-producer)
+        -   [3.1.8 Conformance Clause 8: Persistent
+            Producer](#318-conformance-clause-8-persistent-producer)
         -   [3.1.9 Conformance Clause 9: Direction
             Producer](#319-conformance-clause-9-direction-producer)
         -   [3.1.10 Conformance Clause 10: drop-process
@@ -143,8 +143,8 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
             Consumer](#326-conformance-clause-17-update-file-consumer)
         -   [3.2.7 Conformance Clause 18: delete rule number
             Consumer](#327-conformance-clause-18-delete-rule-number-consumer)
-        -   [3.2.8 Conformance Clause 19: Running
-            Consumer](#328-conformance-clause-19-running-consumer)
+        -   [3.2.8 Conformance Clause 19: Persistent
+            Consumer](#328-conformance-clause-19-persistent-consumer)
         -   [3.2.9 Conformance Clause 20: Direction
             Consumer](#329-conformance-clause-20-direction-consumer)
         -   [3.2.10 Conformance Clause 21: drop-process
@@ -476,7 +476,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | ID | Name | Type | # | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | 1024 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
-| 1025 | **running** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart |
+| 1025 | **persistent** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the persistent modifier to FALSE results in a change that is not persistent in the event of a reboot or restart |
 | 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 
@@ -512,7 +512,7 @@ The semantics/requirements as they relate to SLPF arguments:
     * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code
     * If absent, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
-* running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent
+* persistent:  If absent or not explicitly set, then the value is TRUE and any changes are persistent
 
 ### 2.1.4 Actuator Specifiers
 An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
@@ -606,7 +606,7 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 | **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **duration** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
-| **running** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **persistent** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **direction** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **insert_rule** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   |   |   |
 | **drop_process** |   | [2.3.2](#232-deny) |   |   |   |
@@ -863,10 +863,10 @@ An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
 * 3.1.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.1.8 Conformance Clause 8: Running Producer
-An OpenC2 Producer satisfies 'Running Producer' conformance if:
+### 3.1.8 Conformance Clause 8: Persistent Producer
+An OpenC2 Producer satisfies 'Persistent Producer' conformance if:
 * 3.1.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
 ### 3.1.9 Conformance Clause 9: Direction Producer
 An OpenC2 Producer satisfies 'Direction Producer' conformance if:
@@ -938,10 +938,10 @@ An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:
 * 3.2.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
 * 3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.2.8 Conformance Clause 19: Running Consumer
-An OpenC2 Consumer satisfies 'Running Consumer' conformance if:
+### 3.2.8 Conformance Clause 19: Persistent Consumer
+An OpenC2 Consumer satisfies 'Persistent Consumer' conformance if:
 * 3.2.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.8.2 **MUST** implement the 'running' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.2.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
 ### 3.2.9 Conformance Clause 20: Direction Consumer
 An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:
