@@ -477,7 +477,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | :--- | :--- | :--- | :--- | :--- |
 | 1024 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
 | 1025 | **running** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart |
-| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both |
+| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied both ingress and egress |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 
 **_Type: Drop-Process (Enumerated)_**
@@ -492,8 +492,10 @@ The list of common Command Arguments is extended to include the additional Comma
 
 | ID | Name | Description |
 | :--- | :--- | :--- |
-| 1 | **ingress** | Apply rules to incoming traffic only |
-| 2 | **egress** | Apply rules to outgoing traffic only |
+| 1 | **both** | Apply rules to all traffic |
+| 2 | **ingress** | Apply rules to incoming traffic only |
+| 3 | **egress** | Apply rules to outgoing traffic only |
+
 
 **_Type: Rule-ID_**
 
@@ -510,7 +512,7 @@ The semantics/requirements as they relate to SLPF arguments:
 
 * directionality:
     * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code
-    * If absent, then the Command MUST apply to both
+    * If absent or not explicitly set, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
 * running:  If absent or not explicitly set, then the value is FALSE and any changes are persistent
 
