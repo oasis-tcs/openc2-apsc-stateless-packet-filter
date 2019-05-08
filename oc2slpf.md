@@ -231,9 +231,9 @@ Arkko, J. and S. Bradner, "IANA Allocation Guidelines for the Protocol Field", B
 ###### [OpenC2-HTTPS-v1.0]
 Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0. Edited by David Lemire. November, 2018, <http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html>.
 ###### [ACD]
-Herring, M.J. and Willett, K.D. "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014.
+Herring, M.J. and Willett, K.D. "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014, <https://www.semanticscholar.org/paper/Active-Cyber-Defense-%3A-A-Vision-for-Real-Time-Cyber-Herring-Willett/7c128468ae42584f282578b86439dbe9e8c904a8>.
 ###### [IACD]
-Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015.
+Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015, <https://www.semanticscholar.org/paper/Integrated-Adaptive-Cyberspace-Defense-%3A-Secure-by-Willett/a22881b8a046e7eab11acf647d530c2a3b03b762>.
 
 ## 1.5 Document Conventions
 ### 1.5.1 Naming Conventions
@@ -256,9 +256,8 @@ Example:
 {
     "action": "contain",
     "target": {
-        "user_account": {
-            "user_id": "fjbloggs",
-            "account_type": "windows-local"
+        "file": {
+            "hashes": "0ABC0ABC0ABC0ABC0ABC0ABC0ABC0ABC"
         }
     }
 }
