@@ -1034,7 +1034,7 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
 {
   "action": "deny",
   "target": {
-    "ip_connection": {
+    "ipv4_connection": {
       "protocol": "tcp",
       "src_port": 21
     }
@@ -1275,7 +1275,7 @@ The Actuator device is apparently a smart front-door-lock for which an extension
 ```
 
 ### A.4.4 Specific Commands Supported
-This Command queries the Actuator to determine which Action/Target pairs are supported. Not all Targets are meaningful in the context of a specific Action, and although a Command such as "update ip_connection" may be syntactically valid, the combination does not specify an operation supported by the Actuator.
+This Command queries the Actuator to determine which Action/Target pairs are supported. Not all Targets are meaningful in the context of a specific Action, and although a Command such as "update ipv4_connection" may be syntactically valid, the combination does not specify an operation supported by the Actuator.
 
 **Command:**
 
