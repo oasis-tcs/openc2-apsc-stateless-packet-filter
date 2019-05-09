@@ -252,14 +252,20 @@ The following color, font and font style conventions are used in this document:
 
 Example:
 
-```javascript
+```
+HTTP/1.1 200 OK
+Date: Wed, 19 Dec 2018 22:15:00 GMT
+Content-type: application/openc2-cmd+json;version=1.0
+X-Request-ID: id_1234
 {
-    "action": "contain",
-    "target": {
-        "file": {
-            "hashes": "0ABC0ABC0ABC0ABC0ABC0ABC0ABC0ABC"
-        }
+  "action": "deny",
+  "target": {
+    "file": {
+      "hashes": {
+        "sha256": "22fe72a34f006ea67d26bb7004e2b6941b5c3953d43ae7ec24d41b1a928a6973"
+      }
     }
+  }
 }
 ```
 
