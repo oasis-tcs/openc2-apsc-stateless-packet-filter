@@ -1303,13 +1303,11 @@ The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Mat
 ```
 {
   "status": 200,
-  "pairs": [
-    ["allow", ["ipv6_net", "ipv6_connection"]],
-    ["deny", ["ipv6_net", "ipv6_connection"]],
-    ["query", ["features"]],
-    ["delete", ["slpf:rule_number"]],
-    ["update", ["file"]]
-  ]
+  "allow": ["ipv6_net", "ipv6_connection"],
+  "deny": ["ipv6_net", "ipv6_connection"],
+  "query": ["features"],
+  "delete": ["slpf:rule_number"],
+  "update": ["file"]
 }
 ```
 
