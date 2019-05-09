@@ -477,7 +477,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | :--- | :--- | :--- | :--- | :--- |
 | 1024 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
 | 1025 | **running** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the running modifier to TRUE results in a change that is not persistent in the event of a reboot or restart |
-| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied both ingress and egress |
+| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both ingress and egress |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 
 **_Type: Drop-Process (Enumerated)_**
