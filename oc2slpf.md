@@ -1015,11 +1015,15 @@ Block a particular connection within the domain and do not send a host unreachab
     "start_time": 1534775460000,
     "duration": 500,
     "response_requested": "ack",
-    "slpf:drop_process": "none"
+    "slpf": {
+       "drop_process": "none"
+       }
   },
   "actuator": {
-    "slpf:asset_id": "30"
-  }
+        "slpf": {
+            "asset_id": "30"
+        }
+    }
 }
 ```
 
