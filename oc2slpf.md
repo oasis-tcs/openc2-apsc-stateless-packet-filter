@@ -1097,10 +1097,14 @@ Block all inbound traffic from the specified ipv6 network and do not respond. In
   },
   "args": {
     "response_requested": "none",
-    "slpf:direction": "ingress"
+    "slpf": {
+       "direction": "ingress"
+       }
   },
   "actuator": {
-    "slpf:named_group": "perimeter"
+    "slpf": {
+       "named_group": "perimeter"
+       }
   }
 }
 ```
@@ -1177,7 +1181,9 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
     }
   },
   "actuator": {
-    "slpf:named_group": "network"
+    "slpf": {
+       "named_group": "network"
+       }
   }
 }
 ```
