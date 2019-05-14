@@ -1017,11 +1017,15 @@ Block a particular connection within the domain and do not send a host unreachab
     "start_time": 1534775460000,
     "duration": 500,
     "response_requested": "ack",
-    "slpf:drop_process": "none"
+    "slpf": {
+       "drop_process": "none"
+       }
   },
   "actuator": {
-    "slpf:asset_id": "30"
-  }
+        "slpf": {
+            "asset_id": "30"
+        }
+    }
 }
 ```
 
@@ -1095,10 +1099,14 @@ Block all inbound traffic from the specified ipv6 network and do not respond. In
   },
   "args": {
     "response_requested": "none",
-    "slpf:direction": "ingress"
+    "slpf": {
+       "direction": "ingress"
+       }
   },
   "actuator": {
-    "slpf:named_group": "perimeter"
+    "slpf": {
+       "named_group": "perimeter"
+       }
   }
 }
 ```
@@ -1175,7 +1183,9 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
     }
   },
   "actuator": {
-    "slpf:named_group": "network"
+    "slpf": {
+       "named_group": "network"
+       }
   }
 }
 ```
