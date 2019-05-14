@@ -1218,7 +1218,7 @@ This Command uses query features with no query items to verify that the Actuator
 {
   "action": "query",
   "target": {
-    "openc2": []
+    "features": []
   }
 }
 ```
