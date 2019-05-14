@@ -498,8 +498,10 @@ The list of common Command Arguments is extended to include the additional Comma
 
 | ID | Name | Description |
 | :--- | :--- | :--- |
-| 1 | **ingress** | Apply rules to incoming traffic only |
-| 2 | **egress** | Apply rules to outgoing traffic only |
+| 1 | **both** | Apply rules to all traffic |
+| 2 | **ingress** | Apply rules to incoming traffic only |
+| 3 | **egress** | Apply rules to outgoing traffic only |
+
 
 **_Type: Rule-ID_**
 
@@ -516,7 +518,7 @@ The semantics/requirements as they relate to SLPF arguments:
 
 * directionality:
     * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code
-    * If absent, then the Command MUST apply to both
+    * If absent or not explicitly set, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
 * persistent:  If absent or not explicitly set, then the value is TRUE and any changes are persistent
 
