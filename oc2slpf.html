@@ -176,6 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="#221-common-results">2.2.1 Common Results</a></li>
 <li><a href="#222-slpf-results">2.2.2 SLPF Results</a></li>
+<li><a href="#223-response-status-codes">2.2.3 Response Status Codes</a></li>
 </ul></li>
 <li><a href="#23-openc2-commands">2.3 OpenC2 Commands</a>
 <ul>
@@ -806,8 +807,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Response messages originate from the Actuator as a result of a Command.</p>
 <p>Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action. Additional details regarding the Command and associated Response are captured in <a href="#23-openc2-commands">Section 2.3</a>. Examples are provided in <a href="#annex-a-sample-commands">Annex A</a>.</p>
 <h3 id="221-common-results">2.2.1 Common Results</h3>
-<p>Table 2.2.1-1 lists the Response properties defined in the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> that are applicable to SLPF.</p>
-<p><strong>Table 2.2.1-1. Results Applicable to SLPF</strong></p>
+<p>Table 2.2.1-1 lists the Response Results properties defined in the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> that are applicable to SLPF.</p>
+<p><strong>Table 2.2.1-1. Response Results Applicable to SLPF</strong></p>
+<p><strong><em>Type: Results (Map [1..*])</em></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: right;">#</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;"><strong>versions</strong></td>
+<td style="text-align: left;">Version</td>
+<td style="text-align: right;">0..*</td>
+<td style="text-align: left;">List of OpenC2 language versions supported by this Actuator</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;"><strong>profiles</strong></td>
+<td style="text-align: left;">ArrayOf(Nsid)</td>
+<td style="text-align: right;">0..1</td>
+<td style="text-align: left;">List of profiles supported by this Actuator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;"><strong>pairs</strong></td>
+<td style="text-align: left;">Action-Targets</td>
+<td style="text-align: right;">0..*</td>
+<td style="text-align: left;">List of targets applicable to each supported Action</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;"><strong>rate_limit</strong></td>
+<td style="text-align: left;">Number</td>
+<td style="text-align: right;">0..1</td>
+<td style="text-align: left;">Maximum number of requests per minute supported by design or policy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="222-slpf-results">2.2.2 SLPF Results</h3>
+<p>The list of common Response properties is extended to include the additional Response properties defined in this section and referenced with the slpf namespace.</p>
+<p><strong>Table 2.2.2-1. SLPF Results</strong></p>
 <p><strong><em>Type: OpenC2-Response (Map)</em></strong></p>
 <table>
 <thead>
@@ -815,57 +861,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <th style="text-align: left;">ID</th>
 <th style="text-align: left;">Name</th>
 <th style="text-align: left;">Type</th>
-<th style="text-align: left;">#</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;"><strong>status</strong></td>
-<td style="text-align: left;">Status-Code</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;">An integer status code</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;"><strong>status_text</strong></td>
-<td style="text-align: left;">String</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;">A free-form human-readable description of the Response status</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;"><strong>versions</strong></td>
-<td style="text-align: left;">Version</td>
-<td style="text-align: left;">0..n</td>
-<td style="text-align: left;">List of OpenC2 language versions supported by this Actuator</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">7</td>
-<td style="text-align: left;"><strong>profiles</strong></td>
-<td style="text-align: left;">Uname</td>
-<td style="text-align: left;">0..n</td>
-<td style="text-align: left;">List of profiles supported by this Actuator</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">8</td>
-<td style="text-align: left;"><strong>pairs</strong></td>
-<td style="text-align: left;">Action-Targets</td>
-<td style="text-align: left;">0..n</td>
-<td style="text-align: left;">List of Targets applicable to each supported Action</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">9</td>
-<td style="text-align: left;"><strong>rate_limit</strong></td>
-<td style="text-align: left;">Number</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;">Maximum number of requests per minute supported by design or policy</td>
+<td style="text-align: left;">1024</td>
+<td style="text-align: left;"><strong>rule_number</strong></td>
+<td style="text-align: left;">Rule-ID</td>
+<td style="text-align: left;">Rule identifier returned from allow or deny Command</td>
 </tr>
 </tbody>
 </table>
-<p>Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.</p>
-<p><strong>Table 2.2.1-2. Status Codes</strong></p>
+<h3 id="223-response-status-codes">2.2.3 Response Status Codes</h3>
+<p>Table 2.2.1-2 lists the Response Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.</p>
+<p><strong>Table 2.2.1-2. Response Status Codes</strong></p>
 <p><strong><em>Type: Status-Code (Enumerated.ID)</em></strong></p>
 <table>
 <thead>
@@ -894,28 +904,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td style="text-align: left;">501</td>
 <td style="text-align: left;">Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported</td>
-</tr>
-</tbody>
-</table>
-<h3 id="222-slpf-results">2.2.2 SLPF Results</h3>
-<p>The list of common Response properties is extended to include the additional Response properties defined in this section and referenced with the slpf namespace.</p>
-<p><strong>Table 2.2.2-1. SLPF Results</strong></p>
-<p><strong><em>Type: OpenC2-Response (Map)</em></strong></p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">ID</th>
-<th style="text-align: left;">Name</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1024</td>
-<td style="text-align: left;"><strong>rule_number</strong></td>
-<td style="text-align: left;">Rule-ID</td>
-<td style="text-align: left;">Rule identifier returned from allow or deny Command</td>
 </tr>
 </tbody>
 </table>
