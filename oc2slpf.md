@@ -593,7 +593,7 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 **Table 2.3-1. Command Matrix**
 
 |   | Allow | Deny | Query | Delete | Update |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :---: | :---: | :---: | :---: | :---: |
 | **ipv4_connection** | valid | valid |   |   |   |
 | **ipv6_connection** | valid | valid |   |   |   |
 | **ipv4_net** | valid | valid |   |   |   |
@@ -607,7 +607,7 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 **Table 2.3-2. Command Arguments Matrix**
 
 |   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :---: | :---: | :---: | :---: | :---: |
 | **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
