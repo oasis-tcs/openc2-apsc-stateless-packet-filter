@@ -1037,7 +1037,7 @@ Block a particular connection within the domain and do not send a host unreachab
 
 ```
 {
-    "status": 200
+  "status": 200
 }
 ```
 
@@ -1056,8 +1056,10 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
     }
   },
   "args": {
-    "slpf:drop_process": "false_ack",
-    "slpf:direction": "egress"
+    "slpf": {
+      "drop_process": "false_ack",
+      "direction": "egress"
+    }
   },
   "actuator": {
     "slpf": {}
@@ -1070,7 +1072,9 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
 Case One: the Actuator successfully issued the deny.
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 Case Two: the Command failed due to a syntax error in the Command. Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.
@@ -1104,13 +1108,13 @@ Block all inbound traffic from the specified ipv6 network and do not respond. In
   "args": {
     "response_requested": "none",
     "slpf": {
-       "direction": "ingress"
-       }
+      "direction": "ingress"
+    }
   },
   "actuator": {
     "slpf": {
-       "named_group": "perimeter"
-       }
+      "named_group": "perimeter"
+    }
   }
 }
 ```
@@ -1144,7 +1148,11 @@ In this case the Actuator returned a rule number associated with the allow.
 ```
 {
   "status": 200,
-  "slpf:rule_number": 1234
+  "results": {
+    "slpf": {
+      "rule_number": 1234
+    }
+  }
 }
 ```
 
@@ -1188,8 +1196,8 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
   },
   "actuator": {
     "slpf": {
-       "named_group": "network"
-       }
+      "named_group": "network"
+    }
   }
 }
 ```
@@ -1199,7 +1207,9 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
 Successful update of the configuration
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 This Actuator does not support the update file Command
@@ -1242,7 +1252,9 @@ This Command uses query features with no query items to verify that the Actuator
 The Actuator is alive.
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 ### A.4.2 Version of Language specification supported
@@ -1291,8 +1303,10 @@ The Actuator device is apparently a smart front-door-lock for which an extension
 ```
 {
   "status": 200,
-  "versions": ["1.3"],
-  "profiles": ["slpf", "iot-front-door-lock"]
+  "results": {
+    "versions": ["1.3"],
+    "profiles": ["slpf", "iot-front-door-lock"]
+  }
 }
 ```
 
@@ -1318,16 +1332,16 @@ The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Mat
 
 ```
 {
-    "status": 200,
-    "results": {
-        "pairs": {
-            "allow": ["ipv6_net", "ipv6_connection"],
-            "deny": ["ipv6_net", "ipv6_connection"],
-            "query": ["features"],
-            "delete": ["slpf:rule_number"],
-            "update": ["file"]
-        }
+  "status": 200,
+  "results": {
+    "pairs": {
+      "allow": ["ipv6_net", "ipv6_connection"],
+      "deny": ["ipv6_net", "ipv6_connection"],
+      "query": ["features"],
+      "delete": ["slpf:rule_number"],
+      "update": ["file"]
     }
+  }
 }
 ```
 
