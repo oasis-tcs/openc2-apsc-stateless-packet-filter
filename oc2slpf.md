@@ -510,9 +510,9 @@ The list of common Command Arguments is extended to include the additional Comma
 The semantics/requirements as they relate to SLPF arguments:
 
 * insert_rule:
-    * The value MUST be immutable - i.e. the identifier assigned to an access rule at creation must not change over the lifetime of that rule
+    * The value MUST be immutable - i.e., the identifier assigned to an access rule at creation must not change over the lifetime of that rule
 
-    * The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e. the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF
+    * The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e., the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF
 
 * directionality:
     * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code
@@ -688,7 +688,7 @@ Products that receive but do not implement the 'allow ipv6_connection' Command:
 The 'allow ipv4_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
 The 'allow ipv4_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
 
-The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.
+The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e., an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv4_net' Command:
 * MUST NOT respond with a OK/200
@@ -700,7 +700,7 @@ Products that receive but do not implement the 'allow ipv4_net' Command:
 The 'allow ipv6_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
 The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
 
-The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
+The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e., an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv6_net' Command:
 * MUST NOT respond with a OK/200
