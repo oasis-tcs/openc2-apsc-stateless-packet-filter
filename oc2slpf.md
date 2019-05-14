@@ -301,9 +301,9 @@ OpenC2 is conceptually partitioned into four layers as shown in Table 1-1.
 | Function-Specific Content | Actuator Profiles<br>(standard and extensions) |
 | Common Content | Language Specification<br>[[OpenC2-Lang-v1.0]](#openc2-lang-v10) |
 | Message | Transfer Specifications<br>([[OpenC2-HTTPS-v1.0]](#openc2-https-v10), OpenC2-over-CoAP, ...) |
-| Secure Transfer | HTTPS, CoAP, MQTT, OpenDXL, ... |
+| Secure Transport | HTTPS, CoAP, MQTT, OpenDXL, ... |
 
-* The **Secure Transfer** layer provides a communication path between the Producer and the Consumer. OpenC2 can be layered over any standard transfer protocol.
+* The **Secure Transport** layer provides a communication path between the Producer and the Consumer. OpenC2 can be layered over any standard transport protocol.
 * The **Message** layer provides a transfer- and content-independent mechanism for conveying Messages. A transfer specification maps transfer-specific protocol elements to a transfer-independent set of message elements consisting of content and associated metadata.
 * The **Common Content** layer defines the structure of Commands and Responses and a set of common language elements used to construct them.
 * The **Function-specific Content** layer defines the language elements used to support a particular cyber defense function. An Actuator profile defines the implementation conformance requirements for that function. Producers and Consumers will support one or more profiles.
