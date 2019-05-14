@@ -453,8 +453,6 @@ The list of common Targets is extended to include the additional Targets defined
 | :--- | :--- | :--- | :--- |
 | 1024 | **rule_number** | Rule-ID | Immutable identifier assigned when a rule is created. Identifies a rule to be deleted |
 
-Implementations that choose to implement the slpf:Target MUST support the **rule_number** Target.
-
 ### 2.1.3 Command Arguments
 Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed. Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.
 
@@ -512,9 +510,9 @@ The list of common Command Arguments is extended to include the additional Comma
 The semantics/requirements as they relate to SLPF arguments:
 
 * insert_rule:
-    * The value MUST be immutable - i.e. the identifier assigned to an access rule at creation must not change over the lifetime of that rule
+    * The value MUST be immutable - i.e., the identifier assigned to an access rule at creation must not change over the lifetime of that rule
 
-    * The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e. the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF
+    * The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e., the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF
 
 * directionality:
     * Entities that receive but do not support directionality MUST NOT reply with 200 OK and SHOULD return a 501 error code
@@ -595,7 +593,7 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 **Table 2.3-1. Command Matrix**
 
 |   | Allow | Deny | Query | Delete | Update |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :---: | :---: | :---: | :---: | :---: |
 | **ipv4_connection** | valid | valid |   |   |   |
 | **ipv6_connection** | valid | valid |   |   |   |
 | **ipv4_net** | valid | valid |   |   |   |
@@ -609,7 +607,7 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 **Table 2.3-2. Command Arguments Matrix**
 
 |   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :---: | :---: | :---: | :---: | :---: |
 | **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
@@ -690,7 +688,7 @@ Products that receive but do not implement the 'allow ipv6_connection' Command:
 The 'allow ipv4_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
 The 'allow ipv4_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
 
-The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.
+The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e., an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv4_net' Command:
 * MUST NOT respond with a OK/200
@@ -702,7 +700,7 @@ Products that receive but do not implement the 'allow ipv4_net' Command:
 The 'allow ipv6_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
 The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
 
-The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
+The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e., an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv6_net' Command:
 * MUST NOT respond with a OK/200
@@ -1422,3 +1420,4 @@ _This section is non-normative_
 | Committee Specification Draft 2 | 04 OCT 2018 | Brule, Joe | Added Document overview, complete rewrite of introduction, modified components section to be consistent with Language Specification and address ballot comments, added schema, added conformance section, added examples, added acknowledgements section. |
 | Committee Specification Draft 3 | 16 OCT 2018 | Brule, Joe | Aligned section 1 with other OpenC2 specifications; other changes to track dependencies on the language specification:  1) replace openc2 target with features target, 2) flatten response examples so that there is not a separate "results" layer. |
 | Working Draft 06 | 28 MAR 2019 | Brule, Joe | Addressed Public Review 01 comments. |
+| Working Draft 07 | 14 MAY 2019 | Brule, Everett, Sparrell | Addressed Public Review 02 comments. |
