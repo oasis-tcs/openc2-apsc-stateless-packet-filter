@@ -453,8 +453,6 @@ The list of common Targets is extended to include the additional Targets defined
 | :--- | :--- | :--- | :--- |
 | 1024 | **rule_number** | Rule-ID | Immutable identifier assigned when a rule is created. Identifies a rule to be deleted |
 
-Implementations that choose to implement the slpf:Target MUST support the **rule_number** Target.
-
 ### 2.1.3 Command Arguments
 Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed. Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) as they relate to SLPF functionality. Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.
 
