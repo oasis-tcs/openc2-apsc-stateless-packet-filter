@@ -577,7 +577,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Implementations that choose to implement the slpf:Target MUST support the <strong>rule_number</strong> Target.</p>
 <h3 id="213-command-arguments">2.1.3 Command Arguments</h3>
 <p>Arguments provide additional precision to a Command by including information such as how, when, or where a Command is to be executed. Table 2.1.3-1 summarizes the Command Arguments defined in Version 1.0 of the <a href="#openc2-lang-v10">[OpenC2-Lang-v1.0]</a> as they relate to SLPF functionality. Table 2.1.3-2 summarizes the Command Arguments that are defined in this specification.</p>
 <h4 id="2131-common-arguments">2.1.3.1 Common Arguments</h4>
@@ -745,8 +744,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>insert_rule:</p>
 <ul>
-<li><p>The value MUST be immutable - i.e. the identifier assigned to an access rule at creation must not change over the lifetime of that rule</p></li>
-<li><p>The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e. the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF</p></li>
+<li><p>The value MUST be immutable - i.e., the identifier assigned to an access rule at creation must not change over the lifetime of that rule</p></li>
+<li><p>The value MUST be unique within the scope of an Openc2 Producer and an Openc2 Consumer- i.e., the value MUST map to exactly one deny <target> or allow <target> for a given instance of an SLPF</p></li>
 </ul></li>
 <li><p>directionality:</p>
 <ul>
@@ -928,69 +927,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: left;">Allow</th>
-<th style="text-align: left;">Deny</th>
-<th style="text-align: left;">Query</th>
-<th style="text-align: left;">Delete</th>
-<th style="text-align: left;">Update</th>
+<th style="text-align: center;">Allow</th>
+<th style="text-align: center;">Deny</th>
+<th style="text-align: center;">Query</th>
+<th style="text-align: center;">Delete</th>
+<th style="text-align: center;">Update</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>ipv4_connection</strong></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>ipv6_connection</strong></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>ipv4_net</strong></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>ipv6_net</strong></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>features</strong></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>slpf:rule_number</strong></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">valid</td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">valid</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>file</strong></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">valid</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">valid</td>
 </tr>
 </tbody>
 </table>
@@ -1000,77 +999,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: left;">Allow <em>target</em></th>
-<th style="text-align: left;">Deny <em>target</em></th>
-<th style="text-align: left;">Query features</th>
-<th style="text-align: left;">Delete slpf:rule_number</th>
-<th style="text-align: left;">Update file</th>
+<th style="text-align: center;">Allow <em>target</em></th>
+<th style="text-align: center;">Deny <em>target</em></th>
+<th style="text-align: center;">Query features</th>
+<th style="text-align: center;">Delete slpf:rule_number</th>
+<th style="text-align: center;">Update file</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>response</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"><a href="#2331-query-features">2.3.3.1</a></td>
-<td style="text-align: left;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
-<td style="text-align: left;"><a href="#2351-update-file">2.3.5.1</a></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"><a href="#2331-query-features">2.3.3.1</a></td>
+<td style="text-align: center;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
+<td style="text-align: center;"><a href="#2351-update-file">2.3.5.1</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>start-time</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
-<td style="text-align: left;"><a href="#2351-update-file">2.3.5.1</a></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="#2341-delete-slpfrule_number">2.3.4.1</a></td>
+<td style="text-align: center;"><a href="#2351-update-file">2.3.5.1</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>end-time</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>duration</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>persistent</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>direction</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>insert_rule</strong></td>
-<td style="text-align: left;"><a href="#231-allow">2.3.1</a></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>drop_process</strong></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><a href="#232-deny">2.3.2</a></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
@@ -1136,7 +1135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <h4 id="2313-allow-ipv4_net">2.3.1.3 'Allow ipv4_net'</h4>
 <p>The 'allow ipv4_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv4_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
-<p>The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e. an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.</p>
+<p>The Command permits traffic as specified by the range of IPv4 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv4 address (i.e., an address range of one element). The address range specified in the ipv4_net MUST be treated as a source OR destination address.</p>
 <p>Products that receive but do not implement the 'allow ipv4_net' Command:</p>
 <ul>
 <li>MUST NOT respond with a OK/200</li>
@@ -1146,7 +1145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <h4 id="2314-allow-ipv6_net">2.3.1.4 'Allow ipv6_net'</h4>
 <p>The 'allow ipv6_net' Command is OPTIONAL for Openc2 Producers implementing the SLPF. The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.</p>
-<p>The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e. an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.</p>
+<p>The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e., an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.</p>
 <p>Products that receive but do not implement the 'allow ipv6_net' Command:</p>
 <ul>
 <li>MUST NOT respond with a OK/200</li>
@@ -1895,6 +1894,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: left;">28 MAR 2019</td>
 <td style="text-align: left;">Brule, Joe</td>
 <td style="text-align: left;">Addressed Public Review 01 comments.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Working Draft 07</td>
+<td style="text-align: left;">14 MAY 2019</td>
+<td style="text-align: left;">Brule, Everett, Sparrell</td>
+<td style="text-align: left;">Addressed Public Review 02 comments.</td>
 </tr>
 </tbody>
 </table>
