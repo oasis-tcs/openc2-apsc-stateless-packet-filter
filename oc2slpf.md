@@ -96,6 +96,7 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
     -   [2.2 OpenC2 Response Components](#22-openc2-response-components)
         -   [2.2.1 Common Results](#221-common-results)
         -   [2.2.2 SLPF Results](#222-slpf-results)
+        -   [2.2.3 Response Status Codes](#223-response-status-codes)
     -   [2.3 OpenC2 Commands](#23-openc2-commands)
         -   [2.3.1 Allow](#231-allow)
         -   [2.3.2 Deny](#232-deny)
@@ -544,34 +545,18 @@ Response messages originate from the Actuator as a result of a Command.
 Responses associated with required Actions MUST be implemented. Implementations that include optional Actions MUST implement the RESPONSE associated with the implemented Action. Additional details regarding the Command and associated Response are captured in [Section 2.3](#23-openc2-commands). Examples are provided in [Annex A](#annex-a-sample-commands).
 
 ### 2.2.1 Common Results
-Table 2.2.1-1 lists the Response properties defined in the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) that are applicable to SLPF.
+Table 2.2.1-1 lists the Response Results properties defined in the [[OpenC2-Lang-v1.0]](#openc2-lang-v10) that are applicable to SLPF.
 
-**Table 2.2.1-1. Results Applicable to SLPF**
+**Table 2.2.1-1. Response Results Applicable to SLPF**
 
-**_Type: OpenC2-Response (Map)_**
+**_Type: Results (Map [1..*])_**
 
 | ID | Name | Type | # | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | **status** | Status-Code | 0..1 | An integer status code |
-| 2 | **status_text** | String | 0..1 | A free-form human-readable description of the Response status |
-| 6 | **versions** | Version | 0..n | List of OpenC2 language versions supported by this Actuator |
-| 7 | **profiles** |Uname | 0..n | List of profiles supported by this Actuator |
-| 8 | **pairs** | Action-Targets | 0..n | List of Targets applicable to each supported Action |
-| 9 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
-
-Table 2.2.1-2 lists the Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.
-
-**Table 2.2.1-2. Status Codes**
-
-**_Type: Status-Code (Enumerated.ID)_**
-
-| Value | Description |
-| :--- | :--- |
-| 102 | Processing. Command received but action not necessarily complete. |
-| 200 | OK. |
-| 400 | Bad Request. Unable to process Command, parsing error. |
-| 500 | Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
-| 501 | Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
+| ---: | :--- | :--- | ---: | :--- |
+| 1 | **versions** | Version | 0..* | List of OpenC2 language versions supported by this Actuator |
+| 2 | **profiles** | ArrayOf(Nsid) | 0..1 | List of profiles supported by this Actuator |
+| 3 | **pairs** | Action-Targets | 0..* | List of targets applicable to each supported Action |
+| 4 | **rate_limit** | Number | 0..1 | Maximum number of requests per minute supported by design or policy |
 
 ### 2.2.2 SLPF Results
 The list of common Response properties is extended to include the additional Response properties defined in this section and referenced with the slpf namespace.
@@ -583,6 +568,21 @@ The list of common Response properties is extended to include the additional Res
 | ID | Name | Type | Description |
 | :--- | :--- | :--- | :--- |
 | 1024 | **rule_number** | Rule-ID | Rule identifier returned from allow or deny Command |
+
+### 2.2.3 Response Status Codes
+Table 2.2.1-2 lists the Response Status Codes defined in the OpenC2 Language Specification that are applicable to SLPF.
+
+**Table 2.2.1-2. Response Status Codes**
+
+**_Type: Status-Code (Enumerated.ID)_**
+
+| Value | Description |
+| :--- | :--- |
+| 102 | Processing. Command received but action not necessarily complete. |
+| 200 | OK. |
+| 400 | Bad Request. Unable to process Command, parsing error. |
+| 500 | Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
+| 501 | Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
 
 ## 2.3 OpenC2 Commands
 
