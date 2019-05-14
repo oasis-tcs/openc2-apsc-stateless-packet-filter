@@ -26,7 +26,7 @@
 
 #### Chairs:
 * Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/)
-* Sounil Yu (sounil.yu@bankofamerica.com), [Bank of America](http://www.bankofamerica.com/)
+* Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 
 #### Editors:
 * Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/)
@@ -211,6 +211,10 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 Braden, R., Ed., "Requirements for Internet Hosts - Application and Support", STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <https://www.rfc-editor.org/info/rfc1123>.
 ###### [RFC2119]
 Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, <https://www.rfc-editor.org/info/rfc2119>.
+###### [RFC2780]
+Bradner, S. and V. Paxson, "IANA Allocation Guidelines For Values In the Internet Protocol and Related Headers", BCP 37, RFC 2780, DOI 10.17487/RFC2780, March 2000, <https://www.rfc-editor.org/info/rfc2780>.
+###### [RFC4443]
+Conta, A., Deering, S., and M. Gupta, Ed., "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification", STD 89, RFC 4443, DOI 10.17487/RFC4443, March 2006, <https://www.rfc-editor.org/info/rfc4443>.
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 ###### [RFC8259]
@@ -277,9 +281,9 @@ In general, there are two types of participants involved in the exchange of Open
 OpenC2 is a suite of specifications for Producers and Consumers to command and execute cyber defense functions. These specifications include the OpenC2 Language Specification, Actuator Profiles, and Transfer Specifications. The OpenC2 Language Specification and Actuator Profile specifications focus on the language content and meaning at the Producer and Consumer of the Command and Response while the transfer specifications focus on the protocols for their exchange.
 * The **OpenC2 Language Specification ([[OpenC2-Lang-v1.0]](#openc2-lang-v10))** provides the semantics for the essential elements of the language, the structure for Commands and Responses, and the schema that defines the proper syntax for the language elements that represents the Command or Response.
 * **OpenC2 Actuator Profiles** specify the subset of the OpenC2 language relevant in the context of specific Actuator functions. Cyber defense components, devices, systems and/or instances may (in fact are likely to) implement multiple Actuator profiles. Actuator profiles extend the language by defining Specifiers that identify the Actuator to the required level of precision. Actuator Profiles may define Command Arguments and Targets that are relevant and/or unique to those Actuator functions.
-* **OpenC2 Transfer Specifications** utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 messages.
+* **OpenC2 Transfer Specifications** utilize existing protocols and standards to implement OpenC2 in specific environments. These standards are used for communications and security functions beyond the scope of the language, such as message transfer encoding, authentication, and end-to-end transport of OpenC2 Messages.
 
-The [[OpenC2-Lang-v1.0]](#openc2-lang-v10) defines a language used to compose Messages for command and control of cyber defense systems and components. A Message consists of a header and a payload (_defined_ as a Message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more Actuator profiles).
+The OpenC2 Language Specification defines a language used to compose Messages for command and control of cyber defense systems and components. A Message consists of a header and a payload (_defined_ as a Message body in the OpenC2 Language Specification Version 1.0 and _specified_ in one or more Actuator profiles).
 
 The language defines two payload structures:
 
@@ -393,7 +397,7 @@ This specification identifies the applicable components of an OpenC2 Command. Th
 * Actuator:  A set of specifiers defined in this specification that are meaningful in the context of SLPF
 
 ### 2.1.1 Actions
-Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF. The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#2.3-openc2-commands).
+Table 2.1.1-1 presents the OpenC2 Actions defined in version 1.0 of the Language Specification which are meaningful in the context of an SLPF. The particular Action/Target pairs that are required or are optional are presented in [Section 2.3](#23-openc2-commands).
 
 **Table 2.1.1-1. Actions Applicable to SLPF**
 
@@ -1029,7 +1033,7 @@ Block a particular connection within the domain and do not send a host unreachab
 
 ```
 {
-    "status": 200
+  "status": 200
 }
 ```
 
@@ -1048,8 +1052,10 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
     }
   },
   "args": {
-    "slpf:drop_process": "false_ack",
-    "slpf:direction": "egress"
+    "slpf": {
+      "drop_process": "false_ack",
+      "direction": "egress"
+    }
   },
   "actuator": {
     "slpf": {}
@@ -1062,7 +1068,9 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
 Case One: the Actuator successfully issued the deny.
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 Case Two: the Command failed due to a syntax error in the Command. Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.
@@ -1096,13 +1104,13 @@ Block all inbound traffic from the specified ipv6 network and do not respond. In
   "args": {
     "response_requested": "none",
     "slpf": {
-       "direction": "ingress"
-       }
+      "direction": "ingress"
+    }
   },
   "actuator": {
     "slpf": {
-       "named_group": "perimeter"
-       }
+      "named_group": "perimeter"
+    }
   }
 }
 ```
@@ -1136,7 +1144,11 @@ In this case the Actuator returned a rule number associated with the allow.
 ```
 {
   "status": 200,
-  "slpf:rule_number": 1234
+  "results": {
+    "slpf": {
+      "rule_number": 1234
+    }
+  }
 }
 ```
 
@@ -1180,8 +1192,8 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
   },
   "actuator": {
     "slpf": {
-       "named_group": "network"
-       }
+      "named_group": "network"
+    }
   }
 }
 ```
@@ -1191,7 +1203,9 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
 Successful update of the configuration
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 This Actuator does not support the update file Command
@@ -1234,7 +1248,9 @@ This Command uses query features with no query items to verify that the Actuator
 The Actuator is alive.
 
 ```
-{"status": 200}
+{
+  "status": 200
+}
 ```
 
 ### A.4.2 Version of Language specification supported
@@ -1283,8 +1299,10 @@ The Actuator device is apparently a smart front-door-lock for which an extension
 ```
 {
   "status": 200,
-  "versions": ["1.3"],
-  "profiles": ["slpf", "iot-front-door-lock"]
+  "results": {
+    "versions": ["1.3"],
+    "profiles": ["slpf", "iot-front-door-lock"]
+  }
 }
 ```
 
@@ -1310,16 +1328,16 @@ The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Mat
 
 ```
 {
-    "status": 200,
-    "results": {
-        "pairs": {
-            "allow": ["ipv6_net", "ipv6_connection"],
-            "deny": ["ipv6_net", "ipv6_connection"],
-            "query": ["features"],
-            "delete": ["slpf:rule_number"],
-            "update": ["file"]
-        }
+  "status": 200,
+  "results": {
+    "pairs": {
+      "allow": ["ipv6_net", "ipv6_connection"],
+      "deny": ["ipv6_net", "ipv6_connection"],
+      "query": ["features"],
+      "delete": ["slpf:rule_number"],
+      "update": ["file"]
     }
+  }
 }
 ```
 
