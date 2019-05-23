@@ -608,9 +608,9 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 
 |   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **response** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
-| **start-time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
-| **end-time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
+| **response_requested** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
+| **start_time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
+| **stop_time** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **duration** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **persistent** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **direction** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
@@ -787,7 +787,7 @@ Table 2.3-2 presents the valid options for the 'update file' Command. OpenC2 Pro
 
 OpenC2 Producers that send the 'update file' Command:
 
-* MAY populate the arguments field with the "response_requested" argument. "Complete", "Ack" and "None" are valid Response-type for 'update file'
+* MAY populate the arguments field with the "response_requested" argument. "Complete", "Ack" and "None" are valid Response types for 'update file'
 * MUST NOT include other Command Arguments
 * MUST populate the name Specifier in the Target
 * SHOULD populate the path Specifier in the Target
@@ -902,8 +902,8 @@ An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:
 * 3.2.1.5 **MUST** be conformant with Version 1.0 of the OpenC2 Language Specification
 * 3.2.1.6 **MUST** implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification
 * 3.2.1.7 **MUST** implement the 'response_requested' Command Argument as a valid option for any Command
-    * 3.2.1.7.1 All Commands received with a Response argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supersedes all other normative text as it pertains to Responses
-    * 3.2.1.7.2 All Commands received without the Response argument (or Response argument not set) **MUST** process the Command and Response in a manner that is consistent with "response_requested":"complete"
+    * 3.2.1.7.1 All Commands received with a 'response_requested' argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supersedes all other normative text as it pertains to Responses
+    * 3.2.1.7.2 All Commands received without the 'response_requested' argument **MUST** process the Command and Response in a manner that is consistent with "response_requested":"complete"
 * 3.2.1.8 **MUST** conform to at least one of the following conformance clauses in this specification:
     * Conformance Clause 13
     * Conformance Clause 14
@@ -1036,7 +1036,7 @@ Block a particular connection within the domain and do not send a host unreachab
 ```
 
 ### A.1.2 Deny all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
+Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
 
 **Command:**
 
