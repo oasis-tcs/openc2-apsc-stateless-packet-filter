@@ -1423,3 +1423,4 @@ _This section is non-normative_
 | Committee Specification Draft 3 | 16 OCT 2018 | Brule, Joe | Aligned section 1 with other OpenC2 specifications; other changes to track dependencies on the language specification:  1) replace openc2 target with features target, 2) flatten response examples so that there is not a separate "results" layer. |
 | Working Draft 06 | 28 MAR 2019 | Brule, Joe | Addressed Public Review 01 comments. |
 | Working Draft 07 | 14 MAY 2019 | Brule, Everett, Sparrell | Addressed Public Review 02 comments. |
+| Working Draft 08 | 23 MAY 2019 | Brule, Everett, Sparrell | Addressed Public Review 02 ballot comments. |
