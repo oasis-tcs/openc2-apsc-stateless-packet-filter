@@ -3,8 +3,8 @@
 -------
 
 # Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0
-## Working Draft 07
-## 14 May 2019
+## Working Draft 08
+## 23 May 2019
 ### Specification URIs
 #### This version:
 * TBD.md (Authoritative)
@@ -1258,10 +1258,10 @@ This Command queries the Actuator to determine which version(s) of the language 
 
 ```
 {
-  "action": "query",
-  "target": {
-    "features": ["versions"]
-  }
+    "action": "query",
+    "target": {
+        "features": ["versions"]
+    }
 }
 ```
 
@@ -1271,8 +1271,10 @@ The Actuator supports language specification versions 1.0 - 1.3.
 
 ```
 {
-  "status": 200,
-  "versions": ["1.3"]
+    "status": 200,
+    "results": {
+        "versions": ["1.0"],
+    }
 }
 ```
 
