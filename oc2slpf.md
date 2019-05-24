@@ -50,7 +50,7 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 When referencing this specification the following citation format should be used:
 
 **[OpenC2-SLPF-v1.0]**
-_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 14 May 2019. OASIS Working Draft 07. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
+_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 23 May 2019. OASIS Working Draft 08. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
 
 -------
 
@@ -257,7 +257,7 @@ The following color, font and font style conventions are used in this document:
 
 Example:
 
-```
+```json
 {
     "action": "deny",
     "target": {
@@ -501,7 +501,6 @@ The list of common Command Arguments is extended to include the additional Comma
 | 2 | **ingress** | Apply rules to incoming traffic only |
 | 3 | **egress** | Apply rules to outgoing traffic only |
 
-
 **_Type: Rule-ID_**
 
 | Type Name | Type | Description |
@@ -581,8 +580,8 @@ Table 2.2.1-2 lists the Response Status Codes defined in the OpenC2 Language Spe
 | 102 | Processing. Command received but action not necessarily complete. |
 | 200 | OK. |
 | 400 | Bad Request. Unable to process Command, parsing error. |
-| 500 | Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
-| 501 | Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
+| 500 | Internal Error. For "response_requested" value "complete", one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
+| 501 | Not implemented. For "response_requested" value "complete", one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
 
 ## 2.3 OpenC2 Commands
 
@@ -748,7 +747,6 @@ The 'query features' Command MUST be implemented in accordance with Version 1.0 
 ### 2.3.4 Delete
 The slpf:rule_number is the only valid Target type for the delete Action. The associated Specifiers, and Options are summarized in [Section 2.3.4.1](#2341-delete-slpfrule_number). Sample Commands are presented in [Annex A](#annex-a-sample-commands).
 
-
 #### 2.3.4.1 delete slpf:rule_number
 The 'delete slpf:rule_number' Command is used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL. Products that choose to implement the 'delete slpf:rule_number' Command MUST implement the slpf:rule_number Target type described in [Section 2.1.2.2](#2122-slpf-targets).
 
@@ -787,7 +785,7 @@ Table 2.3-2 presents the valid options for the 'update file' Command. OpenC2 Pro
 
 OpenC2 Producers that send the 'update file' Command:
 
-* MAY populate the arguments field with the "response_requested" argument. "Complete", "Ack" and "None" are valid Response types for 'update file'
+* MAY populate the arguments field with the "response_requested" argument. Valid values for "response_requested" for 'update file' are "complete", "ack", and "none"
 * MUST NOT include other Command Arguments
 * MUST populate the name Specifier in the Target
 * SHOULD populate the path Specifier in the Target
@@ -999,7 +997,7 @@ Block a particular connection within the domain and do not send a host unreachab
 
 **Command:**
 
-```
+```json
 {
   "action": "deny",
   "target": {
@@ -1029,18 +1027,18 @@ Block a particular connection within the domain and do not send a host unreachab
 
 **Response:**
 
-```
+```json
 {
-  "status": 200
+  "status": 102
 }
 ```
 
 ### A.1.2 Deny all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
+Block all outbound ftp data transfers, send false acknowledgment. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
 
 **Command:**
 
-```
+```json
 {
   "action": "deny",
   "target": {
@@ -1065,7 +1063,7 @@ Block all outbound ftp data transfers, send false acknowledgment and request ack
 
 Case One: the Actuator successfully issued the deny.
 
-```
+```json
 {
   "status": 200
 }
@@ -1073,7 +1071,7 @@ Case One: the Actuator successfully issued the deny.
 
 Case Two: the Command failed due to a syntax error in the Command. Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.
 
-```
+```json
 {
   "status": 400,
   "status_text": "Validation Error: Target: ip_conection"
@@ -1082,7 +1080,7 @@ Case Two: the Command failed due to a syntax error in the Command. Optional stat
 
 Case Three: the Command failed because an Argument was not supported.
 
-```
+```json
 {
   "status": 501
 }
@@ -1093,7 +1091,7 @@ Block all inbound traffic from the specified ipv6 network and do not respond. In
 
 **Command:**
 
-```
+```json
 {
   "action": "deny",
   "target": {
@@ -1119,7 +1117,7 @@ Permit ftp data transfers to 3ffe:1900:4545:3::f8ff:fe21:67cf from any source. (
 
 **Command:**
 
-```
+```json
 {
   "action": "allow",
   "target": {
@@ -1139,7 +1137,7 @@ In this case the Actuator returned a rule number associated with the allow.
 
 **Response:**
 
-```
+```json
 {
   "status": 200,
   "results": {
@@ -1157,7 +1155,7 @@ In this case the rule number assigned in a previous allow will be removed (refer
 
 **Command:**
 
-```
+```json
 {
   "action": "delete",
   "target": {
@@ -1179,7 +1177,7 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
 
 **Command:**
 
-```
+```json
 {
   "action": "update",
   "target": {
@@ -1200,7 +1198,7 @@ Instructs the firewalls to acquire a new configuration file. Note that all netwo
 
 Successful update of the configuration
 
-```
+```json
 {
   "status": 200
 }
@@ -1208,7 +1206,7 @@ Successful update of the configuration
 
 This Actuator does not support the update file Command
 
-```
+```json
 {
   "status": 501,
   "status_text": "Update-File Not Implemented"
@@ -1217,7 +1215,7 @@ This Actuator does not support the update file Command
 
 This Actuator could not access the file
 
-```
+```json
 {
   "status": 500,
   "status_text": "Server error, Cannot access file"
@@ -1232,7 +1230,7 @@ This Command uses query features with no query items to verify that the Actuator
 
 **Command:**
 
-```
+```json
 {
   "action": "query",
   "target": {
@@ -1245,7 +1243,7 @@ This Command uses query features with no query items to verify that the Actuator
 
 The Actuator is alive.
 
-```
+```json
 {
   "status": 200
 }
@@ -1256,7 +1254,7 @@ This Command queries the Actuator to determine which version(s) of the language 
 
 **Command:**
 
-```
+```json
 {
     "action": "query",
     "target": {
@@ -1269,7 +1267,7 @@ This Command queries the Actuator to determine which version(s) of the language 
 
 The Actuator supports language specification versions 1.0 - 1.3.
 
-```
+```json
 {
     "status": 200,
     "results": {
@@ -1283,7 +1281,7 @@ This Command queries the Actuator to determine both the language versions and th
 
 **Command:**
 
-```
+```json
 {
   "action": "query",
   "target": {
@@ -1296,7 +1294,7 @@ This Command queries the Actuator to determine both the language versions and th
 
 The Actuator device is apparently a smart front-door-lock for which an extension profile has been written. The device supports both the standard slpf functions and whatever Commands are defined in the extension profile.
 
-```
+```json
 {
   "status": 200,
   "results": {
@@ -1313,7 +1311,7 @@ This Command queries the Actuator to determine which Action/Target pairs are sup
 
 For each supported Action list the Targets supported by this Actuator.
 
-```
+```json
 {
   "action": "query",
   "target": {
@@ -1326,7 +1324,7 @@ For each supported Action list the Targets supported by this Actuator.
 
 The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Matrix.
 
-```
+```json
 {
   "status": 200,
   "results": {
