@@ -76,7 +76,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="styles/markdown-styles-v1.6.css">
+  <link rel="stylesheet" href=".\styles\markdown-styles-v1.6.css">
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -88,8 +88,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg" alt="OASIS Logo" /></p>
 <hr />
 <h1 id="open-command-and-control-openc2-profile-for-stateless-packet-filtering-version-10">Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</h1>
-<h2 id="working-draft-07">Working Draft 07</h2>
-<h2 id="14-may-2019">14 May 2019</h2>
+<h2 id="working-draft-08">Working Draft 08</h2>
+<h2 id="23-may-2019">23 May 2019</h2>
 <h3 id="specification-uris">Specification URIs</h3>
 <h4 id="this-version">This version:</h4>
 <ul>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Note that any machine-readable content (<a href="https://www.oasis-open.org/policies-guidelines/tc-process#wpComponentsCompLang">Computer Language Definitions</a>) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.</p>
 <h4 id="citation-format">Citation format:</h4>
 <p>When referencing this specification the following citation format should be used:</p>
-<p><strong>[OpenC2-SLPF-v1.0]</strong> <em>Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</em>. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 14 May 2019. OASIS Working Draft 07. <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html</a>. Latest version: <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html</a>.</p>
+<p><strong>[OpenC2-SLPF-v1.0]</strong> <em>Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0</em>. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 23 May 2019. OASIS Working Draft 08. <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html</a>. Latest version: <a href="http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html" class="uri">http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html</a>.</p>
 <hr />
 <h2 id="notices">Notices</h2>
 <p>Copyright © OASIS Open 2018. All Rights Reserved.</p>
@@ -310,17 +310,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Parts of the example may be omitted for conciseness and clarity. These omitted parts are denoted with ellipses (...).</li>
 </ul>
 <p>Example:</p>
-<pre><code>{
-    &quot;action&quot;: &quot;deny&quot;,
-    &quot;target&quot;: {
-        &quot;file&quot;: {
-            &quot;hashes&quot;: {
-                &quot;sha256&quot;: &quot;22fe72a34f006ea67d26bb7004e2b6941b5c3953d43ae7ec24d41b1a928a6973&quot;
-            }
-        }
-    }
-}
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;deny&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="dt">&quot;file&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">            <span class="dt">&quot;hashes&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                <span class="dt">&quot;sha256&quot;</span><span class="fu">:</span> <span class="st">&quot;22fe72a34f006ea67d26bb7004e2b6941b5c3953d43ae7ec24d41b1a928a6973&quot;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">            <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="fu">}</span></a></code></pre></div>
 <h2 id="16-overview">1.6 Overview</h2>
 <p>In general, there are two types of participants involved in the exchange of OpenC2 Messages, as depicted in Figure 1-1:</p>
 <ol>
@@ -899,11 +898,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td style="text-align: left;">500</td>
-<td style="text-align: left;">Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated</td>
+<td style="text-align: left;">Internal Error. For &quot;response_requested&quot; value &quot;complete&quot;, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">501</td>
-<td style="text-align: left;">Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported</td>
+<td style="text-align: left;">Not implemented. For &quot;response_requested&quot; value &quot;complete&quot;, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported</td>
 </tr>
 </tbody>
 </table>
@@ -996,7 +995,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>response</strong></td>
+<td style="text-align: left;"><strong>response_requested</strong></td>
 <td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
 <td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
 <td style="text-align: center;"><a href="#2331-query-features">2.3.3.1</a></td>
@@ -1004,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: center;"><a href="#2351-update-file">2.3.5.1</a></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>start-time</strong></td>
+<td style="text-align: left;"><strong>start_time</strong></td>
 <td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
 <td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
 <td style="text-align: center;"></td>
@@ -1012,7 +1011,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: center;"><a href="#2351-update-file">2.3.5.1</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>end-time</strong></td>
+<td style="text-align: left;"><strong>stop_time</strong></td>
 <td style="text-align: center;"><a href="#231-allow">2.3.1</a></td>
 <td style="text-align: center;"><a href="#232-deny">2.3.2</a></td>
 <td style="text-align: center;"></td>
@@ -1218,7 +1217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Table 2.3-2 presents the valid options for the 'update file' Command. OpenC2 Producers and Consumers that choose to implement the 'update file' Command MUST NOT include options other than the options identified in Table 2.3-2.</p>
 <p>OpenC2 Producers that send the 'update file' Command:</p>
 <ul>
-<li>MAY populate the arguments field with the &quot;response_requested&quot; argument. &quot;Complete&quot;, &quot;Ack&quot; and &quot;None&quot; are valid Response-type for 'update file'</li>
+<li>MAY populate the arguments field with the &quot;response_requested&quot; argument. Valid values for &quot;response_requested&quot; for 'update file' are &quot;complete&quot;, &quot;ack&quot;, and &quot;none&quot;</li>
 <li>MUST NOT include other Command Arguments</li>
 <li>MUST populate the name Specifier in the Target</li>
 <li>SHOULD populate the path Specifier in the Target</li>
@@ -1348,8 +1347,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>3.2.1.6 <strong>MUST</strong> implement the 'query features' Command in accordance with the normative text provided in version 1.0 of the OpenC2 Language Specification</li>
 <li>3.2.1.7 <strong>MUST</strong> implement the 'response_requested' Command Argument as a valid option for any Command
 <ul>
-<li>3.2.1.7.1 All Commands received with a Response argument set to 'none' <strong>MUST</strong> process the Command and <strong>MUST NOT</strong> send a Response. This criteria supersedes all other normative text as it pertains to Responses</li>
-<li>3.2.1.7.2 All Commands received without the Response argument (or Response argument not set) <strong>MUST</strong> process the Command and Response in a manner that is consistent with &quot;response_requested&quot;:&quot;complete&quot;</li>
+<li>3.2.1.7.1 All Commands received with a 'response_requested' argument set to 'none' <strong>MUST</strong> process the Command and <strong>MUST NOT</strong> send a Response. This criteria supersedes all other normative text as it pertains to Responses</li>
+<li>3.2.1.7.2 All Commands received without the 'response_requested' argument <strong>MUST</strong> process the Command and Response in a manner that is consistent with &quot;response_requested&quot;:&quot;complete&quot;</li>
 </ul></li>
 <li>3.2.1.8 <strong>MUST</strong> conform to at least one of the following conformance clauses in this specification:
 <ul>
@@ -1477,260 +1476,240 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 id="a11-deny-a-particular-connection">A.1.1 Deny a particular connection</h3>
 <p>Block a particular connection within the domain and do not send a host unreachable. Note, the &quot;slpf&quot;:{&quot;drop_process&quot;} argument does not apply to the allow Action.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;deny&quot;,
-  &quot;target&quot;: {
-    &quot;ipv4_connection&quot;: {
-      &quot;protocol&quot;: &quot;tcp&quot;,
-      &quot;src_addr&quot;: &quot;1.2.3.4&quot;,
-      &quot;src_port&quot;: 10996,
-      &quot;dst_addr&quot;: &quot;198.2.3.4&quot;,
-      &quot;dst_port&quot;: 80
-    }
-  },
-  &quot;args&quot;: {
-    &quot;start_time&quot;: 1534775460000,
-    &quot;duration&quot;: 500,
-    &quot;response_requested&quot;: &quot;ack&quot;,
-    &quot;slpf&quot;: {
-       &quot;drop_process&quot;: &quot;none&quot;
-       }
-  },
-  &quot;actuator&quot;: {
-        &quot;slpf&quot;: {
-            &quot;asset_id&quot;: &quot;30&quot;
-        }
-    }
-}
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;deny&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">&quot;ipv4_connection&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">      <span class="dt">&quot;protocol&quot;</span><span class="fu">:</span> <span class="st">&quot;tcp&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">      <span class="dt">&quot;src_addr&quot;</span><span class="fu">:</span> <span class="st">&quot;1.2.3.4&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">      <span class="dt">&quot;src_port&quot;</span><span class="fu">:</span> <span class="dv">10996</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">      <span class="dt">&quot;dst_addr&quot;</span><span class="fu">:</span> <span class="st">&quot;198.2.3.4&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">      <span class="dt">&quot;dst_port&quot;</span><span class="fu">:</span> <span class="dv">80</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">  <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">    <span class="dt">&quot;start_time&quot;</span><span class="fu">:</span> <span class="dv">1534775460000</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">    <span class="dt">&quot;duration&quot;</span><span class="fu">:</span> <span class="dv">500</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="dt">&quot;response_requested&quot;</span><span class="fu">:</span> <span class="st">&quot;ack&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">       <span class="dt">&quot;drop_process&quot;</span><span class="fu">:</span> <span class="st">&quot;none&quot;</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">       <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">        <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">            <span class="dt">&quot;asset_id&quot;</span><span class="fu">:</span> <span class="st">&quot;30&quot;</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">        <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Response:</strong></p>
-<pre><code>{
-  &quot;status&quot;: 200
-}
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">102</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a12-deny-all-outbound-ftp-transfers">A.1.2 Deny all outbound ftp transfers</h3>
-<p>Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_type field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the &quot;slpf&quot;:{&quot;drop_process&quot;} argument does not apply to the allow Action.</p>
+<p>Block all outbound ftp data transfers, send false acknowledgment. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the &quot;slpf&quot;:{&quot;drop_process&quot;} argument does not apply to the allow Action.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;deny&quot;,
-  &quot;target&quot;: {
-    &quot;ipv4_connection&quot;: {
-      &quot;protocol&quot;: &quot;tcp&quot;,
-      &quot;src_port&quot;: 21
-    }
-  },
-  &quot;args&quot;: {
-    &quot;slpf&quot;: {
-      &quot;drop_process&quot;: &quot;false_ack&quot;,
-      &quot;direction&quot;: &quot;egress&quot;
-    }
-  },
-  &quot;actuator&quot;: {
-    &quot;slpf&quot;: {}
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;deny&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">&quot;ipv4_connection&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">      <span class="dt">&quot;protocol&quot;</span><span class="fu">:</span> <span class="st">&quot;tcp&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">      <span class="dt">&quot;src_port&quot;</span><span class="fu">:</span> <span class="dv">21</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">      <span class="dt">&quot;drop_process&quot;</span><span class="fu">:</span> <span class="st">&quot;false_ack&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">      <span class="dt">&quot;direction&quot;</span><span class="fu">:</span> <span class="st">&quot;egress&quot;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{}</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Responses:</strong></p>
 <p>Case One: the Actuator successfully issued the deny.</p>
-<pre><code>{
-  &quot;status&quot;: 200
-}
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
 <p>Case Two: the Command failed due to a syntax error in the Command. Optional status text is ignored by the Producer, but may be added to provide error details for debugging or logging.</p>
-<pre><code>{
-  &quot;status&quot;: 400,
-  &quot;status_text&quot;: &quot;Validation Error: Target: ip_conection&quot;
-}
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">400</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">&quot;status_text&quot;</span><span class="fu">:</span> <span class="st">&quot;Validation Error: Target: ip_conection&quot;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="fu">}</span></a></code></pre></div>
 <p>Case Three: the Command failed because an Argument was not supported.</p>
-<pre><code>{
-  &quot;status&quot;: 501
-}
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">501</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a13-block-all-inbound-traffic-from-a-particular-source">A.1.3 Block all inbound traffic from a particular source.</h3>
 <p>Block all inbound traffic from the specified ipv6 network and do not respond. In this case the ipv6_net Target and the direction argument was used. In this case only the perimeter filters should update the rule.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;deny&quot;,
-  &quot;target&quot;: {
-    &quot;ipv6_net&quot;: &quot;3ffe:1900:4545:3:200:f8ff:fe21:67cf&quot;
-  },
-  &quot;args&quot;: {
-    &quot;response_requested&quot;: &quot;none&quot;,
-    &quot;slpf&quot;: {
-      &quot;direction&quot;: &quot;ingress&quot;
-    }
-  },
-  &quot;actuator&quot;: {
-    &quot;slpf&quot;: {
-      &quot;named_group&quot;: &quot;perimeter&quot;
-    }
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;deny&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="dt">&quot;ipv6_net&quot;</span><span class="fu">:</span> <span class="st">&quot;3ffe:1900:4545:3:200:f8ff:fe21:67cf&quot;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="dt">&quot;response_requested&quot;</span><span class="fu">:</span> <span class="st">&quot;none&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">      <span class="dt">&quot;direction&quot;</span><span class="fu">:</span> <span class="st">&quot;ingress&quot;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">      <span class="dt">&quot;named_group&quot;</span><span class="fu">:</span> <span class="st">&quot;perimeter&quot;</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a14-permit-ftp-transfers-to-a-particular-destination">A.1.4 Permit ftp transfers to a particular destination.</h3>
 <p>Permit ftp data transfers to 3ffe:1900:4545:3::f8ff:fe21:67cf from any source. (Note that an actual application would also need to allow ftp-data (port 20) in order for transfers to be permitted).</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;allow&quot;,
-  &quot;target&quot;: {
-    &quot;ipv6_connection&quot;: {
-      &quot;protocol&quot;: &quot;tcp&quot;,
-      &quot;dst_addr&quot;: &quot;3ffe:1900:4545:3::f8ff:fe21:67cf&quot;,
-      &quot;src_port&quot;: 21
-    }
-  },
-  &quot;actuator&quot;: {
-    &quot;slpf&quot;: {}
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;allow&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="dt">&quot;ipv6_connection&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">      <span class="dt">&quot;protocol&quot;</span><span class="fu">:</span> <span class="st">&quot;tcp&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">      <span class="dt">&quot;dst_addr&quot;</span><span class="fu">:</span> <span class="st">&quot;3ffe:1900:4545:3::f8ff:fe21:67cf&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">      <span class="dt">&quot;src_port&quot;</span><span class="fu">:</span> <span class="dv">21</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{}</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="fu">}</span></a></code></pre></div>
 <p>In this case the Actuator returned a rule number associated with the allow.</p>
 <p><strong>Response:</strong></p>
-<pre><code>{
-  &quot;status&quot;: 200,
-  &quot;results&quot;: {
-    &quot;slpf&quot;: {
-      &quot;rule_number&quot;: 1234
-    }
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">      <span class="dt">&quot;rule_number&quot;</span><span class="fu">:</span> <span class="dv">1234</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="fu">}</span></a></code></pre></div>
 <h2 id="a2-delete-rule">A.2 Delete Rule</h2>
 <p>Used to remove a firewall rule rather than issue an allow or deny to counteract the effect of an existing rule. Implementation of the 'delete slpf:rule_number' Command is OPTIONAL.</p>
 <p>In this case the rule number assigned in a previous allow will be removed (refer to the final example in <a href="#a1-deny-and-allow">Annex A.1</a></p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;delete&quot;,
-  &quot;target&quot;: {
-    &quot;slpf:rule_number&quot;: 1234
-  },
-  &quot;args&quot;: {
-    &quot;response_requested&quot;: &quot;complete&quot;
-  },
-  &quot;actuator&quot;: {
-    &quot;slpf&quot;: {}
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;delete&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="dt">&quot;slpf:rule_number&quot;</span><span class="fu">:</span> <span class="dv">1234</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="dt">&quot;response_requested&quot;</span><span class="fu">:</span> <span class="st">&quot;complete&quot;</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{}</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="fu">}</span></a></code></pre></div>
 <h2 id="a3-update-file">A.3 Update file</h2>
 <p>Implementation of the Update Action is optional. Update is intended for the device to process new configuration files. The update Action is a compound Action in that all of the steps required for a successful update (such as download the new file, install the file, reboot etc.) are implied. File is the only valid Target type for Update.</p>
 <p>Instructs the firewalls to acquire a new configuration file. Note that all network based firewalls will install the new update because no particular firewall was identified. Host based firewalls will not act on this because network firewalls were identified as the Actuator.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;update&quot;,
-  &quot;target&quot;: {
-    &quot;file&quot;: {
-      &quot;path&quot;: &quot;\\\\someshared-drive\\somedirectory\\configurations&quot;,
-      &quot;name&quot;: &quot;firewallconfiguration.txt&quot;
-    }
-  },
-  &quot;actuator&quot;: {
-    &quot;slpf&quot;: {
-      &quot;named_group&quot;: &quot;network&quot;
-    }
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;update&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="dt">&quot;file&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">      <span class="dt">&quot;path&quot;</span><span class="fu">:</span> <span class="st">&quot;</span><span class="ch">\\\\</span><span class="st">someshared-drive</span><span class="ch">\\</span><span class="st">somedirectory</span><span class="ch">\\</span><span class="st">configurations&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;firewallconfiguration.txt&quot;</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="fu">},</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">  <span class="dt">&quot;actuator&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="dt">&quot;slpf&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">      <span class="dt">&quot;named_group&quot;</span><span class="fu">:</span> <span class="st">&quot;network&quot;</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Responses:</strong></p>
 <p>Successful update of the configuration</p>
-<pre><code>{
-  &quot;status&quot;: 200
-}
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
 <p>This Actuator does not support the update file Command</p>
-<pre><code>{
-  &quot;status&quot;: 501,
-  &quot;status_text&quot;: &quot;Update-File Not Implemented&quot;
-}
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">501</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="dt">&quot;status_text&quot;</span><span class="fu">:</span> <span class="st">&quot;Update-File Not Implemented&quot;</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="fu">}</span></a></code></pre></div>
 <p>This Actuator could not access the file</p>
-<pre><code>{
-  &quot;status&quot;: 500,
-  &quot;status_text&quot;: &quot;Server error, Cannot access file&quot;
-}
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">500</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="dt">&quot;status_text&quot;</span><span class="fu">:</span> <span class="st">&quot;Server error, Cannot access file&quot;</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="fu">}</span></a></code></pre></div>
 <h2 id="a4-query-features">A.4 Query features</h2>
 <p>Implementation of query Openc2 is required. The query features Command is intended to enable the Openc2 Producer to determine the capabilities of the Actuator. The query features Command can also be used to check the status of the Actuator.</p>
 <h3 id="a41-no-query-items-set">A.4.1 No query items set</h3>
 <p>This Command uses query features with no query items to verify that the Actuator is functioning.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;query&quot;,
-  &quot;target&quot;: {
-    &quot;features&quot;: []
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;query&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="dt">&quot;features&quot;</span><span class="fu">:</span> <span class="ot">[]</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Response:</strong></p>
 <p>The Actuator is alive.</p>
-<pre><code>{
-  &quot;status&quot;: 200
-}
-</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a42-version-of-language-specification-supported">A.4.2 Version of Language specification supported</h3>
 <p>This Command queries the Actuator to determine which version(s) of the language specification are supported. The language specifications use semantic versioning (&quot;major.minor&quot;); for each supported major version the Actuator need only report the highest supported minor version.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;query&quot;,
-  &quot;target&quot;: {
-    &quot;features&quot;: [&quot;versions&quot;]
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">    <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;query&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">    <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">        <span class="dt">&quot;features&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;versions&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Response:</strong></p>
 <p>The Actuator supports language specification versions 1.0 - 1.3.</p>
-<pre><code>{
-  &quot;status&quot;: 200,
-  &quot;versions&quot;: [&quot;1.3&quot;]
-}
-</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">    <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">        <span class="dt">&quot;versions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;1.0&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a43-actuator-profiles-supported">A.4.3 Actuator profiles supported</h3>
 <p>This Command queries the Actuator to determine both the language versions and the profiles supported.</p>
 <p><strong>Command:</strong></p>
-<pre><code>{
-  &quot;action&quot;: &quot;query&quot;,
-  &quot;target&quot;: {
-    &quot;features&quot;: [&quot;versions&quot;, &quot;profiles&quot;]
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;query&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">    <span class="dt">&quot;features&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;versions&quot;</span><span class="ot">,</span> <span class="st">&quot;profiles&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Response:</strong></p>
 <p>The Actuator device is apparently a smart front-door-lock for which an extension profile has been written. The device supports both the standard slpf functions and whatever Commands are defined in the extension profile.</p>
-<pre><code>{
-  &quot;status&quot;: 200,
-  &quot;results&quot;: {
-    &quot;versions&quot;: [&quot;1.3&quot;],
-    &quot;profiles&quot;: [&quot;slpf&quot;, &quot;iot-front-door-lock&quot;]
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">  <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">    <span class="dt">&quot;versions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;1.3&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">    <span class="dt">&quot;profiles&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;slpf&quot;</span><span class="ot">,</span> <span class="st">&quot;iot-front-door-lock&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="fu">}</span></a></code></pre></div>
 <h3 id="a44-specific-commands-supported">A.4.4 Specific Commands Supported</h3>
 <p>This Command queries the Actuator to determine which Action/Target pairs are supported. Not all Targets are meaningful in the context of a specific Action, and although a Command such as &quot;update ipv4_connection&quot; may be syntactically valid, the combination does not specify an operation supported by the Actuator.</p>
 <p><strong>Command:</strong></p>
 <p>For each supported Action list the Targets supported by this Actuator.</p>
-<pre><code>{
-  &quot;action&quot;: &quot;query&quot;,
-  &quot;target&quot;: {
-    &quot;features&quot;: [&quot;pairs&quot;]
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="dt">&quot;action&quot;</span><span class="fu">:</span> <span class="st">&quot;query&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">  <span class="dt">&quot;target&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">    <span class="dt">&quot;features&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;pairs&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
 <p><strong>Response:</strong></p>
 <p>The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Matrix.</p>
-<pre><code>{
-  &quot;status&quot;: 200,
-  &quot;results&quot;: {
-    &quot;pairs&quot;: {
-      &quot;allow&quot;: [&quot;ipv6_net&quot;, &quot;ipv6_connection&quot;],
-      &quot;deny&quot;: [&quot;ipv6_net&quot;, &quot;ipv6_connection&quot;],
-      &quot;query&quot;: [&quot;features&quot;],
-      &quot;delete&quot;: [&quot;slpf:rule_number&quot;],
-      &quot;update&quot;: [&quot;file&quot;]
-    }
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">200</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">  <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">    <span class="dt">&quot;pairs&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">      <span class="dt">&quot;allow&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;ipv6_net&quot;</span><span class="ot">,</span> <span class="st">&quot;ipv6_connection&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">      <span class="dt">&quot;deny&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;ipv6_net&quot;</span><span class="ot">,</span> <span class="st">&quot;ipv6_connection&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7">      <span class="dt">&quot;query&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;features&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">      <span class="dt">&quot;delete&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;slpf:rule_number&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">      <span class="dt">&quot;update&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;file&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb23-10" data-line-number="10">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb23-11" data-line-number="11">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="fu">}</span></a></code></pre></div>
 <hr />
 <h1 id="annex-b-acronyms">Annex B: Acronyms</h1>
 <p><em>This section is non-normative</em></p>
@@ -1888,6 +1867,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align: left;">14 MAY 2019</td>
 <td style="text-align: left;">Brule, Everett, Sparrell</td>
 <td style="text-align: left;">Addressed Public Review 02 comments.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Working Draft 08</td>
+<td style="text-align: left;">23 MAY 2019</td>
+<td style="text-align: left;">Brule, Everett, Sparrell</td>
+<td style="text-align: left;">Addressed comments for Public Review 03 ballot.</td>
 </tr>
 </tbody>
 </table>
