@@ -580,8 +580,8 @@ Table 2.2.1-2 lists the Response Status Codes defined in the OpenC2 Language Spe
 | 102 | Processing. Command received but action not necessarily complete. |
 | 200 | OK. |
 | 400 | Bad Request. Unable to process Command, parsing error. |
-| 500 | Internal Error. For Response type complete, one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
-| 501 | Not implemented. For Response type complete, one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
+| 500 | Internal Error. For "response_requested" value "complete", one of the following MAY apply:<br> * Cannot access file or path<br> * Rule number currently in use<br> * Rule not updated |
+| 501 | Not implemented. For "response_requested" value "complete", one of the following MAY apply:<br> * Target not supported<br> * Option not supported<br> * Command not supported |
 
 ## 2.3 OpenC2 Commands
 
@@ -785,7 +785,7 @@ Table 2.3-2 presents the valid options for the 'update file' Command. OpenC2 Pro
 
 OpenC2 Producers that send the 'update file' Command:
 
-* MAY populate the arguments field with the "response_requested" argument. "Complete", "Ack" and "None" are valid Response types for 'update file'
+* MAY populate the arguments field with the "response_requested" argument. Valid values for "response_requested" for 'update file' are "complete", "ack", and "none"
 * MUST NOT include other Command Arguments
 * MUST populate the name Specifier in the Target
 * SHOULD populate the path Specifier in the Target
@@ -1029,12 +1029,12 @@ Block a particular connection within the domain and do not send a host unreachab
 
 ```json
 {
-  "status": 200
+  "status": 102
 }
 ```
 
 ### A.1.2 Deny all outbound ftp transfers
-Block all outbound ftp data transfers, send false acknowledgment and request ack. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
+Block all outbound ftp data transfers, send false acknowledgment. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
 
 **Command:**
 
