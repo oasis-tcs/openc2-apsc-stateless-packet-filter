@@ -523,7 +523,7 @@ The semantics/requirements as they relate to SLPF arguments:
 ### 2.1.4 Actuator Specifiers
 An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
 
-Table 2.1.4-1 lists the Specifiers that are applicable to the SPLF Actuator. [Annex A](#annex-a-sample-commands) provides sample Commands with the use of Specifiers.
+Table 2.1.4-1 lists the Specifiers that are applicable to the SLPF Actuator. [Annex A](#annex-a-sample-commands) provides sample Commands with the use of Specifiers.
 
 The Actuator Specifiers defined in this document are referenced under the slpf namespace.
 
