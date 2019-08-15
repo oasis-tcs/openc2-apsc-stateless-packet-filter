@@ -1,37 +1,37 @@
-![OASIS Logo](http://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
+![OASIS Logo](https://docs.oasis-open.org/templates/OASISLogo-v2.0.jpg)
 
 -------
 
 # Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0
-## Working Draft 08
-## 23 May 2019
-### Specification URIs
+## Committee Specification 01
+## 11 July 2019
+
 #### This version:
-* TBD.md (Authoritative)
-* TBD.html
-* TBD.pdf
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/cs01/oc2slpf-v1.0-cs01.md (Authoritative) \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/cs01/oc2slpf-v1.0-cs01.html \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/cs01/oc2slpf-v1.0-cs01.pdf
 
 #### Previous version:
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.md (Authoritative)
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.pdf
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd02/oc2slpf-v1.0-csprd02.md (Authoritative) \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd02/oc2slpf-v1.0-csprd02.html \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd02/oc2slpf-v1.0-csprd02.pdf
 
 #### Latest version:
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md (Authoritative)
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html
-* http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.pdf
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.md (Authoritative) \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html \
+https://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.pdf
 
 #### Technical Committee:
-* [OASIS Open Command and Control (OpenC2) TC](https://www.oasis-open.org/committees/openc2/)
+[OASIS Open Command and Control (OpenC2) TC](https://www.oasis-open.org/committees/openc2/)
 
 #### Chairs:
-* Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/)
-* Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
+Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/) \
+Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting LLC](http://www.sfractal.com/)
 
 #### Editors:
-* Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/)
-* Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting](http://www.sfractal.com/)
-* Alex Everett (alex.everett@unc.edu), [University of North Carolina, Chapel Hill](http://www.unc.edu/)
+Joe Brule (jmbrule@nsa.gov), [National Security Agency](https://www.nsa.gov/) \
+Duncan Sparrell (duncan@sfractal.com), [sFractal Consulting](http://www.sfractal.com/) \
+Alex Everett (alex.everett@unc.edu), [University of North Carolina, Chapel Hill](http://www.unc.edu/)
 
 #### Abstract:
 
@@ -50,12 +50,12 @@ Note that any machine-readable content ([Computer Language Definitions](https://
 When referencing this specification the following citation format should be used:
 
 **[OpenC2-SLPF-v1.0]**
-_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 23 May 2019. OASIS Working Draft 08. http://docs.oasis-open.org/openc2/oc2slpf/v1.0/csprd01/oc2slpf-v1.0-csprd02.html. Latest version: http://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
+_Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0_. Edited by Joe Brule, Duncan Sparrell and Alex Everett. 11 July 2019. Committee Specification 01. https://docs.oasis-open.org/openc2/oc2slpf/v1.0/cs01/oc2slpf-v1.0-cs01.html. Latest version: https://docs.oasis-open.org/openc2/oc2slpf/v1.0/oc2slpf-v1.0.html.
 
 -------
 
 ## Notices
-Copyright © OASIS Open 2018. All Rights Reserved.
+Copyright © OASIS Open 2019. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full [Policy](https://www.oasis-open.org/policies-guidelines/ipr) may be found at the OASIS website.
 
@@ -238,7 +238,7 @@ Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0. Edited by D
 ###### [ACD]
 Herring, M.J. and Willett, K.D. "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014, <https://www.semanticscholar.org/paper/Active-Cyber-Defense-%3A-A-Vision-for-Real-Time-Cyber-Herring-Willett/7c128468ae42584f282578b86439dbe9e8c904a8>.
 ###### [IACD]
-M. J. Herring, K. D. Willett, "Active Cyber Defense: A Vision for Real-Time Cyber Defense," Journal of Information Warfare, vol. 13, Issue 2, p. 80, April 2014.<https://www.semanticscholar.org/paper/Active-Cyber-Defense-%3A-A-Vision-for-Real-Time-Cyber-Herring-Willett/7c128468ae42584f282578b86439dbe9e8c904a8>.<br><br>Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015 <https://www.semanticscholar.org/paper/Integrated-Adaptive-Cyberspace-Defense-%3A-Secure-by-Willett/a22881b8a046e7eab11acf647d530c2a3b03b762>.
+Willett, Keith D., "Integrated Adaptive Cyberspace Defense: Secure Orchestration", International Command and Control Research and Technology Symposium, June 2015 <https://www.semanticscholar.org/paper/Integrated-Adaptive-Cyberspace-Defense-%3A-Secure-by-Willett/a22881b8a046e7eab11acf647d530c2a3b03b762>.
 
 ## 1.5 Document Conventions
 ### 1.5.1 Naming Conventions
