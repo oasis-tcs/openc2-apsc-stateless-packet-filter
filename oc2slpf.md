@@ -1265,13 +1265,13 @@ This Command queries the Actuator to determine which version(s) of the language 
 
 **Response:**
 
-The Actuator supports language specification versions 1.0 - 1.3.
+The Actuator supports language specification version 1.0.
 
 ```json
 {
     "status": 200,
     "results": {
-        "versions": ["1.0"],
+        "versions": ["1.0"]
     }
 }
 ```
