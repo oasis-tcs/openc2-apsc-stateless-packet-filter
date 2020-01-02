@@ -973,7 +973,7 @@ This section will summarize and provide examples of OpenC2 Commands as they pert
 
 The samples provided in this section are for illustrative purposes only and are not to be interpreted as operational examples for actual systems.
 
-The following examples include Binary fields which are serialized in Base64url format. The examples show JSON-serialized Commands; the conversion of Base64url serialized values to Binary data and String display text is:
+The following examples include Binary fields which are encoded in Base64url format. The examples show JSON-serialized Commands; the conversion of Base64url values to Binary data and String display text is:
 
 | Base64url | Binary | Display String |
 | :--- | :--- | :--- |
