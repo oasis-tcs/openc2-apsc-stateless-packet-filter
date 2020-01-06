@@ -446,7 +446,7 @@ The semantics/ requirements as they pertain to common targets:
 #### 2.1.2.2 SLPF Targets
 The list of common Targets is extended to include the additional Targets defined in this section and referenced with the slpf namespace.
 
-**Table 2.1.2-2. Targets Unique to SLPF**
+**Table 2.1.2-2. Targets Defined by the SLPF**
 
 **_Type: Target (Choice)_**
 
@@ -474,7 +474,7 @@ Table 2.1.3-1 lists the Command Arguments defined in the [[OpenC2-Lang-v1.0]](#o
 #### 2.1.3.2 SLPF Arguments
 The list of common Command Arguments is extended to include the additional Command Arguments defined in this section and referenced with the slpf namespace.
 
-**Table 2.1.3-2. Command Arguments Unique to SLPF**
+**Table 2.1.3-2. Command Arguments Defined by the SLPF**
 
 **_Type: Args (Map)_**
 
