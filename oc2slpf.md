@@ -2,9 +2,9 @@
 
 -------
 
-# Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.1
-## Working Draft 09
-## 26 May 2020
+# Open Command and Control (OpenC2) Actuator Profile for Stateless Packet Filtering Version 1.0
+## Committee Specification 01
+## 11 July 2019
 
 #### This version:
 https://docs.oasis-open.org/openc2/oc2slpf/v1.0/cs01/oc2slpf-v1.0-cs01.md (Authoritative) \
