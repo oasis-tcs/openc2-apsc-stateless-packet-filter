@@ -2,7 +2,7 @@
 
 -------
 
-# Open Command and Control (OpenC2) Profile for Stateless Packet Filtering Version 1.0
+# Open Command and Control (OpenC2) Actuator Profile for Stateless Packet Filtering Version 1.0
 ## Committee Specification 01
 ## 11 July 2019
 
