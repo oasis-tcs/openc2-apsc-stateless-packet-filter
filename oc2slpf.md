@@ -502,7 +502,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | 3 | **egress** | Apply rules to outgoing traffic only |
 
 Note that direction is required by some packet filters. For a host-based or host interface-based packet filter, ingress indicates a packet that originated from a different host. For a network-based packet filter, such as a router or a switch, ingress indicates a packet entering a physical or logical interface that your organization controls.
-![alt text](https://user-images.githubusercontent.com/11030919/84074389-7de14c00-a9a0-11ea-904e-46fdd48a6a0c.png)
+![alt text](images/openc2_apsc_dir.png)
 
 **_Type: Rule-ID_**
 
