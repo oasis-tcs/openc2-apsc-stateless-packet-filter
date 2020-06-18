@@ -482,7 +482,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | :--- | :--- | :--- | :--- | :--- |
 | 1024 | **drop_process** | Drop-Process | 0..1 | Specifies how to handle denied packets |
 | 1025 | **persistent** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the persistent modifier to FALSE results in a change that is not persistent in the event of a reboot or restart |
-| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both |
+| 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to ingress packets |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 
 **_Type: Drop-Process (Enumerated)_**
@@ -500,6 +500,9 @@ The list of common Command Arguments is extended to include the additional Comma
 | 1 | **both** | Apply rules to all traffic |
 | 2 | **ingress** | Apply rules to incoming traffic only |
 | 3 | **egress** | Apply rules to outgoing traffic only |
+
+Note that direction is required by some packet filters. For a host-based or host interface-based packet filter, ingress indicates a packet that originated from a different host. For a network-based packet filter, such as a router or a switch, ingress indicates a packet entering a physical or logical interface that your organization controls.
+![packet directions](images/openc2_apsc_dir.png)
 
 **_Type: Rule-ID_**
 
