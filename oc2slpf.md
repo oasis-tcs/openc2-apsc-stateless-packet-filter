@@ -116,42 +116,50 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
             Producer](#314-conformance-clause-4-ip-version-4-net-producer)
         -   [3.1.5 Conformance Clause 5: IP Version 6 Net
             Producer](#315-conformance-clause-5-ip-version-6-net-producer)
-        -   [3.1.6 Conformance Clause 6: Update File
-            Producer](#316-conformance-clause-6-update-file-producer)
-        -   [3.1.7 Conformance Clause 7: delete rule number
-            Producer](#317-conformance-clause-7-delete-rule-number-producer)
-        -   [3.1.8 Conformance Clause 8: Persistent
-            Producer](#318-conformance-clause-8-persistent-producer)
-        -   [3.1.9 Conformance Clause 9: Direction
-            Producer](#319-conformance-clause-9-direction-producer)
-        -   [3.1.10 Conformance Clause 10: drop-process
-            Producer](#3110-conformance-clause-10-drop-process-producer)
-        -   [3.1.11 Conformance Clause 11: Temporal
-            Producer](#3111-conformance-clause-11-temporal-producer)
+        -   [3.1.6 Conformance Clause 6: Domain Name
+            Producer](#316-conformance-clause-6-domain-name-producer)
+        -   [3.1.7 Conformance Clause 7: Internationalized Domain Name
+            Producer](#317-conformance-clause-7-internationalized-domain-name-producer)    
+        -   [3.1.8 Conformance Clause 8: Update File
+            Producer](#318-conformance-clause-8-update-file-producer)
+        -   [3.1.9 Conformance Clause 9: Delete Rule Number
+            Producer](#319-conformance-clause-9-delete-rule-number-producer)
+        -   [3.1.10 Conformance Clause 10: Persistent
+            Producer](#3110-conformance-clause-10-persistent-producer)
+        -   [3.1.11 Conformance Clause 11: Direction
+            Producer](#3111-conformance-clause-11-direction-producer)
+        -   [3.1.12 Conformance Clause 12: Drop-process
+            Producer](#3112-conformance-clause-12-drop-process-producer)
+        -   [3.1.13 Conformance Clause 13: Temporal
+            Producer](#3113-conformance-clause-13-temporal-producer)
     -   [3.2 Clauses Pertaining to the OpenC2 Consumer Conformance
         Target](#32-clauses-pertaining-to-the-openc2-consumer-conformance-target)
-        -   [3.2.1 Conformance Clause 12: Baseline OpenC2
-            Consumer](#321-conformance-clause-12-baseline-openc2-consumer)
-        -   [3.2.2 Conformance Clause 13: IP Version 4 Connection
-            Consumer](#322-conformance-clause-13-ip-version-4-connection-consumer)
-        -   [3.2.3 Conformance Clause 14: IP Version 6 Connection
-            Consumer](#323-conformance-clause-14-ip-version-6-connection-consumer)
-        -   [3.2.4 Conformance Clause 15: IP Version 4 Net
-            Consumer](#324-conformance-clause-15-ip-version-4-net-consumer)
-        -   [3.2.5 Conformance Clause 16: IP Version 6 Net
-            Consumer](#325-conformance-clause-16-ip-version-6-net-consumer)
-        -   [3.2.6 Conformance Clause 17: Update File
-            Consumer](#326-conformance-clause-17-update-file-consumer)
-        -   [3.2.7 Conformance Clause 18: delete rule number
-            Consumer](#327-conformance-clause-18-delete-rule-number-consumer)
-        -   [3.2.8 Conformance Clause 19: Persistent
-            Consumer](#328-conformance-clause-19-persistent-consumer)
-        -   [3.2.9 Conformance Clause 20: Direction
-            Consumer](#329-conformance-clause-20-direction-consumer)
-        -   [3.2.10 Conformance Clause 21: drop-process
-            Consumer](#3210-conformance-clause-21-drop-process-consumer)
-        -   [3.2.11 Conformance Clause 22: Temporal
-            Consumer](#3211-conformance-clause-22-temporal-consumer)
+        -   [3.2.1 Conformance Clause 14: Baseline OpenC2
+            Consumer](#321-conformance-clause-14-baseline-openc2-consumer)
+        -   [3.2.2 Conformance Clause 15: IP Version 4 Connection
+            Consumer](#322-conformance-clause-15-ip-version-4-connection-consumer)
+        -   [3.2.3 Conformance Clause 16: IP Version 6 Connection
+            Consumer](#323-conformance-clause-16-ip-version-6-connection-consumer)
+        -   [3.2.4 Conformance Clause 17: IP Version 4 Net
+            Consumer](#324-conformance-clause-17-ip-version-4-net-consumer)
+        -   [3.2.5 Conformance Clause 18: IP Version 6 Net
+            Consumer](#325-conformance-clause-18-ip-version-6-net-consumer)
+        -   [3.2.6 Conformance Clause 19: Domain Name
+            Consumer](#326-conformance-clause-19-domain-name-consumer)
+        -   [3.2.7 Conformance Clause 20: Internationalized Domain Name
+            Consumer](#327-conformance-clause-20-internationalized-domain-name-consumer)
+        -   [3.2.8 Conformance Clause 21: Update File
+            Consumer](#328-conformance-clause-21-update-file-consumer)
+        -   [3.2.9 Conformance Clause 22: Delete Rule Number
+            Consumer](#329-conformance-clause-22-delete-rule-number-consumer)
+        -   [3.2.10 Conformance Clause 23: Persistent
+            Consumer](#3210-conformance-clause-23-persistent-consumer)
+        -   [3.2.11 Conformance Clause 24: Direction
+            Consumer](#3211-conformance-clause-24-direction-consumer)
+        -   [3.2.12 Conformance Clause 25: Drop-process
+            Consumer](#3212-conformance-clause-25-drop-process-consumer)
+        -   [3.2.13 Conformance Clause 26: Temporal
+            Consumer](#3213-conformance-clause-26-temporal-consumer)
 -   [Annex A: Sample Commands](#annex-a-sample-commands)
     -   [A.1 Deny and Allow](#a1-deny-and-allow)
         -   [A.1.1 Deny a particular
@@ -208,6 +216,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## 1.3 Normative References
 
+###### [RFC1034]
+Mockapetris, P., "Domain names - concepts and facilities", STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987, <https://www.rfc-editor.org/info/rfc1034>.
 ###### [RFC1123]
 Braden, R., Ed., "Requirements for Internet Hosts - Application and Support", STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <https://www.rfc-editor.org/info/rfc1123>.
 ###### [RFC2119]
@@ -216,6 +226,8 @@ Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14,
 Bradner, S. and V. Paxson, "IANA Allocation Guidelines For Values In the Internet Protocol and Related Headers", BCP 37, RFC 2780, DOI 10.17487/RFC2780, March 2000, <https://www.rfc-editor.org/info/rfc2780>.
 ###### [RFC4443]
 Conta, A., Deering, S., and M. Gupta, Ed., "Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification", STD 89, RFC 4443, DOI 10.17487/RFC4443, March 2006, <https://www.rfc-editor.org/info/rfc4443>.
+###### [RFC5890]
+Klensin, J., "Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework", RFC 5890, DOI 10.17487/RFC5890, August 2010, <https://www.rfc-editor.org/info/rfc5890>.
 ###### [RFC8174]
 Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 ###### [RFC8259]
@@ -229,10 +241,10 @@ _Open Command and Control (OpenC2) Language Specification Version 1.0_. Edited b
 Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, <https://www.rfc-editor.org/info/rfc3339>.
 ###### [RFC4291]
 Hinden, R. and S. Deering, "IP Version 6 Addressing Architecture", RFC 4291, DOI 10.17487/RFC4291, February 2006, <https://www.rfc-editor.org/info/rfc4291>.
-###### [RFC6891]
-Damas, J., Graff, M., and P. Vixie, "Extension Mechanisms for DNS (EDNS(0))", STD 75, RFC 6891, DOI 10.17487/RFC6891, April 2013, <https://www.rfc-editor.org/info/rfc6891>..
 ###### [RFC5237]
 Arkko, J. and S. Bradner, "IANA Allocation Guidelines for the Protocol Field", BCP 37, RFC 5237, DOI 10.17487/RFC5237, February 2008, <https://www.rfc-editor.org/info/rfc5237>.
+###### [RFC6891]
+Damas, J., Graff, M., and P. Vixie, "Extension Mechanisms for DNS (EDNS(0))", STD 75, RFC 6891, DOI 10.17487/RFC6891, April 2013, <https://www.rfc-editor.org/info/rfc6891>.
 ###### [OpenC2-HTTPS-v1.0]
 Specification for Transfer of OpenC2 Messages via HTTPS Version 1.0. Edited by David Lemire. November, 2018, <http://docs.oasis-open.org/openc2/open-impl-https/v1.0/open-impl-https-v1.0.html>.
 ###### [ACD]
@@ -430,6 +442,8 @@ Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification tha
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
 | 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
+| 17 | **domain_name** | Domain-Name | A domain name as defined in [[RFC1034]](#rfc1034) |
+| 18 | **idn_domain_name** | IDN-Domain-Name | A internatiolized domain name as defined in [[RFC5890]](#rfc5890) |
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
@@ -600,6 +614,8 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 | **ipv6_connection** | valid | valid |   |   |   |
 | **ipv4_net** | valid | valid |   |   |   |
 | **ipv6_net** | valid | valid |   |   |   |
+| **domain_name** | valid | valid |   |   |   |
+| **idn_domain_name** | valid | valid |   |   |   |
 | **features** |   |   | valid |   |   |
 | **slpf:rule_number** |   |   |   | valid |   |
 | **file** |   |   |   |   | valid |
@@ -705,6 +721,30 @@ The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the S
 The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e., an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv6_net' Command:
+* MUST NOT respond with a OK/200
+* SHOULD respond with the 501 Response code
+* SHOULD respond with 'Target type not supported' in the status text
+* MAY respond with the 500 status code
+
+#### 2.3.1.5 'Allow domain_name'
+The 'allow domain_name' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
+The 'allow domain_name' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
+
+The Command permits traffic that is consistent with the specified domain name.
+
+Products that receive but do not implement the 'allow domain_name' Command:
+* MUST NOT respond with a OK/200
+* SHOULD respond with the 501 Response code
+* SHOULD respond with 'Target type not supported' in the status text
+* MAY respond with the 500 status code
+
+#### 2.3.1.6 'Allow idn_domain_name'
+The 'allow idn_domain_name' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
+The 'allow idn_domain_name' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
+
+The Command permits traffic that is consistent with the specified internationalized domain name.
+
+Products that receive but do not implement the 'allow idn_domain_name' Command:
 * MUST NOT respond with a OK/200
 * SHOULD respond with the 501 Response code
 * SHOULD respond with 'Target type not supported' in the status text
@@ -819,7 +859,7 @@ _This section is normative_
 This section identifies the requirements for twenty-two conformance profiles as they pertain to two conformance targets. The two conformance targets are OpenC2 Producers and OpenC2 Consumers (as defined in [Section 1.8](#18-purpose-and-scope) of this specification).
 
 ## 3.1 Clauses Pertaining to the OpenC2 Producer Conformance Target
-All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 11.
+All OpenC2 Producers that are conformant to this specification MUST satisfy Conformance Clause 1 and MAY satisfy one or more of Conformance Clauses 2 through 13.
 
 ### 3.1.1 Conformance Clause 1: Baseline OpenC2 Producer
 An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:
@@ -835,6 +875,8 @@ An OpenC2 Producer satisfies Baseline OpenC2 Producer conformance if:
    * Conformance Clause 3
    * Conformance Clause 4
    * Conformance Clause 5
+   * Conformance Clause 6
+   * Conformance Clause 7
 
 ### 3.1.2 Conformance Clause 2: IP Version 4 Connection Producer
 An OpenC2 Producer satisfies 'IP Version 4 Connection Producer' conformance if:
@@ -860,41 +902,53 @@ An OpenC2 Producer satisfies 'IP Version 6 Net Producer' conformance if:
 * 3.1.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.1.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.6 Conformance Clause 6: Update File Producer
+### 3.1.6 Conformance Clause 6: Domain Name Producer
+An OpenC2 Producer satisfies 'Domain Name Producer' conformance if:
+* 3.1.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 1 of this specification
+* 3.1.5.2 **MUST** implement the 'allow domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.1.5.3 **MUST** implement the 'deny domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.1.7 Conformance Clause 7: Internationalized Domain Name Producer
+An OpenC2 Producer satisfies 'Internationalized Domain Name Producer' conformance if:
+* 3.1.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 1 of this specification
+* 3.1.5.2 **MUST** implement the 'allow idn_domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.1.5.3 **MUST** implement the 'deny idn_domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.1.8 Conformance Clause 8: Update File Producer
 An OpenC2 Producer satisfies 'Update File Producer' conformance if:
 * 3.1.6.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.6.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
 
-### 3.1.7 Conformance Clause 7: delete rule number Producer
-An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
+### 3.1.9 Conformance Clause 9: Delete rule number Producer
+An OpenC2 Producer satisfies 'Delete Rule Producer' conformance if:
 * 3.1.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.1.8 Conformance Clause 8: Persistent Producer
+### 3.1.10 Conformance Clause 10: Persistent Producer
 An OpenC2 Producer satisfies 'Persistent Producer' conformance if:
 * 3.1.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.9 Conformance Clause 9: Direction Producer
+### 3.1.11 Conformance Clause 11: Direction Producer
 An OpenC2 Producer satisfies 'Direction Producer' conformance if:
 * 3.1.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.9.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.10 Conformance Clause 10: drop-process Producer
-An OpenC2 Producer satisfies 'drop-process Producer' conformance if:
+### 3.1.12 Conformance Clause 12: Drop-process Producer
+An OpenC2 Producer satisfies 'Drop-process Producer' conformance if:
 * 3.1.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.11 Conformance Clause 11: Temporal Producer
+### 3.1.13 Conformance Clause 13: Temporal Producer
 An OpenC2 Producer satisfies 'Temporal Producer' conformance if:
 * 3.1.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
 * 3.1.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
 * 3.1.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.
 
 ## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
-All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22.
+All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 14 and MAY satisfy one or more of Conformance Clauses 15 through 24.
 
-### 3.2.1 Conformance Clause 12: Baseline OpenC2 Consumer
+### 3.2.1 Conformance Clause 14: Baseline OpenC2 Consumer
 An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:
 * 3.2.1.1 **MUST** support JSON serialization of OpenC2 Commands that are syntactically valid in accordance with the property tables presented in [Section 2.1](#21-openc2-command-components)
 * 3.2.1.2 All serializations **MUST** be implemented in a manner such that the serialization validates against and provides a one-to-one mapping to the property tables in [Section 2.1](#21-openc2-command-components) of this specification
@@ -906,63 +960,77 @@ An OpenC2 Consumer satisfies Baseline OpenC2 Consumer conformance if:
     * 3.2.1.7.1 All Commands received with a 'response_requested' argument set to 'none' **MUST** process the Command and **MUST NOT** send a Response. This criteria supersedes all other normative text as it pertains to Responses
     * 3.2.1.7.2 All Commands received without the 'response_requested' argument **MUST** process the Command and Response in a manner that is consistent with "response_requested":"complete"
 * 3.2.1.8 **MUST** conform to at least one of the following conformance clauses in this specification:
-    * Conformance Clause 13
+    * Conformance Clause 15
     * Conformance Clause 14
     * Conformance Clause 15
     * Conformance Clause 16
+    * Conformance Clause 17
+    * Conformance Clause 20
 
-### 3.2.2 Conformance Clause 13: IP Version 4 Connection Consumer
+### 3.2.2 Conformance Clause 15: IP Version 4 Connection Consumer
 An OpenC2 Consumer satisfies 'IP Version 4 Connection Consumer' conformance if:
-* 3.2.2.1 **MUST** meet all of conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.2.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.2.2 **MUST** implement the 'allow ipv4_connection' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.2.2.3 **MUST** implement the 'deny ipv4_connection' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.3 Conformance Clause 14: IP Version 6 Connection Consumer
+### 3.2.3 Conformance Clause 16: IP Version 6 Connection Consumer
 An OpenC2 Consumer satisfies 'IP Version 6 Connection Consumer' conformance if:
-* 3.2.3.1 **MUST** meet all of conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.3.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.3.2 **MUST** implement the 'allow ipv6_connection' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.2.3.3 **MUST** implement the 'deny ipv6_connection' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.4 Conformance Clause 15: IP Version 4 Net Consumer
+### 3.2.4 Conformance Clause 17: IP Version 4 Net Consumer
 An OpenC2 Consumer satisfies 'IP Version 4 Net Consumer' conformance if:
-* 3.2.4.1 **MUST** meet all of conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.4.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.4.2 **MUST** implement the 'allow ipv4_net' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.2.4.3 **MUST** implement the 'deny ipv4_net' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.5 Conformance Clause 16: IP Version 6 Net Consumer
+### 3.2.5 Conformance Clause 18: IP Version 6 Net Consumer
 An OpenC2 Consumer satisfies 'IP Version 6 Net Consumer' conformance if:
-* 3.2.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.2.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.6 Conformance Clause 17: Update File Consumer
+### 3.2.6 Conformance Clause 19: Domain Name
+An OpenC2 Consumer satisfies 'Domain Name' conformance if:
+* 3.2.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
+* 3.2.5.2 **MUST** implement the 'allow domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.2.5.3 **MUST** implement the 'deny domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.2.7 Conformance Clause 20: Internationalized Domain Name
+An OpenC2 Consumer satisfies 'Internationalized Domain Name' conformance if:
+* 3.2.5.1 **MUST** meet all of conformance criteria identified in Conformance Clause 14 of this specification
+* 3.2.5.2 **MUST** implement the 'allow idn_domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.2.5.3 **MUST** implement the 'deny idn_domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.2.8 Conformance Clause 21: Update File Consumer
 An OpenC2 Consumer satisfies 'Update File Consumer' conformance if:
-* 3.2.6.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.6.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.6.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
 
-### 3.2.7 Conformance Clause 18: delete rule number Consumer
-An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:
-* 3.2.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+### 3.2.9 Conformance Clause 22: Delete rule number Consumer
+An OpenC2 Consumer satisfies 'Delete Rule Consumer' conformance if:
+* 3.2.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.2.8 Conformance Clause 19: Persistent Consumer
+### 3.2.10 Conformance Clause 23: Persistent Consumer
 An OpenC2 Consumer satisfies 'Persistent Consumer' conformance if:
-* 3.2.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.9 Conformance Clause 20: Direction Consumer
+### 3.2.11 Conformance Clause 24: Direction Consumer
 An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:
-* 3.2.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.9.2 **MUST** implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.10 Conformance Clause 21: drop-process Consumer
-An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:
-* 3.2.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+### 3.2.12 Conformance Clause 25: Drop-process Consumer
+An OpenC2 Consumer satisfies 'Drop-process Consumer' conformance if:
+* 3.2.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification
 * 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.11 Conformance Clause 22: Temporal Consumer
+### 3.2.13 Conformance Clause 26: Temporal Consumer
 An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:
-* 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification.
+* 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 14 of this specification.
 * 3.2.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
 * 3.2.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
 
