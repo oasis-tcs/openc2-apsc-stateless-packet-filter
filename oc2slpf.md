@@ -430,6 +430,7 @@ Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification tha
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
 | 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
+| 17 | **domain_name** | Domain-Name | A domain name as defined in [[RFC1034]](#rfc1034) |
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
@@ -600,6 +601,7 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 | **ipv6_connection** | valid | valid |   |   |   |
 | **ipv4_net** | valid | valid |   |   |   |
 | **ipv6_net** | valid | valid |   |   |   |
+| **domain_name** | valid | valid |   |   |   |
 | **features** |   |   | valid |   |   |
 | **slpf:rule_number** |   |   |   | valid |   |
 | **file** |   |   |   |   | valid |
