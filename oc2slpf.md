@@ -714,6 +714,18 @@ Products that receive but do not implement the 'allow ipv6_net' Command:
 * SHOULD respond with 'Target type not supported' in the status text
 * MAY respond with the 500 status code
 
+#### 2.3.1.5 'Allow domain_name'
+The 'allow domain_name' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
+The 'allow domain_name' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
+
+The Command permits traffic that is consistent with the specified domain name.
+
+Products that receive but do not implement the 'allow domain_name' Command:
+* MUST NOT respond with a OK/200
+* SHOULD respond with the 501 Response code
+* SHOULD respond with 'Target type not supported' in the status text
+* MAY respond with the 500 status code
+
 ### 2.3.2 Deny
 'Deny' can be treated as the mathematical complement to 'allow'. With the exception of the additional 'drop_process' Actuator-Argument, the Targets, Specifiers, Options and corresponding Responses are identical to the four 'allow' Commands. Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the 'deny' Action and valid Target type.
 
