@@ -487,6 +487,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | 1025 | **persistent** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the persistent modifier to FALSE results in a change that is not persistent in the event of a reboot or restart |
 | 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to ingress packets |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
+| 1028 | **logged** | Boolean | 0..1 | Specifies if a log entry should be recorded as traffic matches the rule. The manner and mechanism for recording these entries is implementation specific and not defined by this specification. |
 
 **_Type: Drop-Process (Enumerated)_**
 
@@ -622,6 +623,7 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 | **direction** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **insert_rule** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   |   |   |
 | **drop_process** |   | [2.3.2](#232-deny) |   |   |   |
+| **logged** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 
 ### 2.3.1 Allow
 Table 2.3-2 summarizes the Command Arguments that apply to all of the Commands consisting of the 'allow' Action and a valid Target type.
@@ -907,6 +909,11 @@ An OpenC2 Producer satisfies 'Temporal Producer' conformance if:
 * 3.1.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
 * 3.1.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.
 
+### 3.1.12 Conformance Clause 12: Logging Producer
+An OpenC2 Producer satisfies 'Logging Producer' conformance if:
+* 3.1.12.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
+* 3.1.12.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+
 ## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
 All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22.
 
@@ -981,6 +988,11 @@ An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:
 * 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification.
 * 3.2.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
 * 3.2.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
+
+### 3.2.12 Conformance Clause 12: Logging Consumer
+An OpenC2 Consumer satisfies 'Logging Consumer' conformance if:
+* 3.1.12.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.1.12.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
 ---
 
