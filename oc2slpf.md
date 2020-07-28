@@ -606,14 +606,14 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 | **ipv6_net** | valid | valid |   |   |   |
 | **domain_name** | valid | valid |   |   |   |
 | **features** |   |   | valid |   |   |
-| **slpf:rule_number** |   |   |   | valid |   |
+| **slpf:rule_number** |   |   | valid | valid |   |
 | **file** |   |   |   |   | valid |
 
 Table 2.3-2 defines the Command Arguments that are allowed for a particular Command by the SLPF profile. A Command (the top row in Table 2.3-2) paired with an Argument (the first column in Table 2.3-2) defines an allowable combination. The subsection identified at the intersection of the Command/Argument provides details applicable to each Command as influenced by the Argument.
 
 **Table 2.3-2. Command Arguments Matrix**
 
-|   | Allow _target_ | Deny _target_ | Query features | Delete slpf:rule_number | Update file |
+|   | Allow _target_ | Deny _target_ | Query features | Query slpf:rule_number | Delete slpf:rule_number | Update file |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **response_requested** | [2.3.1](#231-allow) | [2.3.2](#232-deny) | [2.3.3.1](#2331-query-features) | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
 | **start_time** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   | [2.3.4.1](#2341-delete-slpfrule_number) | [2.3.5.1](#2351-update-file) |
@@ -764,6 +764,9 @@ The valid Target type, associated Specifiers, and Options are summarized in [Sec
 
 #### 2.3.3.1 Query features
 The 'query features' Command MUST be implemented in accordance with Version 1.0 of the [[OpenC2-Lang-v1.0]](#openc2-lang-v10).
+
+#### 2.3.3.1 Query slpf:rule_number
+The 'query slpf:rule_number' Command provides a mechanism to obtain similar information to that provided by creating a firewall rule Implementation of the 'query slpf:rule_number' Command is OPTIONAL. Products that choose to implement the 'delete slpf:rule_number' Command MUST implement the slpf:rule_number Target type described in [Section 2.1.2.2](#2122-slpf-targets).
 
 ### 2.3.4 Delete
 The slpf:rule_number is the only valid Target type for the delete Action. The associated Specifiers, and Options are summarized in [Section 2.3.4.1](#2341-delete-slpfrule_number). Sample Commands are presented in [Annex A](#annex-a-sample-commands).
@@ -1365,6 +1368,53 @@ The Actuator supports all Action/Target pairs shown in Table 2.3-1 - Command Mat
       "query": ["features"],
       "delete": ["slpf:rule_number"],
       "update": ["file"]
+    }
+  }
+}
+```
+
+### A.4.5 Rule Details
+This Command queries the Actuator to determine the Target and Argument values for a particular rule. 
+
+**Command:**
+
+For each supported Action list the Targets supported by this Actuator.
+
+```json
+{
+  "action": "query",
+  "target": {
+    "slpf:rule_number": 20
+  }
+  "actuator": {
+    "slpf": {
+     "asset_id": "30"
+    }
+  }
+}
+```
+
+**Response:**
+
+The Actuator returns information that could be used to reconstruct the rule.
+
+```json
+{
+  "status": 200,
+  "results": {
+    "slpf": {
+      "rule_number": 20,
+      "ipv4_connection": {
+      "protocol": "tcp",
+      "src_addr": "1.2.3.4",
+      "src_port": 10996,
+      "dst_addr": "198.2.3.4",
+      "dst_port": 80
+    }
+    "args": {
+      "drop_process": "false_ack",
+      "direction": "egress"
+    }
     }
   }
 }
