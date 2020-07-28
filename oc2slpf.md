@@ -208,6 +208,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## 1.3 Normative References
 
+###### [RFC1034]
+Mockapetris, P., "Domain names - concepts and facilities", STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987, <https://www.rfc-editor.org/info/rfc1034>.
 ###### [RFC1123]
 Braden, R., Ed., "Requirements for Internet Hosts - Application and Support", STD 3, RFC 1123, DOI 10.17487/RFC1123, October 1989, <https://www.rfc-editor.org/info/rfc1123>.
 ###### [RFC2119]
@@ -430,6 +432,7 @@ Table 2.1.2-1 lists the Targets defined in the OpenC2 Language Specification tha
 | 14 | **ipv6_net** | IPv6-Net | The representation of one or more IPv6 addresses expressed using CIDR notation |
 | 15 | **ipv4_connection** | IPv4-Connection | A network connection as specified by a five-tuple (IPv4) |
 | 16 | **ipv6_connection** | IPv6-Connection | A network connection as specified by a five-tuple (IPv6) |
+| 17 | **domain_name** | Domain-Name | A domain name as defined in [[RFC1034]](#rfc1034) |
 
 The semantics/ requirements as they pertain to common targets:
 * ipv4_connection
@@ -600,6 +603,7 @@ Table 2.3-1 defines the Commands that are valid in the context of the SLPF profi
 | **ipv6_connection** | valid | valid |   |   |   |
 | **ipv4_net** | valid | valid |   |   |   |
 | **ipv6_net** | valid | valid |   |   |   |
+| **domain_name** | valid | valid |   |   |   |
 | **features** |   |   | valid |   |   |
 | **slpf:rule_number** |   |   |   | valid |   |
 | **file** |   |   |   |   | valid |
@@ -705,6 +709,18 @@ The 'allow ipv6_net' Command is OPTIONAL for Openc2 Consumers implementing the S
 The Command permits traffic as specified by the range of IPv6 addresses as expressed by CIDR notation. If the mask is absent (or unspecified) then it MUST be treated as a single IPv6 address (i.e., an address range of one element). The address range specified in the ipv6_net MUST be treated as a source OR destination address.
 
 Products that receive but do not implement the 'allow ipv6_net' Command:
+* MUST NOT respond with a OK/200
+* SHOULD respond with the 501 Response code
+* SHOULD respond with 'Target type not supported' in the status text
+* MAY respond with the 500 status code
+
+#### 2.3.1.5 'Allow domain_name'
+The 'allow domain_name' Command is OPTIONAL for Openc2 Producers implementing the SLPF.
+The 'allow domain_name' Command is OPTIONAL for Openc2 Consumers implementing the SLPF.
+
+The Command permits traffic that is consistent with the specified domain name.
+
+Products that receive but do not implement the 'allow domain_name' Command:
 * MUST NOT respond with a OK/200
 * SHOULD respond with the 501 Response code
 * SHOULD respond with 'Target type not supported' in the status text
