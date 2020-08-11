@@ -881,41 +881,47 @@ An OpenC2 Producer satisfies 'IP Version 6 Net Producer' conformance if:
 * 3.1.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.1.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.6 Conformance Clause 6: Update File Producer
+### 3.1.6 Conformance Clause 6: Domain Name Producer
+An OpenC2 Producer satisfies 'Domain Name Producer' conformance if:
+* 3.1.6.1 **MUST** meet all of conformance criteria identified in Conformance Clause 1 of this specification
+* 3.1.6.2 **MUST** implement the 'allow domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.1.6.3 **MUST** implement the 'deny domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.1.7 Conformance Clause 7: Update File Producer
 An OpenC2 Producer satisfies 'Update File Producer' conformance if:
-* 3.1.6.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.6.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
-
-### 3.1.7 Conformance Clause 7: delete rule number Producer
-An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
 * 3.1.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
+* 3.1.7.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
 
-### 3.1.8 Conformance Clause 8: Persistent Producer
-An OpenC2 Producer satisfies 'Persistent Producer' conformance if:
+### 3.1.8 Conformance Clause 8: delete rule number Producer
+An OpenC2 Producer satisfies 'delete rule Producer' conformance if:
 * 3.1.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.8.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.1.9 Conformance Clause 9: Direction Producer
-An OpenC2 Producer satisfies 'Direction Producer' conformance if:
+### 3.1.9 Conformance Clause 9: Persistent Producer
+An OpenC2 Producer satisfies 'Persistent Producer' conformance if:
 * 3.1.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.9.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.9.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.10 Conformance Clause 10: drop-process Producer
-An OpenC2 Producer satisfies 'drop-process Producer' conformance if:
+### 3.1.10 Conformance Clause 10: Direction Producer
+An OpenC2 Producer satisfies 'Direction Producer' conformance if:
 * 3.1.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.10.2 **MUST** implement the 'direction' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.11 Conformance Clause 11: Temporal Producer
-An OpenC2 Producer satisfies 'Temporal Producer' conformance if:
+### 3.1.11 Conformance Clause 11: drop-process Producer
+An OpenC2 Producer satisfies 'drop-process Producer' conformance if:
 * 3.1.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
-* 3.1.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.
+* 3.1.11.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.1.12 Conformance Clause 12: Logging Producer
-An OpenC2 Producer satisfies 'Logging Producer' conformance if:
+### 3.1.12 Conformance Clause 12: Temporal Producer
+An OpenC2 Producer satisfies 'Temporal Producer' conformance if:
 * 3.1.12.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
-* 3.1.12.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.12.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
+* 3.1.12.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'.
+
+### 3.1.13 Conformance Clause 13: Logging Producer
+An OpenC2 Producer satisfies 'Logging Producer' conformance if:
+* 3.1.13.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 1 of this specification
+* 3.1.13.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
 ## 3.2 Clauses Pertaining to the OpenC2 Consumer Conformance Target
 All OpenC2 Consumers that are conformant to this specification MUST satisfy Conformance Clause 12 and MAY satisfy one or more of Conformance Clauses 13 through 22.
@@ -961,41 +967,47 @@ An OpenC2 Consumer satisfies 'IP Version 6 Net Consumer' conformance if:
 * 3.2.5.2 **MUST** implement the 'allow ipv6_net' Command in accordance with [Section 2.3.1](#231-allow) of this specification
 * 3.2.5.3 **MUST** implement the 'deny ipv6_net' Command in accordance with [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.6 Conformance Clause 17: Update File Consumer
+### 3.2.6 Conformance Clause 17: Domain Name Consumer
+An OpenC2 Consumer satisfies 'Domain Name Consumer' conformance if:
+* 3.2.6.1 **MUST** meet all of conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.6.2 **MUST** implement the 'allow domain_name' Command in accordance with [Section 2.3.1](#231-allow) of this specification
+* 3.2.6.3 **MUST** implement the 'deny domain_name' Command in accordance with [Section 2.3.2](#232-deny) of this specification
+
+### 3.2.7 Conformance Clause 18: Update File Consumer
 An OpenC2 Consumer satisfies 'Update File Consumer' conformance if:
-* 3.2.6.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.6.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
-
-### 3.2.7 Conformance Clause 18: delete rule number Consumer
-An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:
 * 3.2.7.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.7.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
+* 3.2.7.2 **MUST** implement the 'update file' Command in accordance with [Section 2.3.5.1](#2351-update-file) of this specification
 
-### 3.2.8 Conformance Clause 19: Persistent Consumer
-An OpenC2 Consumer satisfies 'Persistent Consumer' conformance if:
+### 3.2.8 Conformance Clause 19: delete rule number Consumer
+An OpenC2 Consumer satisfies 'delete rule Consumer' conformance if:
 * 3.2.8.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.8.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.2.8.2 **MUST** implement the 'delete slpf:rule_number' in accordance with [Section 2.3.4.1](#2341-delete-slpfrule_number) of this specification
 
-### 3.2.9 Conformance Clause 20: Direction Consumer
-An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:
+### 3.2.9 Conformance Clause 20: Persistent Consumer
+An OpenC2 Consumer satisfies 'Persistent Consumer' conformance if:
 * 3.2.9.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.9.2 **MUST** implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.2.9.2 **MUST** implement the 'persistent' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.10 Conformance Clause 21: drop-process Consumer
-An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:
+### 3.2.10 Conformance Clause 21: Direction Consumer
+An OpenC2 Consumer satisfies 'Direction Consumer' conformance if:
 * 3.2.10.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.2.10.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.2.10.2 **MUST** implement the 'direction' Command argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
-### 3.2.11 Conformance Clause 22: Temporal Consumer
+### 3.2.11 Conformance Clause 22: drop-process Consumer
+An OpenC2 Consumer satisfies 'drop-process Consumer' conformance if:
+* 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.2.11.2 **MUST** implement the 'drop_process' Command Argument as a valid option for any Command associated with the 'deny' Action in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+
+### 3.2.12 Conformance Clause 23: Temporal Consumer
 An OpenC2 Consumer satisfies 'Temporal Consumer' conformance if:
-* 3.2.11.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification.
-* 3.2.11.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
-* 3.2.11.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
+* 3.2.12.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification.
+* 3.2.12.2 **MUST** implement the 'start_time' Command Argument as a valid option for any Command other than 'query features'
+* 3.2.12.3 **MUST** implement the 'stop_time' and 'duration' Command Arguments as a valid option for any Command other than 'query features' or 'update file'
 
-### 3.2.12 Conformance Clause 12: Logging Consumer
+### 3.2.13 Conformance Clause 24: Logging Consumer
 An OpenC2 Consumer satisfies 'Logging Consumer' conformance if:
-* 3.1.12.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
-* 3.1.12.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
+* 3.1.13.1 **MUST** meet all of the conformance criteria identified in Conformance Clause 12 of this specification
+* 3.1.13.2 **MUST** implement the 'logged' Command Argument as a valid option for any Command associated with the 'deny' or 'allow' Actions in accordance with [Section 2.3.1](#231-allow) and [Section 2.3.2](#232-deny) of this specification
 
 ---
 
