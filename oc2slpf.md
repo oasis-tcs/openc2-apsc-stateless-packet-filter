@@ -488,7 +488,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to ingress packets |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
 | 1028 | **logged** | Boolean | 0..1 | Specifies if a log entry should be recorded as traffic matches the rule. The manner and mechanism for recording these entries is implementation specific and not defined by this specification. |
-| 1029 | **comment** | String | 0..1| A comment or description to annotate or provide a note for people as it relates to a command |
+| 1029 | **description** | String | 0..1| A note to annotate or provide information for people later reviewing the rule |
 
 **_Type: Drop-Process (Enumerated)_**
 
