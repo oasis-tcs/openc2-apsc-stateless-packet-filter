@@ -35,7 +35,7 @@ Alex Everett (alex.everett@unc.edu), [University of North Carolina, Chapel Hill]
 
 #### Abstract:
 
-Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation. Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic, such as address, port, protocol, etc. This profile defines the Actions, Targets, Specifiers and Options that are consistent with the version 1.0 of the OpenC2 Language Specification ([[OpenC2-Lang-v1.0]](#openc2-lang-v10)) in the context of stateless packet filtering (SLPF).
+Open Command and Control (OpenC2) is a concise and extensible language to enable the command and control of cyber defense components, subsystems and/or systems in a manner that is agnostic of the underlying products, technologies, transport mechanisms or other aspects of the implementation. Stateless packet filtering is a cyber defense mechanism that denies or allows traffic based on static properties of the traffic, such as address, port, protocol, etc. Stateful packet filtering is a cyber defense mechanism that denies or allows traffic based on dynamic properties such as sequence numbers, flags, and related traffic has been observed recently. This profile defines the Actions, Targets, Specifiers and Options that are consistent with the version 1.0 of the OpenC2 Language Specification ([[OpenC2-Lang-v1.0]](#openc2-lang-v10)) in the context of stateless packet filtering (SLPF).
 
 #### Status:
 This document was last revised or approved by the OASIS Open Command and Control (OpenC2) TC on the above date. The level of approval is also listed above. Check the "Latest version" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=openc2#technical.
@@ -484,6 +484,7 @@ The list of common Command Arguments is extended to include the additional Comma
 | 1025 | **persistent** | Boolean | 0..1 | Normal operations assume any changes to a device are to be implemented persistently. Setting the persistent modifier to FALSE results in a change that is not persistent in the event of a reboot or restart |
 | 1026 | **direction** | Direction | 0..1 | Specifies whether to apply rules to incoming or outgoing traffic. If omitted, rules are applied to both |
 | 1027 | **insert_rule** | Rule-ID | 0..1 | Specifies the identifier of the rule within a list, typically used in a top-down rule list |
+| 1028 | **stateful** | Boolean | 0..1 | Specifies if the actuator should treat the request using state tables when set to TRUE |
 
 **_Type: Drop-Process (Enumerated)_**
 
@@ -519,6 +520,7 @@ The semantics/requirements as they relate to SLPF arguments:
     * If absent or not explicitly set, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
 * persistent:  If absent or not explicitly set, then the value is TRUE and any changes are persistent
+* stateful: If absent or not explicitly set and the actuator only operates in either stateful or stateless the command would apply as if this argument was appropriately specified. If the actuator supports both mechanisms and this argument is not set, then it should treat the command as if the argument was set to stateless in order to be backwards compatible with earlier versions of this specification. 
 
 ### 2.1.4 Actuator Specifiers
 An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
@@ -615,6 +617,7 @@ Table 2.3-2 defines the Command Arguments that are allowed for a particular Comm
 | **direction** | [2.3.1](#231-allow) | [2.3.2](#232-deny) |   |   |   |
 | **insert_rule** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   |   |   |
 | **drop_process** |   | [2.3.2](#232-deny) |   |   |   |
+| **stateful** | [2.3.1](#231-allow)| [2.3.2](#232-deny) |   |   |   |
 
 ### 2.3.1 Allow
 Table 2.3.1-1 summarizes the Command Arguments that apply to all of the Commands consisting of the 'allow' Action and a valid Target type.
@@ -1033,7 +1036,7 @@ Block a particular connection within the domain and do not send a host unreachab
 }
 ```
 
-### A.1.2 Deny all outbound ftp transfers
+### A.1.2 Deny all outbound ftp transfers that are not in state
 Block all outbound ftp data transfers, send false acknowledgment. Note that the five-tuple is incomplete. Note that the response_requested field was not populated therefore will be 'complete'. Also note that the Actuator called out was SLPF with no additional Specifiers, therefore all endpoints that can execute the Command should. Note, the "slpf":{"drop_process"} argument does not apply to the allow Action.
 
 **Command:**
@@ -1050,7 +1053,8 @@ Block all outbound ftp data transfers, send false acknowledgment. Note that the 
   "args": {
     "slpf": {
       "drop_process": "false_ack",
-      "direction": "egress"
+      "direction": "egress",
+      "stateful": true
     }
   },
   "actuator": {
