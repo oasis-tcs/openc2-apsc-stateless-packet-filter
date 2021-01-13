@@ -520,7 +520,7 @@ The semantics/requirements as they relate to SLPF arguments:
     * If absent or not explicitly set, then the Command MUST apply to both
 * drop_process:  If absent or not explicitly set, then the Actuator MUST NOT send any notification to the source of the packet
 * persistent:  If absent or not explicitly set, then the value is TRUE and any changes are persistent
-* stateful: If absent or not explicitly set and the actuator only operates in either stateful or stateless the command would apply as if this argument was appropriately specified. If the actuator supports both mechanisms and this argument is not set, then it should treat the command as if the argument was set to stateless in order to be backwards compatible with earlier versions of this specification. 
+* stateful: If absent or not explicitly set and the actuator only operates in either stateful or stateless the command would apply as if this argument was appropriately specified (e.g. stateful for Google Cloud Platform). If the actuator supports both mechanisms and this argument is not set, then it should treat the command as if the argument was set to stateless in order to be backwards compatible with earlier versions of this specification. 
 
 ### 2.1.4 Actuator Specifiers
 An Actuator is the entity that provides the functionality and performs the Action. The Actuator executes the Action on the Target. In the context of this profile, the Actuator is the SLPF and the presence of one or more Specifiers further refine which Actuator(s) shall execute the Action.
