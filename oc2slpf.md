@@ -2,7 +2,7 @@
 
 -------
 
-# OpenC2 Actuator Profile for Stateless Packet Filtering Version 1.0
+# OpenC2 Actuator Profile for Packet Filtering Version 1.0
 ## Working Draft 09
 ## 16 October 2020
 
